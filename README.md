@@ -1,6 +1,6 @@
 
 # IDP OSS
-<a href="https://asciinema.org/a/42383"><img src="https://asciinema.org/a/42383.png"/></a?
+<a href="https://asciinema.org/a/42383"><img src="https://asciinema.org/a/42383.png" /></a>
 
 
 ## OVERVIEW
