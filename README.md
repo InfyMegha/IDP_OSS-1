@@ -1,7 +1,7 @@
 
 # IDP OSS
 
-![idp](https://user-images.githubusercontent.com/16363454/45355698-ac20d480-b5de-11e8-99c0-13dbe0472e40.png)
+
 
 
 ## OVERVIEW
