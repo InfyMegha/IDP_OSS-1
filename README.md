@@ -1,7 +1,7 @@
 
 # IDP OSS
 
-[![asciicast](https://asciinema.org/a/42383.png)](https://asciinema.org/a/42383)
+<a href="https://asciinema.org/a/42383><img src=https://asciinema.org/a/42383.png width="240" height="180" border="10"/></a>
 
 
 ## OVERVIEW
