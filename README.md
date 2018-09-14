@@ -15,16 +15,16 @@ Infosys DevOps platform is centralized, simplified, automated and de-skilled.
 
 •	`De-skilled` – In IDP there is no need of scripting or coding, since 60 + tools are integrated at the backend, tooling knowledge is not needed to setup a CICD pipeline
 
-## IDP capabilities - 
+## IDP Capabilities - 
 Infosys DevOps platform is capable of supporting end to end CICD, CICT. 
 
-### *Continuous integration* :– 
+### *Continuous Integration* :– 
 It involves CI practices like automating code analysis, white box, unit testing, code coverage data, running security scan to protect the IP in the code, and setting up tools in the ecosystem and so on. 
 
-### *Continuous deployment* :- 
+### *Continuous Deployment* :- 
 It supports CD operations that are deployed to multiple environments like cloud or frame or hybrid. CD also brings in mechanisms to gate deployment approval access, so that certain people will have certain abilities to deploy on certain environments.  
 
-### *Continuous testing* :-
+### *Continuous Testing* :-
 It supports CT operations like functional testing, performance testing, unit testing, security testing and service testing. 
 
 
