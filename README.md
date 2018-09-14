@@ -27,6 +27,17 @@ It supports CD operations that are deployed to multiple environments like cloud 
 ### *Continuous Testing* :-
 It supports CT operations like functional testing, performance testing, unit testing, security testing and service testing. 
 
+# IDP Features 
+
+In IDP there are few horizontal features in IDP as mentioned below. 
+
+* Role – based access 
+* Artifact management 
+* Dependent pipeline
+* Managing releases 
+* Schedule job
+* Pipeline management 
+* Persona based DevOps dashboard
 
 
 
