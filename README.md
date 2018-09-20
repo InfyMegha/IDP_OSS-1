@@ -2,7 +2,7 @@
 # IDP OSS
 <a href="https://asciinema.org/a/42383"><img src="https://asciinema.org/a/42383.png" width="300" height="220" border="10"/></a>
 
-
+![](https://github.com/krishnakanthbn/IDP_OSS/blob/IDP_OSS.doc/prerequisite%20Img.PNG)()
 
 **Dashboard** folder contains code for Dashboard RESTful services as well as custom utilities that collect data during pipeline executions
 
