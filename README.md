@@ -9,10 +9,10 @@
 Global enterprises are undergoing Digital transformation journeys to transform their business. Being Digital requires Agile & DevOps at Scale to rapidly adopt new technologies, transform the legacy, innovate faster and respond swiftly to the ever changing customer needs
  
 However, in scaling Agile & DevOps there are challenges that enterprises face:
-•	Complexities due to multiple technologies including legacy
-•	Fragmented, redundant tooling 
-•	Multiple teams re-inventing the wheel
-•	Reduced visibility & governance 
+*	Complexities due to multiple technologies including legacy
+*	Fragmented, redundant tooling 
+*	Multiple teams re-inventing the wheel
+* Reduced visibility & governance 
 
 Currently, there are limited solutions that are able to address these multi-dimensional challenges. Infosys recommends a platform based approach to scale distributed agile & devops
 
@@ -51,6 +51,7 @@ IDP screenshots
 1 liner ending
 
 Appendix:
+
 A DevOps platform is the Automation catalyst for successful Agile & DevOps Transformation, below are the key tenets:
 
 •	Integrated platform with pre-configured DevOps workflows that offers the flexibility to rapidly on-board multiple application development, testing and operations groups 
