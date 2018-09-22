@@ -14,12 +14,31 @@
 </colgroup>
 <tbody>
 <tr>
-<td><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U"><img src="/Images Folder/paas.PNG" alt="IDP" height="300" width="940"/></a></td>
+<td><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U"><img src="/Images Folder/paas1.PNG" alt="IDP" height="300" width="940"/></a></td>
 </tr> 
 </tbody> 
 </table>
 <img src="/Images Folder/idp2.gif" alt="IDP" width="540" height="285" /></td>
 </div>
 <hr/>
+<h3><b>About the repository</b></h3>
+
+**Dashboard** folder contains code for Dashboard RESTful services as well as custom utilities that collect data during pipeline executions
+
+**Datafiles** folder contains IDP database creation scripts and grafana.ini file
+
+**Docs** folder contains all the documents related to IDP which help user to understand and use IDP
+
+**DSL** folder contains Jenkins DSL groovy scripts that will be used by Jenkins to create pipelines with the required configuration and trigger the pipelines
+
+**Jenkins** folder contains custom tools, plugin and configuration related files
+
+**Scheduler** folder contains Jenkins job scheduler source code.
+
+**Services** folder contains IDP services source code including authentication service, business logic, RESTful services, data layer, entities, utility and configuration services
+
+**UI** folder contains IDP user interface code written in Angular 4 
+
+**build.sh** file contains build script to deploy IDP on linux machine.
 
 
