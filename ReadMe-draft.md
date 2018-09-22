@@ -17,7 +17,6 @@
 <br/>
 <h6>For more information, check out below links</h6>
 <h6><a href="https://www.youtube.com/watch?v=8V0OKlB-d2I" target="_blank">https://www.youtube.com/watch?v=8V0OKlB-d2I</a></h6>
-<br/>
 <h6><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U" target="_blank">https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U</a></h6>
 </div>
 <hr/>
