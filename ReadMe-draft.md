@@ -1,4 +1,4 @@
-<div align="center"><img src="/UI/src/assets/img/hygieia_b.png" width="250" align="top" /></div>
+<div align="center"><img src="/Images Folder/idplogo.png" width="250" align="top" /></div>
 <div align="center"
 <p><strong>Infosys DevOps Platform: <em>Jump start your DevOps Adoption </em></span></strong></p>
 </div>
@@ -14,7 +14,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U"><img src="/Images Folder/paas1.PNG" alt="IDP" height="300" width="940"/></a></td>
+<td><img src="/Images Folder/paas1.PNG" alt="IDP"/></a></td>
 </tr> 
 </tbody> 
 </table>
