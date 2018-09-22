@@ -47,9 +47,9 @@ Say what the step will be
 
 <table>
 <colgroup>
-<col width="20%" />
-<col width="40%" />
-<col width="40%" />
+<col width="150" />
+<col width="250" />
+<col width="200" />
 </colgroup>
 
 <tbody>
