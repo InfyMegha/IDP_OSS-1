@@ -66,6 +66,7 @@ Say what the step will be
   <td>
     <ol>
     <li><b>Programming Language :</b> Java, for custom utilities</li>
+    <li><b>Dependency Management:</b> Maven</li>
     <li><b>Database :</b> InFlux DB</li>
     <li><b>Metrics Dashboard :</b> Grafana</li>
     </ol>
@@ -118,18 +119,18 @@ Say what the step will be
 </tr>
 <tr>
   <td><b>Jenkins</b></td>
-  <td></td>
-  <td></td>
+  <td>This folder contains the necessary configuration files and plugins for Jenkins to make it work smoothly with IDP. It also holds the custom tools being used by IDP for performing various operations. These custom tools are placed in Jenkins custom tools directory, from where they can be copied to any of the build agents for running some specific errands, for instance, pushing the analysis results to dashboard while the build is still running.</td>
+  <td>-</td>
 </tr>
 <tr>
   <td><b>Docs</b></td>
-  <td></td>
-  <td></td>
+  <td>This folder contains the necessary documents required by the user for understanding and using IDP.</td>
+  <td>-</td>
 </tr>
 <tr>
   <td><b>Data Files</b></td>
-  <td></td>
-  <td></td>
+  <td>This folder contains the database initialization scripts for both Postgres and InFlux DB. It also consists of the grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</td>
+  <td>-</td>
 </tr>
 <tr>
   <td><b>build.sh</b></td>
