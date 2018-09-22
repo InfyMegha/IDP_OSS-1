@@ -7,7 +7,7 @@
 <img src="/Images Folder/release.PNG" alt="Release" />
 </div>
 <div align="center">
-<img src="/Images Folder/captcha.PNG" width="600" height="30" />
+<img src="/Images Folder/captcha1.PNG"/>
 <hr/>
 </div>
 <div align="center">
