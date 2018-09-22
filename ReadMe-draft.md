@@ -4,7 +4,7 @@
 </div>
 <div align="center"><!--IDP Release --> <img src="/Images Folder/release.PNG" alt="Release" /></div>
 <div align="center">
-<h5>Rapid DevOps Onboarding at scale | +Faster Innovation Cycles | +Accelerated Agile Delivery</h5>
+<img src="/Images Folder/captcha.PNG" />
 <hr/>
 </div>
 <div align="center">
