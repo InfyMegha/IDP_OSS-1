@@ -1,5 +1,6 @@
 <div align="center"><img src="/Images Folder/idplogo.png" align="top" /></div>
-<div align="center"><!--IDP Release --> <img src="/Images Folder/release.PNG" alt="Release" /></div>
+<!--IDP Release --> 
+<img src="/Images Folder/release.PNG" alt="Release" />
 <div align="center"
 <p><strong>Infosys DevOps Platform: <em>Jump start your DevOps Adoption </em></span></strong></p>
 </div>
@@ -8,17 +9,8 @@
 <hr/>
 </div>
 <div align="center">
-<table align="middle">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr>
-<td><img src="/Images Folder/paas1.PNG" alt="IDP"/></td>
-</tr> 
-</tbody> 
-</table>
-<img src="/Images Folder/idp2.gif" alt="IDP" width="600" height="285" /></td>
+<img src="/Images Folder/paas1.PNG" alt="IDP"/></td>
+<img src="/Images Folder/idp2.gif" alt="IDP" width="600" height="285" />
 </div>
 <hr/>
 <h3><b>About the repository</b></h3>
