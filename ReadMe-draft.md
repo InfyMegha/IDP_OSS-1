@@ -8,6 +8,7 @@
 <div align="center">
 <h5><span style="color:tomato;">Rapid DevOps Onboarding at scale</span> | <span style="color:tomato;">Faster Innovation Cycles</span> | <span style="color:tomato;">Accelerated Agile Delivery</span></h5>
 </div>
+<div align="center">
 <table align="center" border="0">
 <tbody>
 <tr>
@@ -15,3 +16,4 @@
 </tr>
 </tbody>
 </table>
+</div>
