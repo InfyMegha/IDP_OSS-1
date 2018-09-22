@@ -1,4 +1,4 @@
-<div align="center"><img src="/Images Folder/idplogo.png" width="250" align="top" /></div>
+<div align="center"><img src="/Images Folder/idplogo.png" align="top" /></div>
 <div align="center"
 <p><strong>Infosys DevOps Platform: <em>Jump start your DevOps Adoption </em></span></strong></p>
 </div>
@@ -8,7 +8,7 @@
 <hr/>
 </div>
 <div align="center">
-<table>
+<table align="center">
 <colgroup>
 <col width="100%" />
 </colgroup>
