@@ -23,11 +23,11 @@
 
 # About the repository
 
-One Paragraph on repository description goes here
+This repository is intended to hold the code base along with the required dependencies for the Infosys DevOps Platform.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Below instructions will help the user to get the project up and running on their local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
@@ -65,7 +65,7 @@ Say what the step will be
 </tr>
 <tr>
   <td><b>DSL</b></td>
-  <td></td>
+  <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs.</td>
   <td></td>
 </tr>
 <tr>
