@@ -1,6 +1,7 @@
-<div align="center"><img src="/Images Folder/idplogo.png" align="top" /></div>
+<div align="center"><img src="/Images Folder/idplogo1 (2).png" align="top" />
 <!--IDP Release --> 
 <img src="/Images Folder/release.PNG" alt="Release" />
+</div>
 <div align="center"
 <p><strong>Infosys DevOps Platform: <em>Jump start your DevOps Adoption </em></span></strong></p>
 </div>
