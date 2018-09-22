@@ -1,8 +1,8 @@
 <div align="center"><img src="/Images Folder/idplogo1 (2).png" align="top" />
 </div>
+<br/>
 <div align="center"
 <p><strong><em>Jump start your DevOps Adoption </em></span></strong></p>
- <br/>
 <!--IDP Release --> 
 <img src="/Images Folder/release.PNG" alt="Release" />
 </div>
@@ -14,6 +14,10 @@
 <img src="/Images Folder/paas1.PNG" alt="IDP"/>
 <br/>
 <img src="/Images Folder/idp2.gif" alt="IDP" />
+<br/>
+<h6>For more information, check out below links</h6>
+<a href="https://www.youtube.com/watch?v=8V0OKlB-d2I">https://www.youtube.com/watch?v=8V0OKlB-d2I</a>
+<a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U">https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U</a>
 </div>
 <hr/>
 <h3><b>About the repository</b></h3>
