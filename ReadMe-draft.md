@@ -6,9 +6,9 @@
 </div>
 <div align="center"><!--IDP Release --> <img src="/Images Folder/release.PNG" alt="Release" /></div>
 <div align="center">
-<h5><span style="color:Tomato;">Rapid DevOps Onboarding at scale</span> | <span style="color:Tomato;">Faster Innovation Cycles</span> | <span style="color:Tomato;">Accelerated Agile Delivery</span></h5>
+<h5><span style="color:tomato;">Rapid DevOps Onboarding at scale</span> | <span style="color:tomato;">Faster Innovation Cycles</span> | <span style="color:tomato;">Accelerated Agile Delivery</span></h5>
 </div>
-<table style="margin-left: auto; margin-right: auto;" border="0"><colgroup> <col width="100%" /> </colgroup>
+<table align="center" border="0">
 <tbody>
 <tr>
 <td><img src="/Images Folder/idp2.gif" alt="IDP" width="540" height="285" /></td>
