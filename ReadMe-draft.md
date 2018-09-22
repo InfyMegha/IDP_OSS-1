@@ -66,16 +66,16 @@ Say what the step will be
 <tr>
   <td><b>DSL</b></td>
   <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs.</td>
-  <td></td>
+  <td><b>Programming Language :</b> Groovy <b>Dependency Management:</b> Gradle</td>
 </tr>
 <tr>
   <td><b>UI</b></td>
-  <td></td>
-  <td></td>
+  <td>This module holds all the IDP user interface code and its related dependencies</td>
+  <td>Angular 4, NPM</td>
 </tr>
 <tr>
   <td><b>Services</b></td>
-  <td></td>
+  <td>This module holds the </td>
   <td></td>
 </tr>
 <tr>
