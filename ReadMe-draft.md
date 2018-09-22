@@ -2,7 +2,7 @@
 </div>
 <br/>
 <div align="center"
-<p><strong><em>Jump start your DevOps Adoption </em></span></strong></p>
+<p><strong><em>Jump start the DevOps Adoption </em></span></strong></p>
 <!--IDP Release --> 
 <img src="/Images Folder/release.PNG" alt="Release" />
 </div>
