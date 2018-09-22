@@ -20,10 +20,11 @@
 <h6><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U" target="_blank">https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U</a></h6>
 </div>
 <hr/>
-<h2><b>About the repository</b></h2>
+## About the repository
+
 One Paragraph on repository description goes here
-<br/>
-## Getting Started
+
+### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
