@@ -4,8 +4,10 @@
 </div>
 <div align="center"><!--IDP Release --> <img src="/Images Folder/release.PNG" alt="Release" /></div>
 <div align="center">
-<h5><font color="red">Rapid DevOps Onboarding at scale</font> | <span style="color:tomato;">Faster Innovation Cycles</span> | <span style="color:tomato;">Accelerated Agile Delivery</span></h5>
+<h5><font color="red">Rapid DevOps Onboarding at scale</font> | <span style="color:tomato;">Faster Innovation Cycles</span> | <span style="color:tomato;">Accelerated Agile Delivery</span></h5><hr />
+<hr/>
 </div>
 <div align="center">
 <img src="/Images Folder/idp2.gif" alt="IDP" width="540" height="285" /></td>
 </div>
+<hr/>
