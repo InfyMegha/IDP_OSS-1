@@ -9,11 +9,5 @@
 <h5><span style="color:tomato;">Rapid DevOps Onboarding at scale</span> | <span style="color:tomato;">Faster Innovation Cycles</span> | <span style="color:tomato;">Accelerated Agile Delivery</span></h5>
 </div>
 <div align="center">
-<table align="center" border="0">
-<tbody>
-<tr>
-<td><img src="/Images Folder/idp2.gif" alt="IDP" width="540" height="285" /></td>
-</tr>
-</tbody>
-</table>
+<img src="/Images Folder/idp2.gif" alt="IDP" width="540" height="285" /></td>
 </div>
