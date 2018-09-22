@@ -60,31 +60,56 @@ Say what the step will be
 </tr>
 <tr>
   <td><b>Dashboard</b></td>
-  <td></td>
-  <td></td>
+  <td>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in InFlux DB and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in jenkins as it is done as a separate activity. 
+
+</td>
+  <td>
+    <ol>
+    <li><b>Programming Language :</b> Java, for custom utilities</li>
+    <li><b>Database :</b> InFlux DB</li>
+    <li><b>Metrics Dashboard :</b> Grafana</li>
+    </ol>
+  </td>
 </tr>
 <tr>
   <td><b>DSL</b></td>
-  <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs.</td>
+  <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</td>
   <td>
     <ol>
-    <li>Bird</li>
-    <li>McHale</li>
-    <li>Parish</li>
+    <li><b>Programming Language :</b> Groovy</li>
+    <li><b>Dependency Management:</b> Gradle</li>
     </ol>
-    -<b>Programming Language :</b> Groovy 
-    -<b>Dependency Management:</b> Gradle
   </td>
 </tr>
 <tr>
   <td><b>UI</b></td>
   <td>This module holds all the IDP user interface code and its related dependencies</td>
-  <td>Angular 4, NPM</td>
+  <td>
+    <ol>
+    <li><b>Framework :</b> Angular4</li>
+    <li><b>Dependency Management:</b> NPM</li>
+    </ol>
+  </td>
 </tr>
 <tr>
   <td><b>Services</b></td>
-  <td>This module holds the </td>
-  <td></td>
+  <td>This module is divided into number of sub-parts.
+     <ol>
+    <li>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using an Load Balancer</li>
+    <li>OAuth2 authorization module for enhanced security</li>
+    <li>Module implementing Zuul Proxy to be used as an edge gateway which would route the request through Authorization Server (if Access token is not available/expired)</li>
+     <li>Database layer for performing CRUD operations on backend database with respect to the operation being performed</li>
+     <li>Swagger for automatic Documentation of Services</li>
+    </ol>
+    
+ </td>
+  <td>
+    <ol>
+    <li><b>Framework :</b> Spring Boot, Spring MVC, OAUth2.0</li>
+    <li><b>Dependency Management:</b> Maven</li>
+    <li><b>Database:</b> Postgres</li>
+    </ol>
+  </td>
 </tr>
 <tr>
   <td><b>Scheduler</b></td>
