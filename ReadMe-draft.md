@@ -1,19 +1,19 @@
 <div align="center"><img src="/Images Folder/idplogo1 (2).png" align="top" />
+</div>
+<div align="center"
+<p><strong><em>Jump start your DevOps Adoption </em></span></strong></p>
  <br/>
 <!--IDP Release --> 
 <img src="/Images Folder/release.PNG" alt="Release" />
 </div>
-<div align="center"
-<p><strong>Infosys DevOps Platform: <em>Jump start your DevOps Adoption </em></span></strong></p>
-</div>
 <div align="center">
-<img src="/Images Folder/captcha.PNG" width="600" height="40" />
+<img src="/Images Folder/captcha.PNG" width="600" height="30" />
 <hr/>
 </div>
 <div align="center">
 <img src="/Images Folder/paas1.PNG" alt="IDP"/>
 <br/>
-<img src="/Images Folder/idp2.gif" alt="IDP" width="600" height="285" />
+<img src="/Images Folder/idp2.gif" alt="IDP" />
 </div>
 <hr/>
 <h3><b>About the repository</b></h3>
