@@ -54,12 +54,12 @@ Say what the step will be
 
 <tbody>
 <tr>
-  <th>Module/File</th>
-  <th>Description</th>
-  <th>Tech-stack details</th>
+  <th align="center">Module/File</th>
+  <th align="center">Description</th>
+  <th align="center">Tech-stack details</th>
 </tr>
 <tr>
-  <td><b>Dashboard</b></td>
+  <td align="center"><b>Dashboard</b></td>
   <td>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in InFlux DB and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in jenkins as it is done as a separate activity. 
 
 </td>
@@ -73,7 +73,7 @@ Say what the step will be
   </td>
 </tr>
 <tr>
-  <td><b>DSL</b></td>
+  <td align="center"><b>DSL</b></td>
   <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</td>
   <td>
     <ol>
@@ -83,7 +83,7 @@ Say what the step will be
   </td>
 </tr>
 <tr>
-  <td><b>UI</b></td>
+  <td align="center"><b>UI</b></td>
   <td>This module holds all the IDP user interface code and its related dependencies</td>
   <td>
     <ol>
@@ -93,7 +93,7 @@ Say what the step will be
   </td>
 </tr>
 <tr>
-  <td><b>Services</b></td>
+  <td align="center"><b>Services</b></td>
   <td>This module is divided into number of sub-parts.
      <ol>
     <li>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using an Load Balancer</li>
@@ -113,29 +113,29 @@ Say what the step will be
   </td>
 </tr>
 <tr>
-  <td><b>Scheduler</b></td>
+  <td align="center"><b>Scheduler</b></td>
   <td></td>
   <td></td>
 </tr>
 <tr>
-  <td><b>Jenkins</b></td>
+  <td align="center"><b>Jenkins</b></td>
   <td>This folder contains the necessary configuration files and plugins for Jenkins to make it work smoothly with IDP. It also holds the custom tools being used by IDP for performing various operations. These custom tools are placed in Jenkins custom tools directory, from where they can be copied to any of the build agents for running some specific errands, for instance, pushing the analysis results to dashboard while the build is still running.</td>
-  <td>-</td>
+  <td align="center">-</td>
 </tr>
 <tr>
-  <td><b>Docs</b></td>
+  <td align="center"><b>Docs</b></td>
   <td>This folder contains the necessary documents required by the user for understanding and using IDP.</td>
-  <td>-</td>
+  <td align="center">-</td>
 </tr>
 <tr>
-  <td><b>Data Files</b></td>
+  <td align="center"><b>Data Files</b></td>
   <td>This folder contains the database initialization scripts for both Postgres and InFlux DB. It also consists of the grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</td>
-  <td>-</td>
+  <td align="center">-</td>
 </tr>
 <tr>
   <td><b>build.sh</b></td>
   <td></td>
-  <td></td>
+  <td align="center">-</td>
 </tr>
 </tbody>
 </table>
