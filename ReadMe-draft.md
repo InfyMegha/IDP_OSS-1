@@ -41,7 +41,6 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
 
 ## Details on project modules
 
@@ -139,6 +138,10 @@ Say what the step will be
 </tr>
 </tbody>
 </table>
+
+## Deployment
+
+Steps for deployment
 
 ## Contributing
 
