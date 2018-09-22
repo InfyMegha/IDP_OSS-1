@@ -14,7 +14,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U"><img src="/Images Folder/paas.PNG" alt="IDP" height="270" width="940"/></a></td>
+<td><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U"><img src="/Images Folder/paas.PNG" alt="IDP" height="300" width="940"/></a></td>
 </tr> 
 </tbody> 
 </table>
