@@ -20,7 +20,68 @@
 <h6><a href="https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U" target="_blank">https://www.youtube.com/watch?time_continue=1&v=t8cuE3Jog2U</a></h6>
 </div>
 <hr/>
-<h3><b>About the repository</b></h3>
+<h2><b>About the repository</b></h2>
+Introduction
+<table>
+<colgroup>
+<col width="33.3%" />
+<col width="33.3%" />
+<col width="33.4%" />
+</colgroup>
+
+<tbody>
+<tr>
+<th>Module/File</th>
+<th>Description</th>
+<th>Tech-stack details</th>
+</tr>
+<tr>
+<td><b>Dashboard</b></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DSL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UI</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Services</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scheduler</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Jenkins</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Docs</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Data Files</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>build.sh</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 **Dashboard** folder contains code for Dashboard RESTful services as well as custom utilities that collect data during pipeline executions
 
