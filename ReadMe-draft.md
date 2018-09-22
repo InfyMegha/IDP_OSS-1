@@ -21,7 +21,28 @@
 </div>
 <hr/>
 <h2><b>About the repository</b></h2>
-Introduction
+One Paragraph on repository description goes here
+<br/>
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+### Details on project modules
+
 <table>
 <colgroup>
 <col width="33.3%" />
@@ -31,74 +52,60 @@ Introduction
 
 <tbody>
 <tr>
-<th>Module/File</th>
-<th>Description</th>
-<th>Tech-stack details</th>
+  <th>Module/File</th>
+  <th>Description</th>
+  <th>Tech-stack details</th>
 </tr>
 <tr>
-<td><b>Dashboard</b></td>
-<td></td>
-<td></td>
+  <td><b>Dashboard</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>DSL</td>
-<td></td>
-<td></td>
+  <td><b>DSL</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>UI</td>
-<td></td>
-<td></td>
+  <td><b>UI</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>Services</td>
-<td></td>
-<td></td>
+  <td><b>Services</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>Scheduler</td>
-<td></td>
-<td></td>
+  <td><b>Scheduler</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>Jenkins</td>
-<td></td>
-<td></td>
+  <td><b>Jenkins</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>Docs</td>
-<td></td>
-<td></td>
+  <td><b>Docs</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>Data Files</td>
-<td></td>
-<td></td>
+  <td><b>Data Files</b></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>build.sh</td>
-<td></td>
-<td></td>
+  <td><b>build.sh</b></td>
+  <td></td>
+  <td></td>
 </tr>
 </tbody>
 </table>
 
-**Dashboard** folder contains code for Dashboard RESTful services as well as custom utilities that collect data during pipeline executions
+## Contributing
 
-**Datafiles** folder contains IDP database creation scripts and grafana.ini file
-
-**Docs** folder contains all the documents related to IDP which help user to understand and use IDP
-
-**DSL** folder contains Jenkins DSL groovy scripts that will be used by Jenkins to create pipelines with the required configuration and trigger the pipelines
-
-**Jenkins** folder contains custom tools, plugin and configuration related files
-
-**Scheduler** folder contains Jenkins job scheduler source code.
-
-**Services** folder contains IDP services source code including authentication service, business logic, RESTful services, data layer, entities, utility and configuration services
-
-**UI** folder contains IDP user interface code written in Angular 4 
-
-**build.sh** file contains build script to deploy IDP on linux machine.
+Please read [CONTRIBUTING.md](/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 
