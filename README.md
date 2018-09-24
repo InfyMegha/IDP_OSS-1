@@ -48,13 +48,13 @@ Below instructions will help the user to get the project up and running on their
   <td><sub>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in Jenkins as it is done as a separate activity. </sub>
 
 </td>
-  <td><sub>
+  <td>
     <ol>
-    <li><b>Programming Language :</b> Java, for custom utilities</li>
-    <li><b>Dependency Management:</b> Maven</li>
-    <li><b>Database :</b> InFlux DB</li>
-    <li><b>Metrics Dashboard :</b> Grafana</li>
-  </ol></sub>
+    <li><sub><b>Programming Language :</b> Java, for custom utilities</sub></li>
+    <li><sub><b>Dependency Management:</b> Maven</sub></li>
+    <li><sub><b>Database :</b> InFlux DB</sub></li>
+    <li><sub><b>Metrics Dashboard :</b> Grafana</sub></li>
+  </ol>
   </td>
 </tr>
 <tr>
