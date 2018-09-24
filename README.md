@@ -33,8 +33,8 @@ Below instructions will help the user to get the project up and running on their
 <table>
 <colgroup>
 <col width="150" />
-<col width="250" />
 <col width="200" />
+<col width="250" />
 </colgroup>
 
 <tbody>
@@ -44,8 +44,8 @@ Below instructions will help the user to get the project up and running on their
   <th align="center">Tech-stack details</th>
 </tr>
 <tr>
-  <td align="center"><b>Dashboard</b></td>
-  <td>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in Jenkins as it is done as a separate activity. 
+  <td align="center"><sup><b>Dashboard</b></sup></td>
+  <td><sup>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in Jenkins as it is done as a separate activity. </sup>
 
 </td>
   <td>
