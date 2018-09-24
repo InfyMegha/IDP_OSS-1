@@ -34,7 +34,7 @@ Below instructions will help the user to get the project up and running on their
 <tbody>
 <tr>
   <th align="center">Module/File <img width=300/></th>
-  <th align="center">Description <img width=200/></th>
+  <th align="center">Description <img width=900/></th>
   <th align="center">Tech-stack details <img width=800/></th>
 </tr>
 <tr>
