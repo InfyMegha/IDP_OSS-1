@@ -10,7 +10,7 @@
 <hr/>
 </div>
 <div align="center">
-<img src="/Images Folder/paas1.PNG" alt="IDP"/>
+<img src="/Images Folder/paas2.PNG" alt="IDP"/>
 <br/>
 <img src="/Images Folder/idp2.gif" alt="IDP" />
 <br/>
