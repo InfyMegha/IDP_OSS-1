@@ -26,7 +26,7 @@ This repository is intended to hold the code base along with the required depend
 
 ## Getting Started
 
-Below instructions will help the user to get the project up and running on their local machine for development and testing purposes. See [WIKI](/wiki) for notes on how to deploy the platform on a live system.
+Below instructions will help the user to get the project up and running on their local machine for development and testing purposes. See [WIKI](https://github.com/krishnakanthbn/IDP_OSS/wiki) for notes on how to deploy the platform on a live system.
 
 ## Details on project modules
 
@@ -126,6 +126,6 @@ Below instructions will help the user to get the project up and running on their
 </table>
 
 
-Please read [WIKI](/wiki) for detailed documentation.
+Please read [WIKI](https://github.com/krishnakanthbn/IDP_OSS/wiki) for detailed documentation.
 
 
