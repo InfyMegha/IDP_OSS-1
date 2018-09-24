@@ -35,7 +35,7 @@ Below instructions will help the user to get the project up and running on their
 <tr>
   <th align="center">Module/File</th>
   <th align="center">Description</th>
-  <th align="center">Tech-stack details</th>
+  <th align="center">Tech-stack details <img width=800/></th>
 </tr>
 <tr>
   <td align="center"><sup><b>Dashboard</b></sup></td>
