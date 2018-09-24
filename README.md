@@ -1,8 +1,3 @@
-<STYLE TYPE="text/css">
-<!--
-TD{font-family: Arial; font-size: 9pt;}
---->
-</STYLE>
 <div align="center"><img src="/Images Folder/idplogo1 (2).png" align="top" />
 </div>
 <br/>
@@ -49,17 +44,17 @@ Below instructions will help the user to get the project up and running on their
   <th align="center">Tech-stack details</th>
 </tr>
 <tr>
-  <td align="center"><b>Dashboard</b></td>
-  <td>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in Jenkins as it is done as a separate activity. 
+  <td align="center"><sub><b>Dashboard</b></sub></td>
+  <td><sub>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in Jenkins as it is done as a separate activity. </sub>
 
 </td>
-  <td>
+  <td><sub>
     <ol>
     <li><b>Programming Language :</b> Java, for custom utilities</li>
     <li><b>Dependency Management:</b> Maven</li>
     <li><b>Database :</b> InFlux DB</li>
     <li><b>Metrics Dashboard :</b> Grafana</li>
-    </ol>
+  </ol></sub>
   </td>
 </tr>
 <tr>
