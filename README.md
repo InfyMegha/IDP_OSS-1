@@ -31,12 +31,6 @@ Below instructions will help the user to get the project up and running on their
 ## Details on project modules
 
 <table>
-<colgroup>
-<col width="150" />
-<col width="200" />
-<col width="250" />
-</colgroup>
-
 <tbody>
 <tr>
   <th align="center">Module/File</th>
@@ -60,67 +54,67 @@ Below instructions will help the user to get the project up and running on their
   </td>
 </tr>
 <tr>
-  <td align="center"><b>DSL</b></td>
-  <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</td>
+  <td align="center"><sup><b>DSL</b></sup></td>
+  <td><sup>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</sup></td>
   <td>
-    <ol>
-    <li><b>Programming Language :</b> Groovy</li>
-    <li><b>Dependency Management:</b> Gradle</li>
-    </ol>
+    <ul>
+    <li><sup><b>Programming Language :</b> Groovy</sup></li>
+    <li><sup><b>Dependency Management:</b> Gradle</sup></li>
+    </ul>
   </td>
 </tr>
 <tr>
-  <td align="center"><b>UI</b></td>
-  <td>This module holds all the IDP user interface code and its related dependencies</td>
+  <td align="center"><sup><b>UI</b></sup></td>
+  <td><sup>This module holds all the IDP user interface code and its related dependencies</sup></td>
   <td>
-    <ol>
-    <li><b>Framework :</b> Angular4</li>
-    <li><b>Dependency Management:</b> NPM</li>
-    </ol>
+    <ul>
+    <li><sup><b>Framework :</b> Angular4</sup></li>
+    <li><sup><b>Dependency Management:</b> NPM</sup></li>
+    </ul>
   </td>
 </tr>
 <tr>
-  <td align="center"><b>Services</b></td>
-  <td>This module is divided into number of sub-parts.
-     <ol>
-    <li>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using an Load Balancer</li>
-    <li>OAuth2 authorization module for enhanced security</li>
-    <li>Module implementing Zuul Proxy to be used as an edge gateway which would route the request through Authorization Server (if Access token is not available/expired)</li>
-     <li>Database layer for performing CRUD operations on backend database with respect to the operation being performed</li>
-     <li>Swagger for automatic Documentation of Services</li>
-    </ol>
+  <td align="center"><sup><b>Services</b></sup></td>
+  <td><sup>This module is divided into number of sub-parts.</sup>
+     <ul>
+    <li><sup>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using an Load Balancer</sup></li>
+       <li><sup>OAuth2 authorization module for enhanced security</sup></li>
+    <li><sup>Module implementing Zuul Proxy to be used as an edge gateway which would route the request through Authorization Server (if Access token is not available/expired)</sup></li>
+     <li><sup>Database layer for performing CRUD operations on backend database with respect to the operation being performed</sup></li>
+     <li><sup>Swagger for automatic Documentation of Services</sup></li>
+    </ul>
     
  </td>
   <td>
-    <ol>
-    <li><b>Framework :</b> Spring Boot, Spring MVC, OAUth2.0</li>
-    <li><b>Dependency Management:</b> Maven</li>
-    <li><b>Database:</b> Postgres</li>
-    </ol>
+    <ul>
+    <li><sup><b>Framework :</b> Spring Boot, Spring MVC, OAUth2.0</sup></li>
+    <li><sup><b>Dependency Management:</b> Maven</sup></li>
+    <li><sup><b>Database:</b> Postgres</sup></li>
+    </ul>
   </td>
 </tr>
 <tr>
-  <td align="center"><b>Scheduler</b></td>
+  <td align="center"><sup><b>Scheduler</b></sup></td>
   <td></td>
   <td></td>
 </tr>
 <tr>
-  <td align="center"><b>Jenkins</b></td>
-  <td>This folder contains the necessary configuration files and plugins for Jenkins to make it work smoothly with IDP. It also holds the custom tools being used by IDP for performing various operations. These custom tools are placed in Jenkins custom tools directory, from where they can be copied to any of the build agents for running some specific errands, for instance, pushing the analysis results to dashboard while the build is still running.</td>
+  <td align="center"><sup><b>Jenkins</b></sup></td>
+  <td><sup>This folder contains the necessary configuration files and plugins for Jenkins to make it work smoothly with IDP. It also holds the custom tools being used by IDP for performing various operations. These custom tools are placed in Jenkins custom tools directory, from where they can be copied to any of the build agents for running some specific errands, for instance, pushing the analysis results to dashboard while the build is still running.</sup></td>
   <td align="center">-</td>
 </tr>
 <tr>
-  <td align="center"><b>Docs</b></td>
-  <td>This folder contains the necessary documents required by the user for understanding and using IDP.</td>
+  <td align="center"><sup><b>Docs</b></sup></td>
+  <td><sup>This folder contains the necessary documents required by the user for understanding and using IDP.</sup></td>
   <td align="center">-</td>
 </tr>
 <tr>
-  <td align="center"><b>Data Files</b></td>
-  <td>This folder contains the database initialization scripts for both Postgres. It also consists of the Grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</td>
+  <td align="center"><sup><b>Data Files</b></sup></td>
+  <td><sup>This folder contains the database initialization scripts for both Postgres. It also consists of the Grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</sup></td>
   <td align="center">-</td>
 </tr>
 <tr>
-  <td><b>build.sh</b></td>
+  <td><sup><b>build.sh</b></sup></td>
   <td></td>
   <td align="center">-</td>
 </tr>
