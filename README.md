@@ -49,12 +49,18 @@ Below instructions will help the user to get the project up and running on their
 
 </td>
   <td>
-    <ol>
+   <sub>
+   <ul>
    <li><b>Programming Language :</b> Java, for custom utilities</li>
+     <br/>
     <li><b>Dependency Management:</b> Maven</li>
+     <br/>
     <li><b>Database :</b> InFlux DB</li>
+     <br/>
    <li><b>Metrics Dashboard :</b> Grafana</li>
-  </ol>
+  </ul>
+
+</sub>
   </td>
 </tr>
 <tr>
