@@ -114,7 +114,7 @@ Below instructions will help the user to get the project up and running on their
   <td align="center">-</td>
 </tr>
 <tr>
-  <td><sup><b>build.sh</b></sup></td>
+  <td align="center"><sup><b>build.sh</b></sup></td>
   <td></td>
   <td align="center">-</td>
 </tr>
