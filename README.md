@@ -50,10 +50,10 @@ Below instructions will help the user to get the project up and running on their
 </td>
   <td>
     <ol>
-    <li><sub><b>Programming Language :</b> Java, for custom utilities</sub></li>
-    <li><sub><b>Dependency Management:</b> Maven</sub></li>
-    <li><sub><b>Database :</b> InFlux DB</sub></li>
-    <li><sub><b>Metrics Dashboard :</b> Grafana</sub></li>
+   <sub><li><b>Programming Language :</b> Java, for custom utilities</li></sub>
+   <sub> <li><b>Dependency Management:</b> Maven</li></sub>
+    <sub><li><b>Database :</b> InFlux DB</li></sub>
+   <sub> <li><b>Metrics Dashboard :</b> Grafana</li></sub>
   </ol>
   </td>
 </tr>
