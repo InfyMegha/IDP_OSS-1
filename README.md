@@ -6,7 +6,7 @@
 <!--IDP Release --> 
 </div>
 <div align="center">
-<img src="/Images Folder/captcha1.PNG"/>
+<img src="/docs/captcha1.PNG"/>
 <hr/>
 </div>
 <div align="center">
