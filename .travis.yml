@@ -1,3 +1,3 @@
 language: java
 script: 
-  - cd service/Services && mvn install -Dmaven.compiler.target=8 -Dmaven.compiler.source=8 && cd ../../dashboard && mvn install -Dmaven.compiler.target=8 -Dmaven.compiler.source=8 
+  - cd service/Services && mvn install -Dmaven.test.skip=true && cd ../../dashboard && mvn install -Dmaven.test.skip=true
