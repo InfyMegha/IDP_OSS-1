@@ -58,7 +58,7 @@ Below instructions will help the users to get to know the structure of this repo
   </td>
 </tr>
 <tr>
-  <td align="center"><b>DSL</b></sup></td>
+  <td align="center"><sup><b>DSL</b></sup></td>
   <td><sup>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module uses <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and controls the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</sup></td>
   <td>
     <ol>
@@ -68,7 +68,7 @@ Below instructions will help the users to get to know the structure of this repo
   </td>
 </tr>
 <tr>
-  <td align="center"><b>UI</b></td>
+  <td align="center"><sup><b>UI</b></sup></td>
   <td><sup>This module holds all the IDP user interface code and its related dependencies</sup></td>
   <td>
     <ol>
@@ -78,7 +78,7 @@ Below instructions will help the users to get to know the structure of this repo
   </td>
 </tr>
 <tr>
-  <td align="center"><b>Services</b></td>
+  <td align="center"><sup><b>Services</b></sup></td>
   <td><sup>This module is divided into number of sub-parts.</sup>
      <ol>
     <li><sup>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using a load Balancer</sup></li>
@@ -98,7 +98,7 @@ Below instructions will help the users to get to know the structure of this repo
   </td>
 </tr>
 <tr>
-  <td align="center"><b>Scheduler</b></td>
+  <td align="center"><sup><b>Scheduler</b></sup></td>
   <td></td>
   <td></td>
 </tr>
@@ -108,12 +108,12 @@ Below instructions will help the users to get to know the structure of this repo
   <td align="center"><sup>-</sup></td>
 </tr>
 <tr>
-  <td align="center"><b>Docs</b></td>
+  <td align="center"><sup><b>docs</b></sup></td>
   <td><sup>This folder contains the assets used in the Wiki pages.</td>
   <td align="center"><sup>-</sup></td>
 </tr>
 <tr>
-  <td align="center"><b>Data Files</b></td>
+  <td align="center"><sup><b>Data Files</b></sup></td>
   <td><sup>This folder contains the database initialization scripts for Postgres. It also consists of the Grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</sup></td>
   <td align="center"><sup>-</sup></td>
 </tr>
