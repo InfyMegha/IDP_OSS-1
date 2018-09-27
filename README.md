@@ -1,4 +1,4 @@
-<div align="center"><img src="/Images Folder/idplogo1 (2).png" align="top" />
+<div align="center"><img src="/docs/idplogo1.png" align="top" />
 </div>
 <br/>
 <div align="center"
@@ -10,9 +10,9 @@
 <hr/>
 </div>
 <div align="center">
-<img src="/Images Folder/paas1.PNG" alt="IDP"/>
+<img src="/docs/paas1.PNG" alt="IDP"/>
 <br/>
-<img src="/Images Folder/idp2.gif" alt="IDP" />
+<img src="/docs/idp2.gif" alt="IDP" />
 <br/>
 <h6>For more information, check out below links</h6>
 <h6><a href="https://www.youtube.com/watch?v=8V0OKlB-d2I" target="_blank">https://www.youtube.com/watch?v=8V0OKlB-d2I</a></h6>
