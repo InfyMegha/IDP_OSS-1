@@ -74,6 +74,9 @@ services:
           KEYCLOAK_REALM: master
           DASHBOARD_HOSTNAME: ${GRAFANA_HOSTNAME}
           GF_INSTALL_PLUGINS: grafana-simple-json-datasource,michaeldmoore-annunciator-panel,briangann-gauge-panel,savantly-heatmap-panel,briangann-datatable-panel
+          HTTP_PROXY: ${HTTP_PROXY}
+          HTTPS_PROXY: ${HTTPS_PROXY}
+          NO_PROXY: "${GRAFANA_HOSTNAME},${KEYCLOAK_HOSTNAME},${DASHBOARD_HOSTNAME}" 
         volumes:
             - ${MOUNT_DIR}/grafanadata/grafana.ini:/etc/grafana/grafana.ini
             - ${MOUNT_DIR}/grafanadata/data/:/var/lib/grafana/

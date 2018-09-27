@@ -1,6 +1,7 @@
 cd src/main/angular4src
-#unzip -o node_modules.zip
-npm install
+unzip -o node_modules.zip
+$NPM_PROXY
+#npm install
 ng build --base-href /idpapp/ -prod
 cd ../resources
 rm -rf static

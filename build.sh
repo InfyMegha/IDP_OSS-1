@@ -12,13 +12,17 @@ ARCHIVE_MGMT_IMAGE=alexsuch/angular-cli:6.2
 ARCHIVE_CREATE_IMAGE=kramos/alpine-zip
 WGET_IMAGE=mwendler/wget
 LOCAL_M2_CACHE="-v /root/.m2/:/root/.m2/"
-#WGET_PROXY="-e use_proxy=yes -e http_proxy=http://<username>:<password>@10.74.91.103 -e https_proxy=http://<username>:<password>@10.74.91.103 -e ftp_proxy=http://<username>:<password>@10.74.91.103"
-#PIP_PROXY="--proxy http://<username>:<password>@10.74.91.103"
+#export HTTP_PROXY="http://<username>:<password>@<proxy-ip>"
+#export HTTPS_PROXY="http://<username>:<password>@<proxy-ip>"
+#WGET_PROXY="-e use_proxy=yes -e http_proxy=http://<username>:<password>@<proxy-ip> -e https_proxy=http://<username>:<password>@<proxy-ip> -e ftp_proxy=http://<username>:<password>@<proxy-ip>"
+#PIP_PROXY="--proxy http://<username>:<password>@<proxy-ip>"
+#NPM_PROXY="npm config set proxy http://<username>:<password>@<proxy-ip> && npm config set https-proxy http://<username>:<password>@<proxy-ip>"
 export HOSTNAME=$(hostname)
 
 #Intializing Environment Parameters
 export GRAFANA_HOSTNAME=$HOSTNAME
 export GRAFANA_PORT=3000
+
 
 export ZOOKEEPER_HOSTNAME=zookeeper
 export ZOOKEEPER_PORT=2181
