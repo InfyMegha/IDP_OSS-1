@@ -8,7 +8,7 @@ else
 	echo "Moving Custom Tools"
 	zip -rv jenkins.war jenkins/WEB-INF/lib/scheduleutility.jar
 	
-	zip TestNg.zip TestNg
+	zip TestNg.zip TestNg/*
 	mv TestNg.zip ./home_files/CUSTOM_TOOLS/
 	
 	zip junit-4.10.zip junit-4.10.jar
@@ -17,10 +17,10 @@ else
 	zip nuget.zip nuget.exe
 	mv nuget.zip ./home_files/CUSTOM_TOOLS/
 	
-	zip checkstyle-6.17-bin.zip checkstyle-6.17 checkstyle-noframes-severity-sorted.xsl
+	zip checkstyle-6.17-bin.zip checkstyle-6.17/* checkstyle-noframes-severity-sorted.xsl
 	mv checkstyle-6.17-bin.zip ./home_files/CUSTOM_TOOLS/
 	
-	zip Selenium.zip Selenium
+	zip Selenium.zip Selenium/*
 	mv Selenium.zip ./home_files/CUSTOM_TOOLS/
 
 	cd role_mod

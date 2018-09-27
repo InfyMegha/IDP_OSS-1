@@ -188,13 +188,13 @@ export class TestInfoComponent implements OnInit {
           // { 'name': 'RFT', 'value': 'rft' }, { 'name': 'SAHI', 'value': 'sahi' }, { 'name': 'HP UFT', 'value': 'hpUft' }
           { 'name': 'SAHI', 'value': 'sahi' },
           { 'name': 'Selenium', 'value': 'selenium' },
-          { 'name': 'Protractor', 'value': 'protractor' }
+         // { 'name': 'Protractor', 'value': 'protractor' }
         ];
       } else if (this.buildInfo.buildtool === 'maven') {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
           [{ 'name': 'Selenium', 'value': 'selenium' },
           // { 'name': 'RFT', 'value': 'rft' },
-          { 'name': 'Protractor', 'value': 'protractor' },
+         // { 'name': 'Protractor', 'value': 'protractor' },
           // {'name': 'Microsoft Test Manager', 'value': 'mtm'},
           { 'name': 'SAHI', 'value': 'sahi' }];
         // {'name': 'HP UFT', 'value': 'hpUft'},
@@ -202,7 +202,7 @@ export class TestInfoComponent implements OnInit {
       } else if (this.buildInfo.buildtool === 'dotNetCsharp') {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
           [{ 'name': 'Selenium', 'value': 'selenium' },
-          { 'name': 'Protractor', 'value': 'protractor' },
+         // { 'name': 'Protractor', 'value': 'protractor' },
           { 'name': 'SAHI', 'value': 'sahi' }];
         // { 'name': 'RFT', 'value': 'rft' }
         // {'name': 'HP UFT', 'value': 'hpUft'}, {'name': 'HP ALM', 'value': 'hpAlm'}];
