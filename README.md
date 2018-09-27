@@ -33,7 +33,7 @@ Below instructions will help the users to get to know the structure of this repo
 <table>
 <colgroup>
 <col width="100" />
-<col width="300" />
+<col width="200" />
 <col width="100" />
 </colgroup>
 
