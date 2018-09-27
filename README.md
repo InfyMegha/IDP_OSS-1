@@ -1,4 +1,4 @@
-<div align="center"><img src="https://github.com/krishnakanthbn/IDP_OSS/tree/master/docs/idplogo1.png" align="top" />
+<div align="center"><img src="/docs/idplogo1.png" align="top" />
 </div>
 <br/>
 <div align="center"
@@ -6,13 +6,13 @@
 <!--IDP Release --> 
 </div>
 <div align="center">
-<img src="https://github.com/krishnakanthbn/IDP_OSS/tree/master/docs/captcha1.PNG"/>
+<img src="/docs/captcha1.PNG"/>
 <hr/>
 </div>
 <div align="center">
-<img src="https://github.com/krishnakanthbn/IDP_OSS/tree/master/docs/paas1.PNG" alt="IDP"/>
+<img src="/docs/paas1.PNG" alt="IDP"/>
 <br/>
-<img src="https://github.com/krishnakanthbn/IDP_OSS/tree/master/docs/idp2.gif" alt="IDP" />
+<img src="/docs/idp2.gif" alt="IDP" />
 <br/>
 <h6>For more information, check out below links</h6>
 <h6><a href="https://www.youtube.com/watch?v=8V0OKlB-d2I" target="_blank">https://www.youtube.com/watch?v=8V0OKlB-d2I</a></h6>
