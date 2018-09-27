@@ -5,11 +5,12 @@
     "baseUrl": "./",
     "module": "es2015",
     "types": [ "node" ],
-    "typeRoots": [ "node_modules/@types" ]
+    "typeRoots": [ "node_modules/@types" ],
+    "paths": { "@angular/*": ["../node_modules/@angular/*"] }
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
   ]
-
 }
+

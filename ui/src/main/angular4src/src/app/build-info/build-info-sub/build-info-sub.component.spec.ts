@@ -23,18 +23,18 @@ describe('BuildInfoSubComponent', () => {
   let idprestapiService: IdprestapiService;
   let router: Router;
 
-  class  IdpdataServiceStub {
+  class IdpdataServiceStub {
 
-    constructor() {}
+    constructor() { }
     template: any = {
-    'artifactVariable':false,
-    'artifactAppVariable':false,
+      'artifactVariable': false,
+      'artifactAppVariable': false,
       'grantAccess': {
         'applicationName': '',
         'developers': [],
         'pipelineAdmins': [],
         'releaseManager': [],
-        'artifactToStage':{},
+        'artifactToStage': {},
         'environmentOwnerDetails': [{
           'environmentName': '',
           'environmentOwners': [],
@@ -113,57 +113,57 @@ describe('BuildInfoSubComponent', () => {
         'testInfo': {}
       },
       'masterJson': {},
-      'pipelineList':[]
+      'pipelineList': []
     };
     data: any = JSON.parse(JSON.stringify(this.template));
 
-  language = 'english';
-  idpUserName = '';
-  roles = [];
-  access_token:any;
-  permissions = [];
-  createAppflag = false;
-  createPipelineflag = false;
-  copyPipelineflag = false;
-  editPipelineflag = false;
-  deletePipelineflag = false;
-  test = false;
-  devServerURL: any='';
-  IDPDashboardURL = '';
-  IDPLink = '';
-  geUrl = '';
-  role = '';
-  IDPDropdownProperties: any = {};
-  showConfig:any;
-  pa:boolean=true;
-  continuecontrol:any;
-  geFlag:any;
-  p:any=false;
-  ejbVal:any;
-  warVal:any;
-  jarVal:any;
-  pipelineData:any;
-  triggerJobData:any;
-  application:any;
-  freezeNavBars:boolean=false;
-  osFlag:any;
-  op:any;
-  operation:any;
-  initMain:any=false;
-  RestApiDetails:any=false;
-  buildInfoReset=false;
-  compMove:any;
-  unit:any;
-  code:any;
-  artifactVariable:any=false;
- artifactAppVariable:any=false;
-  refreshBuild:boolean=false;
+    language = 'english';
+    idpUserName = '';
+    roles = [];
+    access_token: any;
+    permissions = [];
+    createAppflag = false;
+    createPipelineflag = false;
+    copyPipelineflag = false;
+    editPipelineflag = false;
+    deletePipelineflag = false;
+    test = false;
+    devServerURL: any = '';
+    IDPDashboardURL = '';
+    IDPLink = '';
+    geUrl = '';
+    role = '';
+    IDPDropdownProperties: any = {};
+    showConfig: any;
+    pa: boolean = true;
+    continuecontrol: any;
+    geFlag: any;
+    p: any = false;
+    ejbVal: any;
+    warVal: any;
+    jarVal: any;
+    pipelineData: any;
+    triggerJobData: any;
+    application: any;
+    freezeNavBars: boolean = false;
+    osFlag: any;
+    op: any;
+    operation: any;
+    initMain: any = false;
+    RestApiDetails: any = false;
+    buildInfoReset = false;
+    compMove: any;
+    unit: any;
+    code: any;
+    artifactVariable: any = false;
+    artifactAppVariable: any = false;
+    refreshBuild: boolean = false;
   };
 
-  class  IdpServiceStub {
+  class IdpServiceStub {
 
   };
-  class  IdprestapiServiceStub {
+  class IdprestapiServiceStub {
 
   };
 
@@ -171,26 +171,26 @@ describe('BuildInfoSubComponent', () => {
     navigate(commands: any[], extras?: NavigationExtras) { };
   };
 
-  let idpdataserviceStub: IdpdataServiceStub=new IdpdataServiceStub();
-  let routerStub: RouterStub=new RouterStub();
-  let idpServiceStub:IdpServiceStub = new IdpServiceStub();
-  let idprestapiServiceStub: IdprestapiServiceStub=new IdprestapiServiceStub();
+  let idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
+  let routerStub: RouterStub = new RouterStub();
+  let idpServiceStub: IdpServiceStub = new IdpServiceStub();
+  let idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
 
   beforeEach(async(() => {
-      TestBed.configureTestingModule({
-      declarations: [ BuildInfoSubComponent,ParentFormConnectComponent ],
-      imports: [FormsModule,TranslateModule.forRoot({
-            provide: TranslateLoader,
-            useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
-            deps: [Http]
-        })],
-      providers: [{provide: IdprestapiService, useValue:idprestapiServiceStub},
-            {provide: IdpService, useValue:idpServiceStub},
-            {provide: IdpdataService, useValue:idpdataserviceStub},
-                  {provide: Router, useValue:routerStub}
-                  ]
+    TestBed.configureTestingModule({
+      declarations: [BuildInfoSubComponent, ParentFormConnectComponent],
+      imports: [FormsModule, TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (http: Http) => new TranslateStaticLoader(http, 'public/assets/i18n', '.json'),
+        deps: [Http]
+      })],
+      providers: [{ provide: IdprestapiService, useValue: idprestapiServiceStub },
+      { provide: IdpService, useValue: idpServiceStub },
+      { provide: IdpdataService, useValue: idpdataserviceStub },
+      { provide: Router, useValue: routerStub }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -204,79 +204,77 @@ describe('BuildInfoSubComponent', () => {
   });
 
   it('Artifact for Nexus', () => {
-    component.buildInfo.artifactToStage.artifactRepoName='nexus';
+    component.buildInfo.artifactToStage.artifactRepoName = 'nexus';
     component.naArtifact();
     expect(component.IdpdataService.artifactVariable).toBeTruthy();
   });
 
   it('Artifact for NA', () => {
-    component.buildInfo.artifactToStage.artifactRepoName='na';
-    component.buildInfo.artifactToStage.artifactRepo={};
-    component.buildInfo.artifactToStage.artifact='';
+    component.buildInfo.artifactToStage.artifactRepoName = 'na';
+    component.buildInfo.artifactToStage.artifactRepo = {};
+    component.buildInfo.artifactToStage.artifact = '';
     component.naArtifact();
     expect(component.IdpdataService.artifactVariable).toBeFalsy();
   });
 
   it('Clear RunScripts', () => {
 
-	var a=  component.clearRunScripts();
-     expect(component.buildInfo.postBuildScript.tool).toBe('');
-	 	 expect(component.checkBoxObject.transferFilesFlag).toBe('off');
+    var a = component.clearRunScripts();
+    expect(component.buildInfo.postBuildScript.tool).toBe('');
+    expect(component.checkBoxObject.transferFilesFlag).toBe('off');
     expect(component.buildInfo.postBuildScript.host).toBe('');
     expect(component.buildInfo.postBuildScript.userName).toBe('');
-	expect(component.buildInfo.postBuildScript.password).toBe('');
-    expect(component.buildInfo.postBuildScript.sshKey ).toBe('');
-expect(component.buildInfo.postBuildScript.sshPathToKey).toBe('');
+    expect(component.buildInfo.postBuildScript.password).toBe('');
+    expect(component.buildInfo.postBuildScript.sshKey).toBe('');
+    expect(component.buildInfo.postBuildScript.sshPathToKey).toBe('');
     expect(component.buildInfo.postBuildScript.script).toBe('');
-
-
     expect(a).toBe("off");
   });
 
-  
-   it('clearPostbuild', () => {
 
-	var a=  component.clearPostbuild();
-     expect(component.buildInfo.postBuildScript.tool).toBe('');
-	  expect(component.buildInfo.postBuildScript.archiveLogs).toBe('');
-	   expect(component.checkBoxObject.postBuildRunScript).toBe('off');
-	 	 expect(component.checkBoxObject.transferFilesFlag).toBe('off');
+  it('clearPostbuild', () => {
+    var a = component.clearPostbuild();
+    expect(component.buildInfo.postBuildScript.tool).toBe('');
+    expect(component.buildInfo.postBuildScript.archiveLogs).toBe('');
+    expect(component.checkBoxObject.postBuildRunScript).toBe('off');
+    expect(component.checkBoxObject.transferFilesFlag).toBe('off');
     expect(component.buildInfo.postBuildScript.host).toBe('');
     expect(component.buildInfo.postBuildScript.userName).toBe('');
-	expect(component.buildInfo.postBuildScript.password).toBe('');
-    expect(component.buildInfo.postBuildScript.sshKey ).toBe('');
-expect(component.buildInfo.postBuildScript.sshPathToKey).toBe('');
+    expect(component.buildInfo.postBuildScript.password).toBe('');
+    expect(component.buildInfo.postBuildScript.sshKey).toBe('');
+    expect(component.buildInfo.postBuildScript.sshPathToKey).toBe('');
     expect(component.buildInfo.postBuildScript.script).toBe('');
-
-
     expect(a).toBe("off");
   });
-  
-  
- it('openAntPropertiesField', () => {
 
-	var a=  component.openAntPropertiesField();
-     expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe([]);	  
-	
 
+  it('openAntPropertiesField', () => {
+    var a = component.openAntPropertiesField();
+    expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe([]);
     expect(a).toBe("on");
   });
 
-  
-     it('clearAntPropertisField', () => {
 
-	var a=  component.clearAntPropertisField();
-     expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});	  
-     expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});	  
-
+  it('clearAntPropertisField', () => {
+    var a = component.clearAntPropertisField();
+    expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});
+    expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});
     expect(a).toBeFalsy();
   });
 
-   it('clearAntPropertisField', () => {
+  it('clearTransferFilesFlag', () => {
+    expect(component.buildInfo.postBuildScript.pathToFiles.toBe(''));
+    expect(component.buildInfo.postBuildScript.destinationDir.toBe(''));
+    component.buildInfo.postBuildScript.flattenFilePath = '';
+    var a = component.clearTransferFilesFlag();
+    expect(a).toEqual('off');
+  });
 
-	var a=  component.clearAntPropertisField();
-     expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});	  
-     expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});	  
+  it('clearAntPropertisField', () => {
+
+    var a = component.clearAntPropertisField();
+    expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});
+    expect(component.buildInfo.postBuildScript.antPropertiesArr).toBe({});
 
     expect(a).toBeFalsy();
   });
@@ -285,46 +283,50 @@ expect(component.buildInfo.postBuildScript.sshPathToKey).toBe('');
     expect(component.buildInfo.artifactToStage.artifactRepoName).toBe('');
     expect(component.buildInfo.artifactToStage.artifactRepo).toBe({});
     expect(component.buildInfo.artifactToStage.artifact).toBe('');
-	 expect(component.checkBoxObject.nugetPackage).toBe('off');
+    expect(component.checkBoxObject.nugetPackage).toBe('off');
     //component.clearRunScripts();
     expect(component.clearArtifact()).toBe("off");
   });
-  
-  
- it('openPostBuild()', () => {
-      var a=component.openPostBuild();
 
-      expect(a).toBe('on');
+
+  it('openPostBuild()', () => {
+    var a = component.openPostBuild();
+    expect(a).toBe('on');
   });
-  
-  
+
+
   it('clearBuild()', () => {
-      var a=component.clearBuild();
-	   expect(component.buildInfo.postBuildScript.scriptFilePath).toBe('');
-	  expect(component.buildInfo.postBuildScript.targets).toBe('');
+    var a = component.clearBuild();
+    expect(component.buildInfo.postBuildScript.scriptFilePath).toBe('');
+    expect(component.buildInfo.postBuildScript.targets).toBe('');
 
   });
-  
-  
-    it('clearNugetDetails()', () => {
-      var a=component.clearNugetDetails();
-	   expect(component.buildInfo.artifactToStage.nuspecFilePath).toBe('');
-	  expect(component.buildInfo.artifactToStage.nexusAPIKey).toBe('');
-	expect(a).toBe('off');
-  });
-  
-  
 
-  
+
+  it('clearNugetDetails()', () => {
+    var a = component.clearNugetDetails();
+    expect(component.buildInfo.artifactToStage.nuspecFilePath).toBe('');
+    expect(component.buildInfo.artifactToStage.nexusAPIKey).toBe('');
+    expect(a).toBe('off');
+  });
+
   it('checkCheckBox', () => {
-	  component.buildInfo.postBuildScript =undefined;
-	  
-	  component.checkCheckBox();
+    component.buildInfo.postBuildScript = undefined;
+    component.checkCheckBox();
     expect(component.buildInfo.postBuildScript).toBe([]);
   });
-  
-  
 
+  it('checkCheckBox', () => {
+    component.buildInfo.artifactToStage.artifactRepoName = '';
+    component.buildInfo.artifactToStage.artifactRepo = {};
+    component.buildInfo.artifactToStage.artifact = '';
+    component.checkBoxObject.nugetPackage = 'off';
+    component.IdpdataService.artifactVariable = false;
+    expect(component.buildInfo.clearArtifact()).toEqual('off');
   });
+
+
+
+});
 
 

@@ -8,6 +8,8 @@
     DASHBOARD_PORT: "{{ lookup('env','DASHBOARD_PORT') }}"
     KEYCLOAK_PORT: "{{ lookup('env','KEYCLOAK_PORT') }}"
     IDPAPP_PORT: "{{ lookup('env','IDPAPP_PORT') }}"
+    JENKINS_USERNAME: "{{ lookup('env','JENKINS_USERNAME') }}"
+    JENKINS_PASSWORD: "{{ lookup('env','JENKINS_PASSWORD') }}"
   tasks:
     - name : Variable Checking...
       fail:
@@ -59,18 +61,6 @@
         regexp: '^(.*)IDP_DASHBOARD_SERVICEURL(.*)$'
         line: "IDP_DASHBOARD_SERVICEURL={{ PROTOCOL }}://{{ HOSTNAME }}:{{ DASHBOARD_PORT }}/idpdashboard/"
         backrefs: yes
-    - name: DSL set Sonar Url
-      lineinfile:
-        dest: "/dsldata/src/main/groovy/Config.properties"
-        regexp: '^(.*)SONAR_URL(.*)$'
-        line: "SONAR_URL=infysonarqube:8080"
-        backrefs: yes
-    - name: DSL set Sonar host
-      lineinfile:
-        dest: "/dsldata/src/main/groovy/Config.properties"
-        regexp: '^(.*)SONAR_HOST(.*)$'
-        line: "SONAR_HOST=infysonarqube"
-        backrefs: yes
     - name: DSL set Jenkins Url
       lineinfile:
         dest: "/dsldata/src/main/groovy/Config.properties"
@@ -83,11 +73,23 @@
         regexp: '^(.*)JENKINS_HOSTNAME(.*)$'
         line: "JENKINS_HOSTNAME={{ HOSTNAME }}"
         backrefs: yes
+    - name: DSL set Jenkins Port
+      lineinfile:
+        dest: "/dsldata/src/main/groovy/Config.properties"
+        regexp: '^(.*)JENKINS_PORT(.*)$'
+        line: "JENKINS_PORT={{ JENKINS_PORT }}"
+        backrefs: yes
+    - name: DSL set Jenkins username
+      lineinfile:
+        dest: "/dsldata/src/main/groovy/Config.properties"
+        regexp: '^(.*)JENKINS_USERNAME(.*)$'
+        line: "JENKINS_USERNAME={{ JENKINS_USERNAME }}"
+        backrefs: yes
     - name: DSL set Jenkins password
       lineinfile:
         dest: "/dsldata/src/main/groovy/Config.properties"
         regexp: '^(.*)JENKINS_PASSWORD(.*)$'
-        line: "JENKINS_PASSWORD=809a2d079a59765f7ef1de025c100651"
+        line: "JENKINS_PASSWORD={{ JENKINS_PASSWORD }}"
         backrefs: yes
     - name: Grafana set Datasource Hostname 
       lineinfile:

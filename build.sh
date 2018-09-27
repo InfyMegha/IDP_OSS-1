@@ -224,7 +224,7 @@ fi
 if [ "$SKIP_TOOLS_CONFIG" != true ]
 then
 	cd $MOUNT_DIR
-	docker run --rm -v $PWD:/datafiles -v $PWD/grafanadata/:/grafanadata -v $PWD/jenkinsdata/:/jenkinsdata -v $PWD/dsldata/:/dsldata -e PIP_PROXY="$PIP_PROXY" -e HOSTNAME=$HOSTNAME -e PROTOCOL=$PROTOCOL -e JENKINS_PORT=$JENKINS_PORT -e DASHBOARD_PORT=$DASHBOARD_PORT -e KEYCLOAK_PORT=$KEYCLOAK_PORT -e IDPAPP_PORT=$IDPAPP_PORT -w=/datafiles $ANSIBLE_IMAGE sh config.sh
+	docker run --rm -v $PWD:/datafiles -v $PWD/grafanadata/:/grafanadata -v $PWD/jenkinsdata/:/jenkinsdata -v $PWD/dsldata/:/dsldata -e PIP_PROXY="$PIP_PROXY" -e HOSTNAME=$HOSTNAME -e PROTOCOL=$PROTOCOL -e JENKINS_PORT=$JENKINS_PORT -e JENKINS_USERNAME=$JENKINS_USERNAME -e JENKINS_PASSWORD=$JENKINS_PASSWORD  -e DASHBOARD_PORT=$DASHBOARD_PORT -e KEYCLOAK_PORT=$KEYCLOAK_PORT -e IDPAPP_PORT=$IDPAPP_PORT  -w=/datafiles $ANSIBLE_IMAGE sh config.sh
 fi
 
 #Docker Stack Deployment

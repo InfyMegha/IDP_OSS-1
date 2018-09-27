@@ -237,7 +237,14 @@ class AntBuild {
 
                         if (codeQltyOn(modulesArr.getAt(i).codeAnalysis, Constants.SONAR)) {
 
-                            setSonar(jsonData, modulesArr, i, sonarRunner)
+                            def moduleName = modulesArr.getAt(i).moduleName
+
+        if (null != jsonData.buildInfo.sonarUserName && !''.equalsIgnoreCase(jsonData.buildInfo.sonarUserName) && null != jsonData.buildInfo.sonarPassword && !''.equalsIgnoreCase(jsonData.buildInfo.sonarPassword)) {
+            sonarRunner.setProperties('sonar.login=' + jsonData.buildInfo.sonarUserName + '\nsonar.password=' + jsonData.buildInfo.sonarPassword + '\nsonar.host.url=' + jsonData.buildInfo.sonarUrl + '\nsonar.projectKey=' + jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName + '\nsonar.projectName=' + moduleName + '\nsonar.projectVersion=$RELEASE_IDENTIFIER' + '\nsonar.sources=' + moduleDir)
+        } else {
+            sonarRunner.setProperties('sonar.host.url=' + jsonData.buildInfo.sonarUrl + '\nsonar.projectKey=' + jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName + '\nsonar.projectName=' + moduleName + '\nsonar.projectVersion=$RELEASE_IDENTIFIER' + '\nsonar.sources=' + moduleDir)
+        }
+        sonarRunner.add(delegate, jsonData)
                         }
 
                         if (codeQltyOn(modulesArr.getAt(i).codeAnalysis, Constants.PMD)) {
@@ -346,20 +353,7 @@ class AntBuild {
         checkmarx.add(delegate)
     }
 
-    /*
-     * This metod is used to set sonar details
-     */
-
-    private void setSonar(jsonData, modulesArr, i, sonarRunner) {
-        def moduleName = modulesArr.getAt(i).moduleName
-
-        if (null != jsonData.buildInfo.sonarUserName && !''.equalsIgnoreCase(jsonData.buildInfo.sonarUserName) && null != jsonData.buildInfo.sonarPassword && !''.equalsIgnoreCase(jsonData.buildInfo.sonarPassword)) {
-            sonarRunner.setProperties('sonar.login=' + jsonData.buildInfo.sonarUserName + '\nsonar.password=' + jsonData.buildInfo.sonarPassword + '\nsonar.host.url=' + jsonData.buildInfo.sonarUrl + '\nsonar.projectKey=' + jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName + '\nsonar.projectName=' + moduleName + '\nsonar.projectVersion=$RELEASE_IDENTIFIER' + '\nsonar.sources=' + moduleDir)
-        } else {
-            sonarRunner.setProperties('sonar.host.url=' + jsonData.buildInfo.sonarUrl + '\nsonar.projectKey=' + jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName + '\nsonar.projectName=' + moduleName + '\nsonar.projectVersion=$RELEASE_IDENTIFIER' + '\nsonar.sources=' + moduleDir)
-        }
-        sonarRunner.add(delegate, jsonData)
-    }
+    
 
     /*
      * This method is used to check codequality tools selection

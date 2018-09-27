@@ -14,7 +14,7 @@ import { IdpService } from '../../idp-service.service';
 import { IdpdataService } from '../../idpdata.service';
 import { IdprestapiService } from '../../idprestapi.service';
 import { Router, NavigationExtras } from '@angular/router';
-import { TranslateModule , TranslateService, TranslateLoader, TranslateParser} from "ng2-translate";
+import { TranslateModule, TranslateService, TranslateLoader, TranslateParser } from 'ng2-translate';
 
 
 
@@ -26,233 +26,225 @@ describe('GoCntrlComponent', () => {
   let idpdataService: IdpdataService;
   let idprestapiService: IdprestapiService;
   let router: Router;
-  class  IdpdataServiceStub {
+  class IdpdataServiceStub {
 
 
-	constructor() {}
-  template: any = {
-    'grantAccess': {
-      'applicationName': '',
-      'developers': [],
-      'pipelineAdmins': [],
-      'releaseManager': [],
-      'environmentOwnerDetails': [{
-        'environmentName': '',
-        'environmentOwners': [],
-        'dbOwners': []
-      }],
-      'slaveDetails': [
-        {
-          'slaveName': '',
-          'buildServerOS': '',
-          'workspacePath': '',
-          'createNewSlave': '',
-          'labels': '',
-          'sshKeyPath': '',
-          'slaveUsage': 'both'
-        }
-      ]
-    },
-    'basicInfo': {
-      'additionalMailRecipients': {
-        'applicationTeam': '',
-        'emailIds': ''
+    constructor() { }
+    template: any = {
+      'grantAccess': {
+        'applicationName': '',
+        'developers': [],
+        'pipelineAdmins': [],
+        'releaseManager': [],
+        'environmentOwnerDetails': [{
+          'environmentName': '',
+          'environmentOwners': [],
+          'dbOwners': []
+        }],
+        'slaveDetails': [
+          {
+            'slaveName': '',
+            'buildServerOS': '',
+            'workspacePath': '',
+            'createNewSlave': '',
+            'labels': '',
+            'sshKeyPath': '',
+            'slaveUsage': 'both'
+          }
+        ]
       },
-      'applicationName': '',
-      'buildInterval': {
-        'buildInterval': '',
-        'buildIntervalValue': 0,
-        'pollSCM': 'off'
-      },
-      'buildServerOS': '',
-      'engine': '',
-      'pipelineName': ''
-    },
-    'code': {
-      'category': '',
-      'technology': '',
-      'scm': [],
-      'buildScript':  [{'tool':''}, {'tool':''},{}]
-    },
-    'buildInfo': {
-      'buildtool': '',
-      'castAnalysis': {},
-      'artifactToStage': {},
-      'modules': []
-    },
-    'deployInfo': {
-      'deployEnv': []
-    },
-    'testInfo': {
-      'testEnv': []
-    },
-    'formStatus': {
       'basicInfo': {
-        'appNameStatus': '0',
-        'formStatus': '0'
+        'additionalMailRecipients': {
+          'applicationTeam': '',
+          'emailIds': ''
+        },
+        'applicationName': '',
+        'buildInterval': {
+          'buildInterval': '',
+          'buildIntervalValue': 0,
+          'pollSCM': 'off'
+        },
+        'buildServerOS': '',
+        'engine': '',
+        'pipelineName': ''
       },
-      'codeInfo': '',
+      'code': {
+        'category': '',
+        'technology': '',
+        'scm': [],
+        'buildScript': [{ 'tool': '' }, { 'tool': '' }, {}]
+      },
       'buildInfo': {
-        'buildToolStatus': '0',
-        'formStatus': '0',
-        'ibmsiTypeStatus':'0'
+        'buildtool': '',
+        'castAnalysis': {},
+        'artifactToStage': {},
+        'modules': []
       },
-      'deployInfo': '',
-      'testInfo': '',
-      'operation': ''
-    },
-    'checkboxStatus': {
-      'basicInfo': {},
-      'codeInfo':{},
-      'buildInfo': {},
-      'deployInfo': {},
-      'testInfo': {},
-      'others': {}
-    },
-    'backUp': {
-      'deployInfo': {},
-      'testInfo': {}
-    },
-    'masterJson': {}
-  };
-  data:any =  JSON.parse(JSON.stringify(this.template));
+      'deployInfo': {
+        'deployEnv': []
+      },
+      'testInfo': {
+        'testEnv': []
+      },
+      'formStatus': {
+        'basicInfo': {
+          'appNameStatus': '0',
+          'formStatus': '0'
+        },
+        'codeInfo': '',
+        'buildInfo': {
+          'buildToolStatus': '0',
+          'formStatus': '0',
+          'ibmsiTypeStatus': '0'
+        },
+        'deployInfo': '',
+        'testInfo': '',
+        'operation': ''
+      },
+      'checkboxStatus': {
+        'basicInfo': {},
+        'codeInfo': {},
+        'buildInfo': {},
+        'deployInfo': {},
+        'testInfo': {},
+        'others': {}
+      },
+      'backUp': {
+        'deployInfo': {},
+        'testInfo': {}
+      },
+      'masterJson': {}
+    };
+    data: any = JSON.parse(JSON.stringify(this.template));
 
 
-  language = 'english';
-  idpUserName = '';
-  roles = [];
-  access_token:any;
-  permissions = [];
-  createAppflag = false;
-  createPipelineflag = false;
-  copyPipelineflag = false;
-  editPipelineflag = false;
-  deletePipelineflag = false;
-  test = false;
-  devServerURL: any='';
-  IDPDashboardURL = '';
-  IDPLink = '';
-  geUrl = '';
-  role = '';
-  IDPDropdownProperties: any = {};
-  showConfig:any;
-  pa:boolean=true;
-  continuecontrol:any;
-  geFlag:any;
-  p:any=false;
-  ejbVal:any;
-  warVal:any;
-  jarVal:any;
-  pipelineData:any;
-  triggerJobData:any;
-  application:any;
-  freezeNavBars:boolean=false;
-  osFlag:any;
-  op:any;
-  operation:any;
-  initMain:any=false;
-  RestApiDetails:any=false;
-  buildInfoReset=false;
-  compMove:any;
-  unit:any;
-  code:any;
-  refreshBuild:boolean=false;
-  };
-  class  IdpServiceStub {
+    language = 'english';
+    idpUserName = '';
+    roles = [];
+    access_token: any;
+    permissions = [];
+    createAppflag = false;
+    createPipelineflag = false;
+    copyPipelineflag = false;
+    editPipelineflag = false;
+    deletePipelineflag = false;
+    test = false;
+    devServerURL: any = '';
+    IDPDashboardURL = '';
+    IDPLink = '';
+    geUrl = '';
+    role = '';
+    IDPDropdownProperties: any = {};
+    showConfig: any;
+    pa = true;
+    continuecontrol: any;
+    geFlag: any;
+    p: any = false;
+    ejbVal: any;
+    warVal: any;
+    jarVal: any;
+    pipelineData: any;
+    triggerJobData: any;
+    application: any;
+    freezeNavBars = false;
+    osFlag: any;
+    op: any;
+    operation: any;
+    initMain: any = false;
+    RestApiDetails: any = false;
+    buildInfoReset = false;
+    compMove: any;
+    unit: any;
+    code: any;
+    refreshBuild = false;
+  }
+  class IdpServiceStub {
 
-  };
-  class  IdprestapiServiceStub {
+  }
+  class IdprestapiServiceStub {
 
-  };
+  }
 
   class RouterStub {
-    navigate(commands: any[], extras?: NavigationExtras) { };
-  };
-	let idpdataserviceStub: IdpdataServiceStub=new IdpdataServiceStub();
-	let routerStub: RouterStub=new RouterStub();
-	let idpServiceStub:IdpServiceStub = new IdpServiceStub();
-	let idprestapiServiceStub: IdprestapiServiceStub=new IdprestapiServiceStub();
+    navigate(commands: any[], extras?: NavigationExtras) { }
+  }
+  let idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
+  let routerStub: RouterStub = new RouterStub();
+  let idpServiceStub: IdpServiceStub = new IdpServiceStub();
+  let idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-       declarations: [ GoCntrlComponent,ParentFormConnectComponent ],
-	  imports: [FormsModule,TranslateModule],
-	  providers: [{provide: IdprestapiService, useValue:idprestapiServiceStub}, 
-					{provide: IdpService, useValue:idpServiceStub}, 
-          {provide: IdpdataService, useValue:idpdataserviceStub}, 
-          IdpdataService, TranslateService,TranslateLoader,TranslateParser,
-                {provide: Router, useValue:routerStub}
-                ]
+      declarations: [GoCntrlComponent, ParentFormConnectComponent],
+      imports: [FormsModule, TranslateModule],
+      providers: [{ provide: IdprestapiService, useValue: idprestapiServiceStub },
+      { provide: IdpService, useValue: idpServiceStub },
+      { provide: IdpdataService, useValue: idpdataserviceStub },
+        IdpdataService, TranslateService, TranslateLoader, TranslateParser,
+      { provide: Router, useValue: routerStub }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-	router = TestBed.get(Router);
-	idpService = TestBed.get(IdpService);
-	idpdataService = TestBed.get(IdpdataService);
-	idprestapiService = TestBed.get(IdprestapiService);
+    router = TestBed.get(Router);
+    idpService = TestBed.get(IdpService);
+    idpdataService = TestBed.get(IdpdataService);
+    idprestapiService = TestBed.get(IdprestapiService);
     fixture = TestBed.createComponent(GoCntrlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('paFalse()', () => {
-	  var a = component.paFalse();
+    const a = component.paFalse();
     expect(idpdataService.pa).toBeFalsy();
     expect(a).toBeFalsy();
   });
 
   it('paTrue() ', () => {
-	
-    var a = component.paTrue();
-    
+    const a = component.paTrue();
     expect(idpdataService.pa).toBeTruthy();
     expect(a).toBeFalsy();
   });
 
 
   it('codeAnalysisEmpty()', () => {
-	
-    var a = component.codeAnalysisEmpty();
-    
+    const a = component.codeAnalysisEmpty();
     expect(idpdataService.pa).toBeTruthy();
     expect(a).toBe('off');
   });
 
-  //   fit('codeAnalysisEmpty()', () => {
-	
-  //   var a = component.unitTestingOn();
-    
-  //   expect(idpdataService.pa).toBeTruthy();
-
-  //   expect(a).toBe('off');
-  // });
 
   it(' codeCoverageOffUnitTestDirEmpty() ', () => {
-	
-    var a = component. codeCoverageOffUnitTestDirEmpty();
-  
+    const a = component.codeCoverageOffUnitTestDirEmpty();
     expect(component.buildInfo.modules[0].unitTestDir).toBe('');
     expect(component.buildInfo.modules[0].codeCoverage).toBe('off');
-
     expect(a).toBe('off');
   });
 
+  it('clearProxyDetails() ', () => {
+    const a = component.codeCoverageOffUnitTestDirEmpty();
+    expect(component.buildInfo.modules[0].npmProxy.toBe(''));
+    expect(component.buildInfo.modules[0].npmProxyUserName.toBe(''));
+    expect(component.buildInfo.modules[0].npmProxyPassword.toBe(''));
+    expect(a).toBe('off');
+  });
 
-
-    it('codeCoverageOff() ', () => {
-	
-    var a = component.codeCoverageOff();
+  it('codeCoverageOff() ', () => {
+    const a = component.codeCoverageOff();
     expect(component.buildInfo.modules[0].unitTestDir).toBe('');
     expect(component.buildInfo.modules[0].codeCoverage).toBe('off');
     expect(component.buildInfo.modules[0].unitTesting).toBe('off');
-
     expect(a).toBe('off');
   });
 
-       
-
+  it('check() ', () => {
+    const a = component.codeCoverageOff();
+    expect(component.buildInfo.modules[0].codeAnalysis[1].toBe('sonar'));
+    expect(component.buildInfo.modules[0].codeAnalysis[0].toBe('checkStyle'));
+  });
 
 
 });

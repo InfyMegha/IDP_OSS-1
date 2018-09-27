@@ -248,12 +248,56 @@ describe('NodejsCntrlComponent', () => {
     expect(component.tempObject.modules[0].excludeDirToScan).toEqual('off');
   });
 
-  xit('ExcludeToDirectories', () => {
-    component.tempObject.modules[0].codeAnalysis ='on';
-    component.buildInfo.modules[0].codeAnalysis[0] ='on';
-    component.buildInfo.modules[0].codeAnalysis[1] ='on';
+  it('clearAll', () => {
+    component.tempObject.modules[0].codeAnalysis ='on'
+    component.buildInfo.modules[0].codeAnalysis =['off','off'];
     component.checkCodeAOn();
-    expect(component.tempObject.modules[0].excludeDirToScan).toBe('on')
+    expect(component.tempObject.modules[0].excludeDirToScan).toEqual('off');
+  });
+
+  xit('ExcludeToDirectories', () => {
+    component.buildInfo.modules[0].npmProxyUserName ='';
+    component.buildInfo.modules[0].npmProxyPassword = '';
+    component.buildInfo.modules[0].npmProxy = '';
+    component.checkCodeAOn();
+    expect(component.clearAll()).toEqual('off');
+  });
+
+  xit('closeCompile', () => {
+    component.buildInfo.modules[0].jsonPath = '';
+    component.buildInfo.modules[0].codeFormatting = 'off';
+    component.tempObject.modules[0].checkRunApp = 'off';
+    component.buildInfo.modules[0].customScript = '';
+    component.buildInfo.modules[0].unitTesting = 'off';
+    component.buildInfo.modules[0].unitTestProjectName = '';
+    component.buildInfo.modules[0].codeCoverage = 'off';
+    component.buildInfo.modules[0].codeAnalysis.length = 1;
+    component.buildInfo.modules[0].codeAnalysis[1] = 'off';
+    expect(component.closeCompile()).toEqual('off');
+  });
+
+  xit('closeCodeAnalysis', () => {
+    component.buildInfo.modules[0].codeAnalysis = [];
+    component.buildInfo.modules[0].excludeFolders = '';
+    component.tempObject.modules[0].excludeDirToScan = 'off';
+    expect(component.closeCodeAnalysis()).toEqual('off');
+  });
+
+  xit('closeCheckRun', () => {
+    component.buildInfo.modules[0].customScript = '';
+    expect(component.closeCheckRun()).toEqual('off');
+  });
+
+  xit('closeUnitTest', () => {
+    component.buildInfo.modules[0].unitTestProjectName = '';
+    component.buildInfo.modules[0].codeCoverage = 'off';
+    expect(component.closeUnitTest()).toEqual('off');
+  });
+
+  xit('installGruntOn', () => {
+    component.IdpdataService.osFlag === true;
+    component.buildInfo.modules[0].installGrunt = 'on';
+    expect(component.installGruntOn()).toBeFalsy();
   });
 
 });
