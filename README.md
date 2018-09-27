@@ -22,7 +22,7 @@
 
 # About the repository
 
-This repository is intended to hold the code base along with the required dependencies for the Infosys DevOps Platform.
+This repository is intended to hold the code base along with the required dependencies for the Infosys DevOps Platform OSS version.
 
 ## Getting Started
 
