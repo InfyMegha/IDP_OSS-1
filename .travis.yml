@@ -4,5 +4,7 @@ matrix:
       script: 
         - cd service/Services && mvn install -Dmaven.test.skip=true && cd ../../dashboard && mvn install -Dmaven.test.skip=true && cd ../ui && mvn install -Dmaven.test.skip=true 
     - language: groovy
+      before script:
+        - cd dsl
       script:
-        - cd dsl && ./gradlew build
+        - gradlew build
