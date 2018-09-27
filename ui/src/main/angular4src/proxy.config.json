@@ -1,0 +1,14 @@
+{
+"/idp-oauth/*":{
+		"target":"https://idplinv03:8080/idpapp",
+		"secure":false,
+		"logLevel":"debug"
+	},
+	"/properties":{
+		"target":"https://idplinv03:8080/idpapp",
+	    "secure":false,
+		"logLevel":"debug"
+	}
+
+
+}
