@@ -26,7 +26,7 @@ This repository is intended to hold the code base along with the required depend
 
 ## Getting Started
 
-Below instructions will help the user to get the project up and running on their local machine for development and testing purposes. See [WIKI](https://github.com/krishnakanthbn/IDP_OSS/wiki) for notes on how to deploy the platform on a live system.
+Below instructions will help the users to get to know the structure of this repository. See [WIKI](https://github.com/krishnakanthbn/IDP_OSS/wiki) for notes on how to deploy the platform on a live system.
 
 ## Details on project modules
 
@@ -45,21 +45,21 @@ Below instructions will help the user to get the project up and running on their
 </tr>
 <tr>
   <td align="center"><b>Dashboard</b></td>
-  <td>This module is dedicated for collecting relevant data duing pipeline execution in Jenkins with the help of custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as a Metrics Dashboard for providing Trends/Insights from application DevOps cycle.Dashboard information population does not impacts the pipeline execution duration in Jenkins as it is done as a separate activity. 
+  <td>This microservice is designed for collecting relevant data during pipeline execution in Jenkins with the help of IDP's custom utilities. The data is then stored in Postgres and fed to Grafana dashboard, which is being used as the visualisation tool for providing trends and insights about applications. 
 
 </td>
   <td>
     <ol>
     <li><b>Programming Language :</b> Java, for custom utilities</li>
     <li><b>Dependency Management:</b> Maven</li>
-    <li><b>Database :</b> InFlux DB</li>
+    <li><b>Database :</b> Postgres</li>
     <li><b>Metrics Dashboard :</b> Grafana</li>
     </ol>
   </td>
 </tr>
 <tr>
   <td align="center"><b>DSL</b></td>
-  <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module communicates with <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and manages the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</td>
+  <td>This module allows the developer to describe Jenkins jobs using Groovy-based language. The module uses <a href="https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin">Jenkins Job DSL Plugin</a> which creates, updates and controls the Jenkins jobs. This allows to embrace the concept of "Configuration as a Code", thereby reducing MTTR of CICD Server (Jenkins)</td>
   <td>
     <ol>
     <li><b>Programming Language :</b> Groovy</li>
@@ -72,7 +72,7 @@ Below instructions will help the user to get the project up and running on their
   <td>This module holds all the IDP user interface code and its related dependencies</td>
   <td>
     <ol>
-    <li><b>Framework :</b> Angular4</li>
+    <li><b>Framework :</b> Angular 5</li>
     <li><b>Dependency Management:</b> NPM</li>
     </ol>
   </td>
@@ -81,7 +81,7 @@ Below instructions will help the user to get the project up and running on their
   <td align="center"><b>Services</b></td>
   <td>This module is divided into number of sub-parts.
      <ol>
-    <li>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using an Load Balancer</li>
+    <li>Spring RESTful service module for creating stateless services for implementing business logic. These services can be independently deployed and scaled up using a load Balancer</li>
     <li>OAuth2 authorization module for enhanced security</li>
     <li>Module implementing Zuul Proxy to be used as an edge gateway which would route the request through Authorization Server (if Access token is not available/expired)</li>
      <li>Database layer for performing CRUD operations on backend database with respect to the operation being performed</li>
@@ -109,12 +109,12 @@ Below instructions will help the user to get the project up and running on their
 </tr>
 <tr>
   <td align="center"><b>Docs</b></td>
-  <td>This folder contains the necessary documents required by the user for understanding and using IDP.</td>
+  <td>This folder contains the assets used in the Wiki pages.</td>
   <td align="center">-</td>
 </tr>
 <tr>
   <td align="center"><b>Data Files</b></td>
-  <td>This folder contains the database initialization scripts for both Postgres. It also consists of the Grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</td>
+  <td>This folder contains the database initialization scripts for Postgres. It also consists of the Grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</td>
   <td align="center">-</td>
 </tr>
 <tr>
