@@ -272,4 +272,6 @@ else
 	wget $WGET_PROXY -O home_files/plugins/workflow-support.hpi https://updates.jenkins-ci.org/download/plugins/workflow-support/2.14/workflow-support.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/xshell.hpi https://updates.jenkins-ci.org/download/plugins/xshell/0.10/xshell.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/xunit.hpi https://updates.jenkins-ci.org/download/plugins/xunit/1.102/xunit.hpi --no-check-certificate
+	wget $WGET_PROXY -O home_files/plugins/nunit.hpi https://updates.jenkins-ci.org/download/plugins/nunit/0.23/nunit.hpi --no-check-certificate
+	wget $WGET_PROXY -O home_files/plugins/ivy.hpi https://updates.jenkins-ci.org/download/plugins/ivy/1.28/ivy.hpi --no-check-certificate
 fi

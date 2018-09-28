@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [ "$SSL_ENABLED" = true ]
 then
 	echo "Starting IDP Eureka in SSL mode"
@@ -13,5 +12,4 @@ else
 	export SSL_ENABLED=false 
 	echo "Starting IDP Eureka in non-secure mode"
 	java -jar -Djava.security.egd=file:/dev/./urandom `dirname $0`/idpeureka.jar 
-	
 fi

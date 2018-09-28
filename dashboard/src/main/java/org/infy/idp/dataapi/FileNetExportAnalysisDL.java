@@ -155,7 +155,7 @@ public class FileNetExportAnalysisDL {
 	 * @param triggerID
 	 * @return
 	 */
-	private String getEnvironment(int triggerID) {
+	public String getEnvironment(int triggerID) {
 		String queryStatement = "select trigger_entity::json ->> 'envSelected' from ttrigger_history where trigger_id='"
 				+ triggerID + "';";
 		String environment = "";

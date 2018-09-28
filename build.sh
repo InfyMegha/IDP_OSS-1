@@ -159,7 +159,7 @@ then
 	then
 		echo "Compiling UI ......."
 		cd $EXEC_DIR/ui
-		docker run --rm -v $PWD:/idpapp -w=/idpapp $ANGULAR_BUILD_IMAGE sh node_build.sh
+		docker run --rm -v $PWD:/idpapp -w=/idpapp -e NPM_PROXY="$NPM_PROXY" $ANGULAR_BUILD_IMAGE sh node_build.sh
 		docker run --rm -v $PWD:/idpapp $LOCAL_M2_CACHE -w=/idpapp $MAVEN_BUILD_IMAGE mvn clean install $MAVEN_TESTS
 		echo "Building UI Docker Image"
 		docker build -t idp/idpapp ./

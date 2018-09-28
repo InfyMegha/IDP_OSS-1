@@ -1,5 +1,4 @@
 #!/bin/bash
-status="false";
 if [ "$SSL_ENABLED" = true ]
 then
 	export PROTOCOL=https
@@ -8,12 +7,23 @@ else
 fi
 while [ "$status" != true ]
  do
-	wget -q -O - ${PROTOCOL}://config:8888/idpoauth/paas --user=${CONFIG_USERNAME} --password=${CONFIG_PASSWORD} --no-check-certificate
+	wget -q -O - ${PROTOCOL}://${CONFIG_HOSTNAME}:${CONFIG_PORT}/idpoauth/paas --user=${CONFIG_USERNAME} --password=${CONFIG_PASSWORD} --no-check-certificate
 	if [ $? -ne 0 ]
 	  then status="false"
 	else status="true"
 	fi
   	echo "Waiting for Config Server to start. Sleeping for 5 sec ....."
+	sleep 5
+done
+status="false";
+while [ "$status" != true ]
+ do
+	wget -q -O - ${PROTOCOL}://${KEYCLOAK_HOSTNAME}:${KEYCLOAK_PORT}/auth --no-check-certificate
+	if [ $? -ne 0 ]
+	  then status="false"
+	else status="true"
+	fi
+  	echo "Waiting for Keycloak Server to start. Sleeping for 5 sec ....."
 	sleep 5
 done
 if [ "$SSL_ENABLED" = true ]

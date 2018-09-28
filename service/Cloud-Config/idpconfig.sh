@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [ "$SSL_ENABLED" = true ]
 then
 	echo "Starting IDP Cloud Config in SSL mode"
@@ -12,6 +11,5 @@ then
 else
 	export SSL_ENABLED=false 
 	echo "Starting IDP Cloud Config in non-secure mode"
-	java -jar -Djava.security.egd=file:/dev/./urandom `dirname $0`/idpconfig.jar 
-	
+	java -jar -Djava.security.egd=file:/dev/./urandom `dirname $0`/idpconfig.jar 	
 fi

@@ -7,7 +7,7 @@ else
 fi
 while [ "$status" != true ]
  do
-	wget -q -O - ${PROTOCOL}://config:8888/idpui/paas --user=${CONFIG_USERNAME} --password=${CONFIG_PASSWORD} --no-check-certificate
+	wget -q -O - ${PROTOCOL}://${CONFIG_HOSTNAME}:${CONFIG_PORT}/idpui/paas --user=${CONFIG_USERNAME} --password=${CONFIG_PASSWORD} --no-check-certificate
 	if [ $? -ne 0 ]
 	  then status="false"
 	else status="true"

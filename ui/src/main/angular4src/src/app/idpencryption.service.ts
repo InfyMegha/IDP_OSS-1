@@ -5,7 +5,7 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import CryptoJS from 'crypto-js/crypto-js';
+import * as CryptoJS from 'crypto-js';
 import { IdpdataService } from './idpdata.service';
 import { Injectable } from '@angular/core';
 
