@@ -1,7 +1,11 @@
-language: java
-addons:
-  sonarcloud:
-  organization: "krishnakanthbn-github" # the key of the org you chose at step #3
-  script: 
-    - sonar-scanner
- 
+matrix:
+  include:
+    - language: java
+      script: 
+       - cd service/Services && mvn install -Dmaven.test.skip=true   && cd ../Cloud-Config && mvn install && cd ../eureka-service && mvn install  && cd ../../dashboard && mvn install  && cd ../ui && mvn install  && cd ../scheduler/SchedulerService && mvn install - && cd ../../jenkins/custom_tools/DevopsJsonConv && mvn install  && cd ../MetricsProcessor && mvn install  && cd ../ReportFetchUtil && mvn install  && cd ../SchedulerUtility && mvn install  && cd ../../../subscription && mvn install 
+    - language: groovy
+      before script:
+        - cd dsl
+      script:
+        - gradle build
+  
