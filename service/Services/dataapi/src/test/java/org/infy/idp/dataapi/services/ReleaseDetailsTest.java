@@ -5,14 +5,18 @@
 * https://opensource.org/licenses/MIT.
 *
 ***********************************************************************************************/
-package org.infy.idp.businessapi;
+
+package org.infy.idp.dataapi.services;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-import org.infy.entities.triggerinputs.TriggerInputs;
-import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
-import org.infy.idp.dataapi.services.JobDetailsDL;
+import org.infy.idp.entities.releasemanager.Slot;
+import org.infy.idp.entities.releasemanagerinfo.Release;
+import org.infy.idp.entities.releasemanagerinfo.ReleasePipeline;
 import org.infy.idp.utils.ConfigurationManager;
 import org.junit.After;
 import org.junit.Before;
@@ -28,31 +32,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import jtest.AppContext;
 
 /**
- * GetTriggerDetailsTest is a test class for GetTriggerDetails
+ * ReleaseDetailsTest is a test class for ReleaseDetails
  *
- * @see org.infy.idp.businessapi.TriggerDetailBL
+ * @see org.infy.idp.dataapi.services.ReleaseDetails
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class TriggerDetailBLTest extends PackageTestCase {
-
-	@Spy
-	@InjectMocks
-	private TriggerDetailBL testedObject;
-
-	@Spy
-	@InjectMocks
-	private FetchJobDetails fetchJobDetails;
-
-	@Spy
-	@InjectMocks
-	private JobDetailsDL getJobDetails;
-	@Spy
-	@InjectMocks
-	private JobsBL jobsBL;
-	@Spy
-	@InjectMocks
-	private TriggerJobName tjb;
+public class ReleaseDetailsTest extends PackageTestCase {
 
 	@Spy
 	@InjectMocks
@@ -62,7 +49,14 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	@Autowired
 	private ConfigurationManager configurationManager;
 
-	public TriggerDetailBLTest() {
+	@InjectMocks
+	private ReleaseDetails testedObject;
+
+	/**
+	 * Constructor for test class.
+	 *
+	 */
+	public ReleaseDetailsTest() {
 		/*
 		 * This constructor should not be modified. Any initialization code should be
 		 * placed in the setUp() method instead.
@@ -70,23 +64,55 @@ public class TriggerDetailBLTest extends PackageTestCase {
 
 	}
 
+	@Test
+	public void testGetReleaseNum() throws Throwable {
+		List<String> pipelines = new ArrayList<>();
+		pipelines.add("JFrogTest2");
+		Map<String, List<String>> map = testedObject.getReleaseNum("JFrogTest", pipelines);
+		assertNotNull(map);
+	}
+
+	@Test
+	public void testGetEnvSlots() throws Throwable {
+		Slot slot = testedObject.getEnvSlots("JFrogTest", "dev");
+		assertNotNull(slot);
+	}
+
+	@Test
+	public void testGetExistingslots() throws Throwable {
+		Slot slot = testedObject.getExistingslots("JFrogTest", "1.0.0", "dev");
+		assertNotNull(slot);
+	}
+
+	@Test
+	public void testGetReleasePipelineInfo() throws Throwable {
+		ReleasePipeline rp = testedObject.getReleasePipelineInfo("JFrogTest", "JFrogTest2", "approved");
+		assertNotNull(rp);
+	}
+
+	@Test
+	public void testGetReleaseId() throws Throwable {
+		int id = testedObject.getReleaseId("JFrogTest", "JFrogTest2", "1.0.0", "approved");
+		assertNotNull(id);
+	}
+
+	@Test
+	public void testGetRemarks() throws Throwable {
+		Release release = new Release();
+		release.setReleaseNumber("1.0.0");
+		String remark= testedObject.getRemarks(release, 1L, 1L);
+		assertNotNull(remark);
+	}
+	
+	
+	
+
+
 	/**
 	 * Used to set up the test. This method is called by JUnit before each of the
 	 * tests are executed.
 	 * 
 	 */
-
-	@Test(expected = NullPointerException.class)
-	public void fetchTriggerTest() throws Throwable {
-
-		tjb.setApplicationName("firstApp");
-		tjb.setPipelineName("job01");
-		tjb.setUserName("kruti.vyas");
-		TriggerInputs ti = testedObject.fecthTriggerOptions(tjb);
-		TriggerInputs t2 = new TriggerInputs();
-		t2.setRepoName("na");
-	}
-
 	@Before
 	public void setUp() throws Exception {
 		/*
@@ -98,29 +124,26 @@ public class TriggerDetailBLTest extends PackageTestCase {
 		try {
 
 			MockitoAnnotations.initMocks(this);
-			Method postConstruct = PostGreSqlDbContext.class.getDeclaredMethod("init", null);
+			Method postConstruct = PostGreSqlDbContext.class.getDeclaredMethod("init", null); // methodName,parameters
 			postConstruct.setAccessible(true);
 			postConstruct.invoke(postGreSqlDbContext);
-
-			// isCalledAlready=true;
 
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		// }
-		// throw new Exception();
-
 	}
 
 	/**
 	 * Used to clean up after the test. This method is called by JUnit after each of
 	 * the tests have been completed.
+	 * 
 	 */
 	@After
 	public void tearDown() throws Exception {
 		try {
+
 			/*
 			 * Add any necessary cleanup code here (e.g., close a socket).
 			 */
@@ -132,13 +155,14 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
 	 * 
-	 * Usage: java GetTriggerDetailsTest
+	 * Usage: java ReleaseDetailsTest
 	 * 
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
+		// junit.textui.TestRunner will print the test results to stdout.
 
-		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.GetTriggerDetailsTest");
+		org.junit.runner.JUnitCore.main("org.infy.idp.dataapi.services.ReleaseDetailsTest");
 	}
 
 	/**
@@ -147,6 +171,6 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	 * @return the class which will be tested
 	 */
 	public Class getTestedClass() {
-		return TriggerDetailBL.class;
+		return ReleaseDetails.class;
 	}
 }

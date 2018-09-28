@@ -20,7 +20,7 @@ public class AppContext {
 		configurationManager.setUrl("jdbc:postgresql://localhost:5432/IDP");
 		configurationManager.setEmaildomain("@infosys.com");
 		configurationManager.setEmailusername("idpadmin@infosys.com");
-		configurationManager.setEmailpassword("pwd");
+		configurationManager.setEmailpassword("idpadmin@123");
 		configurationManager.setEmailsmtphost("email_host");
 		configurationManager.setEmailsmtpport("25");
 		configurationManager.setJenkinsurl("http://localhost:8085/jenkins");

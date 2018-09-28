@@ -8,21 +8,17 @@
 
 package org.infy.idp.utils;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.lang.reflect.Method;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.test.context.ContextConfiguration;
 
 /**
  * SlaveDetailsTest is a test class for SlaveDetails
@@ -35,6 +31,8 @@ public class SlaveDetailsTest extends PackageTestCase {
 
 	@InjectMocks
 	private SlaveDetails testedObject;
+	@InjectMocks
+	private JenkinsCLI jenkinsCLI;
 
 	@Spy
 	private ConfigurationManager configmanager;
@@ -85,6 +83,10 @@ public class SlaveDetailsTest extends PackageTestCase {
 		configmanager.setJenkinspassword("idpadmin@123");
 		configmanager.setSharePath("D:\\idpdata\\dsldata");
 		configmanager.setPipelineScriptPath("D:\\idpdata\\dsldata\\src\\main\\groovy\\pipeline_sequence");
+		MockitoAnnotations.initMocks(this);
+		Method postConstruct = JenkinsCLI.class.getDeclaredMethod("init", null); // methodName,parameters
+		postConstruct.setAccessible(true);
+		postConstruct.invoke(jenkinsCLI);
 
 	}
 
@@ -129,4 +131,3 @@ public class SlaveDetailsTest extends PackageTestCase {
 		return SlaveDetails.class;
 	}
 }
-// JTEST_CURRENT_ID=-1072143252.

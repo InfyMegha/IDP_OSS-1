@@ -39,7 +39,6 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -482,7 +481,6 @@ public class JobDetailsInsertionServiceTest extends PackageTestCase {
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.dataapi.services.JobDetailsInsertionServiceTest");
 	}

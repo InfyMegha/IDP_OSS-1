@@ -9,9 +9,10 @@ package org.infy.idp.businessapi;
 
 import java.lang.reflect.Method;
 
-import org.infy.entities.triggerinputs.TriggerInputs;
-import org.infy.entities.triggerinputs.TriggerJobName;
+import org.infy.entities.artifact.Artifact;
+import org.infy.entities.artifact.ArtifactList;
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
+import org.infy.idp.dataapi.services.DeploymentDL;
 import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.utils.ConfigurationManager;
 import org.junit.After;
@@ -19,6 +20,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,31 +30,25 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import jtest.AppContext;
 
 /**
- * GetTriggerDetailsTest is a test class for GetTriggerDetails
+ * EnvironmentBLTest is a test class for EnvironmentBL
  *
- * @see org.infy.idp.businessapi.TriggerDetailBL
+ * @see org.infy.idp.businessapi.EnvironmentBL
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class TriggerDetailBLTest extends PackageTestCase {
+public class EnvironmentBLTest extends PackageTestCase {
 
-	@Spy
-	@InjectMocks
-	private TriggerDetailBL testedObject;
-
-	@Spy
-	@InjectMocks
-	private FetchJobDetails fetchJobDetails;
-
-	@Spy
-	@InjectMocks
+	@Mock
 	private JobDetailsDL getJobDetails;
-	@Spy
+
+	@Mock
+	private DeploymentDL deploymentDL;
+
 	@InjectMocks
 	private JobsBL jobsBL;
-	@Spy
+
 	@InjectMocks
-	private TriggerJobName tjb;
+	private EnvironmentBL environmentBL;
 
 	@Spy
 	@InjectMocks
@@ -62,7 +58,7 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	@Autowired
 	private ConfigurationManager configurationManager;
 
-	public TriggerDetailBLTest() {
+	public EnvironmentBLTest() {
 		/*
 		 * This constructor should not be modified. Any initialization code should be
 		 * placed in the setUp() method instead.
@@ -76,15 +72,26 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	 * 
 	 */
 
-	@Test(expected = NullPointerException.class)
-	public void fetchTriggerTest() throws Throwable {
+	@Test
+	public void testGetArtifactList() throws Throwable {
+		ArtifactList artifactList = new ArtifactList();
+		artifactList.setApplicationName("JFrogTest");
+		artifactList.setPipelineName("JFrogTest2");
+		artifactList.setEnvironmentName("dev");
+		artifactList.setReleaseNumber("1.0.0");
+		ArtifactList list = environmentBL.getArtifactList(artifactList);
+		assertNotNull(list);
+	}
 
-		tjb.setApplicationName("firstApp");
-		tjb.setPipelineName("job01");
-		tjb.setUserName("kruti.vyas");
-		TriggerInputs ti = testedObject.fecthTriggerOptions(tjb);
-		TriggerInputs t2 = new TriggerInputs();
-		t2.setRepoName("na");
+	@Test
+	public void testUpdateSlave() throws Throwable {
+		environmentBL.updateSlave("WinSlave");
+	}
+
+	@Test
+	public void getLatestArtifactDetails() throws Throwable {
+		Artifact artifact = environmentBL.getLatestArtifactDetails("JFrogTest_JFrogTest2");
+		assertNotNull(artifact);
 	}
 
 	@Before
@@ -102,15 +109,9 @@ public class TriggerDetailBLTest extends PackageTestCase {
 			postConstruct.setAccessible(true);
 			postConstruct.invoke(postGreSqlDbContext);
 
-			// isCalledAlready=true;
-
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// }
-		// throw new Exception();
 
 	}
 
@@ -132,13 +133,13 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
 	 * 
-	 * Usage: java GetTriggerDetailsTest
+	 * Usage: java EnvironmentBLTest
 	 * 
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
 
-		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.GetTriggerDetailsTest");
+		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.EnvironmentBLTest");
 	}
 
 	/**
@@ -147,6 +148,6 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	 * @return the class which will be tested
 	 */
 	public Class getTestedClass() {
-		return TriggerDetailBL.class;
+		return EnvironmentBL.class;
 	}
 }

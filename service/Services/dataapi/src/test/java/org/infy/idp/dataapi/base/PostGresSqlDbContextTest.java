@@ -104,7 +104,7 @@ public class PostGresSqlDbContextTest extends PackageTestCase {
 	 */
 	public static void main(String[] args) {
 
-		org.junit.runner.JUnitCore.main("org.infy.idp.datapai.base.PostGreSqlDbContextTest");
+		org.junit.runner.JUnitCore.main("org.infy.idp.dataapi.base.PostGreSqlDbContextTest");
 	}
 
 	/**

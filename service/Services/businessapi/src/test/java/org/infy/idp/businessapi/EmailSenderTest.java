@@ -38,11 +38,6 @@ import jtest.AppContext;
 @ContextConfiguration(classes = AppContext.class)
 public class EmailSenderTest extends PackageTestCase {
 
-	/**
-	 * Constructor for test class.
-	 *
-	 */
-
 	@InjectMocks
 	private EmailSender emailsender;
 
@@ -81,33 +76,33 @@ public class EmailSenderTest extends PackageTestCase {
 	public void testGetUsersForApplication() {
 		TriggerJobName tjn = new TriggerJobName();
 		tjn.setApplicationName("DemoAppT");
-		List<String> list = emailsender.getUsersForApplication(tjn, "ciplatform");
+		List<String> list = emailsender.getUsersForApplication(tjn, "idpadmin");
 		assertNotNull(list);
 	}
 
 	@Test
 	public void testGetUserEmailIds() {
 		List<String> users = new ArrayList<String>();
-		users.add("ciplatform");
+		users.add("idpadmin");
 		List<String> list = emailsender.getUserEmailIds(users);
 		assertNotNull(list);
 	}
 
 	@Test
 	public void testCreateAppMailBody() {
-		String eBody = emailsender.createAppMailBody("ciplatform", "DemoAppT", "create", app);
+		String eBody = emailsender.createAppMailBody("idpadmin", "DemoAppT", "create", app);
 		assertNotNull(eBody);
 	}
 
 	@Test
 	public void testCreateMailBody() {
-		String eBody = emailsender.createMailBody("ciplatform", "TC1_Maven", "DemoAppT", "create");
+		String eBody = emailsender.createMailBody("idpadmin", "TC1_Maven", "DemoAppT", "create");
 		assertNotNull(eBody);
 	}
 
 	@Test
 	public void testCreateReleaseMailBody() {
-		String eBody = emailsender.createReleaseMailBody("ciplatform", "TC1_Maven", "DemoAppT", "add", "1.0");
+		String eBody = emailsender.createReleaseMailBody("idpadmin", "TC1_Maven", "DemoAppT", "add", "1.0");
 		assertNotNull(eBody);
 	}
 
@@ -118,8 +113,8 @@ public class EmailSenderTest extends PackageTestCase {
 		triggerJobName.setPipelineName("TC1_Maven");
 		triggerJobName.setMethod("edited");
 		triggerJobName.setMailBody("Pipeline edited!");
-		assertEquals(true, emailsender.sendEmail("create", triggerJobName, "sanjay.sharma",
-				emailsender.getUsersFromApplication(triggerJobName, "sanjay.sharma")));
+		assertEquals(true, emailsender.sendEmail("create", triggerJobName, "idpadmin",
+				emailsender.getUsersFromApplication(triggerJobName, "idpadmin")));
 	}
 
 	/**

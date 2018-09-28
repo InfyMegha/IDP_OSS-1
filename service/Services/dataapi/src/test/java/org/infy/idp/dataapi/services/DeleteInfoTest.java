@@ -14,16 +14,23 @@ import org.infy.idp.dataapi.base.PostGreSqlDbContext;
 import org.infy.idp.utils.ConfigurationManager;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import jtest.AppContext;
 
 /**
  * DeleteInfoTest is a test class for DeleteInfo
  *
  * @see org.infy.idp.dataapi.services.DeleteInfo
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = AppContext.class)
 public class DeleteInfoTest {
 	@Spy
 	@InjectMocks

@@ -121,8 +121,6 @@ public class BuildServiceTest extends PackageTestCase {
 		JenkinsServer server = new JenkinsServer(serverUri);
 		BuildStatus result = testedObject.getBuildStatus(server, "jobName", 0, 0L);
 		assertEquals(null, result); // jtest_unverified
-		// No exception thrown
-		// jtest_unverified
 	}
 
 	/***
@@ -135,11 +133,9 @@ public class BuildServiceTest extends PackageTestCase {
 	// @RunWith(MockitoJUnitRunner.class)
 	public void testCreateNewJob2() throws Throwable {
 
-		// ConfigurationManager config = mock(ConfigurationManager.class);
 
 		testedObject.createNewJob(idpjson);
 
-		// jtest.NoSuchValueException thrown
 	}
 
 	/***
@@ -183,7 +179,7 @@ public class BuildServiceTest extends PackageTestCase {
 		super.setUp();
 		// jtest.Repository.putTemporary("name", object);
 
-		configmanager.setJenkinsurl("https://idplinv03:8085");
+		configmanager.setJenkinsurl("https://idp-server:8085");
 		configmanager.setJenkinsuserid("admin");
 		configmanager.setJenkinspassword("admin123");
 		configmanager.setSharePath("D:\\IDP\\IDP_Versions\\DSL");
@@ -283,7 +279,7 @@ public class BuildServiceTest extends PackageTestCase {
 		RunScript postBuildScript = new RunScript();
 		postBuildScript.setScriptType("idpjson_25");
 		postBuildScript.setFlattenFilePath("idpjson_26");
-		Integer port1 = 9091; // (Integer) Repository.getObject(Integer.class, "integer");
+		Integer port1 = 9091; 
 		postBuildScript.setPort(port1);
 		postBuildScript.setHost("idpjson_27");
 		postBuildScript.setUserName("idpjson_28");
@@ -356,7 +352,7 @@ public class BuildServiceTest extends PackageTestCase {
 		module1.setAvdName("avdName22");
 		module1.setEnvName("envName22");
 		module1.setDbName("dbName22");
-		Integer port2 = 9092;// new Integer(-2147483648);
+		Integer port2 = 9092;
 		module1.setPort(port2.toString());
 		module1.setProductKey("productKey22");
 		module1.setMessageFlows("messageFlows22");
@@ -369,7 +365,7 @@ public class BuildServiceTest extends PackageTestCase {
 		module1.setDestDB("destDB22");
 		module1.setDestPassword("destPassword22");
 		module1.setRepository("repository22");
-		RunScript runScript = new RunScript(); // ??
+		RunScript runScript = new RunScript(); 
 		module1.setRunScript(runScript);
 		module1.setmVNOPTS("mVNOPTS43");
 		module1.setJsonPath("jsonPath22");
@@ -401,9 +397,9 @@ public class BuildServiceTest extends PackageTestCase {
 		module1.setAllUnitTestPass("allUnitTestPass");
 		module1.setNoViolations("noViolations");
 		module1.setNpmProxy("npmProxy");
-		List<String> unitTestTool = new ArrayList<String>(); // ??
+		List<String> unitTestTool = new ArrayList<String>(); 
 		module1.setUnitTestTool(unitTestTool);
-		List<String> codeCoverageTool = new ArrayList<String>(); // ??
+		List<String> codeCoverageTool = new ArrayList<String>(); 
 		module1.setCodeCoverageTool(codeCoverageTool);
 		module1.setBuildValue("buildValue");
 		module1.setRemoteDir("remoteDir");
@@ -412,7 +408,7 @@ public class BuildServiceTest extends PackageTestCase {
 
 		ArrayList modules = new ArrayList();
 
-		modules.add(module1); // ??
+		modules.add(module1); 
 
 		buildInfo.setModules(modules);
 		idpjson.setBuildInfo(buildInfo);
@@ -455,7 +451,6 @@ public class BuildServiceTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.utils.BuildServiceTest");
 	}
@@ -470,4 +465,3 @@ public class BuildServiceTest extends PackageTestCase {
 		return BuildService.class;
 	}
 }
-// JTEST_CURRENT_ID=-2110752424.

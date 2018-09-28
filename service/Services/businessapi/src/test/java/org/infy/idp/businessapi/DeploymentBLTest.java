@@ -30,7 +30,7 @@ import jtest.AppContext;
 /**
  * DeploymentBLTest is a test class for DeploymentBL
  *
- * @see org.infy.idp.businessapi.TriggerDetailBL
+ * @see org.infy.idp.businessapi.DeploymentBL
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)

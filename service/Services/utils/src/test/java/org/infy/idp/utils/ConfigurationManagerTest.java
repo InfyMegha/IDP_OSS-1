@@ -11,8 +11,6 @@ package org.infy.idp.utils;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 public class ConfigurationManagerTest {

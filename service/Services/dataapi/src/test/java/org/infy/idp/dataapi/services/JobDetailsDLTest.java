@@ -873,7 +873,7 @@ public class JobDetailsDLTest extends PackageTestCase {
 	@Test
 	public void testGetPermission_Success() throws Throwable {
 
-		List result = testedObject.getPermission("ciplatfrom");
+		List result = testedObject.getPermission("idpadmin");
 
 	}
 

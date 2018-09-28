@@ -38,11 +38,6 @@ import org.junit.Test;
  */
 public class FetchJobDetailsTest extends PackageTestCase {
 
-	/**
-	 * Constructor for test class.
-	 *
-	 * 
-	 */
 
 	private IDPJob idpjson;
 
@@ -67,20 +62,8 @@ public class FetchJobDetailsTest extends PackageTestCase {
 	public void testFetchJobDetails0() throws Throwable {
 		FetchJobDetails testedObject = new FetchJobDetails();
 		// No exception thrown
-		// jtest_unverified
 	}
 
-	/**
-	 * Test for method
-	 * getEmailRecipients(org.infy.idp.entities.jobs.applicationInfo.
-	 * ApplicationInfo).
-	 * 
-	 * @throws Throwable Tests may throw any Throwable
-	 *
-	 * @see FetchJobDetails#getEmailRecipients(org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo)
-	 * 
-	 * 
-	 */
 	@Test
 	public void testGetEmailRecipients0() throws Throwable {
 		FetchJobDetails testedObject = new FetchJobDetails();
@@ -96,20 +79,8 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List result = testedObject.getEmailRecipients(app);
 		assertNotNull(result); // jtest_unverified
 		assertEquals("[app_2, app_3, app_1]", result.toString()); // jtest_unverified
-		// No exception thrown
-		// jtest_unverified
 	}
 
-	/**
-	 * Test for method getEnvironments(org.infy.idp.entities.jobs.applicationInfo.
-	 * ApplicationInfo).
-	 * 
-	 * @throws Throwable Tests may throw any Throwable
-	 *
-	 * @see FetchJobDetails#getEnvironments(org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo)
-	 * 
-	 * 
-	 */
 	@Test
 	public void testGetEnvironments0() throws Throwable {
 		FetchJobDetails testedObject = new FetchJobDetails();
@@ -134,15 +105,8 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<String> expectedResult = new ArrayList<String>();
 		expectedResult.add("environmentName");
 		assertEquals(expectedResult, result); // jtest_unverified
-		// No exception thrown
-		// jtest_unverified
 	}
 
-	/**
-	 * 
-	 * @author rajaprabu.dharmaraj
-	 * 
-	 */
 	@Test
 	public void testGetEnvironmentsDeploy1() throws Throwable {
 
@@ -175,19 +139,10 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		env.add("Env1");
 		List<String> result = testedObject.getEnvironmentsDeploy(idpjob, env);
 		List<String> expectedresult = new ArrayList<String>();
-		// String
-		// expectedValue=idpjson.getDeployInfo().getDeployEnv().get(0).getEnvName();
-		// expectedresult.add(expectedValue);
 		assertEquals(expectedresult, result);
 
 	}
 
-	/**
-	 * 
-	 * 
-	 * @author rajaprabu.dharmaraj
-	 * 
-	 */
 	@Test
 	public void testgetEnvironmentsTest1() throws Throwable {
 
@@ -200,7 +155,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<EnvironmentOwnerDetail> evc = new ArrayList<EnvironmentOwnerDetail>();
 		evc.add(ev);
 		ap.setEnvironmentOwnerDetails(evc);
-		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "idpadmin");
 		result.add("envName");
 		List<String> expectedresult = new ArrayList<String>();
 		String expectedValue = idpjson.getTestInfo().getTestEnv().get(0).getEnvName();
@@ -209,12 +164,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * 
-	 * 
-	 * @author rajaprabu.dharmaraj
-	 * 
-	 */
 	@Test
 	public void testgetEnvironmentsTest2() throws Throwable {
 
@@ -224,18 +173,12 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<String> env = new ArrayList<String>();
 		env.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
-		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "idpadmin");
 		List<String> expectedresult = new ArrayList<String>();
-		// String expectedValue=idpjson.getTestInfo().getTestEnv().get(0).getEnvName();
-		// expectedresult.add(expectedValue);
 		assertEquals(expectedresult, result);
 
 	}
 
-	/**
-	 * @author rajaprabu.dharmaraj
-	 * 
-	 */
 	@Test
 	public void testgetEnvironmentsTest3() throws Throwable {
 
@@ -245,19 +188,13 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<String> env = new ArrayList<String>();
 		env.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
-		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "idpadmin");
 
 		List<String> expectedresult = new ArrayList<String>();
-		// String expectedValue=idpjson.getTestInfo().getTestEnv().get(0).getEnvName();
-		// expectedresult.add(expectedValue);
 		assertEquals(expectedresult, result);
 
 	}
 
-	/**
-	 * @author rajaprabu.dharmaraj
-	 * 
-	 */
 	@Test
 	public void testgetEnvironmentsTest4() throws Throwable {
 
@@ -269,19 +206,12 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<String> env = new ArrayList<String>();
 		env.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
-		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsTest(ap, idpjson, env, "idpadmin");
 		List<String> expectedresult = new ArrayList<String>();
-
-		// String expectedValue=idpjson.getTestInfo().getTestEnv().get(0).getEnvName();
-		// expectedresult.add(expectedValue);
 		assertEquals(expectedresult, result);
 
 	}
 
-	/**
-	 * @author rajaprabu.dharmaraj
-	 * 
-	 */
 	@Test
 	public void testgetEnvironmentsDeployTest() throws Throwable {
 
@@ -297,7 +227,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<EnvironmentOwnerDetail> evc = new ArrayList<EnvironmentOwnerDetail>();
 		evc.add(ev);
 		ap.setEnvironmentOwnerDetails(evc);
-		List<String> result = testedObject.getEnvironmentsDeployTest(ap, idpjson, envf, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsDeployTest(ap, idpjson, envf, "idpadmin");
 		result.add("envName");
 		List<String> expectedresult = new ArrayList<String>();
 		String expectedValue = idpjson.getTestInfo().getTestEnv().get(0).getEnvName();
@@ -315,7 +245,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<String> env = new ArrayList<String>();
 		env.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
-		List<String> result = testedObject.getEnvironmentsDeployTest(ap, idpjson, env, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsDeployTest(ap, idpjson, env, "idpadmin");
 		result.add("envName");
 		List<String> expectedresult = new ArrayList<String>();
 		String expectedValue = idpjson.getDeployInfo().getDeployEnv().get(0).getEnvName();
@@ -340,7 +270,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List<EnvironmentOwnerDetail> evc = new ArrayList<EnvironmentOwnerDetail>();
 		evc.add(ev);
 		ap.setEnvironmentOwnerDetails(evc);
-		List<String> result = testedObject.getEnvironmentsDeployTest(ap, idpjson, envf, "ciplatform");
+		List<String> result = testedObject.getEnvironmentsDeployTest(ap, idpjson, envf, "idpadmin");
 		result.add("envName");
 		List<String> expectedresult = new ArrayList<String>();
 		String expectedValue = idpjson.getTestInfo().getTestEnv().get(0).getEnvName();
@@ -373,8 +303,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		List result = testedObject.getPipelineAdmins(app);
 		assertNotNull(result); // jtest_unverified
 		assertEquals("[app_2]", result.toString()); // jtest_unverified
-		// No exception thrown
-		// jtest_unverified
 	}
 
 	/**
@@ -411,7 +339,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		 * used when testing.
 		 */
 		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
 
 		idpjson = new IDPJob();
 		idpjson.setSsoName("idpjson");
@@ -496,10 +423,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		idpjson.setCode(code);
 
 		BuildInfo buildInfo = new BuildInfo();
-		/*
-		 * Remove Jira ALM buildInfo.setJiraProjKey("idpjson_16");
-		 * buildInfo.setJiraAssigneeName("idpjson_17");
-		 */
 		buildInfo.setJavaModules("idpjson_18");
 		buildInfo.setEjbModules("idpjson_19");
 		buildInfo.setWebModules("idpjson_20");
@@ -551,9 +474,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		module1.setRenaming("renaming22");
 		module1.setControlFlow("controlFlow22");
 		module1.setEncryption("encryption22");
-		/*
-		 * Remove Jira ALM module1.setRaiseJiraBug("raiseJiraBug22");
-		 */
 		module1.setUiEarFileName("uiEarFileName22");
 		module1.setIntegrationFileName("integrationFileName22");
 		List reportMigration = new ArrayList(); // ??
@@ -724,4 +644,3 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		return FetchJobDetails.class;
 	}
 }
-// JTEST_CURRENT_ID=-1187410745.

@@ -58,9 +58,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -78,17 +80,15 @@ import jtest.AppContext;
 @ContextConfiguration(classes = AppContext.class)
 public class JobsBLTest extends PackageTestCase {
 
-	/**
-	 * Constructor for test class.
-	 *
-	 */
-
+	@Mock
+	private EnvironmentBL environmentBL;
+	@Mock
+	private KafkaTemplate<String, String> kafkaTemplate;
 	@InjectMocks
 	private JobsBL jobsBL;
 
 	@Spy
 	private FetchJobDetails fetchJobDetails;
-
 	@Spy
 	private DeleteInfo delinfo;
 	@Spy
@@ -181,18 +181,31 @@ public class JobsBLTest extends PackageTestCase {
 
 		Gson gson = new Gson();
 
-		String json = "{  \"basicInfo\": {    \"additionalMailRecipients\": {      \"applicationTeam\": \"\",      \"emailIds\": \"\"},    \"applicationName\": \"app_test_123\",    \"buildInterval\": {      \"buildInterval\": \"\",      \"buildIntervalValue\": 0,      \"pollSCM\": \"off\"},    \"buildServerOS\": \"linux\",    \"engine\": \"jenkins\",    \"pipelineName\": \"IBMSI\"},  \"code\": {   \"category\": \"Package\",    \"technology\": \"ibmsi\",    \"scm\": [{        \"$$hashKey\": \"object:35\",        \"type\": \"git\",        \"url\": \"http://harshita.badlani@infygit.ad.infosys.com/harshita.badlani/MSSQL.git\",        \"userName\": \"harshita.badlani\",        \"password\": \"svplh18282708*\",        \"projPath\": \"\",        \"exclude\": \"\",        \"repositoryBrowser\": \"gitLab\",        \"browserUrl\": \"http://infygit.ad.infosys.com\",        \"projectName\": \"\",        \"version\": \"9.0\",        \"branch\": \"master\"}],    \"buildScript\": [{        \"scriptFilePath\": \"\",        \"targets\": \"\"},{        \"scriptFilePath\": \"\",        \"targets\": \"\",        \"type\": \"xml\"},{},{}]},  \"buildInfo\": {    \"buildtool\": \"ibmsi\",    \"castAnalysis\": {},    \"artifactToStage\": {},    \"modules\": [{        \"projectName\": \"\",        \"analysisType\": \"\",        \"outputFolder\": \"/home/idpadmin/IBM/\",        \"classFileName\": \"myexp.jar\",        \"password\": \"123\"}]}, \"deployInfo\": {   \"deployEnv\": [{       \"envName\": \"env1\",       \"envFlag\": \"off\",       \"$$hashKey\": \"object:89\",        \"scriptType\": \"\",       \"deploySteps\": []     },      {        \"envName\": \"env2\",        \"envFlag\": \"off\",        \"$$hashKey\": \"object:90\",       \"scriptType\": \"\"      }    ]  },  \"testInfo\": {    \"testEnv\": [      {        \"envName\": \"env1\",        \"envFlag\": \"off\"     },      {       \"envName\": \"env2\",        \"envFlag\": \"off\"      }    ]  }}";
+		String json = "{\"basicInfo\":{\"applicationName\":\"DemoAppT\",\"pipelineName\":\"TC2_Maven\",\"buildServerOS\":\"windows\",\"masterSequence\":\"pipeline\",\"engine\":\"Jenkins Workflow\",\"buildInterval\":{\"pollSCM\":\"off\",\"buildInterval\":\"\",\"buildIntervalValue\":\"0\",\"buildAtSpecificInterval\":\"off\",\"event\":[{\"type\":\"--Select--\",\"hour\":\"00\",\"minute\":\"00\"}]},\"additionalMailRecipients\":{\"applicationTeam\":\"\",\"emailIds\":\"\"},\"userName\":\"idpadmin\",\"pipelineStatus\":\"create\",\"customPipelineAdmins\":[]},\"code\":{\"category\":\"Standard\",\"technology\":\"J2EE/Maven\",\"scm\":[{\"type\":\"git\",\"url\":\"http://infygit.ad.infosys.com/idpadmin/JPetStore_Maven.git\",\"userName\":\"idpadmin\",\"password\":\"idpadmin@123\",\"repositoryBrowser\":\"gitLab\",\"browserUrl\":\"http://infygit.ad.infosys.com\",\"projectName\":\"\",\"branch\":\"master\",\"projPath\":\"\",\"moduleName\":\"\",\"clearcaseType\":\"\",\"vobName\":\"\",\"snapshotViewName\":\"\",\"configSpec\":\"\",\"developmentStreamName\":\"\",\"buildConfiguration\":\"\",\"buildDefinition\":\"\",\"repositoryWorkspace\":\"\",\"projArea\":\"\",\"port\":\"\",\"version\":\"default\",\"exclude\":\"\",\"proxy\":\"\",\"proxyPort\":\"\",\"appRepo\":\"on\",\"deployRepo\":\"\",\"testRepo\":\"\"}],\"jobParam\":[],\"buildScript\":[{\"tool\":\"\"},{\"tool\":\"\"},{}],\"subApplication\":\"\"},\"buildInfo\":{\"buildtool\":\"maven\",\"artifactToStage\":{\"artifactRepo\":{},\"artifactRepoName\":\"na\"},\"castAnalysis\":{},\"modules\":[{\"moduleName\":\"JPetStore\",\"relativePath\":\"JPetStore_Maven/JPetStore/pom.xml\",\"codeAnalysis\":[],\"unitTesting\":\"off\",\"codeCoverage\":\"off\",\"args\":\"\",\"compile\":\"on\",\"clean\":\"on\",\"install\":\"on\",\"MVNOPTS\":\"\",\"ossDistributionType\":\"\",\"interval\":\"\"}],\"postBuildScript\":{\"dependentPipelineList\":[]}},\"deployInfo\":{\"deployEnv\":[{\"envName\":\"dev\",\"envFlag\":\"off\",\"scriptType\":\"\"}]},\"testInfo\":{\"testEnv\":[{\"envName\":\"dev\",\"envFlag\":\"off\"}]}}";
 
 		IDPJob idpjob1 = gson.fromJson(json, IDPJob.class);
 
-		jobsBL.submitJob(idpjob1, "ciplatform");
+		jobsBL.submitJob(idpjob1, "idpadmin");
+
+	}
+
+	@Test
+	public void testSubmitJob2() throws Throwable {
+
+		Gson gson = new Gson();
+
+		String json = "{\"basicInfo\":{\"applicationName\":\"JFrog\",\"pipelineName\":\"JFrogTest2\",\"buildServerOS\":\"windows\",\"engine\":\"Jenkins Workflow\",\"buildInterval\":{\"pollSCM\":\"off\",\"buildInterval\":\"\",\"buildIntervalValue\":\"0\",\"buildAtSpecificInterval\":\"off\",\"event\":[{\"type\":\"--Select--\",\"hour\":\"00\",\"minute\":\"00\"}]},\"additionalMailRecipients\":{\"applicationTeam\":\"\",\"emailIds\":\"\"},\"userName\":\"idpadmin\",\"pipelineStatus\":\"edit\"},\"code\":{\"category\":\"Standard\",\"technology\":\"J2EE/Ant\",\"scm\":[{\"type\":\"git\",\"url\":\"http://infygit.ad.infosys.com/Sarojini_Meher/JPetStoreRepo.git\",\"userName\":\"idpadmin\",\"password\":\"idpadmin@123\",\"repositoryBrowser\":\"gitLab\",\"browserUrl\":\"http://infygit.ad.infosys.com\",\"projectName\":\"\",\"branch\":\"master\",\"projPath\":\"\",\"moduleName\":\"\",\"clearcaseType\":\"\",\"vobName\":\"\",\"snapshotViewName\":\"\",\"configSpec\":\"\",\"developmentStreamName\":\"\",\"buildConfiguration\":\"\",\"buildDefinition\":\"\",\"repositoryWorkspace\":\"\",\"projArea\":\"\",\"port\":\"\",\"version\":\"default\",\"exclude\":\"\",\"proxy\":\"\",\"proxyPort\":\"\",\"appRepo\":\"on\",\"deployRepo\":\"\",\"testRepo\":\"\"}],\"jobParam\":[],\"buildScript\":[{\"tool\":\"\"},{\"tool\":\"\"},{}],\"subApplication\":\"\"},\"buildInfo\":{\"buildtool\":\"ant\",\"artifactToStage\":{\"artifact\":\"**/*.*\",\"artifactRepo\":{\"repoURL\":\"http://idpwinv07:8081/artifactory\",\"repoName\":\"idp\",\"repoUsername\":\"admin\",\"repoPassword\":\"password\"},\"artifactRepoName\":\"jfrog\"},\"castAnalysis\":{},\"modules\":[{\"moduleName\":\"JPetStore\",\"relativePath\":\"JPetStoreRepo/JPetStore/src\",\"codeAnalysis\":[],\"codeCoverage\":\"off\",\"customBuildXml\":\"\",\"args\":\"\",\"compile\":\"on\",\"ejbDescriptor\":\"\",\"javaMainClass\":\"\",\"warPackaging\":\"JPetStoreRepo/JPetStore/WebContent/WEB-INF/web.xml\",\"ossDistributionType\":\"\",\"unitTestDir\":\"\"}],\"postBuildScript\":{\"dependentPipelineList\":[]},\"javaModules\":\"\",\"ejbModules\":\"\",\"webModules\":\"\"},\"deployInfo\":{\"deployEnv\":[{\"envName\":\"dev\",\"envFlag\":\"on\",\"scriptType\":\"\",\"deploySteps\":[{\"stepName\":\"Tomcat\",\"deployOS\":\"\",\"runScript\":{\"scriptType\":\"\",\"scriptFilePath\":\"\",\"targets\":\"\"},\"deployToContainer\":{\"containerName\":\"tomcat\",\"serverManagerURL\":\"http://vqtools122:7979\",\"resourceToBeDeployed\":\"JPetStore.war\",\"warPath\":\"\",\"contextPath\":\"/JPetStoreLocal\",\"userName\":\"tomcatadmin\",\"password\":\"tomcatadmin\",\"targetCellName\":\"\",\"targetNodeName\":\"\",\"targetServerName\":\"\",\"hostName\":\"\",\"port\":\"\",\"updateDB\":\"\",\"rollbackStrategy\":\"\",\"narOS\":\"\",\"deployedFolder\":\"\",\"fileName\":\"\",\"pairName\":\"\",\"srcEnvName\":\"\"},\"deployDatabase\":{\"restorusername\":\"\",\"restorpassword\":\"\",\"dbusername\":\"\",\"dbpassword\":\"\",\"script\":\"\"},\"abortScript\":{\"scriptType\":\"\"},\"deploymentOption\":\"\",\"deployOperation\":\"\",\"proxy\":{\"username\":\"\",\"password\":\"\",\"host\":\"\",\"port\":\"\",\"enabled\":\"\"}}]},{\"envName\":\"QA\",\"envFlag\":\"off\"}]},\"testInfo\":{\"testEnv\":[{\"envName\":\"dev\",\"envFlag\":\"off\"},{\"envName\":\"QA\",\"envFlag\":\"off\"}]}}";
+
+		IDPJob idpjob1 = gson.fromJson(json, IDPJob.class);
+
+		jobsBL.submitJob(idpjob1, "idpadmin");
 
 	}
 
 	@Test
 	public void testLastbuild() throws Throwable {
 
-		jobsBL.lastbuild("TC1_Maven", "idpadmin", "firstlogon@idp");
+		jobsBL.lastbuild("TC1_Maven", "idpadmin", "idpadmin@123");
 
 	}
 
@@ -205,7 +218,7 @@ public class JobsBLTest extends PackageTestCase {
 	@Test
 	public void testGetExistingApps() throws Throwable {
 
-		Applications app = jobsBL.getExistingApps("ciplatform");
+		Applications app = jobsBL.getExistingApps("idpadmin");
 		assertNotNull(app);
 	}
 
@@ -214,7 +227,7 @@ public class JobsBLTest extends PackageTestCase {
 
 		Application app = null;
 		try {
-			app = jobsBL.getApplicationDetails("DemoAppT", "ciplatform");
+			app = jobsBL.getApplicationDetails("DemoAppT", "idpadmin");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -227,7 +240,7 @@ public class JobsBLTest extends PackageTestCase {
 
 		AppNames app = null;
 		try {
-			app = jobsBL.getFilteredApplications("JFrog", "ciplatform", "IDP");
+			app = jobsBL.getFilteredApplications("JFrog", "idpadmin", "IDP");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -238,14 +251,14 @@ public class JobsBLTest extends PackageTestCase {
 	@Test
 	public void testGetNotifications() {
 
-		List<Notification> list = jobsBL.getNotifications("ciplatform");
+		List<Notification> list = jobsBL.getNotifications("idpadmin");
 		assertNotNull(list);
 		assertNotEquals(0, list.size());
 	}
 
 	@Test
 	public void testGetExistingAppsOrg() {
-		jobsBL.getExistingApps("ciplatform", "INFOSYS");
+		jobsBL.getExistingApps("idpadmin", "INFOSYS");
 		assertNotNull(app);
 
 	}
@@ -259,7 +272,7 @@ public class JobsBLTest extends PackageTestCase {
 
 	@Test
 	public void testdbDeployPipelineNamesForApplication() {
-		Names names = jobsBL.dbDeployPipelineNamesForApplication("DemoAppT", "ciplatform");
+		Names names = jobsBL.dbDeployPipelineNamesForApplication("DemoAppT", "idpadmin");
 		assertNotNull(names);
 
 	}
@@ -268,7 +281,7 @@ public class JobsBLTest extends PackageTestCase {
 	public void testGetStageViewUrl() {
 		String url = null;
 		try {
-			url = jobsBL.getStageViewUrl("DemoAppT", "JFrogTest1");
+			url = jobsBL.getStageViewUrl("DemoAppT", "TC1_Maven");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -279,7 +292,7 @@ public class JobsBLTest extends PackageTestCase {
 
 	@Test
 	public void testGetApplicationNameForReleaseManager() {
-		Names names = jobsBL.getApplicationNameForReleaseManager("ciplatform", "IDP");
+		Names names = jobsBL.getApplicationNameForReleaseManager("idpadmin", "IDP");
 		assertNotNull(names);
 
 	}
@@ -293,29 +306,27 @@ public class JobsBLTest extends PackageTestCase {
 
 	@Test
 	public void testGetDependencyPipelines() {
-		Pipelines app = jobsBL.getDependencyPipelines("DemoAppT", "ciplatform");
+		Pipelines app = jobsBL.getDependencyPipelines("DemoAppT", "idpadmin");
 		assertNotNull(app);
 	}
-
 
 	@Test
 	public void testGetExistingAppNames() {
-		Applications app = jobsBL.getExistingAppNames("ciplatform", "IDP");
+		Applications app = jobsBL.getExistingAppNames("idpadmin", "IDP");
 		assertNotNull(app);
 	}
-	
 
 	@Test
 	public void testGetExistingAppNamesOrg() {
-		Applications app = jobsBL.getExistingAppNames("ciplatform","INFOSYS", "IDP");
+		Applications app = jobsBL.getExistingAppNames("idpadmin", "INFOSYS", "IDP");
 		assertNotNull(app);
 	}
-	
+
 	@Test
 	public void testFecthTriggerSteps() {
 		Steps steps = null;
 		try {
-			steps = jobsBL.fecthTriggerSteps("DemoAppT", "ciplatform", "QA");
+			steps = jobsBL.fecthTriggerSteps("DemoAppT", "idpadmin", "QA");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -326,7 +337,7 @@ public class JobsBLTest extends PackageTestCase {
 	@Test
 	public void testGetPipelines() throws Throwable {
 
-		jobsBL.getpipelines("DemoAppT", "ciplatform");
+		jobsBL.getpipelines("DemoAppT", "idpadmin");
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -361,35 +372,33 @@ public class JobsBLTest extends PackageTestCase {
 	@Test
 	public void testGetExistingPipelines() throws Throwable {
 
-		jobsBL.getExistingPipelines("TestingAppln");
+		jobsBL.getExistingPipelines("DemoAppT");
 	}
 
 	@Test
 	public void testCheckAvailableJobsToTrigger() throws Throwable {
 
-		jobsBL.checkAvailableJobsToTrigger("ciplatform", "IDP");
+		jobsBL.checkAvailableJobsToTrigger("idpadmin", "IDP");
 	}
 
 	@Test
 	public void testGetApplications() throws Throwable {
-		jobsBL.getApplications("ciplatform", "IDP");
+		jobsBL.getApplications("idpadmin", "IDP");
 	}
 
 	@Test
 	public void testGetRolesForApp() throws Throwable {
-		jobsBL.getRolesForApp("ciplatform", "DemoAppT");
+		jobsBL.getRolesForApp("idpadmin", "DemoAppT");
 	}
 
 	@Test
 	public void testGetPermissionForApplications() throws Throwable {
-		jobsBL.getPermissionForApplications("DemoAppT", "ciplatform");
+		jobsBL.getPermissionForApplications("DemoAppT", "idpadmin");
 	}
 
-	
-	
 	@Test
 	public void testGetRoles() throws Throwable {
-		jobsBL.getRoles("ciplatform");
+		jobsBL.getRoles("idpadmin");
 	}
 
 	@Test
@@ -429,7 +438,7 @@ public class JobsBLTest extends PackageTestCase {
 
 	@Test
 	public void testGetRolesApp() throws Throwable {
-		jobsBL.getRolesApp("ciplatform", "DemoAppT");
+		jobsBL.getRolesApp("idpadmin", "DemoAppT");
 
 	}
 

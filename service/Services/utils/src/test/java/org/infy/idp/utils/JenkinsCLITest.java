@@ -8,11 +8,14 @@
 
 package org.infy.idp.utils;
 
+import java.lang.reflect.Method;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -188,13 +191,6 @@ public class JenkinsCLITest extends PackageTestCase {
 	 * 
 	 * 
 	 */
-//	@Test
-//	public void testInit1() throws Throwable {
-//		//JenkinsCLI testedObject = (JenkinsCLI) Repository.getObject(JenkinsCLI.class, "jenkinscli");
-//		JT.invoke(JenkinsCLI.class, jenkinsCLI, "init", new Object[] {}, new Class[] {});
-//
-//		// jtest.NoSuchValueException thrown
-//	}
 
 	/**
 	 * Test for method
@@ -209,12 +205,9 @@ public class JenkinsCLITest extends PackageTestCase {
 	 */
 	@Test
 	public void testPersistCredentials1() throws Throwable {
-		// JenkinsCLI testedObject = (JenkinsCLI) Repository.getObject(JenkinsCLI.class,
-		// "jenkinscli");
 		int result = jenkinsCLI.persistCredentials("scope", "credId", "userName", "pass", "description",
 				"configFileName");
-
-		// jtest.NoSuchValueException thrown
+		assertNotNull(result);
 	}
 
 	/**
@@ -228,11 +221,8 @@ public class JenkinsCLITest extends PackageTestCase {
 	 */
 	@Test
 	public void testSaveJob1() throws Throwable {
-		// JenkinsCLI testedObject = (JenkinsCLI) Repository.getObject(JenkinsCLI.class,
-		// "jenkinscli");
 		int result = jenkinsCLI.saveJob("jobName", "jobConfigFile");
 
-		// jtest.NoSuchValueException thrown
 	}
 
 	/**
@@ -249,13 +239,16 @@ public class JenkinsCLITest extends PackageTestCase {
 		 * used when testing.
 		 */
 		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
 
-		configmanager.setJenkinsurl("http://idpwinv07:8085");
-		configmanager.setJenkinsuserid("admin");
-		configmanager.setJenkinspassword("admin123");
-		configmanager.setSharePath("D:\\IDP\\IDP_Versions\\DSL");
-		configmanager.setPipelineScriptPath("D:\\IDP\\IDP_Versions\\DSL\\src\\main\\groovy\\pipeline_sequence");
+		configmanager.setJenkinsurl("http://localhost:8085/jenkins");
+		configmanager.setJenkinsuserid("idpadmin");
+		configmanager.setJenkinspassword("idpadmin@123");
+		configmanager.setSharePath("D:\\idpdata\\dsldata");
+		configmanager.setPipelineScriptPath("D:\\idpdata\\dsldata\\src\\main\\groovy\\pipeline_sequence");
+		MockitoAnnotations.initMocks(this);
+		Method postConstruct = JenkinsCLI.class.getDeclaredMethod("init", null); // methodName,parameters
+		postConstruct.setAccessible(true);
+		postConstruct.invoke(jenkinsCLI);
 
 	}
 
@@ -300,4 +293,3 @@ public class JenkinsCLITest extends PackageTestCase {
 		return JenkinsCLI.class;
 	}
 }
-// JTEST_CURRENT_ID=-1072143252.

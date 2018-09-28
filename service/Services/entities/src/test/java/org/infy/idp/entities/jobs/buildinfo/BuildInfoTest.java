@@ -74,7 +74,7 @@ public class BuildInfoTest extends PackageTestCase {
 		testedObject.setBuildtool("buildtool21");
 		ArtifactToStage artifactToStage = new ArtifactToStage();
 		testedObject.setArtifactToStage(artifactToStage);
-		List modules = new ArrayList();
+		List<Module>  modules = new ArrayList<>();
 		testedObject.setModules(modules);
 		assertEquals(modules, testedObject.getModules()); // jtest_unverified
 		assertEquals("sonar_url",testedObject.getSonarUrl());
@@ -127,12 +127,6 @@ public class BuildInfoTest extends PackageTestCase {
 		assertEquals(null, testedObject.getModules()); // jtest_unverified
 		assertEquals(null, testedObject.getArtifactToStage()); // jtest_unverified
 		assertEquals(null, testedObject.getPostBuildScript()); // jtest_unverified
-		/*
-		 * Remove Jira ALM assertEquals("jiraAssigneeName0",
-		 * testedObject.getJiraAssigneeName()); // jtest_unverified
-		 * assertEquals("jiraProjKey0", testedObject.getJiraProjKey()); //
-		 * jtest_unverified
-		 */
 		assertEquals("ejbModules0", testedObject.getEjbModules()); // jtest_unverified
 		assertEquals("userName0", testedObject.getUserName()); // jtest_unverified
 		assertEquals("javaModules0", testedObject.getJavaModules()); // jtest_unverified
@@ -141,8 +135,6 @@ public class BuildInfoTest extends PackageTestCase {
 		assertEquals("webModules0", testedObject.getWebModules()); // jtest_unverified
 		assertEquals("buildtool0", testedObject.getBuildtool()); // jtest_unverified
 		assertEquals("nexusUrl0", testedObject.getNexusUrl()); // jtest_unverified
-		// No exception thrown
-		// jtest_unverified
 	}
 
 	/**
@@ -160,11 +152,6 @@ public class BuildInfoTest extends PackageTestCase {
 		assertEquals(null, testedObject.getModules()); // jtest_unverified
 		assertEquals(null, testedObject.getArtifactToStage()); // jtest_unverified
 		assertEquals(null, testedObject.getPostBuildScript()); // jtest_unverified
-		/*
-		 * Remove Jira ALM assertEquals(null, testedObject.getJiraAssigneeName()); //
-		 * jtest_unverified assertEquals(null, testedObject.getJiraProjKey()); //
-		 * jtest_unverified
-		 */
 		assertEquals(null, testedObject.getEjbModules()); // jtest_unverified
 		assertEquals(null, testedObject.getUserName()); // jtest_unverified
 		assertEquals(null, testedObject.getJavaModules()); // jtest_unverified
@@ -173,8 +160,6 @@ public class BuildInfoTest extends PackageTestCase {
 		assertEquals(null, testedObject.getWebModules()); // jtest_unverified
 		assertEquals(null, testedObject.getBuildtool()); // jtest_unverified
 		assertEquals(null, testedObject.getNexusUrl()); // jtest_unverified
-		// No exception thrown
-		// jtest_unverified
 	}
 
 	/**
@@ -246,7 +231,6 @@ public class BuildInfoTest extends PackageTestCase {
 		 * used when testing.
 		 */
 		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
 
 	}
 

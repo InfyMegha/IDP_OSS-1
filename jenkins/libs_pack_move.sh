@@ -17,6 +17,8 @@ else
 	zip nuget.zip nuget.exe
 	mv nuget.zip ./home_files/CUSTOM_TOOLS/
 	
+	mkdir -p checkstyle-6.17/config
+	cp -rpf custom_tools/checkstyle/config/* checkstyle-6.17/config/
 	zip checkstyle-6.17-bin.zip checkstyle-6.17/* checkstyle-noframes-severity-sorted.xsl
 	mv checkstyle-6.17-bin.zip ./home_files/CUSTOM_TOOLS/
 	

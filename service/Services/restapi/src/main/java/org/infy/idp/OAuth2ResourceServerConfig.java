@@ -33,8 +33,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  * The class OAuth2ResourceServerConfig contains methods to configure the access
  * rules for secure resources
  * 
- * @author sanjay.sharma
- *
+ * @author Infosys
  */
 @Configuration
 @EnableResourceServer

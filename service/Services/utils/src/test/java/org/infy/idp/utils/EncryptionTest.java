@@ -11,8 +11,6 @@ package org.infy.idp.utils;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.security.NoSuchAlgorithmException;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

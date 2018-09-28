@@ -84,7 +84,6 @@ export class LoginComponent implements OnInit {
         password: password,
         client_id: 'idpclient'
       };
-      console.log(this.loginData);
       this.obtainAccessToken(this.loginData);
     } else {
       this.ErrorMsg = 'username or password should not be empty';

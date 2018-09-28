@@ -8,7 +8,6 @@
 
 package org.infy.idp.utils;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

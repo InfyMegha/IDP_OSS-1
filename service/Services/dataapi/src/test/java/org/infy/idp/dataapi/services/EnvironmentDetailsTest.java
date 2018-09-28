@@ -62,7 +62,7 @@ public class EnvironmentDetailsTest {
 	@Test(expected = Test.None.class)
 	public void testInsertEnvironmentOwners() {
 		try {
-			testedObject.insertEnvironmentOwners(1, "ciplatform", "QA");
+			testedObject.insertEnvironmentOwners(1, "idpadmin", "QA");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -73,7 +73,7 @@ public class EnvironmentDetailsTest {
 	public void testGetEnvironmentOwners() {
 		List<String> list = null;
 		try {
-			list = testedObject.getEnvironmentOwners("ciplatform", "QA", "DemoAppT");
+			list = testedObject.getEnvironmentOwners("idpadmin", "QA", "DemoAppT");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -222,7 +222,7 @@ public class EnvironmentDetailsTest {
 	@Test
 	public void testInsertArtifactDetails() {
 		try {
-			testedObject.insertArtifactDetails(1, "approved", "Approved!!", "QA", "ciplatform");
+			testedObject.insertArtifactDetails(1, "approved", "Approved!!", "QA", "idpadmin");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

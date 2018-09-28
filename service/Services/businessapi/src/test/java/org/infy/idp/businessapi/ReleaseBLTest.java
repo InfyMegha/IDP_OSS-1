@@ -8,17 +8,19 @@
 package org.infy.idp.businessapi;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
-import org.infy.entities.triggerinputs.TriggerInputs;
-import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
 import org.infy.idp.dataapi.services.JobDetailsDL;
+import org.infy.idp.dataapi.services.ReleaseDetails;
+import org.infy.idp.entities.releasemanagerinfo.ReleaseManager;
 import org.infy.idp.utils.ConfigurationManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,32 +30,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import jtest.AppContext;
 
 /**
- * GetTriggerDetailsTest is a test class for GetTriggerDetails
+ * ReleaseBLTest is a test class for ReleaseBL
  *
- * @see org.infy.idp.businessapi.TriggerDetailBL
+ * @see org.infy.idp.businessapi.ReleaseBL
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class TriggerDetailBLTest extends PackageTestCase {
+public class ReleaseBLTest extends PackageTestCase {
 
-	@Spy
-	@InjectMocks
-	private TriggerDetailBL testedObject;
-
-	@Spy
-	@InjectMocks
-	private FetchJobDetails fetchJobDetails;
-
-	@Spy
+	@Mock
+	private ReleaseDetails releaseDetails;
+	
 	@InjectMocks
 	private JobDetailsDL getJobDetails;
-	@Spy
-	@InjectMocks
-	private JobsBL jobsBL;
-	@Spy
-	@InjectMocks
-	private TriggerJobName tjb;
 
+	@Mock
+	private EmailSender emailSender;
+	@InjectMocks
+	private ReleaseBL releaseBL;
 	@Spy
 	@InjectMocks
 	private PostGreSqlDbContext postGreSqlDbContext;
@@ -62,7 +56,7 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	@Autowired
 	private ConfigurationManager configurationManager;
 
-	public TriggerDetailBLTest() {
+	public ReleaseBLTest() {
 		/*
 		 * This constructor should not be modified. Any initialization code should be
 		 * placed in the setUp() method instead.
@@ -76,15 +70,22 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	 * 
 	 */
 
-	@Test(expected = NullPointerException.class)
-	public void fetchTriggerTest() throws Throwable {
+	@Test
+	public void testGetReleaseNumber() throws Throwable {
+		ReleaseManager releaseManager = releaseBL.getReleaseNumber("DemoAppT", "TC1_Maven");
+		assertNotNull(releaseManager);
+	}
 
-		tjb.setApplicationName("firstApp");
-		tjb.setPipelineName("job01");
-		tjb.setUserName("kruti.vyas");
-		TriggerInputs ti = testedObject.fecthTriggerOptions(tjb);
-		TriggerInputs t2 = new TriggerInputs();
-		t2.setRepoName("na");
+	@Test
+	public void testGetReleaseInfo() throws Throwable {
+		ReleaseManager relManager = releaseBL.getReleaseInfo("DemoAppT", "TC1_Maven", "approved", "idpadmin");
+		assertNotNull(relManager);
+	}
+
+	@Test
+	public void testGetEnvironmentList() throws Throwable {
+		List<String> list = releaseBL.getEnvironmentList("DemoAppT");
+		assertNotNull(list);
 	}
 
 	@Before
@@ -102,15 +103,9 @@ public class TriggerDetailBLTest extends PackageTestCase {
 			postConstruct.setAccessible(true);
 			postConstruct.invoke(postGreSqlDbContext);
 
-			// isCalledAlready=true;
-
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// }
-		// throw new Exception();
 
 	}
 
@@ -132,13 +127,13 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
 	 * 
-	 * Usage: java GetTriggerDetailsTest
+	 * Usage: java ReleaseBLTest
 	 * 
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
 
-		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.GetTriggerDetailsTest");
+		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.ReleaseBLTest");
 	}
 
 	/**
@@ -147,6 +142,6 @@ public class TriggerDetailBLTest extends PackageTestCase {
 	 * @return the class which will be tested
 	 */
 	public Class getTestedClass() {
-		return TriggerDetailBL.class;
+		return ReleaseBL.class;
 	}
 }

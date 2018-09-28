@@ -6,10 +6,9 @@ https://opensource.org/licenses/MIT
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.infy.idp</groupId>
 	<artifactId>eureka-service</artifactId>
-	<version>1.2</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<parent>
@@ -22,7 +21,6 @@ https://opensource.org/licenses/MIT
 		<java.version>1.8</java.version>
 		<start-class>org.infy.idp.eureka.EurekaServiceApplication</start-class>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -32,10 +30,8 @@ https://opensource.org/licenses/MIT
 					<groupId>ch.qos.logback</groupId>
 					<artifactId>logback-core</artifactId>
 				</exclusion>
-				
 			</exclusions>
 		</dependency>
-		
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
@@ -47,7 +43,6 @@ https://opensource.org/licenses/MIT
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -59,7 +54,6 @@ https://opensource.org/licenses/MIT
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 	<finalName>idpeureka</finalName>
 		<plugins>
@@ -69,7 +63,6 @@ https://opensource.org/licenses/MIT
 			</plugin>
 		</plugins>
 	</build>
-
 	<repositories>
 		<repository>
 			<id>spring-snapshots</id>
@@ -80,5 +73,4 @@ https://opensource.org/licenses/MIT
 			</snapshots>
 		</repository>
 	</repositories>
-
 </project>

@@ -955,18 +955,9 @@ export class TriggerComponent implements OnInit {
         || this.IDPDataSwitch.testSelected === undefined) &&
       (this.IDPDataSwitch.deploySelected === 'off'
         || this.IDPDataSwitch.deploySelected === null
-        || this.IDPDataSwitch.deploySelected === undefined)) ||
-      (this.IDPParamData.deploy.update !== 'on'
-        && this.IDPParamData.deploy.rollback !== 'on' &&
-        this.IDPParamData.deploy.misc !== 'on'
-        && this.idpdataService.triggerJobData.technology === 'dbDeployDelphix')) {
+        || this.IDPDataSwitch.deploySelected === undefined))) {
       this.idpdataService.loading = false;
-      if (this.IDPParamData.deploy.update !== 'on' && this.IDPParamData.deploy.rollback !== 'on' &&
-        this.IDPParamData.deploy.misc !== 'on' && this.idpdataService.triggerJobData.technology === 'dbDeployDelphix') {
-        this.triggerAlertDBDep();
-      } else {
         this.triggerAlert();
-      }
     } else {
       if (this.tempDeploySteps.length !== 0 && this.tempDeploySteps.length !== undefined) {
         for (let i = 0; i < this.deployArr.length; i++) {

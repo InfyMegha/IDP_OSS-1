@@ -79,7 +79,6 @@ export PROFILE=paas
 export MOUNT_DIR=$EXEC_DIR/datafiles
 mkdir -p $MOUNT_DIR/postgresdata/
 mkdir -p $MOUNT_DIR/dsldata/
-mkdir -p $MOUNT_DIR/grafanadata/data/
 mkdir -p $MOUNT_DIR/jenkinsdata/
 
 
