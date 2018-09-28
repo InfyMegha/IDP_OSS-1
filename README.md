@@ -22,6 +22,8 @@
 
 # About the repository
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/637d6c9e3d0141fca5bdf3609b84d52b)](https://app.codacy.com/app/krishnakanth_bn/IDP_OSS_2?utm_source=github.com&utm_medium=referral&utm_content=krishnakanthbn/IDP_OSS&utm_campaign=Badge_Grade_Dashboard)
+
 This repository is intended to hold the code base along with the required dependencies for the Infosys DevOps Platform OSS version.
 
 ## Getting Started
