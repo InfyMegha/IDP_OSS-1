@@ -10,5 +10,5 @@ matrix:
         before script:
           - cd dsl
         script:
-          - gradle build && sonar-scanner
+          - gradle build && cd .. && sonar-scanner
   
