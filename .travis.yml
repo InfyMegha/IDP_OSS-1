@@ -7,8 +7,6 @@ matrix:
       addons:
         sonarcloud:
         organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
-        before script:
-          - cd dsl
         script:
-          - gradle build && cd .. && sonar-scanner
+          - sonar-scanner
   
