@@ -1569,10 +1569,15 @@ INSERT INTO trole_permissions VALUES (5, 'CREATE_APPLICATION');
 INSERT INTO trole_permissions VALUES (5, 'EDIT_APPLICATION');
 INSERT INTO trole_permissions VALUES (5, 'CREATE_LICENSE');
 
+
+
 INSERT INTO trole_permissions VALUES (6, 'VIEW_PIPELINE');
 INSERT INTO trole_permissions VALUES (6, 'DATABASE_BUILD');
 INSERT INTO trole_permissions VALUES (6, 'DATABASE_DEPLOY');
 INSERT INTO trole_permissions VALUES (6, 'DATABASE_TEST');
+INSERT INTO trole_permissions VALUES (6, 'BUILD');
+INSERT INTO trole_permissions VALUES (6, 'DEPLOY');
+INSERT INTO trole_permissions VALUES (6, 'TEST');
 
 INSERT INTO trole_permissions VALUES (8, 'VIEW_BASIC_INFO');
 INSERT INTO trole_permissions VALUES (8, 'EDIT_BASIC_INFO');
