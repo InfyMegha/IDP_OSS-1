@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IdpheaderComponent } from './idpheader.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IdpheaderComponent } from "./idpheader.component";
 
-describe('IdpheaderComponent', () => {
+describe("IdpheaderComponent", () => {
   let component: IdpheaderComponent;
   let fixture: ComponentFixture<IdpheaderComponent>;
 
@@ -25,7 +25,7 @@ describe('IdpheaderComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should be created', () => {
+  xit("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

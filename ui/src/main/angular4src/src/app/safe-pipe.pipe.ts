@@ -5,14 +5,14 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer} from '@angular/platform-browser';
+import { Pipe, PipeTransform } from "@angular/core";
+import { DomSanitizer} from "@angular/platform-browser";
 @Pipe({
-  name: 'safePipe'
+  name: "safePipe"
 })
 export class SafePipePipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
   transform(url) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+	return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

@@ -5,28 +5,28 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CodeInfoComponent } from './code-info.component';
-import { codeInfoRouter } from './code-info.router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { CodeInfoComponent } from "./code-info.component";
+import { codeInfoRouter } from "./code-info.router";
 import { TranslateModule, TranslateStaticLoader, TranslateLoader } from "ng2-translate";
-import { HttpModule, Http } from '@angular/http';
-import { FormsModule } from '@angular/forms';
-import {IdpEncryptionModule } from '../idpEncryption.module';
+import { HttpModule, Http } from "@angular/http";
+import { FormsModule } from "@angular/forms";
+import {IdpEncryptionModule } from "../idpEncryption.module";
 
 export function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+  return new TranslateStaticLoader(http, "assets/i18n", ".json");
 }
 
 @NgModule({
   imports: [
-    CommonModule,
+	CommonModule,
 	codeInfoRouter,
 	TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    }),
+		provide: TranslateLoader,
+		useFactory: (createTranslateLoader),
+		deps: [Http]
+	}),
 	HttpModule,
 	FormsModule,
 	IdpEncryptionModule

@@ -5,17 +5,17 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { TriggerComponent } from './triggerPipeline.component';
-import { IdpService } from '../idp-service.service';
-import { IdpdataService } from '../idpdata.service';
-import { IdprestapiService } from '../idprestapi.service';
-import { Router, NavigationExtras } from '@angular/router';
-import { ParentFormConnectComponent } from '../parent-form-connect/parent-form-connect.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule } from "@angular/forms";
+import { TriggerComponent } from "./triggerPipeline.component";
+import { IdpService } from "../idp-service.service";
+import { IdpdataService } from "../idpdata.service";
+import { IdprestapiService } from "../idprestapi.service";
+import { Router, NavigationExtras } from "@angular/router";
+import { ParentFormConnectComponent } from "../parent-form-connect/parent-form-connect.component";
 
 
-describe('TriggerComponent', () => {
+describe("TriggerComponent", () => {
   let component: TriggerComponent;
   let fixture: ComponentFixture<TriggerComponent>;
 
@@ -28,93 +28,93 @@ describe('TriggerComponent', () => {
 
     constructor() { }
     template: any = {
-      'grantAccess': {
-        'applicationName': '',
-        'developers': [],
-        'pipelineAdmins': [],
-        'releaseManager': [],
-        'environmentOwnerDetails': [{
-          'environmentName': '',
-          'environmentOwners': [],
-          'dbOwners': []
+      "grantAccess": {
+        "applicationName": "",
+        "developers": [],
+        "pipelineAdmins": [],
+        "releaseManager": [],
+        "environmentOwnerDetails": [{
+          "environmentName": "",
+          "environmentOwners": [],
+          "dbOwners": []
         }],
-        'slaveDetails': [
+        "slaveDetails": [
           {
-            'slaveName': '',
-            'buildServerOS': '',
-            'workspacePath': '',
-            'createNewSlave': '',
-            'labels': '',
-            'sshKeyPath': '',
-            'slaveUsage': 'both'
+            "slaveName": "",
+            "buildServerOS": "",
+            "workspacePath": "",
+            "createNewSlave": "",
+            "labels": "",
+            "sshKeyPath": "",
+            "slaveUsage": "both"
           }
         ]
       },
-      'basicInfo': {
-        'additionalMailRecipients': {
-          'applicationTeam': '',
-          'emailIds': ''
+      "basicInfo": {
+        "additionalMailRecipients": {
+          "applicationTeam": "",
+          "emailIds": ""
         },
-        'applicationName': '',
-        'buildInterval': {
-          'buildInterval': '',
-          'buildIntervalValue': 0,
-          'pollSCM': 'off'
+        "applicationName": "",
+        "buildInterval": {
+          "buildInterval": "",
+          "buildIntervalValue": 0,
+          "pollSCM": "off"
         },
-        'buildServerOS': '',
-        'engine': '',
-        'pipelineName': ''
+        "buildServerOS": "",
+        "engine": "",
+        "pipelineName": ""
       },
-      'code': {
-        'category': '',
-        'technology': '',
-        'scm': [],
-        'buildScript': [{ 'tool': '' }, { 'tool': '' }, {}]
+      "code": {
+        "category": "",
+        "technology": "",
+        "scm": [],
+        "buildScript": [{ "tool": "" }, { "tool": "" }, {}]
       },
-      'buildInfo': {
-        'buildtool': '',
-        'castAnalysis': {},
-        'artifactToStage': {},
-        'modules': []
+      "buildInfo": {
+        "buildtool": "",
+        "castAnalysis": {},
+        "artifactToStage": {},
+        "modules": []
       },
-      'deployInfo': {
-        'deployEnv': []
+      "deployInfo": {
+        "deployEnv": []
       },
-      'testInfo': {
-        'testEnv': []
+      "testInfo": {
+        "testEnv": []
       },
-      'formStatus': {
-        'basicInfo': {
-          'appNameStatus': '0',
-          'formStatus': '0'
+      "formStatus": {
+        "basicInfo": {
+          "appNameStatus": "0",
+          "formStatus": "0"
         },
-        'codeInfo': '',
-        'buildInfo': {
-          'buildToolStatus': '0',
-          'formStatus': '0',
-          'ibmsiTypeStatus': '0'
+        "codeInfo": "",
+        "buildInfo": {
+          "buildToolStatus": "0",
+          "formStatus": "0",
+          "ibmsiTypeStatus": "0"
         },
-        'deployInfo': '',
-        'testInfo': '',
-        'operation': ''
+        "deployInfo": "",
+        "testInfo": "",
+        "operation": ""
       },
-      'checkboxStatus': {
-        'basicInfo': {},
-        'codeInfo': {},
-        'buildInfo': {},
-        'deployInfo': {},
-        'testInfo': {},
-        'others': {}
+      "checkboxStatus": {
+        "basicInfo": {},
+        "codeInfo": {},
+        "buildInfo": {},
+        "deployInfo": {},
+        "testInfo": {},
+        "others": {}
       },
-      'backUp': {
-        'deployInfo': {},
-        'testInfo': {}
+      "backUp": {
+        "deployInfo": {},
+        "testInfo": {}
       },
-      'masterJson': {}
+      "masterJson": {}
     };
     data: any = JSON.parse(JSON.stringify(this.template));
-    language = 'english';
-    idpUserName = '';
+    language = "english";
+    idpUserName = "";
     roles = [];
     access_token: any;
     permissions = [];
@@ -124,11 +124,11 @@ describe('TriggerComponent', () => {
     editPipelineflag = false;
     deletePipelineflag = false;
     test = false;
-    devServerURL: any = '';
-    IDPDashboardURL = '';
-    IDPLink = '';
-    geUrl = '';
-    role = '';
+    devServerURL: any = "";
+    IDPDashboardURL = "";
+    IDPLink = "";
+    geUrl = "";
+    role = "";
     IDPDropdownProperties: any = {};
     showConfig: any;
     pa = true;
@@ -189,29 +189,29 @@ describe('TriggerComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should be created', () => {
+  xit("should be created", () => {
     expect(component).toBeTruthy();
   });
 
-  xit('setArtifact1', () => {
-    expect(component.IDPDataSwitch.buildSelected.toBe('on'));
-    expect(component.IDPParamData.deploy.artifacts.toBe(''));
-    expect(component.IDPParamData.deploy.deployModule.toBe('Module1'));
+  xit("setArtifact1", () => {
+    expect(component.IDPDataSwitch.buildSelected.toBe("on"));
+    expect(component.IDPParamData.deploy.artifacts.toBe(""));
+    expect(component.IDPParamData.deploy.deployModule.toBe("Module1"));
     expect(component.IDPParamData.deploy.deployModule.toBe([]));
-    expect(component.setArtifact1()).toEqual('on');
+    expect(component.setArtifact1()).toEqual("on");
   });
 
-  xit('setArtifact1', () => {
-    expect(component.IDPDataSwitch.deploySelected.toEqual('on'));
-    expect(component.IDPParamData.deploy.artifacts.toEqual(''));
+  xit("setArtifact1", () => {
+    expect(component.IDPDataSwitch.deploySelected.toEqual("on"));
+    expect(component.IDPParamData.deploy.artifacts.toEqual(""));
     component.addArtifact();
     component.checkDBOperation();
-    expect(component.IDPDataSwitch.subModules.toBe('hello'));
+    expect(component.IDPDataSwitch.subModules.toBe("hello"));
     expect(component.IDPDataSwitch.subModules.length.toBe(1));
     expect(component.IDPParamData.deploy.deployModule.toBe([]));
-    expect(component.IDPDataSwitch.subModules[0].defaultModule.toEqual('on'));
-    expect(component.IDPParamData.deploy.subModule.push('hello'));
-    expect(component.setArtifact2()).toEqual('on');
+    expect(component.IDPDataSwitch.subModules[0].defaultModule.toEqual("on"));
+    expect(component.IDPParamData.deploy.subModule.push("hello"));
+    expect(component.setArtifact2()).toEqual("on");
   });
 
 });

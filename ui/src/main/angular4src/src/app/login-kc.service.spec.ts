@@ -5,17 +5,17 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { TestBed, inject } from '@angular/core/testing';
-import { LoginKcService } from './login-kc.service';
+import { TestBed, inject } from "@angular/core/testing";
+import { LoginKcService } from "./login-kc.service";
 
-describe('LoginKcService', () => {
+describe("LoginKcService", () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [LoginKcService]
-    });
+	TestBed.configureTestingModule({
+		providers: [LoginKcService]
+	});
   });
 
-  it('should be created', inject([LoginKcService], (service: LoginKcService) => {
-    expect(service).toBeTruthy();
+  it("should be created", inject([LoginKcService], (service: LoginKcService) => {
+	expect(service).toBeTruthy();
   }));
 });

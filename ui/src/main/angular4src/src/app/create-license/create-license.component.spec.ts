@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CreateLicenseComponent } from './create-license.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { CreateLicenseComponent } from "./create-license.component";
 
-describe('CreateLicenseComponent', () => {
+describe("CreateLicenseComponent", () => {
   let component: CreateLicenseComponent;
   let fixture: ComponentFixture<CreateLicenseComponent>;
 
@@ -25,7 +25,7 @@ describe('CreateLicenseComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

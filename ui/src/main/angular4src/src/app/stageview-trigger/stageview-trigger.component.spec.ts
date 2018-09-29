@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { StageviewTriggerComponent } from './stageview-trigger.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { StageviewTriggerComponent } from "./stageview-trigger.component";
 
-describe('StageviewTriggerComponent', () => {
+describe("StageviewTriggerComponent", () => {
   let component: StageviewTriggerComponent;
   let fixture: ComponentFixture<StageviewTriggerComponent>;
 
@@ -25,7 +25,7 @@ describe('StageviewTriggerComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  xit("should create", () => {
     expect(component).toBeTruthy();
   });
 });

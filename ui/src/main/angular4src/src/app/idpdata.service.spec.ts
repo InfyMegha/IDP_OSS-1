@@ -5,17 +5,17 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { TestBed, inject } from '@angular/core/testing';
-import { IdpdataService } from './idpdata.service';
+import { TestBed, inject } from "@angular/core/testing";
+import { IdpdataService } from "./idpdata.service";
 
-describe('IdpdataService', () => {
+describe("IdpdataService", () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [IdpdataService]
-    });
+	TestBed.configureTestingModule({
+		providers: [IdpdataService]
+	});
   });
 
-  xit('should be created', inject([IdpdataService], (service: IdpdataService) => {
-    expect(service).toBeTruthy();
+  xit("should be created", inject([IdpdataService], (service: IdpdataService) => {
+	expect(service).toBeTruthy();
   }));
 });

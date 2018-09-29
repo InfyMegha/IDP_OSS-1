@@ -5,31 +5,31 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { StageviewTriggerComponent } from './stageview-trigger.component';
-import { stageviewTriggerRouter } from './stageview-trigger.router';
-import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate';
-import { HttpModule, Http } from '@angular/http';
-import { FormsModule } from '@angular/forms';
-import { SafePipeModule } from '../safe-pipe.module';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { StageviewTriggerComponent } from "./stageview-trigger.component";
+import { stageviewTriggerRouter } from "./stageview-trigger.router";
+import { TranslateModule, TranslateStaticLoader, TranslateLoader } from "ng2-translate";
+import { HttpModule, Http } from "@angular/http";
+import { FormsModule } from "@angular/forms";
+import { SafePipeModule } from "../safe-pipe.module";
 
 export function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+  return new TranslateStaticLoader(http, "assets/i18n", ".json");
 }
 
 @NgModule({
   imports: [
-    CommonModule,
-    stageviewTriggerRouter,
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    }),
-    HttpModule,
-    FormsModule,
-    SafePipeModule
+	CommonModule,
+	stageviewTriggerRouter,
+	TranslateModule.forRoot({
+		provide: TranslateLoader,
+		useFactory: (createTranslateLoader),
+		deps: [Http]
+	}),
+	HttpModule,
+	FormsModule,
+	SafePipeModule
   ],
   declarations: [StageviewTriggerComponent
   ]

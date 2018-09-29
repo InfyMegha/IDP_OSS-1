@@ -5,24 +5,24 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Component, OnInit } from '@angular/core';
-import { ShowConfigurationsComponent } from '../show-config/show-config.component';
+import { Component, OnInit } from "@angular/core";
+import { ShowConfigurationsComponent } from "../show-config/show-config.component";
 @Component({
-  selector: 'app-trigger-service',
-  templateUrl: './trigger-service.component.html',
-  styleUrls: ['./trigger-service.component.css']
+  selector: "app-trigger-service",
+  templateUrl: "./trigger-service.component.html",
+  styleUrls: ["./trigger-service.component.css"]
 })
 export class TriggerServiceComponent implements OnInit {
 
   constructor(
-    private showconfig: ShowConfigurationsComponent
+	private showconfig: ShowConfigurationsComponent
 
 
   ) {
    }
 
    callAllRestApi() {
-     this.showconfig.getPipelineData();
+		this.showconfig.getPipelineData();
 
    }
 

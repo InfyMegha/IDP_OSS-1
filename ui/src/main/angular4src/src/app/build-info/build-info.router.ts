@@ -5,14 +5,14 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Routes, RouterModule } from '@angular/router';
-import { BuildInfoComponent } from './build-info.component';
+import { Routes, RouterModule } from "@angular/router";
+import { BuildInfoComponent } from "./build-info.component";
 
 const BUILD_INFO_ROUTER: Routes = [
-    {
-        path: '',
-        component: BuildInfoComponent
-    }
+	{
+		path: "",
+		component: BuildInfoComponent
+	}
 ];
 
 export const buildInfoRouter = RouterModule.forChild(BUILD_INFO_ROUTER );

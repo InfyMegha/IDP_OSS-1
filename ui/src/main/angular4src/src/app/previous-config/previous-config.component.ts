@@ -5,20 +5,20 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Component, OnInit } from '@angular/core';
-import { IdpService } from '../idp-service.service';
-import { IdpdataService } from '../idpdata.service';
+import { Component, OnInit } from "@angular/core";
+import { IdpService } from "../idp-service.service";
+import { IdpdataService } from "../idpdata.service";
 
 @Component({
-  selector: 'app-previous-config',
-  templateUrl: './previous-config.component.html',
-  styleUrls: ['./previous-config.component.css']
+  selector: "app-previous-config",
+  templateUrl: "./previous-config.component.html",
+  styleUrls: ["./previous-config.component.css"]
 })
 export class PreviousConfigComponent implements OnInit {
 
   constructor(private IdpService: IdpService,
   public IdpdataService: IdpdataService) {
-    // this.IdpService.initMain();
+	// this.IdpService.initMain();
 	 // console.log(this.IdpdataService.IDPDashboardURL);
    }
 

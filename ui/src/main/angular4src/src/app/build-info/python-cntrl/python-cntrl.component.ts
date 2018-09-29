@@ -5,100 +5,100 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Component, OnInit,Input } from '@angular/core';
-import { IdpService } from '../../idp-service.service';
-import { IdpdataService } from '../../idpdata.service';
-import { IdprestapiService } from '../../idprestapi.service';
-import { Router } from '@angular/router';
-import { ParentFormConnectComponent } from '../../parent-form-connect/parent-form-connect.component';
+import { Component, OnInit, Input } from "@angular/core";
+import { IdpService } from "../../idp-service.service";
+import { IdpdataService } from "../../idpdata.service";
+import { IdprestapiService } from "../../idprestapi.service";
+import { Router } from "@angular/router";
+import { ParentFormConnectComponent } from "../../parent-form-connect/parent-form-connect.component";
 
 @Component({
-  selector: 'app-python-cntrl',
-  templateUrl: './python-cntrl.component.html',
-  styleUrls: ['./python-cntrl.component.css']
+  selector: "app-python-cntrl",
+  templateUrl: "./python-cntrl.component.html",
+  styleUrls: ["./python-cntrl.component.css"]
 })
 export class PythonCntrlComponent implements OnInit {
-      tempCodeAnalysis = ['sonarqube'];
-      buildInfo: any = this.IdpdataService.data.buildInfo;
-      tempObject: any = this.IdpdataService.data.checkboxStatus.buildInfo;
-      formStatusObject: any = this.IdpdataService.data.formStatus;
-      module: any;
+		tempCodeAnalysis = ["sonarqube"];
+		buildInfo: any = this.IdpdataService.data.buildInfo;
+		tempObject: any = this.IdpdataService.data.checkboxStatus.buildInfo;
+		formStatusObject: any = this.IdpdataService.data.formStatus;
+		module: any;
   @Input()
   public formName: string;
 
   constructor(public IdpdataService: IdpdataService,
-    public IdpService: IdpService,
-    public IdprestapiService: IdprestapiService,
-    public router: Router) {
+	public IdpService: IdpService,
+	public IdprestapiService: IdprestapiService,
+	public router: Router) {
 
 
-      if(this.buildInfo.modules.length === 0) {
-          // this.buildInfo = this.IdpService.copy(this.IdpdataService.data.buildInfo);
-          // this.buildInfo.modules = [];
-          this.tempObject.modules = [{'codeAnalysis': ''}];
-          this.module = {
-              'moduleName' : '',
-              'codeAnalysis' : [],
-              'unitTesting' : 'off',
-              'unitTestFolderName' : '',
-              'unitTestReportFolder' : '',
-              'targetHostName' : '',
-              'targetUserName' : '',
-              'targetPassword' : '',
-              'targetRemotedir' : ''
-          };
+		if (this.buildInfo.modules.length === 0) {
+			// this.buildInfo = this.IdpService.copy(this.IdpdataService.data.buildInfo);
+			// this.buildInfo.modules = [];
+			this.tempObject.modules = [{"codeAnalysis": ""}];
+			this.module = {
+				"moduleName" : "",
+				"codeAnalysis" : [],
+				"unitTesting" : "off",
+				"unitTestFolderName" : "",
+				"unitTestReportFolder" : "",
+				"targetHostName" : "",
+				"targetUserName" : "",
+				"targetPassword" : "",
+				"targetRemotedir" : ""
+			};
 
-          this.buildInfo.modules.push(this.module);
-      }
+			this.buildInfo.modules.push(this.module);
+		}
 
-      if (this.formStatusObject.operation === 'copy' || this.formStatusObject.operation === 'edit' ) {
-    	this.checkCheckBox();
+		if (this.formStatusObject.operation === "copy" || this.formStatusObject.operation === "edit" ) {
+		this.checkCheckBox();
   	  }
 
 
-      this.IdpdataService.data.buildInfo = this.buildInfo;
-      this.IdpdataService.data.checkboxStatus.buildInfo = this.tempObject;
+		this.IdpdataService.data.buildInfo = this.buildInfo;
+		this.IdpdataService.data.checkboxStatus.buildInfo = this.tempObject;
 
-    }
+	}
 
-    unitTestOn() {
-      this.IdpdataService.unitTest = true;
-      return 'on';
-    }
-    unitTestOff() {
-      this.IdpdataService.unitTest = false;
-      return 'off';
-    }
+	unitTestOn() {
+		this.IdpdataService.unitTest = true;
+		return "on";
+	}
+	unitTestOff() {
+		this.IdpdataService.unitTest = false;
+		return "off";
+	}
 
   ngOnInit() {
   }
 
-      codeAnalysisCheckbox() {
-          if (this.tempObject.modules[0].codeAnalysis === 'on') {
-              this.buildInfo.modules[0].codeAnalysis = [null];
-          }
-      }
+		codeAnalysisCheckbox() {
+			if (this.tempObject.modules[0].codeAnalysis === "on") {
+				this.buildInfo.modules[0].codeAnalysis = [null];
+			}
+		}
 
 
 
-      checkCheckBox() {
-          if (this.tempObject.modules === undefined) {
-      this.tempObject.modules = [{'codeAnalysis': ''}];
-    }
+		checkCheckBox() {
+			if (this.tempObject.modules === undefined) {
+		this.tempObject.modules = [{"codeAnalysis": ""}];
+	}
   		  if (this.buildInfo.modules[0].codeAnalysis.length !== 0) {
   			  if (this.tempObject.modules === undefined) {
   				  this.tempObject.modules = [];
   				  this.tempObject.modules.push({});
   			  }
-  			  this.tempObject.modules[0].codeAnalysis = 'on';
-        }
-        if (this.buildInfo.modules[0].unitTesting === 'on') {
-          this.IdpdataService.unitTest = true;
-        }
+  			  this.tempObject.modules[0].codeAnalysis = "on";
+		}
+		if (this.buildInfo.modules[0].unitTesting === "on") {
+			this.IdpdataService.unitTest = true;
+		}
   	  }
 
 codeAnalysisSonar() {
-  this.buildInfo.modules[0].codeAnalysis[0] = 'sonar';
+  this.buildInfo.modules[0].codeAnalysis[0] = "sonar";
   return false;
 }
 
@@ -120,7 +120,7 @@ codeAnalysisEmptyPaTrue() {
 
 
 unitTestingOn() {
-  this.buildInfo.modules[0].unitTesting = 'on';
+  this.buildInfo.modules[0].unitTesting = "on";
   return false;
 }
 
@@ -135,27 +135,27 @@ return false;
 }
 
 unitTestingOff() {
-  this.buildInfo.modules[0].unitTestDir = '';
-  this.buildInfo.modules[0].report = '';
+  this.buildInfo.modules[0].unitTestDir = "";
+  this.buildInfo.modules[0].report = "";
   this.IdpdataService.unitTest = false;
   for (const dep of this.IdpdataService.data.deployInfo.deployEnv) {
-    if (dep !== undefined  && dep.deploySteps !== undefined) {
-      for (const step of dep.deploySteps) {
-        step.s3location = '';
-      }
-    }
+	if (dep !== undefined  && dep.deploySteps !== undefined) {
+		for (const step of dep.deploySteps) {
+		step.s3location = "";
+		}
+	}
   }
   if (this.IdpdataService.data.checkboxStatus !== undefined && this.IdpdataService.data.checkboxStatus.deployInfo !== undefined
-    && this.IdpdataService.data.checkboxStatus.deployInfo.deployEnv !== undefined) {
-    for (const dep of this.IdpdataService.data.checkboxStatus.deployInfo.deployEnv) {
-      if (dep !== undefined && dep.deploySteps !== undefined) {
-        for (const step of dep.deploySteps) {
-          step.s3Loc = '';
-        }
-      }
+	&& this.IdpdataService.data.checkboxStatus.deployInfo.deployEnv !== undefined) {
+	for (const dep of this.IdpdataService.data.checkboxStatus.deployInfo.deployEnv) {
+		if (dep !== undefined && dep.deploySteps !== undefined) {
+		for (const step of dep.deploySteps) {
+			step.s3Loc = "";
+		}
+		}
 
 
-    }
+	}
   }
 
   return false;
@@ -163,10 +163,10 @@ unitTestingOff() {
 }
 
 targetEnvironmentUnitTestingOff() {
-  this.buildInfo.modules[0].hostName = '';
-  this.buildInfo.modules[0].userName = '';
-  this.buildInfo.modules[0].privateKey = '';
-  this.buildInfo.modules[0].remoteDir = '';
+  this.buildInfo.modules[0].hostName = "";
+  this.buildInfo.modules[0].userName = "";
+  this.buildInfo.modules[0].privateKey = "";
+  this.buildInfo.modules[0].remoteDir = "";
   return false;
 }
 }

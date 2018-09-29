@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CreateConfigComponent } from './create-config.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { CreateConfigComponent } from "./create-config.component";
 
-describe('CreateConfigComponent', () => {
+describe("CreateConfigComponent", () => {
   let component: CreateConfigComponent;
   let fixture: ComponentFixture<CreateConfigComponent>;
 
@@ -25,7 +25,7 @@ describe('CreateConfigComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should be created', () => {
+  xit("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

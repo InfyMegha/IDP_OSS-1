@@ -5,19 +5,19 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { DeployInfoComponent } from './deploy-info.component';
-import { IdpService } from '../idp-service.service';
-import { IdpdataService } from '../idpdata.service';
-import { IdprestapiService } from '../idprestapi.service';
-import { Router, NavigationExtras } from '@angular/router';
-import { ParentFormConnectComponent } from '../parent-form-connect/parent-form-connect.component';
-import { TranslateModule , TranslateService, TranslateLoader, TranslateParser} from 'ng2-translate';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
-import { IDPEncryption } from '../idpencryption.service';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule } from "@angular/forms";
+import { DeployInfoComponent } from "./deploy-info.component";
+import { IdpService } from "../idp-service.service";
+import { IdpdataService } from "../idpdata.service";
+import { IdprestapiService } from "../idprestapi.service";
+import { Router, NavigationExtras } from "@angular/router";
+import { ParentFormConnectComponent } from "../parent-form-connect/parent-form-connect.component";
+import { TranslateModule , TranslateService, TranslateLoader, TranslateParser} from "ng2-translate";
+import {NO_ERRORS_SCHEMA} from "@angular/core";
+import { IDPEncryption } from "../idpencryption.service";
 
-describe('DeployInfoComponent', () => {
+describe("DeployInfoComponent", () => {
   let component: DeployInfoComponent;
   let fixture: ComponentFixture<DeployInfoComponent>;
   let idpService: IdpService;
@@ -30,89 +30,89 @@ describe('DeployInfoComponent', () => {
 
 	constructor() {}
   template: any = {
-    'grantAccess': {
-      'applicationName': '',
-      'developers': [],
-      'pipelineAdmins': [],
-      'releaseManager': [],
-      'environmentOwnerDetails': [{
-        'environmentName': '',
-        'environmentOwners': [],
-        'dbOwners': []
+    "grantAccess": {
+      "applicationName": "",
+      "developers": [],
+      "pipelineAdmins": [],
+      "releaseManager": [],
+      "environmentOwnerDetails": [{
+        "environmentName": "",
+        "environmentOwners": [],
+        "dbOwners": []
       }],
-      'slaveDetails': [
+      "slaveDetails": [
         {
-          'slaveName': '',
-          'buildServerOS': '',
-          'workspacePath': '',
-          'createNewSlave': '',
-          'labels': '',
-          'sshKeyPath': '',
-          'slaveUsage': 'both'
+          "slaveName": "",
+          "buildServerOS": "",
+          "workspacePath": "",
+          "createNewSlave": "",
+          "labels": "",
+          "sshKeyPath": "",
+          "slaveUsage": "both"
         }
       ]
     },
-    'basicInfo': {
-      'additionalMailRecipients': {
-        'applicationTeam': '',
-        'emailIds': ''
+    "basicInfo": {
+      "additionalMailRecipients": {
+        "applicationTeam": "",
+        "emailIds": ""
       },
-      'applicationName': '',
-      'buildInterval': {
-        'buildInterval': '',
-        'buildIntervalValue': 0,
-        'pollSCM': 'off'
+      "applicationName": "",
+      "buildInterval": {
+        "buildInterval": "",
+        "buildIntervalValue": 0,
+        "pollSCM": "off"
       },
-      'buildServerOS': '',
-      'engine': '',
-      'pipelineName': ''
+      "buildServerOS": "",
+      "engine": "",
+      "pipelineName": ""
     },
-    'code': {
-      'category': '',
-      'technology': '',
-      'scm': [],
-      'buildScript':  [{'tool': ''}, {'tool': ''}, {}]
+    "code": {
+      "category": "",
+      "technology": "",
+      "scm": [],
+      "buildScript":  [{"tool": ""}, {"tool": ""}, {}]
     },
-    'buildInfo': {
-      'buildtool': '',
-      'castAnalysis': {},
-      'artifactToStage': {},
-      'modules': []
+    "buildInfo": {
+      "buildtool": "",
+      "castAnalysis": {},
+      "artifactToStage": {},
+      "modules": []
     },
-    'deployInfo': {
-      'deployEnv': []
+    "deployInfo": {
+      "deployEnv": []
     },
-    'testInfo': {
-      'testEnv': []
+    "testInfo": {
+      "testEnv": []
     },
-    'formStatus': {
-      'basicInfo': {
-        'appNameStatus': '0',
-        'formStatus': '0'
+    "formStatus": {
+      "basicInfo": {
+        "appNameStatus": "0",
+        "formStatus": "0"
       },
-      'codeInfo': '',
-      'buildInfo': {
-        'buildToolStatus': '0',
-        'formStatus': '0',
-        'ibmsiTypeStatus': '0'
+      "codeInfo": "",
+      "buildInfo": {
+        "buildToolStatus": "0",
+        "formStatus": "0",
+        "ibmsiTypeStatus": "0"
       },
-      'deployInfo': '',
-      'testInfo': '',
-      'operation': ''
+      "deployInfo": "",
+      "testInfo": "",
+      "operation": ""
     },
-    'checkboxStatus': {
-      'basicInfo': {},
-      'codeInfo': {},
-      'buildInfo': {},
-      'deployInfo': {},
-      'testInfo': {},
-      'others': {}
+    "checkboxStatus": {
+      "basicInfo": {},
+      "codeInfo": {},
+      "buildInfo": {},
+      "deployInfo": {},
+      "testInfo": {},
+      "others": {}
     },
-    'backUp': {
-      'deployInfo': {},
-      'testInfo': {}
+    "backUp": {
+      "deployInfo": {},
+      "testInfo": {}
     },
-    'masterJson': {}
+    "masterJson": {}
   };
   data: any =  JSON.parse(JSON.stringify(this.template));
 
@@ -121,14 +121,14 @@ describe('DeployInfoComponent', () => {
 	 copy(o) {
     let newO, i;
 
-    if (typeof o !== 'object') {
+    if (typeof o !== "object") {
       return o;
     }
     if (!o) {
       return o;
     }
 
-    if ('[object Array]' === Object.prototype.toString.apply(o)) {
+    if ("[object Array]" === Object.prototype.toString.apply(o)) {
       newO = [];
       for (i = 0; i < o.length; i += 1) {
         newO[i] = this.copy(o[i]);
@@ -152,11 +152,11 @@ class  IDPEncryptionStub {
   class RouterStub {
     navigate(commands: any[], extras?: NavigationExtras) { }
   }
-	let idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
-	let routerStub: RouterStub = new RouterStub();
-	let idpServiceStub: IdpServiceStub = new IdpServiceStub();
-	let idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
-	let idpEncryptionStub: IDPEncryptionStub = new IDPEncryptionStub();
+	const idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
+	const routerStub: RouterStub = new RouterStub();
+	const idpServiceStub: IdpServiceStub = new IdpServiceStub();
+	const idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
+	const idpEncryptionStub: IDPEncryptionStub = new IDPEncryptionStub();
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DeployInfoComponent, ParentFormConnectComponent ],
@@ -185,19 +185,19 @@ class  IDPEncryptionStub {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create', () => {
-    expect(component.deployInfo.deployEnv[0].deploySteps[0].deployToContainer.fileName).toBe('');
+  it("should create", () => {
+    expect(component.deployInfo.deployEnv[0].deploySteps[0].deployToContainer.fileName).toBe("");
   });
 
-  it('checkStep', () => {
+  it("checkStep", () => {
     expect(component.deployInfo.checkStep(0)).toBeTruthy();
   });
 
-  it('clearStep', () => {
+  it("clearStep", () => {
     expect(component.deployInfo.clearStep(0)).toBeFalsy();
   });
 

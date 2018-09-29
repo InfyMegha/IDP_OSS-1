@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TriggerServiceComponent } from './trigger-service.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { TriggerServiceComponent } from "./trigger-service.component";
 
-describe('TriggerServiceComponent', () => {
+describe("TriggerServiceComponent", () => {
   let component: TriggerServiceComponent;
   let fixture: ComponentFixture<TriggerServiceComponent>;
 
@@ -25,7 +25,7 @@ describe('TriggerServiceComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should be created', () => {
+  xit("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

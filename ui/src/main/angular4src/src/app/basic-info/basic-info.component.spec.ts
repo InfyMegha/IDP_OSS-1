@@ -5,36 +5,36 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BasicInfoComponent } from './basic-info.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { BasicInfoComponent } from "./basic-info.component";
 
-describe('BasicInfoComponent', () => {
+describe("BasicInfoComponent", () => {
   let component: BasicInfoComponent;
   let fixture: ComponentFixture<BasicInfoComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BasicInfoComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ BasicInfoComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BasicInfoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(BasicInfoComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+  it("should be created", () => {
+	expect(component).toBeTruthy();
   });
 
-  it('clearBuildInterval()', () => {
-    const a = component.clearBuildInterval();
-    expect(component.basicInfo.buildInterval.buildInterval).toBe('');
-    expect(component.basicInfo.buildInterval.buildIntervalValue).toBe('');
-    expect(component.basicInfo.buildInterval.pollSCM).toBe('off');
-    expect(a).toBe('off');
+  it("clearBuildInterval()", () => {
+	const a = component.clearBuildInterval();
+	expect(component.basicInfo.buildInterval.buildInterval).toBe("");
+	expect(component.basicInfo.buildInterval.buildIntervalValue).toBe("");
+	expect(component.basicInfo.buildInterval.pollSCM).toBe("off");
+	expect(a).toBe("off");
   });
 });
 

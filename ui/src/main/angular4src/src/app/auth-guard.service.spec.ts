@@ -5,17 +5,17 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { TestBed, inject } from '@angular/core/testing';
-import { AuthGuardService } from './auth-guard.service';
+import { TestBed, inject } from "@angular/core/testing";
+import { AuthGuardService } from "./auth-guard.service";
 
-describe('AuthGuardService', () => {
+describe("AuthGuardService", () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [AuthGuardService]
-    });
+	TestBed.configureTestingModule({
+		providers: [AuthGuardService]
+	});
   });
 
-  xit('should be created', inject([AuthGuardService], (service: AuthGuardService) => {
-    expect(service).toBeTruthy();
+  xit("should be created", inject([AuthGuardService], (service: AuthGuardService) => {
+	expect(service).toBeTruthy();
   }));
 });

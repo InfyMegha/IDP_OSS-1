@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { StageviewHistoryComponent } from './stageview-history.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { StageviewHistoryComponent } from "./stageview-history.component";
 
-describe('StageviewHistoryComponent', () => {
+describe("StageviewHistoryComponent", () => {
   let component: StageviewHistoryComponent;
   let fixture: ComponentFixture<StageviewHistoryComponent>;
 
@@ -25,7 +25,7 @@ describe('StageviewHistoryComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  xit("should create", () => {
     expect(component).toBeTruthy();
   });
 });

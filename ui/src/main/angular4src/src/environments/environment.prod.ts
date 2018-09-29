@@ -7,11 +7,11 @@ export const environment = {
   production: true,
   authmode: "ldap",
    adalConfig: {
-    tenant: '058aa436-9042-4335-86f1-5281c4247f2b',
-    clientId: '1501f18d-15e1-4423-ac40-cca4be910f11',
-    postLogoutRedirectUri: 'http://localhost:4200/logout',
-    endpoints: {
-      'https://adaltestapi.azurewebsites.net': 'https://adaltestapi.azurewebsites.net',
-    },
+	tenant: "058aa436-9042-4335-86f1-5281c4247f2b",
+	clientId: "1501f18d-15e1-4423-ac40-cca4be910f11",
+	postLogoutRedirectUri: "http://localhost:4200/logout",
+	endpoints: {
+		"https://adaltestapi.azurewebsites.net": "https://adaltestapi.azurewebsites.net",
+	},
   }
 };

@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ServicePortalComponent } from './service-portal.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ServicePortalComponent } from "./service-portal.component";
 
-describe('ServicePortalComponent', () => {
+describe("ServicePortalComponent", () => {
   let component: ServicePortalComponent;
   let fixture: ComponentFixture<ServicePortalComponent>;
 
@@ -25,7 +25,7 @@ describe('ServicePortalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

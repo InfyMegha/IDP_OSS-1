@@ -5,18 +5,18 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { SubscriptionService } from './subscription.service';
+import { SubscriptionService } from "./subscription.service";
 
-describe('SubscriptionService', () => {
+describe("SubscriptionService", () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [SubscriptionService]
-    });
+	TestBed.configureTestingModule({
+		providers: [SubscriptionService]
+	});
   });
 
-  it('should be created', inject([SubscriptionService], (service: SubscriptionService) => {
-    expect(service).toBeTruthy();
+  it("should be created", inject([SubscriptionService], (service: SubscriptionService) => {
+	expect(service).toBeTruthy();
   }));
 });

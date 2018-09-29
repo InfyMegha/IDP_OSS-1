@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ManageEnvironmentComponent } from './manage-environment.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ManageEnvironmentComponent } from "./manage-environment.component";
 
-describe('ManageEnvironmentComponent', () => {
+describe("ManageEnvironmentComponent", () => {
   let component: ManageEnvironmentComponent;
   let fixture: ComponentFixture<ManageEnvironmentComponent>;
 
@@ -25,7 +25,7 @@ describe('ManageEnvironmentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -5,16 +5,16 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import {EncryptionDirective} from './idpEncryption.directive';
+import {EncryptionDirective} from "./idpEncryption.directive";
 
 @NgModule({
   declarations: [
-    EncryptionDirective
+	EncryptionDirective
   ],
   exports: [
-    EncryptionDirective
+	EncryptionDirective
   ]
 })
 export class IdpEncryptionModule {}

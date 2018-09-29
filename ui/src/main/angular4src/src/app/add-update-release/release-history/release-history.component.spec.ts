@@ -5,27 +5,27 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReleaseHistoryComponent } from './release-history.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReleaseHistoryComponent } from "./release-history.component";
 
-describe('ReleaseHistoryComponent', () => {
+describe("ReleaseHistoryComponent", () => {
   let component: ReleaseHistoryComponent;
   let fixture: ComponentFixture<ReleaseHistoryComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ReleaseHistoryComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ ReleaseHistoryComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReleaseHistoryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(ReleaseHistoryComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
-  xit('should be created', () => {
-    expect(component).toBeTruthy();
+  xit("should be created", () => {
+	expect(component).toBeTruthy();
   });
 });

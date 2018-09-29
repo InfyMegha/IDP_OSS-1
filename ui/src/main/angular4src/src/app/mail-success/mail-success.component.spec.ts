@@ -5,11 +5,11 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MailSuccessComponent } from './mail-success.component';
+import { MailSuccessComponent } from "./mail-success.component";
 
-describe('MailSuccessComponent', () => {
+describe("MailSuccessComponent", () => {
   let component: MailSuccessComponent;
   let fixture: ComponentFixture<MailSuccessComponent>;
 
@@ -26,7 +26,7 @@ describe('MailSuccessComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  xit("should create", () => {
     expect(component).toBeTruthy();
   });
 });

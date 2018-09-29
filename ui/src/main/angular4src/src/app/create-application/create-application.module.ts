@@ -5,27 +5,27 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CreateApplicationComponent } from './create-application.component';
-import { createAppRouter } from './create-application.router';
-import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate';
-import { HttpModule, Http } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { CreateApplicationComponent } from "./create-application.component";
+import { createAppRouter } from "./create-application.router";
+import { TranslateModule, TranslateStaticLoader, TranslateLoader } from "ng2-translate";
+import { HttpModule, Http } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 
 export function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+  return new TranslateStaticLoader(http, "assets/i18n", ".json");
 }
 
 @NgModule({
   imports: [
-    CommonModule,
+	CommonModule,
 	createAppRouter,
 	TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    }),
+		provide: TranslateLoader,
+		useFactory: (createTranslateLoader),
+		deps: [Http]
+	}),
 	HttpModule,
 	FormsModule
   ],

@@ -5,28 +5,28 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BasicInfoComponent } from './basic-info.component';
-import { basicInfoRouter } from './basic-info.router';
-import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate';
-import { HttpModule, Http } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { BasicInfoComponent } from "./basic-info.component";
+import { basicInfoRouter } from "./basic-info.router";
+import { TranslateModule, TranslateStaticLoader, TranslateLoader } from "ng2-translate";
+import { HttpModule, Http } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 
 export function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+  return new TranslateStaticLoader(http, "assets/i18n", ".json");
 }
 @NgModule({
   imports: [
-    CommonModule,
-    basicInfoRouter,
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    }),
-    HttpModule,
-    FormsModule
+	CommonModule,
+	basicInfoRouter,
+	TranslateModule.forRoot({
+		provide: TranslateLoader,
+		useFactory: (createTranslateLoader),
+		deps: [Http]
+	}),
+	HttpModule,
+	FormsModule
   ],
   declarations: [BasicInfoComponent]
 })

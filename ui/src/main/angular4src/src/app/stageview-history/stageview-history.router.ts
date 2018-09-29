@@ -5,14 +5,14 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Routes, RouterModule } from '@angular/router';
-import { StageviewHistoryComponent } from './stageview-history.component';
+import { Routes, RouterModule } from "@angular/router";
+import { StageviewHistoryComponent } from "./stageview-history.component";
 
 const STAGEVIEW_HISTORY_ROUTER: Routes = [
-    {
-        path: '',
-        component: StageviewHistoryComponent
-    }
+	{
+		path: "",
+		component: StageviewHistoryComponent
+	}
 ];
 
 export const stageviewHistoryRouter = RouterModule.forChild(STAGEVIEW_HISTORY_ROUTER);

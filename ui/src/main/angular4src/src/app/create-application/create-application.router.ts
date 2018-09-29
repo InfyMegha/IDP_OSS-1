@@ -5,14 +5,14 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Routes, RouterModule } from '@angular/router';
-import { CreateApplicationComponent } from './create-application.component';
+import { Routes, RouterModule } from "@angular/router";
+import { CreateApplicationComponent } from "./create-application.component";
 
 const CREATE_APP_ROUTER: Routes = [
-    {
-        path: '',
-        component: CreateApplicationComponent
-    }
+	{
+		path: "",
+		component: CreateApplicationComponent
+	}
 ];
 
 export const createAppRouter = RouterModule.forChild(CREATE_APP_ROUTER );

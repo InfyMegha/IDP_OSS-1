@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NotificationInfoComponent } from './notification-info.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { NotificationInfoComponent } from "./notification-info.component";
 
-describe('NotificationInfoComponent', () => {
+describe("NotificationInfoComponent", () => {
   let component: NotificationInfoComponent;
   let fixture: ComponentFixture<NotificationInfoComponent>;
 
@@ -25,7 +25,7 @@ describe('NotificationInfoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

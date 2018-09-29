@@ -20,8 +20,9 @@
     ],
     "import-spacing": true,
     "indent": [
-      false,
-      "spaces"
+      true,
+	  "tabs",
+      4
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -83,7 +84,7 @@
     "prefer-const": true,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
     "radix": true,
     "semicolon": [
@@ -135,7 +136,6 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true,
-    "invoke-injectable": true
+    "directive-class-suffix": true   
   }
 }

@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IdpNavBarComponent } from './idp-nav-bar.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IdpNavBarComponent } from "./idp-nav-bar.component";
 
-describe('IdpNavBarComponent', () => {
+describe("IdpNavBarComponent", () => {
   let component: IdpNavBarComponent;
   let fixture: ComponentFixture<IdpNavBarComponent>;
 
@@ -25,7 +25,7 @@ describe('IdpNavBarComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should be created', () => {
+  xit("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

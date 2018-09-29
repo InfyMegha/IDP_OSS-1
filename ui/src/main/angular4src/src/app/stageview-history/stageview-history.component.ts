@@ -5,24 +5,24 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Component, OnInit } from '@angular/core';
-import { IdpService } from '../idp-service.service';
-import { IdpdataService } from '../idpdata.service';
-import { IdprestapiService } from '../idprestapi.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { IdpService } from "../idp-service.service";
+import { IdpdataService } from "../idpdata.service";
+import { IdprestapiService } from "../idprestapi.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-stageview-history',
-  templateUrl: './stageview-history.component.html',
-  styleUrls: ['./stageview-history.component.css']
+  selector: "app-stageview-history",
+  templateUrl: "./stageview-history.component.html",
+  styleUrls: ["./stageview-history.component.css"]
 })
 
 export class StageviewHistoryComponent implements OnInit {
   jobUrl: any;
   constructor(private IdpdataService: IdpdataService,
-    private IdpService: IdpService,
-    private IdprestapiService: IdprestapiService,
-    private router: Router) {
+	private IdpService: IdpService,
+	private IdprestapiService: IdprestapiService,
+	private router: Router) {
 	this.getUrl();
   }
 
@@ -30,13 +30,13 @@ export class StageviewHistoryComponent implements OnInit {
   }
 
 	getUrl() {
-     this.IdprestapiService.getStageViewUrl().then(response => {
-           const resp = response.json();
-           const errorMsg = resp.errorMessage;
-           /* console.log("required"+JSON.stringify(resp)); */
-         console.log(resp.resource);
+		this.IdprestapiService.getStageViewUrl().then(response => {
+			const resp = response.json();
+			const errorMsg = resp.errorMessage;
+			/* console.log("required"+JSON.stringify(resp)); */
+			console.log(resp.resource);
 		this.jobUrl = resp.resource;
-     });
-     return true;
-     }
+		});
+		return true;
+		}
 }

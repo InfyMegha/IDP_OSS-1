@@ -5,35 +5,35 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Component, OnInit } from '@angular/core';
-import { IdpService } from '../idp-service.service';
-import { IdprestapiService } from '../idprestapi.service';
-import { Router } from '@angular/router';
-import { IdpdataService } from '../idpdata.service';
-import { CookieService } from 'ngx-cookie';
-import {KeycloakService} from './keycloak.service';
-import {LoginKcService} from '../login-kc.service';
+import { Component, OnInit } from "@angular/core";
+import { IdpService } from "../idp-service.service";
+import { IdprestapiService } from "../idprestapi.service";
+import { Router } from "@angular/router";
+import { IdpdataService } from "../idpdata.service";
+import { CookieService } from "ngx-cookie";
+import {KeycloakService} from "./keycloak.service";
+import {LoginKcService} from "../login-kc.service";
 @Component({
-  selector: 'app-keycloak',
-  templateUrl: './keycloak.component.html'
+  selector: "app-keycloak",
+  templateUrl: "./keycloak.component.html"
 })
 export class KeycloakComponent implements OnInit {
 
   constructor(private IdpdataService: IdpdataService,
-    private IdpService: IdpService,
-    private IdprestapiService: IdprestapiService,
-    private router: Router,
+	private IdpService: IdpService,
+	private IdprestapiService: IdprestapiService,
+	private router: Router,
 	private keycloakService: KeycloakService,
-    private _cookieService: CookieService,
-    private loginkcService: LoginKcService) {
-// alert('In KeycloakkkC');
+	private _cookieService: CookieService,
+	private loginkcService: LoginKcService) {
+// alert("In KeycloakkkC");
 			this.IdprestapiService.getData()
-      .then(response => {
-        try {
-        if (response) {
+		.then(response => {
+		try {
+		if (response) {
 				 this.IdpdataService.devServerURL = response.json().idpresturl;
-				// this.IdpdataService.devServerURL = 'https://idplinv02:8889/idprest';
-				// this.IdpdataService.devServerURL = 'http://blrkec411214d:8889/idprest';
+				// this.IdpdataService.devServerURL = "https://idplinv02:8889/idprest";
+				// this.IdpdataService.devServerURL = "http://blrkec411214d:8889/idprest";
 				this.IdpdataService.subscriptionServerURL = response.json().idpsubscriptionurl;
 				this.IdpdataService.IDPDashboardURL = response.json().idpdashboardurl;
 				this.IdpdataService.IDPLink = response.json().IDPLink;
@@ -54,7 +54,7 @@ export class KeycloakComponent implements OnInit {
 			}
 		} catch (e) {
 			 console.log(e);
-			alert('Failed in getting the KC properties ');
+			alert("Failed in getting the KC properties ");
 		}
 	  });
 }

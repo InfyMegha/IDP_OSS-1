@@ -5,8 +5,8 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import {Injectable} from '@angular/core';
-import {environment} from '../../environments/environment';
+import {Injectable} from "@angular/core";
+import {environment} from "../../environments/environment";
 
 declare let Keycloak: any;
 
@@ -18,22 +18,22 @@ export class KeycloakService {
 			url: urlKC,
 			realm: realmKC,
 			clientId: clientIdKC,
-			'ssl-required': 'none',
-			'public-client': true
+			"ssl-required": "none",
+			"public-client": true
 		});
 
 		KeycloakService.auth.loggedIn = false;
 
 		return new Promise((resolve, reject) => {
-			keycloakAuth.init({onLoad: 'login-required'})
+			keycloakAuth.init({onLoad: "login-required"})
 				.success(() => {
-					// alert('Init success');
+					// alert("Init success");
 					console.log(document.baseURI);
 					console.log(keycloakAuth);
 					KeycloakService.auth.loggedIn = true;
 					KeycloakService.auth.authz = keycloakAuth;
 					KeycloakService.auth.logoutUrl = keycloakAuth.authServerUrl
-						+ '/realms/' + realmKC + '/protocol/openid-connect/logout?redirect_uri='
+						+ "/realms/" + realmKC + "/protocol/openid-connect/logout?redirect_uri="
 						+ document.baseURI;
 					resolve();
 				})
@@ -44,12 +44,12 @@ export class KeycloakService {
 	}
 
 	static logout() {
-		console.log('**  LOGOUT');
+		console.log("**  LOGOUT");
 		KeycloakService.auth.loggedIn = false;
 		KeycloakService.auth.authz = null;
-		console.log('urlll ' + KeycloakService.auth.logoutUrl);
+		console.log("urlll " + KeycloakService.auth.logoutUrl);
 		window.location.href = KeycloakService.auth.logoutUrl;
-		// alert('Logged out');
+		// alert("Logged out");
 	}
 
 	static getUsername(): string {
@@ -70,17 +70,17 @@ export class KeycloakService {
 						resolve(<string>KeycloakService.auth.authz.token);
 					})
 					.error(() => {
-						reject('Failed to refresh token');
+						reject("Failed to refresh token");
 					});
 			}} else {
 				window.location.href = KeycloakService.auth.logoutUrl;
-				reject('Not logged in');
+				reject("Not logged in");
 			}
 		});
 	}
 	 checkLoggedIn() {
 		if (KeycloakService.auth.loggedIn === true) {
-			// alert('authenticated')
+			// alert("authenticated")
 			return true;
 		} else {
 			// alert(KeycloakService.auth.loggedIn )

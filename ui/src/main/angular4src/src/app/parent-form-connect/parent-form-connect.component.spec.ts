@@ -5,10 +5,10 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ParentFormConnectComponent } from './parent-form-connect.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ParentFormConnectComponent } from "./parent-form-connect.component";
 
-describe('ParentFormConnectComponent', () => {
+describe("ParentFormConnectComponent", () => {
   let component: ParentFormConnectComponent;
   let fixture: ComponentFixture<ParentFormConnectComponent>;
 
@@ -25,7 +25,7 @@ describe('ParentFormConnectComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  xit("should create", () => {
     expect(component).toBeTruthy();
   });
 });

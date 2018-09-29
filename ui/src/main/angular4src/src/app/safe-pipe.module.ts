@@ -5,15 +5,15 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { NgModule } from '@angular/core';
-import {SafePipePipe} from './safe-pipe.pipe';
+import { NgModule } from "@angular/core";
+import {SafePipePipe} from "./safe-pipe.pipe";
 
 @NgModule({
   declarations: [
-    SafePipePipe
+	SafePipePipe
   ],
   exports: [
-    SafePipePipe
+	SafePipePipe
   ]
 })
 export class SafePipeModule {}

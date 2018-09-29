@@ -5,23 +5,23 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
-import { Component, OnInit } from '@angular/core';
-import { IdpService } from '../idp-service.service';
-import { IdpdataService } from '../idpdata.service';
-import { IdprestapiService } from '../idprestapi.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { IdpService } from "../idp-service.service";
+import { IdpdataService } from "../idpdata.service";
+import { IdprestapiService } from "../idprestapi.service";
+import { Router } from "@angular/router";
 @Component({
-  selector: 'app-stageview-trigger',
-  templateUrl: './stageview-trigger.component.html',
-  styleUrls: ['./stageview-trigger.component.css']
+  selector: "app-stageview-trigger",
+  templateUrl: "./stageview-trigger.component.html",
+  styleUrls: ["./stageview-trigger.component.css"]
 })
 export class StageviewTriggerComponent implements OnInit {
   username = this.IdpdataService.idpUserName;
   jobUrl: any;
   constructor(private IdpdataService: IdpdataService,
-    private IdpService: IdpService,
-    private IdprestapiService: IdprestapiService,
-    private router: Router) {
+	private IdpService: IdpService,
+	private IdprestapiService: IdprestapiService,
+	private router: Router) {
 
 		this.getUrl();
 	}
@@ -30,15 +30,15 @@ export class StageviewTriggerComponent implements OnInit {
   }
 
 	getUrl() {
-     this.IdprestapiService.getStageViewUrl().then(response => {
-		console.log('resssssssssssss' + JSON.stringify(response.json()));
-           const resp = response.json();
-           const errorMsg = resp.errorMessage;
-           /* console.log("required"+JSON.stringify(resp)); */
-         console.log(resp.resource);
+		this.IdprestapiService.getStageViewUrl().then(response => {
+		console.log("resssssssssssss" + JSON.stringify(response.json()));
+			const resp = response.json();
+			const errorMsg = resp.errorMessage;
+			/* console.log("required"+JSON.stringify(resp)); */
+			console.log(resp.resource);
 		this.jobUrl = resp.resource;
-		console.log('uuuuuuuurrrrr' + this.jobUrl);
-     });
-     return true;
-     }
+		console.log("uuuuuuuurrrrr" + this.jobUrl);
+		});
+		return true;
+		}
 }
