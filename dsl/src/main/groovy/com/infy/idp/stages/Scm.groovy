@@ -209,12 +209,12 @@ class Scm {
                 rtc.add(delegate, jsonData)
 
             }
-            if (list.contains(Constants.IBMRTCSCM)) {
+            /*if (list.contains(Constants.IBMRTCSCM)) {
                 IbmRtcScm ibmrtc = new IbmRtcScm()
                 ibmrtc.setScmMap(scmlist)
                 ibmrtc.add(delegate, jsonData)
 
-            }
+            }*/
 
         }
     }

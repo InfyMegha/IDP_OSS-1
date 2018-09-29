@@ -105,7 +105,7 @@ class Pipeline {
 
     void addPollScm(context, jsonData) {
         def buildIntervalJson = jsonData.basicInfo.buildInterval;
-        TriggersAdder triggersAdder = new TriggersAdder();
+        //TriggersAdder triggersAdder = new TriggersAdder();
         String scheduleStr = "";
         if (buildIntervalJson.buildAtSpecificInterval != null && buildIntervalJson.buildAtSpecificInterval.equalsIgnoreCase('on')) {
 

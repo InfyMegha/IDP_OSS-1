@@ -9,6 +9,7 @@
 package com.infy.idp.stages
 
 import com.infy.idp.creators.*
+//import com.infy.idp.customtools.GeGitUtil
 import com.infy.idp.plugins.scm.*
 import com.infy.idp.plugins.wrappers.BuildNameSetter
 import com.infy.idp.plugins.wrappers.PreBuildCleanup
@@ -182,12 +183,12 @@ class Scm_Test {
                 rtc.add(delegate, jsonData)
 
             }
-            if (list.contains(Constants.IBMRTCSCM)) {
+            /*if (list.contains(Constants.IBMRTCSCM)) {
                 IbmRtcScm ibmrtc = new IbmRtcScm()
                 ibmrtc.setScmMap(testScmlist)
                 ibmrtc.add(delegate, jsonData)
 
-            }
+            }*/
         }
     }
 

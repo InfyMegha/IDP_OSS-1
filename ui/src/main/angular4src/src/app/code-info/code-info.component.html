@@ -563,7 +563,7 @@
                                                 </div>
                                                 <div class="col-md-9 field-tip text-left">
                                                     <input class="form-control txtbox" id="cdsctfsuntf{{i}}" name="tfsUsername{{i}}" #tfsUsername="ngModel" [(ngModel)]="scm.userName"
-                                                        name="tfsusername1" type="text" pattern="[_a-zA-Z0-9.-\\]+" placeholder="ge\TFSUsername"
+                                                        name="tfsusername1" type="text" pattern="[_a-zA-Z0-9.-\\]+" placeholder="domain\TFSUsername"
                                                         minlength="5" maxlength="150" required>
                                                     <span class="tip-content">{{'TFS UserName'|translate}}</span>
                                                     <div *ngIf="tfsUsername.errors && (tfsUsername.dirty || tfsUsername.touched)" class="alert alert-danger ">
