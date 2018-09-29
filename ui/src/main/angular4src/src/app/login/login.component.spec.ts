@@ -13,19 +13,19 @@ describe("LoginComponent", () => {
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ LoginComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(LoginComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   xit("should be created", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

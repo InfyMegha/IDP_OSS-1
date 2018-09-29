@@ -13,19 +13,19 @@ describe("ServicePortalComponent", () => {
   let fixture: ComponentFixture<ServicePortalComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ServicePortalComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ ServicePortalComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServicePortalComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(ServicePortalComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   it("should create", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

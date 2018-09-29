@@ -13,20 +13,20 @@ describe("IdpheaderComponent", () => {
   let fixture: ComponentFixture<IdpheaderComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ IdpheaderComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ IdpheaderComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IdpheaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(IdpheaderComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   xit("should be created", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });
 

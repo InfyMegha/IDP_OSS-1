@@ -13,19 +13,19 @@ describe("StageviewTriggerComponent", () => {
   let fixture: ComponentFixture<StageviewTriggerComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StageviewTriggerComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ StageviewTriggerComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StageviewTriggerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(StageviewTriggerComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   xit("should create", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

@@ -13,19 +13,19 @@ describe("IdpNavBarComponent", () => {
   let fixture: ComponentFixture<IdpNavBarComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ IdpNavBarComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ IdpNavBarComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IdpNavBarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(IdpNavBarComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   xit("should be created", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

@@ -13,19 +13,19 @@ describe("TriggerServiceComponent", () => {
   let fixture: ComponentFixture<TriggerServiceComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TriggerServiceComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ TriggerServiceComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TriggerServiceComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(TriggerServiceComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   xit("should be created", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

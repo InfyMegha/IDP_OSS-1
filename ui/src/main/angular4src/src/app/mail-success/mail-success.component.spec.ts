@@ -14,19 +14,19 @@ describe("MailSuccessComponent", () => {
   let fixture: ComponentFixture<MailSuccessComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MailSuccessComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ MailSuccessComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MailSuccessComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(MailSuccessComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   xit("should create", () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });
