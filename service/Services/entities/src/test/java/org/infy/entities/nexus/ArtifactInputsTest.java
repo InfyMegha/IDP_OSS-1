@@ -8,33 +8,17 @@
 
 package org.infy.entities.nexus;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.infy.entities.triggerinputs.DeployArtifact;
-import org.infy.entities.triggerinputs.PackageTestCase;
 import org.infy.idp.entities.nexus.ArtifactInputs;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class ArtifactInputsTest extends PackageTestCase {
-
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
+public class ArtifactInputsTest {
 
 	@Test
 	public void testArtifactInputsValues() throws Throwable {

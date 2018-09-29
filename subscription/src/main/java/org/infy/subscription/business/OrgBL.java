@@ -30,46 +30,46 @@ import com.google.gson.Gson;
 
 /**
  * 
- * @author kruti.vyas
+ * @author Infosys
  *
  */
 @Component
 public class OrgBL {
-	
+
 	@Autowired
 	OrgRegistrationRepository orgRegistrationRepository;
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
-	
+
 	@Value("${kafkaorgtopic}")
 	private String topic;
-	
+
 	/**
 	 * 
 	 * @param orgInfo
 	 * @return String
 	 */
-	public String registerOrg(OrgInfo orgInfo)
-	{
+	public String registerOrg(OrgInfo orgInfo) {
 		Gson gson = new Gson();
 		orgRegistrationRepository.save(orgInfo);
 		kafkaTemplate.send(topic, gson.toJson(orgInfo));
 		return Constants.SUCCESS;
 	}
-	
-	public List<OrgInfo> getOrgList(){
+
+	public List<OrgInfo> getOrgList() {
 		List<OrgInfo> orgList = new ArrayList<>();
 		orgList = orgRegistrationRepository.findAllOrgList();
-		
+
 		return orgList;
 	}
-	
-	public int updateOrg(OrgInfo orgInfo){
-		int result = orgRegistrationRepository.updateOrg(orgInfo.getOrgName(), orgInfo.getOrgAdmin(), orgInfo.getDomain());
+
+	public int updateOrg(OrgInfo orgInfo) {
+		int result = orgRegistrationRepository.updateOrg(orgInfo.getOrgName(), orgInfo.getOrgAdmin(),
+				orgInfo.getDomain());
 		return result;
 	}
-	
-	public String findDomain(String orgName){
+
+	public String findDomain(String orgName) {
 		return orgRegistrationRepository.findDomain(orgName);
 	}
 

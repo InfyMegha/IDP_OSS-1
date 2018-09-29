@@ -8,8 +8,10 @@
 
 package org.infy.idp.entities.jobs.code;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -18,7 +20,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.code.Code
  * 
  */
-public class JobParamTest extends PackageTestCase {
+public class JobParamTest {
 
 	public JobParamTest() {
 		/*
@@ -65,28 +67,7 @@ public class JobParamTest extends PackageTestCase {
 		assertNull(testedObject.getJobParamSatic());
 	}
 
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
-	}
-
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.code.JobParamTest");
 	}

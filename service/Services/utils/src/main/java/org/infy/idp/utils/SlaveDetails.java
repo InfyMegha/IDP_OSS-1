@@ -24,7 +24,7 @@ import net.sf.json.JSONObject;
 /**
  * The class SlaveDetails contains methods to check slave status
  * 
- * @author kruti.vyas
+ * @author Infosys
  *
  */
 @Component

@@ -28,8 +28,8 @@ export class KeycloakService {
             keycloakAuth.init({onLoad: "login-required"})
                 .success(() => {
                     // alert("Init success");
-                    console.log(document.baseURI);
-                    console.log(keycloakAuth);
+                    // console.log(document.baseURI);
+                    // console.log(keycloakAuth);
                     KeycloakService.auth.loggedIn = true;
                     KeycloakService.auth.authz = keycloakAuth;
                     KeycloakService.auth.logoutUrl = keycloakAuth.authServerUrl

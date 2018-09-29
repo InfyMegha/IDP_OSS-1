@@ -8,8 +8,9 @@
 
 package org.infy.idp.config;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -27,7 +28,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
  * @see org.infy.idp.config.OAuth2AuthorizationServerConfig
  *  
  */
-public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
+public class OAuth2AuthorizationServerConfigTest {
 
 	/**
 	 * Constructor for test class.
@@ -56,16 +57,16 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 	public void testAccessTokenConverter0() throws Throwable {
 		OAuth2AuthorizationServerConfig testedObject = new OAuth2AuthorizationServerConfig();
 		JwtAccessTokenConverter result = testedObject.accessTokenConverter();
-		assertNotNull(result); // jtest_unverified
-		assertNotNull(result.getKey()); // jtest_unverified
-		assertEquals(2, result.getKey().size()); // jtest_unverified
-		assertEquals(true, result.getKey().containsValue("SHA256withRSA")); // jtest_unverified
+		assertNotNull(result); 
+		assertNotNull(result.getKey()); 
+		assertEquals(2, result.getKey().size()); 
+		assertEquals(true, result.getKey().containsValue("SHA256withRSA")); 
 		assertEquals(true, result.getKey().containsValue(
-				"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgIK2Wt4x2EtDl41C7vfpOsMquZMyOyteO2RsVeMLF/hXIeYvicKr0SQzVkodHEBCMiGXQDz5prijTq3RHPy2/5WJBCYq7yHgTLvspMy6sivXN7NdYE7I5pXo/KHk4nz+Fa6P3L8+L90E/3qwf6j3DKWnAgJFRY8AbSYXt1d5ELiIG1/gEqzC0fZmNhhfrBtxwWXrlpUDT0Kfvf0QVmPRxxCLXT+tEe1seWGEqeOLL5vXRLqmzZcBe1RZ9kQQm43+a9Qn5icSRnDfTAesQ3CrlAWJKl2kcWU1HwJqw+dZRSZ1X4kEXNMyzPdPBbGmU6MHdhpywI7SKZT7mX4BDnUKeQIDAQAB\n-----END PUBLIC KEY-----")); // jtest_unverified
-		assertEquals(true, result.isPublic()); // jtest_unverified
-		assertNotNull(result.getAccessTokenConverter()); // jtest_unverified
+				"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgIK2Wt4x2EtDl41C7vfpOsMquZMyOyteO2RsVeMLF/hXIeYvicKr0SQzVkodHEBCMiGXQDz5prijTq3RHPy2/5WJBCYq7yHgTLvspMy6sivXN7NdYE7I5pXo/KHk4nz+Fa6P3L8+L90E/3qwf6j3DKWnAgJFRY8AbSYXt1d5ELiIG1/gEqzC0fZmNhhfrBtxwWXrlpUDT0Kfvf0QVmPRxxCLXT+tEe1seWGEqeOLL5vXRLqmzZcBe1RZ9kQQm43+a9Qn5icSRnDfTAesQ3CrlAWJKl2kcWU1HwJqw+dZRSZ1X4kEXNMyzPdPBbGmU6MHdhpywI7SKZT7mX4BDnUKeQIDAQAB\n-----END PUBLIC KEY-----")); 
+		assertEquals(true, result.isPublic()); 
+		assertNotNull(result.getAccessTokenConverter()); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -177,14 +178,14 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 		OAuth2AuthorizationServerConfig testedObject = new OAuth2AuthorizationServerConfig();
 		AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
 		testedObject.configure(endpoints);
-		assertNotNull(endpoints.getTokenServices()); // jtest_unverified
-		assertNotNull(endpoints.getTokenEnhancer()); // jtest_unverified
-		assertNotNull(endpoints.getTokenStore()); // jtest_unverified
+		assertNotNull(endpoints.getTokenServices()); 
+		assertNotNull(endpoints.getTokenEnhancer()); 
+		assertNotNull(endpoints.getTokenStore()); 
 		//assertNotNull(endpoints.getApprovalStore()); // Ignored by Jtest
 		//assertNotNull(endpoints.getClientDetailsService()); 
 		//assertNotNull(endpoints.getOAuth2RequestFactory()); 
 		// No exception thrown
-		// jtest_unverified
+		
 	
 	}
 
@@ -224,7 +225,7 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 	public void testOAuth2AuthorizationServerConfig0() throws Throwable {
 		OAuth2AuthorizationServerConfig testedObject = new OAuth2AuthorizationServerConfig();
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -241,9 +242,9 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 	public void testTokenEnhancer0() throws Throwable {
 		OAuth2AuthorizationServerConfig testedObject = new OAuth2AuthorizationServerConfig();
 		TokenEnhancer result = testedObject.tokenEnhancer();
-		assertNotNull(result); // jtest_unverified
+		assertNotNull(result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -260,9 +261,9 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 	public void testTokenServices0() throws Throwable {
 		OAuth2AuthorizationServerConfig testedObject = new OAuth2AuthorizationServerConfig();
 		DefaultTokenServices result = testedObject.tokenServices();
-		assertNotNull(result); // jtest_unverified
+		assertNotNull(result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -279,45 +280,11 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 	public void testTokenStore0() throws Throwable {
 		OAuth2AuthorizationServerConfig testedObject = new OAuth2AuthorizationServerConfig();
 		TokenStore result = testedObject.tokenStore();
-		assertNotNull(result); // jtest_unverified
+		assertNotNull(result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -329,7 +296,7 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 	 *  
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.config.OAuth2AuthorizationServerConfigTest");
 	}
@@ -344,4 +311,3 @@ public class OAuth2AuthorizationServerConfigTest extends PackageTestCase {
 		return OAuth2AuthorizationServerConfig.class;
 	}
 }
-// JTEST_CURRENT_ID=90554106.

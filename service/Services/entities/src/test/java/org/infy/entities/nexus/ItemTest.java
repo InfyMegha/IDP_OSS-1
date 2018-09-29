@@ -8,47 +8,20 @@
 
 package org.infy.entities.nexus;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.infy.entities.triggerinputs.PackageTestCase;
 import org.infy.idp.entities.nexus.Asset;
 import org.infy.idp.entities.nexus.Item;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class ItemTest extends PackageTestCase {
+public class ItemTest {
 	public ItemTest() {
 
-	}
-
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**
@@ -62,7 +35,7 @@ public class ItemTest extends PackageTestCase {
 		Item testObject = new Item();
 		testObject.setRepository("nexus");
 		Asset a = new Asset();
-		a.setDownloadUrl("idpwinv05");
+		a.setDownloadUrl("server1");
 		List<Asset> as = new ArrayList<Asset>();
 		as.add(a);
 		testObject.setAssets(as);
@@ -79,7 +52,7 @@ public class ItemTest extends PackageTestCase {
 		assertEquals("group", testObject.getGroup());
 		assertEquals("name", testObject.getName());
 		assertEquals("1", testObject.getVersion());
-		assertEquals("idpwinv05", testObject.getAssets().get(0).getDownloadUrl());
+		assertEquals("server1", testObject.getAssets().get(0).getDownloadUrl());
 
 	}
 
@@ -107,13 +80,13 @@ public class ItemTest extends PackageTestCase {
 	public void testAsset() throws Throwable {
 		Item testObj = new Item();
 		Asset a = new Asset();
-		a.setDownloadUrl("idpwinv05");
+		a.setDownloadUrl("server1");
 		List<Asset> as = new ArrayList<Asset>();
 		as.add(a);
 		testObj.setAssets(as);
 
 		assertNotNull(testObj.getAssets());
-		assertEquals("idpwinv05", testObj.getAssets().get(0).getDownloadUrl());
+		assertEquals("server1", testObj.getAssets().get(0).getDownloadUrl());
 		assertNull(testObj.getAssets().get(0).getFormat());
 		assertNull(testObj.getAssets().get(0).getRepository());
 		assertNull(testObj.getAssets().get(0).getId());
@@ -128,7 +101,7 @@ public class ItemTest extends PackageTestCase {
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.entities.triggerinputs.ItemTest");
 	}

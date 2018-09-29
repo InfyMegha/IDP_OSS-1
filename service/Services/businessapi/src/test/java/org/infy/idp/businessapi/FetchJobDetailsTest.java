@@ -8,6 +8,9 @@
 
 package org.infy.idp.businessapi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,14 +32,13 @@ import org.infy.idp.entities.jobs.deployinfo.DeployStep;
 import org.infy.idp.entities.jobs.testinfo.TestEnv;
 import org.infy.idp.entities.jobs.testinfo.TestInfo;
 import org.infy.idp.entities.jobs.testinfo.TestStep;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * @author Infosys
  */
-public class FetchJobDetailsTest extends PackageTestCase {
+public class FetchJobDetailsTest{
 
 
 	private IDPJob idpjson;
@@ -77,8 +79,8 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		ArrayList slavesDetails = new ArrayList();
 		app.setSlavesDetails(slavesDetails);
 		List result = testedObject.getEmailRecipients(app);
-		assertNotNull(result); // jtest_unverified
-		assertEquals("[app_2, app_3, app_1]", result.toString()); // jtest_unverified
+		assertNotNull(result); 
+		assertEquals("[app_2, app_3, app_1]", result.toString()); 
 	}
 
 	@Test
@@ -104,7 +106,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 
 		List<String> expectedResult = new ArrayList<String>();
 		expectedResult.add("environmentName");
-		assertEquals(expectedResult, result); // jtest_unverified
+		assertEquals(expectedResult, result); 
 	}
 
 	@Test
@@ -126,7 +128,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 
 	/**
 	 * 
-	 * @author rajaprabu.dharmaraj
+	 * @author Infosys
 	 * 
 	 */
 	@Test
@@ -151,7 +153,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		env.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
 		EnvironmentOwnerDetail ev = new EnvironmentOwnerDetail();
-		ev.setQa("shakti.saurabh");
+		ev.setQa("idpadmin");
 		List<EnvironmentOwnerDetail> evc = new ArrayList<EnvironmentOwnerDetail>();
 		evc.add(ev);
 		ap.setEnvironmentOwnerDetails(evc);
@@ -223,7 +225,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		env.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
 		EnvironmentOwnerDetail ev = new EnvironmentOwnerDetail();
-		ev.setQa("shakti.saurabh");
+		ev.setQa("idpadmin");
 		List<EnvironmentOwnerDetail> evc = new ArrayList<EnvironmentOwnerDetail>();
 		evc.add(ev);
 		ap.setEnvironmentOwnerDetails(evc);
@@ -266,7 +268,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		envf.add("Env1");
 		ApplicationInfo ap = new ApplicationInfo();
 		EnvironmentOwnerDetail ev = new EnvironmentOwnerDetail();
-		ev.setQa("shakti.saurabh");
+		ev.setQa("idpadmin");
 		List<EnvironmentOwnerDetail> evc = new ArrayList<EnvironmentOwnerDetail>();
 		evc.add(ev);
 		ap.setEnvironmentOwnerDetails(evc);
@@ -301,8 +303,8 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		ArrayList slavesDetails = new ArrayList();
 		app.setSlavesDetails(slavesDetails);
 		List result = testedObject.getPipelineAdmins(app);
-		assertNotNull(result); // jtest_unverified
-		assertEquals("[app_2]", result.toString()); // jtest_unverified
+		assertNotNull(result); 
+		assertEquals("[app_2]", result.toString()); 
 	}
 
 	/**
@@ -319,10 +321,10 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		FetchJobDetails testedObject = new FetchJobDetails();
 		ArrayList emails = new ArrayList();
 		List result = testedObject.splitUsers("userString", emails);
-		assertEquals(emails, result); // jtest_unverified
-		assertEquals("[userString]", emails.toString()); // jtest_unverified
+		assertEquals(emails, result); 
+		assertEquals("[userString]", emails.toString()); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -338,7 +340,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 		 * Repository.putTemporary() to provide initialized instances of objects to be
 		 * used when testing.
 		 */
-		super.setUp();
 
 		idpjson = new IDPJob();
 		idpjson.setSsoName("idpjson");
@@ -603,22 +604,6 @@ public class FetchJobDetailsTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -629,7 +614,7 @@ public class FetchJobDetailsTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.FetchJobDetailsTest");
 	}

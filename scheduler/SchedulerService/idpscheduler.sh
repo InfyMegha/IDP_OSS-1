@@ -7,13 +7,26 @@ else
 fi
 while [ "$status" != true ]
  do
+   	echo "Waiting for Config Server to start. Sleeping for 5 sec ....."
+	sleep 5
 	wget -q -O - ${PROTOCOL}://${CONFIG_HOSTNAME}:${CONFIG_PORT}/idpschedule/paas --user=${CONFIG_USERNAME} --password=${CONFIG_PASSWORD} --no-check-certificate
 	if [ $? -ne 0 ]
 	  then status="false"
 	else status="true"
 	fi
-  	echo "Waiting for Config Server to start. Sleeping for 5 sec ....."
+done
+status="false"
+while [ "$status" != true ]
+ do
+   	echo "Waiting for Kafka Server to start. Sleeping for 5 sec ....."
 	sleep 5
+	bash -c 'exec 3<> /dev/tcp/'${KAFKA_HOSTNAME}'/'${KAFKA_PORT}'' 2>/dev/null
+	if [ $? -ne 0 ]
+	then 
+		status="false"
+	else
+		status="true"
+	fi
 done
 if [ "$SSL_ENABLED" = true ]
 then

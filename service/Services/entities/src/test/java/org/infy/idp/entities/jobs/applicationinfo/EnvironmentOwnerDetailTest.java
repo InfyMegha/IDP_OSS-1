@@ -8,9 +8,9 @@
 
 package org.infy.idp.entities.jobs.applicationinfo;
 
-import org.infy.idp.entities.jobs.applicationinfo.EnvironmentOwnerDetail;
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
 /**
@@ -19,7 +19,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.applicationinfo.EnvironmentOwnerDetail
  * 
  */
-public class EnvironmentOwnerDetailTest extends PackageTestCase {
+public class EnvironmentOwnerDetailTest  {
 
 	/**
 	 * Constructor for test class.
@@ -89,7 +89,6 @@ public class EnvironmentOwnerDetailTest extends PackageTestCase {
 		assertNull(testedObject.getSystemId());
 		assertNull(testedObject.getQa());
 		assertNull(testedObject.getClient());
-//		assertNull(testedObject.getLandscapeType());
 		assertNull(testedObject.getHostName());
 		assertNull(testedObject.getInstanceNumber());
 		assertNull(testedObject.getUserName());
@@ -97,37 +96,6 @@ public class EnvironmentOwnerDetailTest extends PackageTestCase {
 		assertNull(testedObject.getPassword());
 	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -138,7 +106,7 @@ public class EnvironmentOwnerDetailTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.applicationInfo.EnvironmentOwnerDetailTest");
 	}
@@ -153,4 +121,3 @@ public class EnvironmentOwnerDetailTest extends PackageTestCase {
 		return EnvironmentOwnerDetail.class;
 	}
 }
-// JTEST_CURRENT_ID=257293771.

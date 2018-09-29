@@ -8,13 +8,12 @@
 
 package org.infy.idp.entities.jobs.deployinfo;
 
-import org.infy.entities.triggerinputs.PackageTestCase;
-import org.infy.idp.entities.jobs.deployinfo.DeployDatabase;
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
-public class DeployDatabaseTest extends PackageTestCase {
+public class DeployDatabaseTest {
 
 	public DeployDatabaseTest() {
 		/*
@@ -56,35 +55,8 @@ public class DeployDatabaseTest extends PackageTestCase {
 		assertNull(db.getScript());
 	}
 
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
-	}
-
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
-
+		
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.deployInfo.DeployDatabaseTest");
 	}
 

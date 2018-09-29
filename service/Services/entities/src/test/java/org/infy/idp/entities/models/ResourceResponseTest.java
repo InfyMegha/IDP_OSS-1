@@ -8,27 +8,28 @@
 
 package org.infy.idp.entities.models;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
 /**
  * ResourceResponseTest is a test class for ResourceResponse
  *
  * @see org.infy.idp.entities.models.ResourceResponse
- *  
+ * 
  */
-public class ResourceResponseTest extends PackageTestCase {
+public class ResourceResponseTest {
 
 	/**
 	 * Constructor for test class.
 	 *
-	 *  
+	 * 
 	 */
 	public ResourceResponseTest() {
 		/*
-		 * This constructor should not be modified. Any initialization code
-		 * should be placed in the setUp() method instead.
+		 * This constructor should not be modified. Any initialization code should be
+		 * placed in the setUp() method instead.
 		 */
 
 	}
@@ -36,11 +37,10 @@ public class ResourceResponseTest extends PackageTestCase {
 	/**
 	 * Test for method getResource().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see ResourceResponse#getResource()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -54,11 +54,10 @@ public class ResourceResponseTest extends PackageTestCase {
 	/**
 	 * Test for method ResourceResponse().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see ResourceResponse#ResourceResponse()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -75,11 +74,10 @@ public class ResourceResponseTest extends PackageTestCase {
 	/**
 	 * Test for method ResourceResponse().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see ResourceResponse#ResourceResponse()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -95,54 +93,21 @@ public class ResourceResponseTest extends PackageTestCase {
 	/**
 	 * Test for method ResourceResponse().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see ResourceResponse#ResourceResponse()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
 	public void testResourceResponseNull2() throws Throwable {
 		ResourceResponse testedObject = new ResourceResponse();
-		assertEquals(null, testedObject.getResource()); // jtest_unverified
-		assertEquals(null, testedObject.getStatus()); // jtest_unverified
-		assertEquals(0, testedObject.getStatusCode()); // jtest_unverified
-		assertEquals(null, testedObject.getErrorMessage()); // jtest_unverified
+		assertEquals(null, testedObject.getResource());
+		assertEquals(null, testedObject.getStatus());
+		assertEquals(0, testedObject.getStatusCode());
+		assertEquals(null, testedObject.getErrorMessage());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -150,12 +115,10 @@ public class ResourceResponseTest extends PackageTestCase {
 	 * 
 	 * Usage: java ResourceResponseTest
 	 * 
-	 * @param args
-	 *            command line arguments are not needed
-	 *  
+	 * @param args command line arguments are not needed
+	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.models.ResourceResponseTest");
 	}
@@ -164,10 +127,9 @@ public class ResourceResponseTest extends PackageTestCase {
 	 * Get the class object of the class which will be tested.
 	 * 
 	 * @return the class which will be tested
-	 *  
+	 * 
 	 */
 	public Class<ResourceResponse> getTestedClass() {
 		return ResourceResponse.class;
 	}
 }
-// JTEST_CURRENT_ID=277954199.

@@ -34,16 +34,16 @@ export class ReleaseHistoryComponent implements OnInit {
     if (this.idpdata.releasePipelineName !== "") {
         this.idprestapi.getHistoryReleases(this.idpdata.releasePipelineName).then(response => {
         const resp = response.json();
-        console.log(resp);
+        // console.log(resp);
         const errorMsg = resp.errorMessage;
             this.closedRel = JSON.parse(resp.resource).releasePipeline[0].release;
-            console.log(this.closedRel);
+         // console.log(this.closedRel);
             this.closedRel.forEach((value, index) => {
             if (value.actualStartDate !== undefined && value.actualStartDate !== "" ) {
                 this.release.push(value);
             }
             }),
-        console.log(this.release);
+         console.log(this.release);
         });
     }
   }

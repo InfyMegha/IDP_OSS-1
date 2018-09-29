@@ -88,7 +88,7 @@ public class ResourceServerApplication extends SpringBootServletInitializer {
 
 /**
  * 
- * @author kruti.vyas
+ * @author Infosys
  *
  */
 @RestController

@@ -7,6 +7,8 @@
 ***********************************************************************************************/
 package org.infy.idp.businessapi;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -15,7 +17,6 @@ import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.dataapi.services.ReleaseDetails;
 import org.infy.idp.entities.releasemanagerinfo.ReleaseManager;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,11 +37,11 @@ import jtest.AppContext;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class ReleaseBLTest extends PackageTestCase {
+public class ReleaseBLTest {
 
 	@Mock
 	private ReleaseDetails releaseDetails;
-	
+
 	@InjectMocks
 	private JobDetailsDL getJobDetails;
 
@@ -107,21 +108,6 @@ public class ReleaseBLTest extends PackageTestCase {
 			e.printStackTrace();
 		}
 
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**

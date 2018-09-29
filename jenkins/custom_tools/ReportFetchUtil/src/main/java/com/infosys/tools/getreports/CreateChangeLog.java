@@ -68,7 +68,7 @@ public class CreateChangeLog {
 		try {
 			String tempJobName = jobName.replaceAll("/", "/job/").replaceAll(" ", "%20");
 			String webPage = server +  "/job/" + tempJobName + "/lastBuild/api/xml";
-			//String webPage="http://idpwinv07:8085/job/IBMSI_MHSN_1_TESTt/job/IBMSI_MHSN_1_TESTt_SCM/4/api/xml";
+			
  			String path = null;
 			String authString = username + ":" + password;
 

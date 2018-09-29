@@ -8,6 +8,8 @@
 
 package org.infy.idp.businessapi;
 
+import static org.junit.Assert.assertEquals;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,6 @@ import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;
 import org.infy.idp.entities.nexus.Item;
 import org.infy.idp.entities.nexus.Nexus;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +38,7 @@ import jtest.AppContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class NexusGetTriggerDetails extends PackageTestCase {
+public class NexusGetTriggerDetails {
 
 	@Spy
 	@InjectMocks
@@ -71,7 +72,7 @@ public class NexusGetTriggerDetails extends PackageTestCase {
 		TriggerInputs t1 = new TriggerInputs();
 		String ab = "{\"basicInfo\":{\"applicationName\":\"Nexus_Sanity\",\"pipelineName\":\"Nexus_DotNet\",\"buildServerOS\":\"windows\",\"engine\":\"Jenkins Workflow\",\"buildInterval\":{\"pollSCM\":\"off\",\"buildInterval\":\"\",\"buildIntervalValue\":\"0\"},\"additionalMailRecipients\":{\"applicationTeam\":\"\",\"emailIds\":\"\"}},\"code\":{\"category\":\"Standard\",\"technology\":\"dotNetCsharp\",\"scm\":[{\"type\":\"tfs\",\"url\":\"http://tfs2013-farm01:8080/tfs/QTOOLS\",\"userName\":\"harshita.badlani\",\"password\":\"svplh18282708*\",\"projPath\":\"$/ToolsGroupDevelopment/ReservationSystem_2013\"}],\"buildScript\":[{\"tool\":\"\"},{\"tool\":\"\"},{}]},\"buildInfo\":{\"buildtool\":\"msBuild\",\"artifactToStage\":{\"artifact\":\"**/*.dll\",\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoName\":\"idp_Nexus\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\"},\"artifactRepoName\":\"nexus\"},\"castAnalysis\":{},\"modules\":[{\"version\":\"(Default)\",\"moduleName\":\"ReservationSystem\",\"relativePath\":\"ReservationSystem_2013/ReservationSystem.sln\",\"codeAnalysis\":[]}],\"postBuildScript\":{}},\"deployInfo\":{\"deployEnv\":[{\"envName\":\"DEV\",\"deploySteps\":[{\"stepName\":\"step1\",\"deployOS\":\"\",\"runScript\":{\"scriptType\":\"batchScript\",\"scriptFilePath\":\"echo.bat\",\"targets\":\"\",\"host\":\"\",\"userName\":\"\",\"password\":\"\",\"script\":\"\",\"pathToFiles\":\"\",\"destinationDir\":\"\",\"flattenFilePath\":\"off\"},\"deployToContainer\":{\"containerName\":\"\"}}]}]},\"testInfo\":{\"testEnv\":[{\"envName\":\"DEV\",\"envFlag\":\"off\"}]}}";
 		IDPJob idp = g.fromJson(ab, IDPJob.class);
-		String abc = "{\"applicationName\":\"Nexus_Sanity\",\"pipelineAdmins\":\"chirag.sharma,kudaka_vijayakumar\",\"releaseManager\":\"idpadmin\",\"slavesDetails\":[{\"labels\":\"Nexus_slave\",\"slaveName\":\"Nexus_slave\",\"buildServerOS\":\"windows\",\"workspacePath\":\"D:/NexusSlave\",\"slaveUsage\":\"both\",\"createNewSlave\":\"on\"}],\"developers\":\"idpadmin\",\"sapApplication\":\"off\",\"environmentOwnerDetails\":[{\"qa\":\"idpadmin\",\"environmentName\":\"DEV\",\"environmentOwners\":\"idpadmin,kudaka_vijayakumar\"},{\"environmentName\":\"Stage\",\"environmentOwners\":\"farneet.khehra\"},{\"environmentName\":\"Stage3\",\"environmentOwners\":\"shakti.saurabh\"}],\"artifactToStage\":{\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\",\"repoName\":\"idp_Nexus\"},\"artifactRepoName\":\"nexus\"}}";
+		String abc = "{\"applicationName\":\"Nexus_Sanity\",\"pipelineAdmins\":\"chirag.sharma,kudaka_vijayakumar\",\"releaseManager\":\"idpadmin\",\"slavesDetails\":[{\"labels\":\"Nexus_slave\",\"slaveName\":\"Nexus_slave\",\"buildServerOS\":\"windows\",\"workspacePath\":\"D:/NexusSlave\",\"slaveUsage\":\"both\",\"createNewSlave\":\"on\"}],\"developers\":\"idpadmin\",\"sapApplication\":\"off\",\"environmentOwnerDetails\":[{\"qa\":\"idpadmin\",\"environmentName\":\"DEV\",\"environmentOwners\":\"idpadmin,kudaka_vijayakumar\"},{\"environmentName\":\"Stage\",\"environmentOwners\":\"farneet.khehra\"},{\"environmentName\":\"Stage3\",\"environmentOwners\":\"idpadmin\"}],\"artifactToStage\":{\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\",\"repoName\":\"idp_Nexus\"},\"artifactRepoName\":\"nexus\"}}";
 		ApplicationInfo app = g.fromJson(abc, ApplicationInfo.class);
 
 		t1 = testedObject.getNexus(triggerJobName, t1, idp, app, "Nexus_DotNet");
@@ -90,7 +91,7 @@ public class NexusGetTriggerDetails extends PackageTestCase {
 		TriggerInputs t1 = new TriggerInputs();
 		String ab = "{\"basicInfo\":{\"applicationName\":\"Nexus_Sanity\",\"pipelineName\":\"Nexus_DotNet\",\"buildServerOS\":\"windows\",\"engine\":\"Jenkins Workflow\",\"buildInterval\":{\"pollSCM\":\"off\",\"buildInterval\":\"\",\"buildIntervalValue\":\"0\"},\"additionalMailRecipients\":{\"applicationTeam\":\"\",\"emailIds\":\"\"}},\"code\":{\"category\":\"Standard\",\"technology\":\"dotNetCsharp\",\"scm\":[{\"type\":\"tfs\",\"url\":\"http://tfs2013-farm01:8080/tfs/QTOOLS\",\"userName\":\"harshita.badlani\",\"password\":\"svplh18282708*\",\"projPath\":\"$/ToolsGroupDevelopment/ReservationSystem_2013\"}],\"buildScript\":[{\"tool\":\"\"},{\"tool\":\"\"},{}]},\"buildInfo\":{\"buildtool\":\"msBuild\",\"artifactToStage\":{\"artifact\":\"**/*.dll\",\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoName\":\"idp_Nexus\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\"},\"artifactRepoName\":\"nexus\"},\"castAnalysis\":{},\"modules\":[{\"version\":\"(Default)\",\"moduleName\":\"ReservationSystem\",\"relativePath\":\"ReservationSystem_2013/ReservationSystem.sln\",\"codeAnalysis\":[]}],\"postBuildScript\":{}},\"deployInfo\":{\"deployEnv\":[{\"envName\":\"DEV\",\"deploySteps\":[{\"stepName\":\"step1\",\"deployOS\":\"\",\"runScript\":{\"scriptType\":\"batchScript\",\"scriptFilePath\":\"echo.bat\",\"targets\":\"\",\"host\":\"\",\"userName\":\"\",\"password\":\"\",\"script\":\"\",\"pathToFiles\":\"\",\"destinationDir\":\"\",\"flattenFilePath\":\"off\"},\"deployToContainer\":{\"containerName\":\"\"}}]}]},\"testInfo\":{\"testEnv\":[{\"envName\":\"DEV\",\"envFlag\":\"off\"}]}}";
 		IDPJob idp = g.fromJson(ab, IDPJob.class);
-		String abc = "{\"applicationName\":\"Nexus_Sanity\",\"pipelineAdmins\":\"chirag.sharma,kudaka_vijayakumar\",\"releaseManager\":\"idpadmin\",\"slavesDetails\":[{\"labels\":\"Nexus_slave\",\"slaveName\":\"Nexus_slave\",\"buildServerOS\":\"windows\",\"workspacePath\":\"D:/NexusSlave\",\"slaveUsage\":\"both\",\"createNewSlave\":\"on\"}],\"developers\":\"idpadmin\",\"sapApplication\":\"off\",\"environmentOwnerDetails\":[{\"qa\":\"idpadmin\",\"environmentName\":\"DEV\",\"environmentOwners\":\"idpadmin,kudaka_vijayakumar\"},{\"environmentName\":\"Stage\",\"environmentOwners\":\"farneet.khehra\"},{\"environmentName\":\"Stage3\",\"environmentOwners\":\"shakti.saurabh\"}],\"artifactToStage\":{\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\",\"repoName\":\"idp_Nexus\"},\"artifactRepoName\":\"na\"}}";
+		String abc = "{\"applicationName\":\"Nexus_Sanity\",\"pipelineAdmins\":\"chirag.sharma,kudaka_vijayakumar\",\"releaseManager\":\"idpadmin\",\"slavesDetails\":[{\"labels\":\"Nexus_slave\",\"slaveName\":\"Nexus_slave\",\"buildServerOS\":\"windows\",\"workspacePath\":\"D:/NexusSlave\",\"slaveUsage\":\"both\",\"createNewSlave\":\"on\"}],\"developers\":\"idpadmin\",\"sapApplication\":\"off\",\"environmentOwnerDetails\":[{\"qa\":\"idpadmin\",\"environmentName\":\"DEV\",\"environmentOwners\":\"idpadmin,kudaka_vijayakumar\"},{\"environmentName\":\"Stage\",\"environmentOwners\":\"farneet.khehra\"},{\"environmentName\":\"Stage3\",\"environmentOwners\":\"idpadmin\"}],\"artifactToStage\":{\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\",\"repoName\":\"idp_Nexus\"},\"artifactRepoName\":\"na\"}}";
 		ApplicationInfo app = g.fromJson(abc, ApplicationInfo.class);
 
 		t1 = testedObject.getNexus(triggerJobName, t1, idp, app, "Nexus_DotNet");
@@ -109,7 +110,7 @@ public class NexusGetTriggerDetails extends PackageTestCase {
 		TriggerInputs t1 = new TriggerInputs();
 		String ab = "{\"basicInfo\":{\"applicationName\":\"Nexus_Sanity\",\"pipelineName\":\"Nexus_DotNet\",\"buildServerOS\":\"windows\",\"engine\":\"Jenkins Workflow\",\"buildInterval\":{\"pollSCM\":\"off\",\"buildInterval\":\"\",\"buildIntervalValue\":\"0\"},\"additionalMailRecipients\":{\"applicationTeam\":\"\",\"emailIds\":\"\"}},\"code\":{\"category\":\"Standard\",\"technology\":\"dotNetCsharp\",\"scm\":[{\"type\":\"tfs\",\"url\":\"http://tfs2013-farm01:8080/tfs/QTOOLS\",\"userName\":\"harshita.badlani\",\"password\":\"svplh18282708*\",\"projPath\":\"$/ToolsGroupDevelopment/ReservationSystem_2013\"}],\"buildScript\":[{\"tool\":\"\"},{\"tool\":\"\"},{}]},\"buildInfo\":{\"buildtool\":\"msBuild\",\"artifactToStage\":{\"artifact\":\"**/*.dll\",\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoName\":\"na\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\"},\"artifactRepoName\":\"na\"},\"castAnalysis\":{},\"modules\":[{\"version\":\"(Default)\",\"moduleName\":\"ReservationSystem\",\"relativePath\":\"ReservationSystem_2013/ReservationSystem.sln\",\"codeAnalysis\":[]}],\"postBuildScript\":{}},\"deployInfo\":{\"deployEnv\":[{\"envName\":\"DEV\",\"deploySteps\":[{\"stepName\":\"step1\",\"deployOS\":\"\",\"runScript\":{\"scriptType\":\"batchScript\",\"scriptFilePath\":\"echo.bat\",\"targets\":\"\",\"host\":\"\",\"userName\":\"\",\"password\":\"\",\"script\":\"\",\"pathToFiles\":\"\",\"destinationDir\":\"\",\"flattenFilePath\":\"off\"},\"deployToContainer\":{\"containerName\":\"\"}}]}]},\"testInfo\":{\"testEnv\":[{\"envName\":\"DEV\",\"envFlag\":\"off\"}]}}";
 		IDPJob idp = g.fromJson(ab, IDPJob.class);
-		String abc = "{\"applicationName\":\"Nexus_Sanity\",\"pipelineAdmins\":\"chirag.sharma,kudaka_vijayakumar\",\"releaseManager\":\"idpadmin\",\"slavesDetails\":[{\"labels\":\"Nexus_slave\",\"slaveName\":\"Nexus_slave\",\"buildServerOS\":\"windows\",\"workspacePath\":\"D:/NexusSlave\",\"slaveUsage\":\"both\",\"createNewSlave\":\"on\"}],\"developers\":\"idpadmin\",\"sapApplication\":\"off\",\"environmentOwnerDetails\":[{\"qa\":\"idpadmin\",\"environmentName\":\"DEV\",\"environmentOwners\":\"idpadmin,kudaka_vijayakumar\"},{\"environmentName\":\"Stage\",\"environmentOwners\":\"farneet.khehra\"},{\"environmentName\":\"Stage3\",\"environmentOwners\":\"shakti.saurabh\"}],\"artifactToStage\":{\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\",\"repoName\":\"na\"},\"artifactRepoName\":\"na\"}}";
+		String abc = "{\"applicationName\":\"Nexus_Sanity\",\"pipelineAdmins\":\"chirag.sharma,kudaka_vijayakumar\",\"releaseManager\":\"idpadmin\",\"slavesDetails\":[{\"labels\":\"Nexus_slave\",\"slaveName\":\"Nexus_slave\",\"buildServerOS\":\"windows\",\"workspacePath\":\"D:/NexusSlave\",\"slaveUsage\":\"both\",\"createNewSlave\":\"on\"}],\"developers\":\"idpadmin\",\"sapApplication\":\"off\",\"environmentOwnerDetails\":[{\"qa\":\"idpadmin\",\"environmentName\":\"DEV\",\"environmentOwners\":\"idpadmin,kudaka_vijayakumar\"},{\"environmentName\":\"Stage\",\"environmentOwners\":\"farneet.khehra\"},{\"environmentName\":\"Stage3\",\"environmentOwners\":\"idpadmin\"}],\"artifactToStage\":{\"artifactRepo\":{\"repoURL\":\"localhost:8081\",\"repoUsername\":\"admin\",\"repoPassword\":\"admin123\",\"repoName\":\"na\"},\"artifactRepoName\":\"na\"}}";
 		ApplicationInfo app = g.fromJson(abc, ApplicationInfo.class);
 
 		t1 = testedObject.getNexus(triggerJobName, t1, idp, app, "Nexus_DotNet");
@@ -142,7 +143,7 @@ public class NexusGetTriggerDetails extends PackageTestCase {
 	 * Used to set up the test. This method is called by JUnit before each of the
 	 * tests are executed.
 	 * 
-	 * @author rajaprabu.dharmaraj
+	 * @author Infosys
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -167,23 +168,6 @@ public class NexusGetTriggerDetails extends PackageTestCase {
 	}
 
 	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * @author rajaprabu.dharmaraj
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
-
-	/**
 	 * Utility main method. Runs the test cases defined in this test class.
 	 * 
 	 * Usage: java JobDetailsDLTest
@@ -191,7 +175,7 @@ public class NexusGetTriggerDetails extends PackageTestCase {
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.businessapi.NexusGetTriggerDetails");
 	}

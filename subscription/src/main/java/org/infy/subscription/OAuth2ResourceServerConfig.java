@@ -1,18 +1,10 @@
-/*******************************************************************************
-createApplication * © 2018 Infosys Limited, Bangalore, India. All Rights Reserved. 
- * IDP_PaaS
- * 
- * Except for any free or open source software components embedded in this 
- * Infosys proprietary software program, this Program is protected 
- * by copyright laws, international treaties and other pending or existing 
- * intellectual property rights in India, the United States and other countries. 
- * Except as expressly permitted, any unauthorized reproduction, storage, 
- * transmission in any form or by any means (including without limitation 
- * electronic, mechanical, printing, photocopying, recording or otherwise), 
- * or any distribution of this Program, or any portion of it, may result in 
- * severe civil and criminal penalties, and will be prosecuted to the maximum 
- * extent possible under the law.
- ******************************************************************************/
+/***********************************************************************************************
+*
+* Copyright 2018 Infosys Ltd.
+* Use of this source code is governed by MIT license that can be found in the LICENSE file or at
+* https://opensource.org/licenses/MIT.
+*
+***********************************************************************************************/
 package org.infy.subscription;
 
 import java.io.IOException;
@@ -35,98 +27,89 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-
-
 /**
-
- * class  OAuth2ResourceServerConfig
- *{@inheritDoc}
+ * 
+ * class OAuth2ResourceServerConfig {@inheritDoc}
  */
 @Configuration
 
 @EnableResourceServer
 public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-   private static final String READSCOPE= "#oauth2.hasScope('read')";
-   private static final String WRITESCOPE= "#oauth2.hasScope('read')";
+	private static final String READSCOPE = "#oauth2.hasScope('read')";
+	private static final String WRITESCOPE = "#oauth2.hasScope('read')";
 
-   @Autowired
-   private CustomAccessTokenConverter customAccessTokenConverter;
-   
-
-    /**
-     * {@inheritDoc}
-     */
-
-    @Override
-    public void configure(final HttpSecurity http) throws Exception {
-        // @formatter:off
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and().authorizeRequests()
-				.anyRequest().permitAll()
-				.antMatchers("/", "/lib/*","/swagger-ui.html", "/swagger-resources/**","/v2/api-docs", "/images/*", "/css/*", "/swagger-ui.js","/swagger-ui.min.js", "/api-docs", "/fonts/*", "/api-docs/*", "/api-docs/default/*", "/o2c.html","index.html","/webjars/**","/hystrix/**").permitAll()
-				.and()
-				.authorizeRequests()
-				.antMatchers(HttpMethod.GET,"/licenseService/**").access(READSCOPE)
-				.antMatchers(HttpMethod.POST,"/licenseService/**").access(WRITESCOPE);
-						
-		
-		
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-   
-    @Override
-    public void configure(final ResourceServerSecurityConfigurer config) {
-        config.tokenServices(tokenServices());
-    }
-    
-    /**
-     * {@inheritDoc}
-     * @return
-     */
-    @Bean
-    public TokenStore tokenStore() {
-        return new JwtTokenStore(accessTokenConverter());
-    }
-
-    /**
-     * {@inheritDoc}
-     * @return
-     */
-    @Bean
-    public JwtAccessTokenConverter accessTokenConverter() {
-        final JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setAccessTokenConverter(customAccessTokenConverter);
-        final Resource resource = new ClassPathResource("public.txt");
-        String publicKey = null;
-        try {
-            publicKey = IOUtils.toString(resource.getInputStream());
-        } catch (final IOException e) {
-            throw new RuntimeException(e);
-        }
-        converter.setVerifierKey(publicKey);
-        return converter;
-    }
+	@Autowired
+	private CustomAccessTokenConverter customAccessTokenConverter;
 
 	/**
-	
-	 * method  tokenServices
-	 *
-	 *@return defaultTokenServices the DefaultTokenServices
+	 * {@inheritDoc}
 	 */
-    @Bean
-    @Primary
-    public DefaultTokenServices tokenServices() {
-        final DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
-        defaultTokenServices.setTokenStore(tokenStore());
-        return defaultTokenServices;
-    }
 
-    
+	@Override
+	public void configure(final HttpSecurity http) throws Exception {
+		// @formatter:off
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and().authorizeRequests()
+				.anyRequest().permitAll()
+				.antMatchers("/", "/lib/*", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs", "/images/*",
+						"/css/*", "/swagger-ui.js", "/swagger-ui.min.js", "/api-docs", "/fonts/*", "/api-docs/*",
+						"/api-docs/default/*", "/o2c.html", "index.html", "/webjars/**", "/hystrix/**")
+				.permitAll().and().authorizeRequests().antMatchers(HttpMethod.GET, "/licenseService/**")
+				.access(READSCOPE).antMatchers(HttpMethod.POST, "/licenseService/**").access(WRITESCOPE);
 
-    
-  
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+
+	@Override
+	public void configure(final ResourceServerSecurityConfigurer config) {
+		config.tokenServices(tokenServices());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @return
+	 */
+	@Bean
+	public TokenStore tokenStore() {
+		return new JwtTokenStore(accessTokenConverter());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @return
+	 */
+	@Bean
+	public JwtAccessTokenConverter accessTokenConverter() {
+		final JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+		converter.setAccessTokenConverter(customAccessTokenConverter);
+		final Resource resource = new ClassPathResource("public.txt");
+		String publicKey = null;
+		try {
+			publicKey = IOUtils.toString(resource.getInputStream());
+		} catch (final IOException e) {
+			throw new RuntimeException(e);
+		}
+		converter.setVerifierKey(publicKey);
+		return converter;
+	}
+
+	/**
+	 * 
+	 * method tokenServices
+	 *
+	 * @return defaultTokenServices the DefaultTokenServices
+	 */
+	@Bean
+	@Primary
+	public DefaultTokenServices tokenServices() {
+		final DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
+		defaultTokenServices.setTokenStore(tokenStore());
+		return defaultTokenServices;
+	}
 
 }

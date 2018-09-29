@@ -69,7 +69,7 @@ class SeleniumFT {
 
         if (isValid(testStepElem.scriptPath) && isValid(testStepElem.targets)) {
 
-            Maven.invokeMaven(context, testStepElem.targets, testStepElem.scriptPath)
+            //Maven.invokeMaven(context, testStepElem.targets, testStepElem.scriptPath)
 
         } else {
 

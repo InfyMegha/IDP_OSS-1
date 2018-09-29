@@ -8,14 +8,14 @@
 
 package org.infy.entities.triggerinputs;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class BuildTest extends PackageTestCase {
+public class BuildTest  {
 
 	/**
 	 * Constructor for test class.
@@ -43,10 +43,9 @@ public class BuildTest extends PackageTestCase {
 		Build testedObject = new Build();
 		testedObject.setGitBranches((List) null);
 		testedObject.setModules((List) null);
-		assertEquals(null, testedObject.getGitBranches()); // jtest_unverified
-		assertEquals(null, testedObject.getModules()); // jtest_unverified
+		assertEquals(null, testedObject.getGitBranches()); 
+		assertEquals(null, testedObject.getModules()); 
 		// No exception thrown
-		// jtest_unverified
 	}
 
 	/**
@@ -62,9 +61,9 @@ public class BuildTest extends PackageTestCase {
 	public void testGetGitBranches0() throws Throwable {
 		Build testedObject = new Build();
 		List result = testedObject.getGitBranches();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -80,9 +79,9 @@ public class BuildTest extends PackageTestCase {
 	public void testGetModules0() throws Throwable {
 		Build testedObject = new Build();
 		List result = testedObject.getModules();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	@Test
@@ -127,40 +126,6 @@ public class BuildTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -171,7 +136,7 @@ public class BuildTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.entities.triggerinputs.BuildTest");
 	}
@@ -186,4 +151,3 @@ public class BuildTest extends PackageTestCase {
 		return Build.class;
 	}
 }
-// JTEST_CURRENT_ID=1660495169.

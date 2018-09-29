@@ -11,7 +11,7 @@ package com.infy.idp.tools.build
 import com.infy.idp.creators.*
 import com.infy.idp.customtools.*
 import com.infy.idp.plugins.buildsteps.*
-import com.infy.idp.plugins.buildsteps.Checkmarx
+//import com.infy.idp.plugins.buildsteps.Checkmarx
 import com.infy.idp.plugins.buildsteps.SonarRunner
 import com.infy.idp.plugins.publishers.*
 import com.infy.idp.plugins.publishers.ArchiveArtifacts
@@ -228,7 +228,7 @@ class NodeJSBuild {
                     }
 
                     //Checking for security analysis
-                    if (modulesArr.getAt(i).team) {
+                    /*if (modulesArr.getAt(i).team) {
 
                         Checkmarx checkmarx = new Checkmarx();
                         checkmarx.setProjectKey(jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName)
@@ -247,7 +247,7 @@ class NodeJSBuild {
                             checkmarx.setScanCycle("10".toInteger())
                         }
                         checkmarx.add(delegate, jsonData)
-                    }
+                    }*/
 
 
                     if (modulesArr.getAt(i).unitTesting == 'on') {

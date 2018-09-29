@@ -1,4 +1,6 @@
 #!/bin/sh
+#Will abort script on any command failure
+set -e
 
 #Script Behaviour Modifying Parameters (Change after throughly reading documentation)
 EXEC_DIR=$PWD
@@ -11,18 +13,26 @@ ANGULAR_BUILD_IMAGE=alexsuch/angular-cli:6.2
 ARCHIVE_MGMT_IMAGE=alexsuch/angular-cli:6.2
 ARCHIVE_CREATE_IMAGE=kramos/alpine-zip
 WGET_IMAGE=mwendler/wget
+NETWORK_IMAGE=gochain/netstats:0.0.30
 LOCAL_M2_CACHE="-v /root/.m2/:/root/.m2/"
-#export HTTP_PROXY="http://<username>:<password>@<proxy-ip>"
-#export HTTPS_PROXY="http://<username>:<password>@<proxy-ip>"
-#WGET_PROXY="-e use_proxy=yes -e http_proxy=http://<username>:<password>@<proxy-ip> -e https_proxy=http://<username>:<password>@<proxy-ip> -e ftp_proxy=http://<username>:<password>@<proxy-ip>"
-#PIP_PROXY="--proxy http://<username>:<password>@<proxy-ip>"
-#NPM_PROXY="npm config set proxy http://<username>:<password>@<proxy-ip> && npm config set https-proxy http://<username>:<password>@<proxy-ip>"
 export HOSTNAME=$(hostname)
+
+#Checking Pre-requisites
+echo "Checking Pre-requisites"
+echo "Checking for Docker and Swarm Mode"
+docker node ls > /dev/null 2>&1
+if [ $? -ne 0 ]
+then 
+	echo "Docker Check: Failed"
+	echo "Either Docker Not Installed or this node not a master node of swarm. Also please verify if user is allowed to run docker commands"
+	exit 1
+else
+	echo "Docker Check: Passed"
+fi
 
 #Intializing Environment Parameters
 export GRAFANA_HOSTNAME=$HOSTNAME
 export GRAFANA_PORT=3000
-
 
 export ZOOKEEPER_HOSTNAME=zookeeper
 export ZOOKEEPER_PORT=2181
@@ -74,6 +84,18 @@ export SERVICES_HOSTNAME=$HOSTNAME
 export SERVICES_PORT=8889
 
 export PROFILE=paas
+
+echo "Checking for selected ports open status"
+docker run --rm --network="host" -v $PWD:/health -e GRAFANA_PORT=$GRAFANA_PORT -e CONFIG_PORT=$CONFIG_PORT -e EUREKA_PORT=$EUREKA_PORT -e SCHEDULER_PORT=$SCHEDULER_PORT -e KEYCLOAK_PORT=$KEYCLOAK_PORT -e JENKINS_PORT=$JENKINS_PORT -e JENKINS_SLAVE_PORT=$JENKINS_SLAVE_PORT -e OAUTH_PORT=$OAUTH_PORT -e DASHBOARD_PORT=$DASHBOARD_PORT -e IDPAPP_PORT=$IDPAPP_PORT -e SUBSCRIPTION_PORT=$SUBSCRIPTION_PORT -e SERVICES_PORT=$SERVICES_PORT  -w=/health  --entrypoint "sh"  $NETWORK_IMAGE port_check.sh
+if [ $? -ne 0 ]
+then 
+	echo "Port Check: Failed"
+	echo "Specified ports are either occupied or not open. Please refer above error for checking which one actually is not open."
+	exit 1
+else
+	echo "Port Check: Passed"
+fi
+
 
 #Intializing Data directories
 export MOUNT_DIR=$EXEC_DIR/datafiles
@@ -231,3 +253,6 @@ echo "Deploying IDP Stack"
 cd $EXEC_DIR
 chmod -R 0777 $EXEC_DIR/datafiles
 docker stack deploy -c $EXEC_DIR/docker_compose.yml IDP
+
+#Health Checks
+docker run --rm --network="host" -v $PWD:/health -e PROTOCOL=$PROTOCOL -e GRAFANA_HOSTNAME=$HOSTNAME -e GRAFANA_PORT=$GRAFANA_PORT -e CONFIG_HOSTNAME=$HOSTNAME -e CONFIG_PORT=$CONFIG_PORT -e CONFIG_USERNAME=$CONFIG_USERNAME -e CONFIG_PASSWORD=$CONFIG_PASSWORD -e EUREKA_HOSTNAME=$HOSTNAME -e EUREKA_PORT=$EUREKA_PORT -e SCHEDULER_HOSTNAME=$HOSTNAME -e SCHEDULER_PORT=$SCHEDULER_PORT -e KEYCLOAK_HOSTNAME=$HOSTNAME -e KEYCLOAK_PORT=$KEYCLOAK_PORT -e JENKINS_HOSTNAME=$HOSTNAME -e JENKINS_PORT=$JENKINS_PORT -e OAUTH_HOSTNAME=$HOSTNAME -e OAUTH_PORT=$OAUTH_PORT -e DASHBOARD_HOSTNAME=$HOSTNAME -e DASHBOARD_PORT=$DASHBOARD_PORT -e IDPAPP_HOSTNAME=$HOSTNAME -e IDPAPP_PORT=$IDPAPP_PORT -e SUBSCRIPTION_HOSTNAME=$HOSTNAME -e SUBSCRIPTION_PORT=$SUBSCRIPTION_PORT -e SERVICES_HOSTNAME=$HOSTNAME -e SERVICES_PORT=$SERVICES_PORT -w=/health --entrypoint "sh" $WGET_IMAGE health_check.sh

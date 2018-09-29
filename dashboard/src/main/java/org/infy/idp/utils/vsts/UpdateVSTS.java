@@ -301,7 +301,7 @@ public class UpdateVSTS {
 			/*String input = "["+
 					"{"+
 					" \"op\": \""+operation+"\","+
-					//"\"path\": \"/fields/Infosys.Spark.TestField\","+
+					//"\"path\": \"/fields/Infosys.domain.TestField\","+
 					"\"path\": \"/fields/"+readProp.getCustomFieldName()+"\","+
 					"\"value\": \""+inputHtmlOld+"\""+
 					"}"+
@@ -452,7 +452,7 @@ public class UpdateVSTS {
 			}
 
 			//System.out.println(fieldsJson.toString());
-			//inputHtmlOld = (String)fieldsJson.get("Infosys.Spark.Testfield");
+			//inputHtmlOld = (String)fieldsJson.get("Infosys.domain.Testfield");
 			inputHtmlOldToReturn = (String)fieldsJson.get(readProp.getCustomFieldName());
 			
 
@@ -635,13 +635,13 @@ public class UpdateVSTS {
 					  "},"+
 					  "{"+
 						" \"op\": \""+operation+"\","+
-						//"\"path\": \"/fields/Infosys.Spark.TestField\","+
+						//"\"path\": \"/fields/Infosys.domain.TestField\","+
 						"\"path\": \"/fields/System.Description\","+
 						"\"value\": \""+idpInfoStr+"\""+
 						"}"+
 					"]";
 			
-			{"op": "add", "path": "/fields/System.AssignedTo", "value": "t967545@spark.co.nz"}
+			{"op": "add", "path": "/fields/System.AssignedTo", "value": "domain.co.in"}
 			{
 			    "op": "add",
 			    "path": "/relations/-",
@@ -719,7 +719,7 @@ public class UpdateVSTS {
 				}
 
 				//System.out.println(fieldsJson.toString());
-				//inputHtmlOld = (String)fieldsJson.get("Infosys.Spark.Testfield");
+				//inputHtmlOld = (String)fieldsJson.get("Infosys.domain.Testfield");
 				
 
 				//System.out.println(inputHtmlOld);

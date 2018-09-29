@@ -14,8 +14,6 @@ import static org.junit.Assert.assertNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.infy.idp.entities.jobs.basicinfo.Interval;
-import org.infy.idp.entities.jobs.basicinfo.TriggerInterval;
 import org.junit.Test;
 
 public class TriggerIntervalTest {

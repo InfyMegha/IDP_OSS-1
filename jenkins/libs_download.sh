@@ -46,7 +46,7 @@ else
 	
 	echo "Downloading Jenkins Plugins"
 	wget $WGET_PROXY -O home_files/plugins/active-directory.hpi https://updates.jenkins-ci.org/download/plugins/active-directory/2.0/active-directory.hpi --no-check-certificate 
-	wget $WGET_PROXY -O home_files/plugins/analysis-core.hpi https://updates.jenkins-ci.org/download/plugins/analysis-core/1.87/analysis-core.hpi --no-check-certificate 
+	wget $WGET_PROXY -O home_files/plugins/analysis-core.hpi https://updates.jenkins-ci.org/download/plugins/analysis-core/1.93/analysis-core.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/android-emulator.hpi https://updates.jenkins-ci.org/download/plugins/android-emulator/2.15/android-emulator.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/android-lint.hpi https://updates.jenkins-ci.org/download/plugins/android-lint/2.4/android-lint.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/antisamy-markup-formatter.hpi https://updates.jenkins-ci.org/download/plugins/antisamy-markup-formatter/1.5/antisamy-markup-formatter.hpi --no-check-certificate 
@@ -153,8 +153,8 @@ else
 	wget $WGET_PROXY -O home_files/plugins/mapdb-api.hpi https://updates.jenkins-ci.org/download/plugins/mapdb-api/1.0.9.0/mapdb-api.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/mask-passwords.hpi https://updates.jenkins-ci.org/download/plugins/mask-passwords/2.10.1/mask-passwords.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/matrix-auth.hpi https://updates.jenkins-ci.org/download/plugins/matrix-auth/1.6/matrix-auth.hpi --no-check-certificate 
-	wget $WGET_PROXY -O home_files/plugins/matrix-project.hpi https://updates.jenkins-ci.org/download/plugins/matrix-project/1.11/matrix-project.hpi --no-check-certificate 
-	wget $WGET_PROXY -O home_files/plugins/maven-plugin.hpi https://updates.jenkins-ci.org/download/plugins/maven-plugin/2.16/maven-plugin.hpi --no-check-certificate 
+	wget $WGET_PROXY -O home_files/plugins/matrix-project.hpi https://updates.jenkins-ci.org/download/plugins/matrix-project/1.12/matrix-project.hpi --no-check-certificate 
+	wget $WGET_PROXY -O home_files/plugins/maven-plugin.hpi https://updates.jenkins-ci.org/download/plugins/maven-plugin/2.17/maven-plugin.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/mercurial.hpi https://updates.jenkins-ci.org/download/plugins/mercurial/1.60/mercurial.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/metrics.hpi https://updates.jenkins-ci.org/download/plugins/metrics/3.1.2.10/metrics.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/msbuild.hpi https://updates.jenkins-ci.org/download/plugins/msbuild/1.27/msbuild.hpi --no-check-certificate 
@@ -183,7 +183,7 @@ else
 	wget $WGET_PROXY -O home_files/plugins/pipeline-stage-view.hpi https://updates.jenkins-ci.org/download/plugins/pipeline-stage-view/2.8/pipeline-stage-view.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/plain-credentials.hpi https://updates.jenkins-ci.org/download/plugins/plain-credentials/1.4/plain-credentials.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/port-allocator.hpi https://updates.jenkins-ci.org/download/plugins/port-allocator/1.8/port-allocator.hpi --no-check-certificate 
-	wget $WGET_PROXY -O home_files/plugins/postbuildscript.hpi https://updates.jenkins-ci.org/download/plugins/postbuildscript/0.17/postbuildscript.hpi --no-check-certificate 
+	wget $WGET_PROXY -O home_files/plugins/postbuildscript.hpi https://updates.jenkins-ci.org/download/plugins/postbuildscript/0.18.1/postbuildscript.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/powershell.hpi https://updates.jenkins-ci.org/download/plugins/powershell/1.3/powershell.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/prometheus.hpi https://updates.jenkins-ci.org/download/plugins/prometheus/1.0.6/prometheus.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/promoted-builds.hpi https://updates.jenkins-ci.org/download/plugins/promoted-builds/2.28.1/promoted-builds.hpi --no-check-certificate 
@@ -207,7 +207,7 @@ else
 	wget $WGET_PROXY -O home_files/plugins/ssh-credentials.hpi https://updates.jenkins-ci.org/download/plugins/ssh-credentials/1.13/ssh-credentials.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/ssh.hpi https://updates.jenkins-ci.org/download/plugins/ssh/2.4/ssh.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/ssh-slaves.hpi https://updates.jenkins-ci.org/download/plugins/ssh-slaves/1.20/ssh-slaves.hpi --no-check-certificate 
-	wget $WGET_PROXY -O home_files/plugins/structs.hpi https://updates.jenkins-ci.org/download/plugins/structs/1.8/structs.hpi --no-check-certificate 
+	wget $WGET_PROXY -O home_files/plugins/structs.hpi https://updates.jenkins-ci.org/download/plugins/structs/1.10/structs.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/subversion.hpi https://updates.jenkins-ci.org/download/plugins/subversion/2.7.1/subversion.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/svnmerge.hpi https://updates.jenkins-ci.org/download/plugins/svnmerge/2.6/svnmerge.hpi --no-check-certificate 
 	wget $WGET_PROXY -O home_files/plugins/svnpublisher.hpi https://updates.jenkins-ci.org/download/plugins/svnpublisher/0.1/svnpublisher.hpi --no-check-certificate 
@@ -274,4 +274,5 @@ else
 	wget $WGET_PROXY -O home_files/plugins/xunit.hpi https://updates.jenkins-ci.org/download/plugins/xunit/1.102/xunit.hpi --no-check-certificate
 	wget $WGET_PROXY -O home_files/plugins/nunit.hpi https://updates.jenkins-ci.org/download/plugins/nunit/0.23/nunit.hpi --no-check-certificate
 	wget $WGET_PROXY -O home_files/plugins/ivy.hpi https://updates.jenkins-ci.org/download/plugins/ivy/1.28/ivy.hpi --no-check-certificate
+	wget $WGET_PROXY -O home_files/plugins/xvfb.hpi https://updates.jenkins-ci.org/download/plugins/xvfb/1.1.3/xvfb.hpi --no-check-certificate
 fi

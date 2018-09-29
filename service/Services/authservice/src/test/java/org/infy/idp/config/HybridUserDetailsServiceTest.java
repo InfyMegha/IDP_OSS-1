@@ -8,8 +8,6 @@
 
 package org.infy.idp.config;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -26,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class HybridUserDetailsServiceTest extends PackageTestCase {
+public class HybridUserDetailsServiceTest {
 
 	/**
 	 * Constructor for test class.
@@ -66,9 +64,6 @@ public class HybridUserDetailsServiceTest extends PackageTestCase {
 		HybridUserDetailsService testedObject = new HybridUserDetailsService();
 		UserDetails result = testedObject.loadUserByUsername("Str 1.2 #");
 
-		// NullPointerException thrown
-		// at
-		// org.infy.idp.config.HybridUserDetailsService.loadUserByUsername(HybridUserDetailsService.java:61)
 	}
 
 	/**
@@ -86,48 +81,9 @@ public class HybridUserDetailsServiceTest extends PackageTestCase {
 		HybridUserDetailsService testedObject = new HybridUserDetailsService();
 		UserDetails result = testedObject.loadUserByUsername("");
 
-		// org.springframework.security.core.userdetails.UsernameNotFoundException
-		// thrown
-		// at
-		// org.infy.idp.config.HybridUserDetailsService.loadUserByUsername(HybridUserDetailsService.java:56)
 	}
 
 
-
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -138,7 +94,7 @@ public class HybridUserDetailsServiceTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.config.HybridUserDetailsServiceTest");
 	}
@@ -153,4 +109,3 @@ public class HybridUserDetailsServiceTest extends PackageTestCase {
 		return HybridUserDetailsService.class;
 	}
 }
-// JTEST_CURRENT_ID=-637476410.

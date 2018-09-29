@@ -26,7 +26,6 @@ import org.infy.idp.entities.jobs.testinfo.TestInfo;
 import org.infy.idp.entities.triggerparameter.Build;
 import org.infy.idp.entities.triggerparameter.Deploy;
 import org.infy.idp.entities.triggerparameter.TriggerParameters;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,7 +41,7 @@ import org.mockito.runners.MockitoJUnitRunner;
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class TriggerBuildsTest extends PackageTestCase {
+public class TriggerBuildsTest  {
 
 	@InjectMocks
 	private TriggerBuilds testedObject;
@@ -92,8 +91,6 @@ public class TriggerBuildsTest extends PackageTestCase {
 		 * Repository.putTemporary() to provide initialized instances of objects to be
 		 * used when testing.
 		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
 
 		configmanager.setJenkinsurl("http://localhost:8085");
 		configmanager.setSharePath("D:\\idpdata\\dsldata");
@@ -101,7 +98,6 @@ public class TriggerBuildsTest extends PackageTestCase {
 		configmanager.setJenkinsuserid("admin");
 		configmanager.setJenkinspassword("admin123");
 
-		// BuildService testedObject = new BuildService();
 		idpjson = new IDPJob();
 		idpjson.setSsoName("idpjson");
 		idpjson.setSsoId("idpjson_1");
@@ -185,10 +181,6 @@ public class TriggerBuildsTest extends PackageTestCase {
 		idpjson.setCode(code);
 
 		BuildInfo buildInfo = new BuildInfo();
-		/*
-		 * Remove Jira ALM buildInfo.setJiraProjKey("idpjson_16");
-		 * buildInfo.setJiraAssigneeName("idpjson_17");
-		 */
 		buildInfo.setJavaModules("idpjson_18");
 		buildInfo.setEjbModules("idpjson_19");
 		buildInfo.setWebModules("idpjson_20");
@@ -381,19 +373,6 @@ public class TriggerBuildsTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -404,7 +383,7 @@ public class TriggerBuildsTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.utils.TriggerBuildsTest");
 	}
@@ -419,4 +398,3 @@ public class TriggerBuildsTest extends PackageTestCase {
 		return TriggerBuilds.class;
 	}
 }
-// JTEST_CURRENT_ID=1611652290.

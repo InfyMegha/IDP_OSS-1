@@ -47,7 +47,7 @@ private _startupData: any;
                       const expireDate = new Date(new Date().getTime() + (1000 * response.json().expires_in));
                     this.IdpdataService.expireTime = response.json().expires_in;
                     this.IdpdataService.organization = response.json().organization;
-                    console.log(response.json().expires_in);
+                   // console.log(response.json().expires_in);
                       this._cookieService.put("access_token", response.json().access_token, { "expires": expireDate });
                     const expiretime = 1000 * response.json().expires_in;
                       setTimeout(function() {
@@ -116,7 +116,7 @@ private _startupData: any;
         .then(response => {
         try {
         if (response) {
-            console.log(response);
+            // console.log(response);
             const userDetails = JSON.parse(response.json().resource);
             this.IdpdataService.idpUserName = userDetails.user_id;
             console.log(this.IdpdataService.idpUserName);
@@ -142,7 +142,7 @@ private _startupData: any;
             permission = this.IdpdataService.permissions[j];
             if (permission === "CREATE_APPLICATION") {
                 this.IdpdataService.createAppflag = true;
-                console.log(this.IdpdataService.createAppflag);
+                // console.log(this.IdpdataService.createAppflag);
             }
                         if (permission === "CREATE_LICENSE") {
                 this.IdpdataService.createLicenseflag = true;

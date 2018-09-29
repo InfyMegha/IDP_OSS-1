@@ -29,9 +29,9 @@ export class CreateConfigComponent implements OnInit {
     public IdpdataService: IdpdataService,
     private router: Router
   ) {
-    console.log(this.IdpdataService.language);
+    // console.log(this.IdpdataService.language);
     this.IdpService.initMain();
-    console.log(this.IdpdataService.createAppflag);
+    // console.log(this.IdpdataService.createAppflag);
   }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class CreateConfigComponent implements OnInit {
   ngAfterContentChecked () {
     this.cdr.detectChanges();
     this.updateConfigShow();
-    console.log("fewfwf " + this.IdpdataService.hideApp);
+    // console.log('fewfwf ' + this.IdpdataService.hideApp);
   }
 
   updateConfigShow() {

@@ -62,7 +62,7 @@ class RFT {
             def basepath = jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName
             def iterationCount
 
-            if (isValid(testStepElem.fullIteration) && !testStepElem.fullIteration.equalIgnoreCase("off")) {
+            if (isValid(testStepElem.fullIteration) && !testStepElem.fullIteration.equalsIgnoreCase("off")) {
                 iterationCount = "All"
             } else if (isValid(testStepElem.iteration)) {
                 iterationCount = testStepElem.iteration

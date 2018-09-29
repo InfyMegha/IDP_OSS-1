@@ -8,11 +8,12 @@
 
 package org.infy.idp.entities.triggerparameter;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -21,7 +22,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.triggerparameter.TriggerParameters
  * 
  */
-public class TriggerParametersTest extends PackageTestCase {
+public class TriggerParametersTest {
 
 	/**
 	 * Constructor for test class.
@@ -208,20 +209,20 @@ public class TriggerParametersTest extends PackageTestCase {
 		assertEquals("slave", testedObject.getTestSlaveName());
 		assertEquals("slave", testedObject.getCastSlaveName());
 
-		assertEquals(build, testedObject.getBuild()); // jtest_unverified
-		assertEquals(deploy, testedObject.getDeploy()); // jtest_unverified
-		assertEquals("applicationName22", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("envSelected22", testedObject.getEnvSelected()); // jtest_unverified
-		assertEquals("pipelineName22", testedObject.getPipelineName()); // jtest_unverified
-		assertEquals("userName22", testedObject.getUserName()); // jtest_unverified
-		assertEquals("emailed22", testedObject.getEmailed()); // jtest_unverified
-		assertEquals(outTestSteps, testedObject.getTestStep()); // jtest_unverified
-		assertEquals("dashBoardLink22", testedObject.getDashBoardLink()); // jtest_unverified
-		assertEquals("slaveName22", testedObject.getSlaveName()); // jtest_unverified
-		assertEquals("errorCode22", testedObject.getErrorCode()); // jtest_unverified
-		assertEquals("testSelected21", testedObject.getTestSelected()); // jtest_unverified
-		assertEquals("releaseNumber22", testedObject.getReleaseNumber()); // jtest_unverified
-		assertEquals("jobBuildId22", testedObject.getJobBuildId()); // jtest_unverified
+		assertEquals(build, testedObject.getBuild());
+		assertEquals(deploy, testedObject.getDeploy());
+		assertEquals("applicationName22", testedObject.getApplicationName());
+		assertEquals("envSelected22", testedObject.getEnvSelected());
+		assertEquals("pipelineName22", testedObject.getPipelineName());
+		assertEquals("userName22", testedObject.getUserName());
+		assertEquals("emailed22", testedObject.getEmailed());
+		assertEquals(outTestSteps, testedObject.getTestStep());
+		assertEquals("dashBoardLink22", testedObject.getDashBoardLink());
+		assertEquals("slaveName22", testedObject.getSlaveName());
+		assertEquals("errorCode22", testedObject.getErrorCode());
+		assertEquals("testSelected21", testedObject.getTestSelected());
+		assertEquals("releaseNumber22", testedObject.getReleaseNumber());
+		assertEquals("jobBuildId22", testedObject.getJobBuildId());
 	}
 
 	/**
@@ -256,20 +257,20 @@ public class TriggerParametersTest extends PackageTestCase {
 		List<String> outTestSteps = new ArrayList<>();
 		outTestSteps.add("testSelected0");
 		outTestSteps.add("testStep1");
-		assertEquals(null, testedObject.getBuild()); // jtest_unverified
-		assertEquals(null, testedObject.getDeploy()); // jtest_unverified
-		assertEquals("applicationName1", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("envSelected1", testedObject.getEnvSelected()); // jtest_unverified
-		assertEquals("pipelineName1", testedObject.getPipelineName()); // jtest_unverified
-		assertEquals("userName1", testedObject.getUserName()); // jtest_unverified
-		assertEquals("emailed1", testedObject.getEmailed()); // jtest_unverified
-		assertEquals(outTestSteps, testedObject.getTestStep()); // jtest_unverified
-		assertEquals("dashBoardLink1", testedObject.getDashBoardLink()); // jtest_unverified
-		assertEquals("slaveName1", testedObject.getSlaveName()); // jtest_unverified
-		assertEquals("errorCode1", testedObject.getErrorCode()); // jtest_unverified
-		assertEquals("testSelected0", testedObject.getTestSelected()); // jtest_unverified
-		assertEquals("releaseNumber1", testedObject.getReleaseNumber()); // jtest_unverified
-		assertEquals("jobBuildId1", testedObject.getJobBuildId()); // jtest_unverified
+		assertEquals(null, testedObject.getBuild());
+		assertEquals(null, testedObject.getDeploy());
+		assertEquals("applicationName1", testedObject.getApplicationName());
+		assertEquals("envSelected1", testedObject.getEnvSelected());
+		assertEquals("pipelineName1", testedObject.getPipelineName());
+		assertEquals("userName1", testedObject.getUserName());
+		assertEquals("emailed1", testedObject.getEmailed());
+		assertEquals(outTestSteps, testedObject.getTestStep());
+		assertEquals("dashBoardLink1", testedObject.getDashBoardLink());
+		assertEquals("slaveName1", testedObject.getSlaveName());
+		assertEquals("errorCode1", testedObject.getErrorCode());
+		assertEquals("testSelected0", testedObject.getTestSelected());
+		assertEquals("releaseNumber1", testedObject.getReleaseNumber());
+		assertEquals("jobBuildId1", testedObject.getJobBuildId());
 	}
 
 	/**
@@ -302,22 +303,22 @@ public class TriggerParametersTest extends PackageTestCase {
 		testedObject.setTestSelected((String) null);
 		List<String> outTestSteps = new ArrayList<>();
 		outTestSteps.add("testStep0");
-		assertEquals(null, testedObject.getBuild()); // jtest_unverified
-		assertEquals(null, testedObject.getDeploy()); // jtest_unverified
-		assertEquals("applicationName0", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("envSelected0", testedObject.getEnvSelected()); // jtest_unverified
-		assertEquals("pipelineName0", testedObject.getPipelineName()); // jtest_unverified
-		assertEquals("userName0", testedObject.getUserName()); // jtest_unverified
-		assertEquals("emailed0", testedObject.getEmailed()); // jtest_unverified
-		assertEquals(outTestSteps, testedObject.getTestStep()); // jtest_unverified
-		assertEquals("dashBoardLink0", testedObject.getDashBoardLink()); // jtest_unverified
-		assertEquals("slaveName0", testedObject.getSlaveName()); // jtest_unverified
-		assertEquals("errorCode0", testedObject.getErrorCode()); // jtest_unverified
-		assertEquals(null, testedObject.getTestSelected()); // jtest_unverified
-		assertEquals("releaseNumber0", testedObject.getReleaseNumber()); // jtest_unverified
-		assertEquals("jobBuildId0", testedObject.getJobBuildId()); // jtest_unverified
+		assertEquals(null, testedObject.getBuild());
+		assertEquals(null, testedObject.getDeploy());
+		assertEquals("applicationName0", testedObject.getApplicationName());
+		assertEquals("envSelected0", testedObject.getEnvSelected());
+		assertEquals("pipelineName0", testedObject.getPipelineName());
+		assertEquals("userName0", testedObject.getUserName());
+		assertEquals("emailed0", testedObject.getEmailed());
+		assertEquals(outTestSteps, testedObject.getTestStep());
+		assertEquals("dashBoardLink0", testedObject.getDashBoardLink());
+		assertEquals("slaveName0", testedObject.getSlaveName());
+		assertEquals("errorCode0", testedObject.getErrorCode());
+		assertEquals(null, testedObject.getTestSelected());
+		assertEquals("releaseNumber0", testedObject.getReleaseNumber());
+		assertEquals("jobBuildId0", testedObject.getJobBuildId());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -332,54 +333,22 @@ public class TriggerParametersTest extends PackageTestCase {
 	@Test
 	public void testTriggerParameters13() throws Throwable {
 		TriggerParameters testedObject = new TriggerParameters();
-		assertEquals(null, testedObject.getBuild()); // jtest_unverified
-		assertEquals(null, testedObject.getDeploy()); // jtest_unverified
-		assertEquals(null, testedObject.getApplicationName()); // jtest_unverified
-		assertEquals(null, testedObject.getEnvSelected()); // jtest_unverified
-		assertEquals(null, testedObject.getPipelineName()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getEmailed()); // jtest_unverified
-		assertEquals(null, testedObject.getTestStep()); // jtest_unverified
-		assertEquals(null, testedObject.getDashBoardLink()); // jtest_unverified
-		assertEquals(null, testedObject.getSlaveName()); // jtest_unverified
-		assertEquals(null, testedObject.getErrorCode()); // jtest_unverified
-		assertEquals(null, testedObject.getTestSelected()); // jtest_unverified
-		assertEquals(null, testedObject.getReleaseNumber()); // jtest_unverified
-		assertEquals(null, testedObject.getJobBuildId()); // jtest_unverified
+		assertEquals(null, testedObject.getBuild());
+		assertEquals(null, testedObject.getDeploy());
+		assertEquals(null, testedObject.getApplicationName());
+		assertEquals(null, testedObject.getEnvSelected());
+		assertEquals(null, testedObject.getPipelineName());
+		assertEquals(null, testedObject.getUserName());
+		assertEquals(null, testedObject.getEmailed());
+		assertEquals(null, testedObject.getTestStep());
+		assertEquals(null, testedObject.getDashBoardLink());
+		assertEquals(null, testedObject.getSlaveName());
+		assertEquals(null, testedObject.getErrorCode());
+		assertEquals(null, testedObject.getTestSelected());
+		assertEquals(null, testedObject.getReleaseNumber());
+		assertEquals(null, testedObject.getJobBuildId());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -391,7 +360,6 @@ public class TriggerParametersTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.triggerparameter.TriggerParametersTest");
 	}

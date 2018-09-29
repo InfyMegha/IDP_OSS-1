@@ -31,7 +31,6 @@ import org.infy.idp.entities.triggerparameter.Build;
 import org.infy.idp.entities.triggerparameter.Deploy;
 import org.infy.idp.entities.triggerparameter.TriggerParameters;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,7 +51,7 @@ import jtest.AppContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class JobDetailsInsertionServiceTest extends PackageTestCase {
+public class JobDetailsInsertionServiceTest {
 
 	@Spy
 	@InjectMocks
@@ -443,7 +442,6 @@ public class JobDetailsInsertionServiceTest extends PackageTestCase {
 		 * Repository.putTemporary() to provide initialized instances of objects to be
 		 * used when testing.
 		 */
-		super.setUp();
 
 		try {
 
@@ -454,22 +452,6 @@ public class JobDetailsInsertionServiceTest extends PackageTestCase {
 
 		} catch (Throwable e) {
 			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
 		}
 	}
 

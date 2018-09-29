@@ -928,6 +928,17 @@ export class TriggerComponent implements OnInit {
     if (this.requiredSCM === true
         && (this.IDPParamData.branchOrTagValue === undefined || this.IDPParamData.branchOrTagValue === "")) {
         this.triggerButtonRqdSCM.nativeElement.click();
+    } else if (((this.IDPDataSwitch.buildSelected === "off"
+    || this.IDPDataSwitch.buildSelected === null
+    || this.IDPDataSwitch.buildSelected === undefined) &&
+    (this.IDPDataSwitch.testSelected === "off"
+    || this.IDPDataSwitch.testSelected === null
+    || this.IDPDataSwitch.testSelected === undefined) &&
+    (this.IDPDataSwitch.deploySelected === "off"
+    || this.IDPDataSwitch.deploySelected === null
+    || this.IDPDataSwitch.deploySelected === undefined))) {
+    this.idpdataService.loading = false;
+    this.triggerAlert();
     } else {
         if (this.idpdataService.schedulePage === true || this.idpdataService.createWorkflowSequenceflag) {
         this.saveButton.nativeElement.click();

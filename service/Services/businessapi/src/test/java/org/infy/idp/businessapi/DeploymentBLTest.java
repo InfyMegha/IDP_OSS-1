@@ -7,13 +7,14 @@
 ***********************************************************************************************/
 package org.infy.idp.businessapi;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.lang.reflect.Method;
 
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
 import org.infy.idp.dataapi.services.DeploymentDL;
 import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +35,7 @@ import jtest.AppContext;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class DeploymentBLTest extends PackageTestCase {
+public class DeploymentBLTest {
 
 	@Mock
 	private JobDetailsDL getJobDetails;
@@ -105,20 +106,6 @@ public class DeploymentBLTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.

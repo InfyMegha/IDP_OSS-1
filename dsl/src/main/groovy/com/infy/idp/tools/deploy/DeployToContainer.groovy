@@ -51,7 +51,7 @@ class DeployToContainer {
                 case 'wildFly':
 
                     break
-                case 'weblogic':
+                /*case 'weblogic':
                     def webLogic = new WeblogicDeploy()
                     webLogic.envIndex = envIndex;
                     webLogic.stepIndex = stepIndex;
@@ -65,7 +65,7 @@ class DeployToContainer {
                         pbObj.stepIndex = stepIndex;
                         pbObj.add(delegate, jsonData);
                     }
-                    break
+                    break*/
             }
 //			}
         }

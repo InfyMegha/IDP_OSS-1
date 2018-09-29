@@ -8,13 +8,12 @@
 
 package org.infy.idp.entities.jobs.deployinfo;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.infy.idp.entities.jobs.common.Migration;
-import org.infy.idp.entities.jobs.deployinfo.DeployToContainer;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -23,7 +22,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.deployinfo.DeployToContainer
  * 
  */
-public class DeployToContainerTest extends PackageTestCase {
+public class DeployToContainerTest {
 
 	/**
 	 * Constructor for test class.
@@ -153,72 +152,72 @@ public class DeployToContainerTest extends PackageTestCase {
 		assertEquals("destServerPath", testedObject.getDestServerPath());
 		assertEquals("websiteName", testedObject.getWebsiteName());
 		assertEquals("appPoolName", testedObject.getAppPoolName());
-		assertEquals("hostName22", testedObject.getHostName()); // jtest_unverified
-		assertEquals(port, testedObject.getPort()); // jtest_unverified
-		assertEquals("script22", testedObject.getScript()); // jtest_unverified
-		assertEquals(sqlFilesAndPackages, testedObject.getSqlFilesAndPackages()); // jtest_unverified
-		assertEquals("targetNodeName22", testedObject.getTargetNodeName()); // jtest_unverified
-		assertEquals(workflowMigration, testedObject.getWorkflowMigration()); // jtest_unverified
-		assertEquals("deployedFolder22", testedObject.getDeployedFolder()); // jtest_unverified
-		assertEquals("serverManagerURL22", testedObject.getServerManagerURL()); // jtest_unverified
-		assertEquals(reportMigration, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals("resourceToBeDeployed22", testedObject.getResourceToBeDeployed()); // jtest_unverified
-		assertEquals("targetServerName21", testedObject.getTargetServerName()); // jtest_unverified
-		assertEquals("dbOwnerPassword22", testedObject.getDbOwnerPassword()); // jtest_unverified
-		assertEquals("derivedDataPath22", testedObject.getDerivedDataPath()); // jtest_unverified
-		assertEquals("automationScript22", testedObject.getAutomationScript()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getAdmWorkflowServer()); // jtest_unverified
-		assertEquals("rollbackStrategy22", testedObject.getRollbackStrategy()); // jtest_unverified
-		assertEquals("targetCellName22", testedObject.getTargetCellName()); // jtest_unverified
-		assertEquals("applicationName22", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("admin22", testedObject.getAdmin()); // jtest_unverified
-		assertEquals("warPath22", testedObject.getWarPath()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getSrfServer()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getStaticFiles()); // jtest_unverified
-		assertEquals("testRollback22", testedObject.getTestRollback()); // jtest_unverified
-		assertEquals("tagName22", testedObject.getTagName()); // jtest_unverified
-		assertEquals("scriptPath22", testedObject.getScriptPath()); // jtest_unverified
-		assertEquals("containerName22", testedObject.getContainerName()); // jtest_unverified
-		assertEquals("logFilePath22", testedObject.getLogFilePath()); // jtest_unverified
-		assertEquals("sshPassword22", testedObject.getSshPassword()); // jtest_unverified
-		assertEquals("dbOwner22", testedObject.getDbOwner()); // jtest_unverified
-		assertEquals("sshExecution22", testedObject.getSshExecution()); // jtest_unverified
-		assertEquals("sshId22", testedObject.getSshId()); // jtest_unverified
-		assertEquals("updateDB22", testedObject.getUpdateDB()); // jtest_unverified
-		assertEquals("platform22", testedObject.getPlatform()); // jtest_unverified
-		assertEquals(hrs, testedObject.getHrs()); // jtest_unverified
-		assertEquals("ipOrDNS45", testedObject.getIpOrDNS()); // jtest_unverified
-		assertEquals("approver22", testedObject.getApprover()); // jtest_unverified
-		assertEquals("rollBackDB22", testedObject.getRollBackDB()); // jtest_unverified
-		assertEquals("adminPassword22", testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals("mqManager22", testedObject.getMqManager()); // jtest_unverified
-		assertEquals("domain22", testedObject.getDomain()); // jtest_unverified
-		assertEquals("userName22", testedObject.getUserName()); // jtest_unverified
-		assertEquals("password22", testedObject.getPassword()); // jtest_unverified
-		assertEquals("contextPath22", testedObject.getContextPath()); // jtest_unverified
-		assertEquals("targetPath22", testedObject.getTargetPath()); // jtest_unverified
-		assertEquals("tagDB22", testedObject.getTagDB()); // jtest_unverified
-		assertEquals("dbcScriptName22", testedObject.getDbcScriptName()); // jtest_unverified
-		assertEquals("xmlScripts22", testedObject.getXmlScripts()); // jtest_unverified
-		assertEquals("importReports22", testedObject.getImportReports()); // jtest_unverified
-		assertEquals(publishForm, testedObject.getPublishForm()); // jtest_unverified
-		assertEquals("profilePath22", testedObject.getProfilePath()); // jtest_unverified
-		assertEquals(ctlMigration, testedObject.getCtlMigration()); // jtest_unverified
-		assertEquals(oaMedia, testedObject.getOaMedia()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getSqlDeploy()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getDatExport()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getDatImport()); // jtest_unverified
-		assertEquals(sqlDeploy, testedObject.getDdlSync()); // jtest_unverified
-		assertEquals("propertyFile22", testedObject.getPropertyFile()); // jtest_unverified
-		assertEquals(aolScript, testedObject.getAolScript()); // jtest_unverified
-		assertEquals("barFile22", testedObject.getBarFile()); // jtest_unverified
-		assertEquals("buildType22", testedObject.getBuildType()); // jtest_unverified
-		assertEquals("avdName22", testedObject.getAvdName()); // jtest_unverified
-		assertEquals("sourcePath22", testedObject.getSourcePath()); // jtest_unverified
-		assertEquals("narOS22", testedObject.getNarOS()); // jtest_unverified
+		assertEquals("hostName22", testedObject.getHostName());
+		assertEquals(port, testedObject.getPort());
+		assertEquals("script22", testedObject.getScript());
+		assertEquals(sqlFilesAndPackages, testedObject.getSqlFilesAndPackages());
+		assertEquals("targetNodeName22", testedObject.getTargetNodeName());
+		assertEquals(workflowMigration, testedObject.getWorkflowMigration());
+		assertEquals("deployedFolder22", testedObject.getDeployedFolder());
+		assertEquals("serverManagerURL22", testedObject.getServerManagerURL());
+		assertEquals(reportMigration, testedObject.getReportMigration());
+		assertEquals("resourceToBeDeployed22", testedObject.getResourceToBeDeployed());
+		assertEquals("targetServerName21", testedObject.getTargetServerName());
+		assertEquals("dbOwnerPassword22", testedObject.getDbOwnerPassword());
+		assertEquals("derivedDataPath22", testedObject.getDerivedDataPath());
+		assertEquals("automationScript22", testedObject.getAutomationScript());
+		assertEquals(sqlDeploy, testedObject.getAdmWorkflowServer());
+		assertEquals("rollbackStrategy22", testedObject.getRollbackStrategy());
+		assertEquals("targetCellName22", testedObject.getTargetCellName());
+		assertEquals("applicationName22", testedObject.getApplicationName());
+		assertEquals("admin22", testedObject.getAdmin());
+		assertEquals("warPath22", testedObject.getWarPath());
+		assertEquals(sqlDeploy, testedObject.getSrfServer());
+		assertEquals(sqlDeploy, testedObject.getStaticFiles());
+		assertEquals("testRollback22", testedObject.getTestRollback());
+		assertEquals("tagName22", testedObject.getTagName());
+		assertEquals("scriptPath22", testedObject.getScriptPath());
+		assertEquals("containerName22", testedObject.getContainerName());
+		assertEquals("logFilePath22", testedObject.getLogFilePath());
+		assertEquals("sshPassword22", testedObject.getSshPassword());
+		assertEquals("dbOwner22", testedObject.getDbOwner());
+		assertEquals("sshExecution22", testedObject.getSshExecution());
+		assertEquals("sshId22", testedObject.getSshId());
+		assertEquals("updateDB22", testedObject.getUpdateDB());
+		assertEquals("platform22", testedObject.getPlatform());
+		assertEquals(hrs, testedObject.getHrs());
+		assertEquals("ipOrDNS45", testedObject.getIpOrDNS());
+		assertEquals("approver22", testedObject.getApprover());
+		assertEquals("rollBackDB22", testedObject.getRollBackDB());
+		assertEquals("adminPassword22", testedObject.getAdminPassword());
+		assertEquals("mqManager22", testedObject.getMqManager());
+		assertEquals("domain22", testedObject.getDomain());
+		assertEquals("userName22", testedObject.getUserName());
+		assertEquals("password22", testedObject.getPassword());
+		assertEquals("contextPath22", testedObject.getContextPath());
+		assertEquals("targetPath22", testedObject.getTargetPath());
+		assertEquals("tagDB22", testedObject.getTagDB());
+		assertEquals("dbcScriptName22", testedObject.getDbcScriptName());
+		assertEquals("xmlScripts22", testedObject.getXmlScripts());
+		assertEquals("importReports22", testedObject.getImportReports());
+		assertEquals(publishForm, testedObject.getPublishForm());
+		assertEquals("profilePath22", testedObject.getProfilePath());
+		assertEquals(ctlMigration, testedObject.getCtlMigration());
+		assertEquals(oaMedia, testedObject.getOaMedia());
+		assertEquals(sqlDeploy, testedObject.getSqlDeploy());
+		assertEquals(sqlDeploy, testedObject.getDatExport());
+		assertEquals(sqlDeploy, testedObject.getDatImport());
+		assertEquals(sqlDeploy, testedObject.getDdlSync());
+		assertEquals("propertyFile22", testedObject.getPropertyFile());
+		assertEquals(aolScript, testedObject.getAolScript());
+		assertEquals("barFile22", testedObject.getBarFile());
+		assertEquals("buildType22", testedObject.getBuildType());
+		assertEquals("avdName22", testedObject.getAvdName());
+		assertEquals("sourcePath22", testedObject.getSourcePath());
+		assertEquals("narOS22", testedObject.getNarOS());
 
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -297,71 +296,71 @@ public class DeployToContainerTest extends PackageTestCase {
 		testedObject.setTargetCellName("targetCellName1");
 		testedObject.setTargetNodeName("targetNodeName1");
 		testedObject.setTargetServerName("targetServerName0");
-		assertEquals("hostName1", testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals("script1", testedObject.getScript()); // jtest_unverified
-		assertEquals(null, testedObject.getSqlFilesAndPackages()); // jtest_unverified
-		assertEquals("targetNodeName1", testedObject.getTargetNodeName()); // jtest_unverified
-		assertEquals(null, testedObject.getWorkflowMigration()); // jtest_unverified
-		assertEquals("deployedFolder1", testedObject.getDeployedFolder()); // jtest_unverified
-		assertEquals("serverManagerURL1", testedObject.getServerManagerURL()); // jtest_unverified
-		assertEquals(null, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals("resourceToBeDeployed1", testedObject.getResourceToBeDeployed()); // jtest_unverified
-		assertEquals("targetServerName0", testedObject.getTargetServerName()); // jtest_unverified
-		assertEquals("dbOwnerPassword1", testedObject.getDbOwnerPassword()); // jtest_unverified
-		assertEquals("derivedDataPath1", testedObject.getDerivedDataPath()); // jtest_unverified
-		assertEquals("automationScript1", testedObject.getAutomationScript()); // jtest_unverified
-		assertEquals(null, testedObject.getAdmWorkflowServer()); // jtest_unverified
-		assertEquals("rollbackStrategy1", testedObject.getRollbackStrategy()); // jtest_unverified
-		assertEquals("targetCellName1", testedObject.getTargetCellName()); // jtest_unverified
-		assertEquals("applicationName1", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("admin1", testedObject.getAdmin()); // jtest_unverified
-		assertEquals("warPath1", testedObject.getWarPath()); // jtest_unverified
-		assertEquals(null, testedObject.getSrfServer()); // jtest_unverified
-		assertEquals(null, testedObject.getStaticFiles()); // jtest_unverified
-		assertEquals("testRollback1", testedObject.getTestRollback()); // jtest_unverified
-		assertEquals("tagName1", testedObject.getTagName()); // jtest_unverified
-		assertEquals("scriptPath1", testedObject.getScriptPath()); // jtest_unverified
-		assertEquals("containerName1", testedObject.getContainerName()); // jtest_unverified
-		assertEquals("logFilePath1", testedObject.getLogFilePath()); // jtest_unverified
-		assertEquals("sshPassword1", testedObject.getSshPassword()); // jtest_unverified
-		assertEquals("dbOwner1", testedObject.getDbOwner()); // jtest_unverified
-		assertEquals("sshExecution1", testedObject.getSshExecution()); // jtest_unverified
-		assertEquals("sshId1", testedObject.getSshId()); // jtest_unverified
-		assertEquals("updateDB1", testedObject.getUpdateDB()); // jtest_unverified
-		assertEquals("platform1", testedObject.getPlatform()); // jtest_unverified
-		assertEquals(null, testedObject.getHrs()); // jtest_unverified
-		assertEquals("ipOrDNS3", testedObject.getIpOrDNS()); // jtest_unverified
-		assertEquals("approver1", testedObject.getApprover()); // jtest_unverified
-		assertEquals("rollBackDB1", testedObject.getRollBackDB()); // jtest_unverified
-		assertEquals("adminPassword1", testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals("mqManager1", testedObject.getMqManager()); // jtest_unverified
-		assertEquals("domain1", testedObject.getDomain()); // jtest_unverified
-		assertEquals("userName1", testedObject.getUserName()); // jtest_unverified
-		assertEquals("password1", testedObject.getPassword()); // jtest_unverified
-		assertEquals("contextPath1", testedObject.getContextPath()); // jtest_unverified
-		assertEquals("targetPath1", testedObject.getTargetPath()); // jtest_unverified
-		assertEquals("tagDB1", testedObject.getTagDB()); // jtest_unverified
-		assertEquals("dbcScriptName1", testedObject.getDbcScriptName()); // jtest_unverified
-		assertEquals("xmlScripts1", testedObject.getXmlScripts()); // jtest_unverified
-		assertEquals("importReports1", testedObject.getImportReports()); // jtest_unverified
-		assertEquals(null, testedObject.getPublishForm()); // jtest_unverified
-		assertEquals("profilePath1", testedObject.getProfilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getCtlMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getOaMedia()); // jtest_unverified
-		assertEquals(null, testedObject.getSqlDeploy()); // jtest_unverified
-		assertEquals(null, testedObject.getDatExport()); // jtest_unverified
-		assertEquals(null, testedObject.getDatImport()); // jtest_unverified
-		assertEquals(null, testedObject.getDdlSync()); // jtest_unverified
-		assertEquals("propertyFile1", testedObject.getPropertyFile()); // jtest_unverified
-		assertEquals(null, testedObject.getAolScript()); // jtest_unverified
-		assertEquals("barFile1", testedObject.getBarFile()); // jtest_unverified
-		assertEquals("buildType1", testedObject.getBuildType()); // jtest_unverified
-		assertEquals("avdName1", testedObject.getAvdName()); // jtest_unverified
-		assertEquals("sourcePath1", testedObject.getSourcePath()); // jtest_unverified
-		assertEquals("narOS1", testedObject.getNarOS()); // jtest_unverified
+		assertEquals("hostName1", testedObject.getHostName());
+		assertEquals(null, testedObject.getPort());
+		assertEquals("script1", testedObject.getScript());
+		assertEquals(null, testedObject.getSqlFilesAndPackages());
+		assertEquals("targetNodeName1", testedObject.getTargetNodeName());
+		assertEquals(null, testedObject.getWorkflowMigration());
+		assertEquals("deployedFolder1", testedObject.getDeployedFolder());
+		assertEquals("serverManagerURL1", testedObject.getServerManagerURL());
+		assertEquals(null, testedObject.getReportMigration());
+		assertEquals("resourceToBeDeployed1", testedObject.getResourceToBeDeployed());
+		assertEquals("targetServerName0", testedObject.getTargetServerName());
+		assertEquals("dbOwnerPassword1", testedObject.getDbOwnerPassword());
+		assertEquals("derivedDataPath1", testedObject.getDerivedDataPath());
+		assertEquals("automationScript1", testedObject.getAutomationScript());
+		assertEquals(null, testedObject.getAdmWorkflowServer());
+		assertEquals("rollbackStrategy1", testedObject.getRollbackStrategy());
+		assertEquals("targetCellName1", testedObject.getTargetCellName());
+		assertEquals("applicationName1", testedObject.getApplicationName());
+		assertEquals("admin1", testedObject.getAdmin());
+		assertEquals("warPath1", testedObject.getWarPath());
+		assertEquals(null, testedObject.getSrfServer());
+		assertEquals(null, testedObject.getStaticFiles());
+		assertEquals("testRollback1", testedObject.getTestRollback());
+		assertEquals("tagName1", testedObject.getTagName());
+		assertEquals("scriptPath1", testedObject.getScriptPath());
+		assertEquals("containerName1", testedObject.getContainerName());
+		assertEquals("logFilePath1", testedObject.getLogFilePath());
+		assertEquals("sshPassword1", testedObject.getSshPassword());
+		assertEquals("dbOwner1", testedObject.getDbOwner());
+		assertEquals("sshExecution1", testedObject.getSshExecution());
+		assertEquals("sshId1", testedObject.getSshId());
+		assertEquals("updateDB1", testedObject.getUpdateDB());
+		assertEquals("platform1", testedObject.getPlatform());
+		assertEquals(null, testedObject.getHrs());
+		assertEquals("ipOrDNS3", testedObject.getIpOrDNS());
+		assertEquals("approver1", testedObject.getApprover());
+		assertEquals("rollBackDB1", testedObject.getRollBackDB());
+		assertEquals("adminPassword1", testedObject.getAdminPassword());
+		assertEquals("mqManager1", testedObject.getMqManager());
+		assertEquals("domain1", testedObject.getDomain());
+		assertEquals("userName1", testedObject.getUserName());
+		assertEquals("password1", testedObject.getPassword());
+		assertEquals("contextPath1", testedObject.getContextPath());
+		assertEquals("targetPath1", testedObject.getTargetPath());
+		assertEquals("tagDB1", testedObject.getTagDB());
+		assertEquals("dbcScriptName1", testedObject.getDbcScriptName());
+		assertEquals("xmlScripts1", testedObject.getXmlScripts());
+		assertEquals("importReports1", testedObject.getImportReports());
+		assertEquals(null, testedObject.getPublishForm());
+		assertEquals("profilePath1", testedObject.getProfilePath());
+		assertEquals(null, testedObject.getCtlMigration());
+		assertEquals(null, testedObject.getOaMedia());
+		assertEquals(null, testedObject.getSqlDeploy());
+		assertEquals(null, testedObject.getDatExport());
+		assertEquals(null, testedObject.getDatImport());
+		assertEquals(null, testedObject.getDdlSync());
+		assertEquals("propertyFile1", testedObject.getPropertyFile());
+		assertEquals(null, testedObject.getAolScript());
+		assertEquals("barFile1", testedObject.getBarFile());
+		assertEquals("buildType1", testedObject.getBuildType());
+		assertEquals("avdName1", testedObject.getAvdName());
+		assertEquals("sourcePath1", testedObject.getSourcePath());
+		assertEquals("narOS1", testedObject.getNarOS());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -440,71 +439,71 @@ public class DeployToContainerTest extends PackageTestCase {
 		testedObject.setTargetCellName("targetCellName0");
 		testedObject.setTargetNodeName("targetNodeName0");
 		testedObject.setTargetServerName((String) null);
-		assertEquals("hostName0", testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals("script0", testedObject.getScript()); // jtest_unverified
-		assertEquals(null, testedObject.getSqlFilesAndPackages()); // jtest_unverified
-		assertEquals("targetNodeName0", testedObject.getTargetNodeName()); // jtest_unverified
-		assertEquals(null, testedObject.getWorkflowMigration()); // jtest_unverified
-		assertEquals("deployedFolder0", testedObject.getDeployedFolder()); // jtest_unverified
-		assertEquals("serverManagerURL0", testedObject.getServerManagerURL()); // jtest_unverified
-		assertEquals(null, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals("resourceToBeDeployed0", testedObject.getResourceToBeDeployed()); // jtest_unverified
-		assertEquals(null, testedObject.getTargetServerName()); // jtest_unverified
-		assertEquals("dbOwnerPassword0", testedObject.getDbOwnerPassword()); // jtest_unverified
-		assertEquals("derivedDataPath0", testedObject.getDerivedDataPath()); // jtest_unverified
-		assertEquals("automationScript0", testedObject.getAutomationScript()); // jtest_unverified
-		assertEquals(null, testedObject.getAdmWorkflowServer()); // jtest_unverified
-		assertEquals("rollbackStrategy0", testedObject.getRollbackStrategy()); // jtest_unverified
-		assertEquals("targetCellName0", testedObject.getTargetCellName()); // jtest_unverified
-		assertEquals("applicationName0", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("admin0", testedObject.getAdmin()); // jtest_unverified
-		assertEquals("warPath0", testedObject.getWarPath()); // jtest_unverified
-		assertEquals(null, testedObject.getSrfServer()); // jtest_unverified
-		assertEquals(null, testedObject.getStaticFiles()); // jtest_unverified
-		assertEquals("testRollback0", testedObject.getTestRollback()); // jtest_unverified
-		assertEquals("tagName0", testedObject.getTagName()); // jtest_unverified
-		assertEquals("scriptPath0", testedObject.getScriptPath()); // jtest_unverified
-		assertEquals("containerName0", testedObject.getContainerName()); // jtest_unverified
-		assertEquals("logFilePath0", testedObject.getLogFilePath()); // jtest_unverified
-		assertEquals("sshPassword0", testedObject.getSshPassword()); // jtest_unverified
-		assertEquals("dbOwner0", testedObject.getDbOwner()); // jtest_unverified
-		assertEquals("sshExecution0", testedObject.getSshExecution()); // jtest_unverified
-		assertEquals("sshId0", testedObject.getSshId()); // jtest_unverified
-		assertEquals("updateDB0", testedObject.getUpdateDB()); // jtest_unverified
-		assertEquals("platform0", testedObject.getPlatform()); // jtest_unverified
-		assertEquals(null, testedObject.getHrs()); // jtest_unverified
-		assertEquals("ipOrDNS1", testedObject.getIpOrDNS()); // jtest_unverified
-		assertEquals("approver0", testedObject.getApprover()); // jtest_unverified
-		assertEquals("rollBackDB0", testedObject.getRollBackDB()); // jtest_unverified
-		assertEquals("adminPassword0", testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals("mqManager0", testedObject.getMqManager()); // jtest_unverified
-		assertEquals("domain0", testedObject.getDomain()); // jtest_unverified
-		assertEquals("userName0", testedObject.getUserName()); // jtest_unverified
-		assertEquals("password0", testedObject.getPassword()); // jtest_unverified
-		assertEquals("contextPath0", testedObject.getContextPath()); // jtest_unverified
-		assertEquals("targetPath0", testedObject.getTargetPath()); // jtest_unverified
-		assertEquals("tagDB0", testedObject.getTagDB()); // jtest_unverified
-		assertEquals("dbcScriptName0", testedObject.getDbcScriptName()); // jtest_unverified
-		assertEquals("xmlScripts0", testedObject.getXmlScripts()); // jtest_unverified
-		assertEquals("importReports0", testedObject.getImportReports()); // jtest_unverified
-		assertEquals(null, testedObject.getPublishForm()); // jtest_unverified
-		assertEquals("profilePath0", testedObject.getProfilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getCtlMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getOaMedia()); // jtest_unverified
-		assertEquals(null, testedObject.getSqlDeploy()); // jtest_unverified
-		assertEquals(null, testedObject.getDatExport()); // jtest_unverified
-		assertEquals(null, testedObject.getDatImport()); // jtest_unverified
-		assertEquals(null, testedObject.getDdlSync()); // jtest_unverified
-		assertEquals("propertyFile0", testedObject.getPropertyFile()); // jtest_unverified
-		assertEquals(null, testedObject.getAolScript()); // jtest_unverified
-		assertEquals("barFile0", testedObject.getBarFile()); // jtest_unverified
-		assertEquals("buildType0", testedObject.getBuildType()); // jtest_unverified
-		assertEquals("avdName0", testedObject.getAvdName()); // jtest_unverified
-		assertEquals("sourcePath0", testedObject.getSourcePath()); // jtest_unverified
-		assertEquals("narOS0", testedObject.getNarOS()); // jtest_unverified
+		assertEquals("hostName0", testedObject.getHostName());
+		assertEquals(null, testedObject.getPort());
+		assertEquals("script0", testedObject.getScript());
+		assertEquals(null, testedObject.getSqlFilesAndPackages());
+		assertEquals("targetNodeName0", testedObject.getTargetNodeName());
+		assertEquals(null, testedObject.getWorkflowMigration());
+		assertEquals("deployedFolder0", testedObject.getDeployedFolder());
+		assertEquals("serverManagerURL0", testedObject.getServerManagerURL());
+		assertEquals(null, testedObject.getReportMigration());
+		assertEquals("resourceToBeDeployed0", testedObject.getResourceToBeDeployed());
+		assertEquals(null, testedObject.getTargetServerName());
+		assertEquals("dbOwnerPassword0", testedObject.getDbOwnerPassword());
+		assertEquals("derivedDataPath0", testedObject.getDerivedDataPath());
+		assertEquals("automationScript0", testedObject.getAutomationScript());
+		assertEquals(null, testedObject.getAdmWorkflowServer());
+		assertEquals("rollbackStrategy0", testedObject.getRollbackStrategy());
+		assertEquals("targetCellName0", testedObject.getTargetCellName());
+		assertEquals("applicationName0", testedObject.getApplicationName());
+		assertEquals("admin0", testedObject.getAdmin());
+		assertEquals("warPath0", testedObject.getWarPath());
+		assertEquals(null, testedObject.getSrfServer());
+		assertEquals(null, testedObject.getStaticFiles());
+		assertEquals("testRollback0", testedObject.getTestRollback());
+		assertEquals("tagName0", testedObject.getTagName());
+		assertEquals("scriptPath0", testedObject.getScriptPath());
+		assertEquals("containerName0", testedObject.getContainerName());
+		assertEquals("logFilePath0", testedObject.getLogFilePath());
+		assertEquals("sshPassword0", testedObject.getSshPassword());
+		assertEquals("dbOwner0", testedObject.getDbOwner());
+		assertEquals("sshExecution0", testedObject.getSshExecution());
+		assertEquals("sshId0", testedObject.getSshId());
+		assertEquals("updateDB0", testedObject.getUpdateDB());
+		assertEquals("platform0", testedObject.getPlatform());
+		assertEquals(null, testedObject.getHrs());
+		assertEquals("ipOrDNS1", testedObject.getIpOrDNS());
+		assertEquals("approver0", testedObject.getApprover());
+		assertEquals("rollBackDB0", testedObject.getRollBackDB());
+		assertEquals("adminPassword0", testedObject.getAdminPassword());
+		assertEquals("mqManager0", testedObject.getMqManager());
+		assertEquals("domain0", testedObject.getDomain());
+		assertEquals("userName0", testedObject.getUserName());
+		assertEquals("password0", testedObject.getPassword());
+		assertEquals("contextPath0", testedObject.getContextPath());
+		assertEquals("targetPath0", testedObject.getTargetPath());
+		assertEquals("tagDB0", testedObject.getTagDB());
+		assertEquals("dbcScriptName0", testedObject.getDbcScriptName());
+		assertEquals("xmlScripts0", testedObject.getXmlScripts());
+		assertEquals("importReports0", testedObject.getImportReports());
+		assertEquals(null, testedObject.getPublishForm());
+		assertEquals("profilePath0", testedObject.getProfilePath());
+		assertEquals(null, testedObject.getCtlMigration());
+		assertEquals(null, testedObject.getOaMedia());
+		assertEquals(null, testedObject.getSqlDeploy());
+		assertEquals(null, testedObject.getDatExport());
+		assertEquals(null, testedObject.getDatImport());
+		assertEquals(null, testedObject.getDdlSync());
+		assertEquals("propertyFile0", testedObject.getPropertyFile());
+		assertEquals(null, testedObject.getAolScript());
+		assertEquals("barFile0", testedObject.getBarFile());
+		assertEquals("buildType0", testedObject.getBuildType());
+		assertEquals("avdName0", testedObject.getAvdName());
+		assertEquals("sourcePath0", testedObject.getSourcePath());
+		assertEquals("narOS0", testedObject.getNarOS());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -519,103 +518,71 @@ public class DeployToContainerTest extends PackageTestCase {
 	@Test
 	public void testDeployToContainer13() throws Throwable {
 		DeployToContainer testedObject = new DeployToContainer();
-		assertEquals(null, testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals(null, testedObject.getScript()); // jtest_unverified
-		assertEquals(null, testedObject.getSqlFilesAndPackages()); // jtest_unverified
-		assertEquals(null, testedObject.getTargetNodeName()); // jtest_unverified
-		assertEquals(null, testedObject.getWorkflowMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getDeployedFolder()); // jtest_unverified
-		assertEquals(null, testedObject.getServerManagerURL()); // jtest_unverified
-		assertEquals(null, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getResourceToBeDeployed()); // jtest_unverified
-		assertEquals(null, testedObject.getTargetServerName()); // jtest_unverified
-		assertEquals(null, testedObject.getDbOwnerPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getDerivedDataPath()); // jtest_unverified
-		assertEquals(null, testedObject.getAutomationScript()); // jtest_unverified
-		assertEquals(null, testedObject.getAdmWorkflowServer()); // jtest_unverified
-		assertEquals(null, testedObject.getRollbackStrategy()); // jtest_unverified
-		assertEquals(null, testedObject.getTargetCellName()); // jtest_unverified
-		assertEquals(null, testedObject.getApplicationName()); // jtest_unverified
-		assertEquals(null, testedObject.getAdmin()); // jtest_unverified
-		assertEquals(null, testedObject.getWarPath()); // jtest_unverified
-		assertEquals(null, testedObject.getSrfServer()); // jtest_unverified
-		assertEquals(null, testedObject.getStaticFiles()); // jtest_unverified
-		assertEquals(null, testedObject.getTestRollback()); // jtest_unverified
-		assertEquals(null, testedObject.getTagName()); // jtest_unverified
-		assertEquals(null, testedObject.getScriptPath()); // jtest_unverified
-		assertEquals(null, testedObject.getContainerName()); // jtest_unverified
-		assertEquals(null, testedObject.getLogFilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getSshPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getDbOwner()); // jtest_unverified
-		assertEquals(null, testedObject.getSshExecution()); // jtest_unverified
-		assertEquals(null, testedObject.getSshId()); // jtest_unverified
-		assertEquals(null, testedObject.getUpdateDB()); // jtest_unverified
-		assertEquals(null, testedObject.getPlatform()); // jtest_unverified
-		assertEquals(null, testedObject.getHrs()); // jtest_unverified
-		assertEquals(null, testedObject.getIpOrDNS()); // jtest_unverified
-		assertEquals(null, testedObject.getApprover()); // jtest_unverified
-		assertEquals(null, testedObject.getRollBackDB()); // jtest_unverified
-		assertEquals(null, testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getMqManager()); // jtest_unverified
-		assertEquals(null, testedObject.getDomain()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getContextPath()); // jtest_unverified
-		assertEquals(null, testedObject.getTargetPath()); // jtest_unverified
-		assertEquals(null, testedObject.getTagDB()); // jtest_unverified
-		assertEquals(null, testedObject.getDbcScriptName()); // jtest_unverified
-		assertEquals(null, testedObject.getXmlScripts()); // jtest_unverified
-		assertEquals(null, testedObject.getImportReports()); // jtest_unverified
-		assertEquals(null, testedObject.getPublishForm()); // jtest_unverified
-		assertEquals(null, testedObject.getProfilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getCtlMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getOaMedia()); // jtest_unverified
-		assertEquals(null, testedObject.getSqlDeploy()); // jtest_unverified
-		assertEquals(null, testedObject.getDatExport()); // jtest_unverified
-		assertEquals(null, testedObject.getDatImport()); // jtest_unverified
-		assertEquals(null, testedObject.getDdlSync()); // jtest_unverified
-		assertEquals(null, testedObject.getPropertyFile()); // jtest_unverified
-		assertEquals(null, testedObject.getAolScript()); // jtest_unverified
-		assertEquals(null, testedObject.getBarFile()); // jtest_unverified
-		assertEquals(null, testedObject.getBuildType()); // jtest_unverified
-		assertEquals(null, testedObject.getAvdName()); // jtest_unverified
-		assertEquals(null, testedObject.getSourcePath()); // jtest_unverified
-		assertEquals(null, testedObject.getNarOS()); // jtest_unverified
+		assertEquals(null, testedObject.getHostName());
+		assertEquals(null, testedObject.getPort());
+		assertEquals(null, testedObject.getScript());
+		assertEquals(null, testedObject.getSqlFilesAndPackages());
+		assertEquals(null, testedObject.getTargetNodeName());
+		assertEquals(null, testedObject.getWorkflowMigration());
+		assertEquals(null, testedObject.getDeployedFolder());
+		assertEquals(null, testedObject.getServerManagerURL());
+		assertEquals(null, testedObject.getReportMigration());
+		assertEquals(null, testedObject.getResourceToBeDeployed());
+		assertEquals(null, testedObject.getTargetServerName());
+		assertEquals(null, testedObject.getDbOwnerPassword());
+		assertEquals(null, testedObject.getDerivedDataPath());
+		assertEquals(null, testedObject.getAutomationScript());
+		assertEquals(null, testedObject.getAdmWorkflowServer());
+		assertEquals(null, testedObject.getRollbackStrategy());
+		assertEquals(null, testedObject.getTargetCellName());
+		assertEquals(null, testedObject.getApplicationName());
+		assertEquals(null, testedObject.getAdmin());
+		assertEquals(null, testedObject.getWarPath());
+		assertEquals(null, testedObject.getSrfServer());
+		assertEquals(null, testedObject.getStaticFiles());
+		assertEquals(null, testedObject.getTestRollback());
+		assertEquals(null, testedObject.getTagName());
+		assertEquals(null, testedObject.getScriptPath());
+		assertEquals(null, testedObject.getContainerName());
+		assertEquals(null, testedObject.getLogFilePath());
+		assertEquals(null, testedObject.getSshPassword());
+		assertEquals(null, testedObject.getDbOwner());
+		assertEquals(null, testedObject.getSshExecution());
+		assertEquals(null, testedObject.getSshId());
+		assertEquals(null, testedObject.getUpdateDB());
+		assertEquals(null, testedObject.getPlatform());
+		assertEquals(null, testedObject.getHrs());
+		assertEquals(null, testedObject.getIpOrDNS());
+		assertEquals(null, testedObject.getApprover());
+		assertEquals(null, testedObject.getRollBackDB());
+		assertEquals(null, testedObject.getAdminPassword());
+		assertEquals(null, testedObject.getMqManager());
+		assertEquals(null, testedObject.getDomain());
+		assertEquals(null, testedObject.getUserName());
+		assertEquals(null, testedObject.getPassword());
+		assertEquals(null, testedObject.getContextPath());
+		assertEquals(null, testedObject.getTargetPath());
+		assertEquals(null, testedObject.getTagDB());
+		assertEquals(null, testedObject.getDbcScriptName());
+		assertEquals(null, testedObject.getXmlScripts());
+		assertEquals(null, testedObject.getImportReports());
+		assertEquals(null, testedObject.getPublishForm());
+		assertEquals(null, testedObject.getProfilePath());
+		assertEquals(null, testedObject.getCtlMigration());
+		assertEquals(null, testedObject.getOaMedia());
+		assertEquals(null, testedObject.getSqlDeploy());
+		assertEquals(null, testedObject.getDatExport());
+		assertEquals(null, testedObject.getDatImport());
+		assertEquals(null, testedObject.getDdlSync());
+		assertEquals(null, testedObject.getPropertyFile());
+		assertEquals(null, testedObject.getAolScript());
+		assertEquals(null, testedObject.getBarFile());
+		assertEquals(null, testedObject.getBuildType());
+		assertEquals(null, testedObject.getAvdName());
+		assertEquals(null, testedObject.getSourcePath());
+		assertEquals(null, testedObject.getNarOS());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -627,7 +594,6 @@ public class DeployToContainerTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.deployInfo.DeployToContainerTest");
 	}
@@ -642,4 +608,3 @@ public class DeployToContainerTest extends PackageTestCase {
 		return DeployToContainer.class;
 	}
 }
-// JTEST_CURRENT_ID=1306732295.

@@ -7,7 +7,6 @@
 **/
 package org.infy.subscription.business;
 
-
 import java.util.Base64;
 import java.util.Map;
 
@@ -20,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 
- * @author Chidambaram_GS
+ * @author Infosys
  *
  */
 @Component
@@ -36,47 +35,32 @@ public class LicenseManager {
 	 * @return License
 	 */
 	public License readLicenseInfo(String licensekey) {
-	
+
 		try {
-		 
-		License lic = new StreamUtils<License>().convertStringToObject(licensekey);
-		String signature = lic.signature;
-	       
-		if (signature == null) {
-			logger.warn("No signature was found");
-			return null;
+
+			License lic = new StreamUtils<License>().convertStringToObject(licensekey);
+			String signature = lic.signature;
+
+			if (signature == null) {
+				logger.warn("No signature was found");
+				return null;
+			}
+			byte[] sig = Base64.getDecoder().decode(signature.getBytes());
+
+			byte[] data = new StreamUtils<Map<String, String>>().convertObjectToByteArray(lic.getProperty());
+
+			if (!encryptionManager.verifySignature(data, sig)) {
+				logger.warn("invalid license signature");
+				return null;
+			}
+
+			return lic;
+		} catch (Exception ex) {
+			logger.error("Read License Exception ", ex);
+
 		}
-		byte[] sig =Base64.getDecoder().decode(signature.getBytes());
-		
-		byte[] data = new StreamUtils<Map<String,String>>().convertObjectToByteArray(lic.getProperty());
-
-		if (!encryptionManager.verifySignature(data, sig)) {
-			logger.warn("invalid license signature");
-			return null;
-		}
-
-		return lic;
-	} catch (Exception ex) {
-		logger.error("Read License Exception " , ex);
-		
-	}
-	return null;
+		return null;
 
 	}
 
-//	/**
-//	 * 
-//	 * @param license
-//	 * @return String
-//	 */
-//	public String generateLicense(License license) {
-//		byte[] data = new StreamUtils<Map<String,String>>().convertObjectToByteArray(license.getProperty());
-//		byte[] signature;
-//		signature = this.encryptionManager.signLicenseKey(data);
-//		license.signature = Base64.getEncoder().encodeToString(signature);
-//		logger.info("generated Signature " + license.signature);
-//		return new String(
-//				Base64.getEncoder().encodeToString(new StreamUtils<License>().convertObjectToByteArray(license)));
-//	}
-	
 }

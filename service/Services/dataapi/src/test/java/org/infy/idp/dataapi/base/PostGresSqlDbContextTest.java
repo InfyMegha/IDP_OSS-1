@@ -8,8 +8,9 @@
 
 package org.infy.idp.dataapi.base;
 
+import static org.junit.Assert.assertNull;
+
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +24,7 @@ import org.mockito.runners.MockitoJUnitRunner;
  * @see org.infy.idp.dataapi.PostGreSqlDbContext
  */
 @RunWith(MockitoJUnitRunner.class)
-public class PostGresSqlDbContextTest extends PackageTestCase {
+public class PostGresSqlDbContextTest {
 
 	@InjectMocks
 	private PostGreSqlDbContext postGreSqlDbContext;
@@ -63,7 +64,6 @@ public class PostGresSqlDbContextTest extends PackageTestCase {
 		 * Repository.putTemporary() to provide initialized instances of objects to be
 		 * used when testing.
 		 */
-		super.setUp();
 
 		try {
 			configmanager.setPostgresqldatabase("IDP");
@@ -77,22 +77,6 @@ public class PostGresSqlDbContextTest extends PackageTestCase {
 			e.printStackTrace();
 		}
 
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**

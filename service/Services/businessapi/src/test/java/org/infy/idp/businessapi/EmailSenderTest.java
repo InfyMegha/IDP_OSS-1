@@ -5,6 +5,9 @@
 
 package org.infy.idp.businessapi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,6 @@ import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;
 import org.infy.idp.entities.jobs.applicationinfo.EnvironmentOwnerDetail;
 import org.infy.idp.entities.jobs.applicationinfo.SlavesDetail;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,7 +38,7 @@ import jtest.AppContext;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class EmailSenderTest extends PackageTestCase {
+public class EmailSenderTest  {
 
 	@InjectMocks
 	private EmailSender emailsender;
@@ -164,21 +166,6 @@ public class EmailSenderTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.

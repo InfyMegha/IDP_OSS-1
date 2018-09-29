@@ -8,6 +8,11 @@
 
 package org.infy.idp.businessapi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -53,7 +58,6 @@ import org.infy.idp.utils.BuildService;
 import org.infy.idp.utils.ConfigurationManager;
 import org.infy.idp.utils.JenkinsCLI;
 import org.infy.idp.utils.TriggerBuilds;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -78,7 +82,7 @@ import jtest.AppContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class JobsBLTest extends PackageTestCase {
+public class JobsBLTest {
 
 	@Mock
 	private EnvironmentBL environmentBL;
@@ -135,7 +139,7 @@ public class JobsBLTest extends PackageTestCase {
 
 	@Test
 	public void testTriggerJobs() throws Throwable {
-		assertEquals("SUCESS", jobsBL.triggerJobs(triggerParameters, "kruti.vyas"));
+		assertEquals("SUCESS", jobsBL.triggerJobs(triggerParameters, "idpadmin"));
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -493,20 +497,20 @@ public class JobsBLTest extends PackageTestCase {
 	@Test
 	public void testCreateApplication() throws Throwable {
 		app.setApplicationName("DemoAppT");
-		app.setDevelopers("sanjay.sharma");
-		app.setPipelineAdmins("sanjay.sharma");
-		app.setReleaseManager("sanjay.sharma");
+		app.setDevelopers("idpadmin");
+		app.setPipelineAdmins("idpadmin");
+		app.setReleaseManager("idpadmin");
 
 		List<EnvironmentOwnerDetail> environmentOwnerDetails = new ArrayList<EnvironmentOwnerDetail>();
 		EnvironmentOwnerDetail environmentOwnerDetail_value1 = new EnvironmentOwnerDetail();
 		environmentOwnerDetail_value1.setEnvironmentName("DEV");
-		environmentOwnerDetail_value1.setdBOwners("sanjay.sharma");
-		environmentOwnerDetail_value1.setEnvironmentOwners("sanjay.sharma");
+		environmentOwnerDetail_value1.setdBOwners("idpadmin");
+		environmentOwnerDetail_value1.setEnvironmentOwners("idpadmin");
 		environmentOwnerDetails.add(environmentOwnerDetail_value1);
 		app.setEnvironmentOwnerDetails(environmentOwnerDetails);
 		ArrayList slavesDetails = new ArrayList();
 		app.setSlavesDetails(slavesDetails);
-		String result = jobsBL.createApplication(app, "sanjay.sharma", "Infosys");
+		String result = jobsBL.createApplication(app, "idpadmin", "Infosys");
 		assertNotNull(result);
 	}
 
@@ -517,7 +521,6 @@ public class JobsBLTest extends PackageTestCase {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		super.setUp();
 
 		idpjson = new IDPJob();
 		idpjson.setSsoName("idpjson");
@@ -788,7 +791,7 @@ public class JobsBLTest extends PackageTestCase {
 		triggerParameters.setApplicationName("Test_App");
 		triggerParameters.setPipelineName("BitBucketTest");
 		triggerParameters.setReleaseNumber("releaseNumber22");
-		triggerParameters.setUserName("kruti.vyas");
+		triggerParameters.setUserName("idpadmin");
 		triggerParameters.setSlaveName("slaveName22");
 		triggerParameters.setEnvSelected("qa");
 		Build build = new Build();
@@ -846,21 +849,6 @@ public class JobsBLTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.

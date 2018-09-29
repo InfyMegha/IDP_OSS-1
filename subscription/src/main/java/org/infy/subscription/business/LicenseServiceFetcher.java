@@ -12,35 +12,24 @@ import org.infy.subscription.entities.licencekeymanagement.Service;
 import org.infy.subscription.entities.licencekeymanagement.ServiceIdentity;
 import org.infy.subscription.entities.licencekeymanagement.ServiceType;
 
-
 import org.springframework.stereotype.Component;
-
-
 
 /**
  * All the json manipulation will be handled here
- * @author kruti.vyas
+ * 
+ * @author Infosys
  *
  */
 @Component
 public class LicenseServiceFetcher {
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	/**
 	 * 
 	 * @param license
 	 * @param licenseKeyStr
 	 * @return LicenseKey
 	 */
-	public LicenseKey createLicenseKeyObject(License license,String licenseKeyStr,String orgName)
-	{
+	public LicenseKey createLicenseKeyObject(License license, String licenseKeyStr, String orgName) {
 		LicenseKey licenseKey = new LicenseKey();
 		licenseKey.setExpiryDate(license.getExpirydate());
 		licenseKey.setLicenseKey(licenseKeyStr);
@@ -48,29 +37,24 @@ public class LicenseServiceFetcher {
 		licenseKey.setOrgName(orgName);
 		return licenseKey;
 	}
-	
-	
-	
-	
+
 	/**
 	 * 
 	 * @param licenseKey
 	 * @param licenseId
-	 * @return List<Service> 
+	 * @return List<Service>
 	 */
-	public List<Service> createServiceObjects(License license,long licenseId,String orgName)
-	{
-		
+	public List<Service> createServiceObjects(License license, long licenseId, String orgName) {
+
 		List<Service> services = new ArrayList<>();
 		List<ServiceType> serviceTypes = license.getServiceList();
-		
-		for(ServiceType serviceType : serviceTypes)
-		{
-			services.add(createServiceObject(license.getExpirydate(),serviceType.name(),licenseId,orgName));
+
+		for (ServiceType serviceType : serviceTypes) {
+			services.add(createServiceObject(license.getExpirydate(), serviceType.name(), licenseId, orgName));
 		}
 		return services;
 	}
-	
+
 	/**
 	 * 
 	 * @param expieryDate
@@ -78,9 +62,8 @@ public class LicenseServiceFetcher {
 	 * @param licenseId
 	 * @return Service
 	 */
-	public Service createServiceObject(Date expieryDate, String serviceName,long licenseId,String orgName)
-	{
-		Service service=new Service();
+	public Service createServiceObject(Date expieryDate, String serviceName, long licenseId, String orgName) {
+		Service service = new Service();
 		service.setExpiryDate(expieryDate);
 		ServiceIdentity serviceIdentity = new ServiceIdentity();
 		serviceIdentity.setServiceName(serviceName);
@@ -90,12 +73,10 @@ public class LicenseServiceFetcher {
 		return service;
 	}
 
-	List<Service> createServicesListfromObjectLists(List<Object [] > objects,String orgName)
-	{
+	List<Service> createServicesListfromObjectLists(List<Object[]> objects, String orgName) {
 		List<Service> services = new ArrayList<>();
-		for(int i=0;i<objects.size();i++)
-		{
-			services.add(createServiceObject((Date)objects.get(i)[1],(String)objects.get(i)[0],0,orgName));
+		for (int i = 0; i < objects.size(); i++) {
+			services.add(createServiceObject((Date) objects.get(i)[1], (String) objects.get(i)[0], 0, orgName));
 		}
 		return services;
 	}

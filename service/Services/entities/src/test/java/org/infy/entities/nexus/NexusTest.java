@@ -8,47 +8,20 @@
 
 package org.infy.entities.nexus;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.infy.entities.triggerinputs.PackageTestCase;
 import org.infy.idp.entities.nexus.Item;
 import org.infy.idp.entities.nexus.Nexus;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class NexusTest extends PackageTestCase {
+public class NexusTest {
 	public NexusTest() {
 
-	}
-
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**
@@ -62,12 +35,12 @@ public class NexusTest extends PackageTestCase {
 		Nexus testObject = new Nexus();
 		testObject.setContinuationToken("wdfawf");
 		Item a = new Item();
-		a.setRepository("idpwinv05");
+		a.setRepository("server1");
 		List<Item> as = new ArrayList<Item>();
 		as.add(a);
 		testObject.setItems(as);
 
-		assertEquals("idpwinv05", testObject.getItems().get(0).getRepository());
+		assertEquals("server1", testObject.getItems().get(0).getRepository());
 		assertEquals("wdfawf", testObject.getContinuationToken());
 	}
 
@@ -85,13 +58,13 @@ public class NexusTest extends PackageTestCase {
 
 		Nexus testObject = new Nexus();
 		Item a = new Item();
-		a.setRepository("idpwinv05");
+		a.setRepository("server1");
 		List<Item> as = new ArrayList<Item>();
 		as.add(a);
 		testObject.setItems(as);
 
 		assertNotNull(testObject.getItems());
-		assertEquals("idpwinv05", testObject.getItems().get(0).getRepository());
+		assertEquals("server1", testObject.getItems().get(0).getRepository());
 		assertNull(testObject.getItems().get(0).getFormat());
 		assertNull(testObject.getItems().get(0).getGroup());
 		assertNull(testObject.getItems().get(0).getId());
@@ -109,7 +82,7 @@ public class NexusTest extends PackageTestCase {
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.entities.nexus.NexusTest");
 	}

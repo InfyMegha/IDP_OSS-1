@@ -35,7 +35,7 @@ import com.google.gson.Gson;
  * 
  * Class LicenseServiceBL has all the business logic
  * 
- * @author kruti.vyas
+ * @author Infosys
  * 
  * 
  */
@@ -60,10 +60,9 @@ public class LicenseServiceBL {
 	private String topic;
 
 	private static final Logger logger = LoggerFactory.getLogger(LicenseServiceBL.class);
-	
+
 	private static final String INVALIDKEY = "Invalid License Key";
 	private static final String DUPLICATEKEY = "Duplicate License Key";
-	
 
 	/**
 	 * 
@@ -71,43 +70,39 @@ public class LicenseServiceBL {
 	 * @return String
 	 * @throws InvalidKeyException , DuplicateKeyException
 	 */
-	public boolean addLicense(String licenseKey,String orgName) throws InvalidKeyException{
+	public boolean addLicense(String licenseKey, String orgName) throws InvalidKeyException {
 		logger.info("adding license");
 		try {
-		LicenseKey license=null;
-		License validlicense=null;
-		validlicense = licensemanager.readLicenseInfo(licenseKey);
-		
-			if(null==validlicense) 
-			{
+			LicenseKey license = null;
+			License validlicense = null;
+			validlicense = licensemanager.readLicenseInfo(licenseKey);
+
+			if (null == validlicense) {
 				throw new InvalidKeyException(INVALIDKEY);
 			}
-		
-		logger.info(validlicense.emailid + " "+ validlicense.organization);
-		license = licenseServiceFetcher.createLicenseKeyObject(validlicense,licenseKey,orgName);
-		license.setLicenseType("PREMIUM");
-		validlicense.setLicenseType("PREMIUM");
-				
-		long licenseId=0;
-	
-		licenseId = licenseKeyRepository.save(license).getLicenseId();
-		logger.info("license Key added in tlicense_management table with id : "+licenseId);
-		
-		
-		List<Service> services = licenseServiceFetcher.createServiceObjects(validlicense,licenseId,orgName);
-		
-		insertServices(services);
-		updateSubscription(orgName);
-		return true;
+
+			logger.info(validlicense.emailid + " " + validlicense.organization);
+			license = licenseServiceFetcher.createLicenseKeyObject(validlicense, licenseKey, orgName);
+			license.setLicenseType("PREMIUM");
+			validlicense.setLicenseType("PREMIUM");
+
+			long licenseId = 0;
+
+			licenseId = licenseKeyRepository.save(license).getLicenseId();
+			logger.info("license Key added in tlicense_management table with id : " + licenseId);
+
+			List<Service> services = licenseServiceFetcher.createServiceObjects(validlicense, licenseId, orgName);
+
+			insertServices(services);
+			updateSubscription(orgName);
+			return true;
 		} catch (InvalidKeyException e) {
 			logger.error(e.getMessage(), e);
 			throw e;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new InvalidKeyException(DUPLICATEKEY);
 		}
-		
 
 	}
 
@@ -133,8 +128,6 @@ public class LicenseServiceBL {
 		return (count == 1);
 
 	}
-
-	
 
 	/**
 	 * update subscriptions
@@ -163,21 +156,21 @@ public class LicenseServiceBL {
 	public Subscription getSubscriptions(String orgName) {
 		Subscription subscription = new Subscription();
 		List<Service> services = licenseServiceFetcher
-				.createServicesListfromObjectLists(serviceRepository.getAllActiveServices(orgName),orgName);
-		
-		
-		HashMap<String,Integer> serviceMap = new HashMap<>();
-		
+				.createServicesListfromObjectLists(serviceRepository.getAllActiveServices(orgName), orgName);
+
+		HashMap<String, Integer> serviceMap = new HashMap<>();
+
 		serviceMap.put("CI", 1);
 		serviceMap.put("CT", 2);
 		serviceMap.put("CD", 3);
-		
+
 		Collections.sort(services, new Comparator<Service>() {
 
 			@Override
 			public int compare(Service s1, Service s2) {
-				if(s1 != null && s2 != null){
-					return serviceMap.get(s1.getServiceIdentity().getServiceName().toUpperCase()) - serviceMap.get(s2.getServiceIdentity().getServiceName().toUpperCase());
+				if (s1 != null && s2 != null) {
+					return serviceMap.get(s1.getServiceIdentity().getServiceName().toUpperCase())
+							- serviceMap.get(s2.getServiceIdentity().getServiceName().toUpperCase());
 				}
 				return 0;
 			}
@@ -200,27 +193,16 @@ public class LicenseServiceBL {
 	 * @param licensePram
 	 * @return Licenses
 	 */
-	public Licenses getLicense(List<LicenseKey> licensePram)
-	{
+	public Licenses getLicense(List<LicenseKey> licensePram) {
 		Licenses licenses = new Licenses();
 		License license;
 		List<License> licenseList = new ArrayList<>();
-		for(LicenseKey licenseKey : licensePram)
-		{
-			license=licensemanager.readLicenseInfo(new String(licenseKey.getLicenseKey()));
+		for (LicenseKey licenseKey : licensePram) {
+			license = licensemanager.readLicenseInfo(new String(licenseKey.getLicenseKey()));
 			licenseList.add(license);
 		}
 		licenses.setLicenses(licenseList);
 		return licenses;
 	}
-
-//	/**
-//	 * 
-//	 * @param licenseInput
-//	 * @return String
-//	 */
-//	public String createLicense(License licenseInput) {
-//		return licensemanager.generateLicense(licenseInput);
-//	}
 
 }

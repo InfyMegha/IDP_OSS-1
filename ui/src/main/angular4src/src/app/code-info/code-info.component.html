@@ -312,7 +312,7 @@
                                                 </div>
                                                 <div class="col-md-9 field-tip text-left">
                                                     <input class="form-control txtbox" id="cdscrtltf{{i}}" name="rtcUlr{{i}}" #rtcUlr="ngModel" [(ngModel)]="scm.url" name="urlrtc"
-                                                        type="url" pattern="(https?://?|www.|git@)[_a-zA-Z0-9-.:/@%]+" placeholder="https://mysgecrqmapps01.ad.ge.com:9443/ccm/"
+                                                        type="url" pattern="(https?://?|www.|git@)[_a-zA-Z0-9-.:/@%]+" placeholder="https://mysgecrqmapps01.domain.com:9443/ccm/"
                                                         maxlength="150" required>
                                                     <span class="tip-content">{{'RTC Repository URL'|translate}}</span>
                                                     <div *ngIf="rtcUlr.errors && (rtcUlr.dirty || rtcUlr.touched)" class="alert alert-danger ">
@@ -518,7 +518,7 @@
                                                 </div>
                                                 <div class="col-md-9 field-tip text-left">
                                                     <input class="form-control txtbox" id="cdsctfsurltf{{i}}" name="tfsUrl{{i}}" #tfsUlr="ngModel" [(ngModel)]="scm.url" name="tfsURLval"
-                                                        type="text" placeholder="http://tfs2013-farm01.ad.ge.com:8080/tfs/CollectionName"
+                                                        type="text" placeholder="http://tfsserver:8080/tfs/CollectionName"
                                                         maxlength="150" required>
                                                     <span class="tip-content">{{'TFS Server URL'|translate}}</span>
                                                     <div *ngIf="tfsUlr.errors && (tfsUlr.dirty || tfsUlr.touched)" class="alert alert-danger ">
@@ -941,7 +941,7 @@
                                                     </div>
                                                     <div class="col-md-9 field-tip text-left">
                                                         <input class="form-control txtbox" [(ngModel)]="scm.url" id="cdscibmurlrtctf{{i}}" name="ibmurlrtc{{i}}" #ibmurlrtc="ngModel"
-                                                            type="text" pattern="(https?://?|www.|git@)[_a-zA-Z0-9-.:/@]+" placeholder="https://mysgecrqmapps01.ad.ge.com:9443/ccm/"
+                                                            type="text" pattern="(https?://?|www.|git@)[_a-zA-Z0-9-.:/@]+" placeholder="https://mysgecrqmapps01.domain.com:9443/ccm/"
                                                             maxlength="150" required>
                                                         <span class="tip-content">{{'Repository URL'|translate}} IBM RTC</span>
                                                     </div>

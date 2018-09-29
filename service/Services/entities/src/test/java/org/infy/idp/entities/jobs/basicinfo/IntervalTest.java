@@ -14,7 +14,6 @@ import static org.junit.Assert.assertNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.infy.idp.entities.jobs.basicinfo.Interval;
 import org.infy.idp.entities.triggerparameter.TriggerParameters;
 import org.junit.Test;
 

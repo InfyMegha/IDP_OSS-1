@@ -8,75 +8,47 @@
 
 package org.infy.entities.triggerinputs;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
-public class SubModuleTest extends PackageTestCase {
+public class SubModuleTest {
 
 	/**
 	 * Constructor for test class.
 	 *
-	 *  
+	 * 
 	 */
 	public SubModuleTest() {
 		/*
-		 * This constructor should not be modified. Any initialization code
-		 * should be placed in the setUp() method instead.
+		 * This constructor should not be modified. Any initialization code should be
+		 * placed in the setUp() method instead.
 		 */
 
 	}
-	
+
 	@Test
-	public void testSubModule() throws Throwable{
-		SubModule sub=new SubModule();
+	public void testSubModule() throws Throwable {
+		SubModule sub = new SubModule();
 		sub.setDefaultModule("ReservationSystem");
 		sub.setModuleName("ReservationSystem");
-		assertEquals("ReservationSystem",sub.getDefaultModule());
-		assertEquals("ReservationSystem",sub.getModuleName());
-		
+		assertEquals("ReservationSystem", sub.getDefaultModule());
+		assertEquals("ReservationSystem", sub.getModuleName());
+
 	}
-	
+
 	@Test
-	public void testNullSubModule() throws Throwable{
-		SubModule sub=new SubModule();
+	public void testNullSubModule() throws Throwable {
+		SubModule sub = new SubModule();
 		sub.setDefaultModule(null);
 		sub.setModuleName(null);
 		assertNull(sub.getDefaultModule());
 		assertNull(sub.getModuleName());
 	}
-	
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
 
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
-	
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.entities.triggerinputs.SubModuleTest");
 	}
@@ -85,9 +57,9 @@ public class SubModuleTest extends PackageTestCase {
 	 * Get the class object of the class which will be tested.
 	 * 
 	 * @return the class which will be tested
-	 *  
+	 * 
 	 */
-	
+
 	@SuppressWarnings("rawtypes")
 	public Class getTestedClass() {
 		return SubModule.class;

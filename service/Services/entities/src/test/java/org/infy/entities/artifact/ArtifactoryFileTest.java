@@ -11,10 +11,6 @@ package org.infy.entities.artifact;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.infy.idp.entities.packagecontent.PackageContent;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

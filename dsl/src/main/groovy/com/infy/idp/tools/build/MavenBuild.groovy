@@ -10,7 +10,7 @@ package com.infy.idp.tools.build
 
 import com.infy.idp.creators.*
 import com.infy.idp.customtools.TGMavenPOMEditor
-import com.infy.idp.plugins.buildsteps.Checkmarx
+//import com.infy.idp.plugins.buildsteps.Checkmarx
 import com.infy.idp.plugins.publishers.*
 import com.infy.idp.plugins.publishers.ArchiveArtifacts
 import com.infy.idp.plugins.reporters.*
@@ -257,7 +257,7 @@ class MavenBuild {
                 def username = jsonData.basicInfo.userName;
                 username = username + '@infosys.com'
                 //Checking for security analysis
-                if (modulesArr.getAt(i).team) {
+                /*if (modulesArr.getAt(i).team) {
 
                     Checkmarx checkmarx = new Checkmarx();
                     checkmarx.setProjectKey(jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName)
@@ -278,7 +278,7 @@ class MavenBuild {
                         checkmarx.setScanCycle("10".toInteger())
                     }
                     checkmarx.add(delegate)
-                }
+                }*/
 
 
                 if (modulesArr.getAt(0).codeAnalysis && modulesArr.getAt(0).codeAnalysis.contains(Constants.CHECKSTYLE)) {

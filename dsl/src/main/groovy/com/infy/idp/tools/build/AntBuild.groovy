@@ -11,7 +11,6 @@ package com.infy.idp.tools.build
 import com.infy.idp.creators.*
 import com.infy.idp.customtools.*
 import com.infy.idp.plugins.buildsteps.*
-import com.infy.idp.plugins.buildsteps.Checkmarx
 import com.infy.idp.plugins.publishers.*
 import com.infy.idp.plugins.wrappers.ToolEnvBuildWrapper
 import com.infy.idp.tools.*
@@ -333,25 +332,25 @@ class AntBuild {
      * This method is used to add the checkMark tool
      */
 
-    private void checkMark(jsonData, modulesArr, i) {
-        Checkmarx checkmarx = new Checkmarx();
-        checkmarx.setProjectKey(jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName)
-        checkmarx.setUser(modulesArr.getAt(i).userName)
-        checkmarx.setPass(modulesArr.getAt(i).password)
-        checkmarx.setTeamName(modulesArr.getAt(i).team)
-        checkmarx.setScanPreset(modulesArr.getAt(i).preset)
-        checkmarx.setDirectory(modulesArr.getAt(i).exclude)
-        checkmarx.setIncremental(modulesArr.getAt(i).incrementalScan)
+    /* private void checkMark(jsonData, modulesArr, i) {
+         Checkmarx checkmarx = new Checkmarx();
+         checkmarx.setProjectKey(jsonData.basicInfo.applicationName + '_' + jsonData.basicInfo.pipelineName)
+         checkmarx.setUser(modulesArr.getAt(i).userName)
+         checkmarx.setPass(modulesArr.getAt(i).password)
+         checkmarx.setTeamName(modulesArr.getAt(i).team)
+         checkmarx.setScanPreset(modulesArr.getAt(i).preset)
+         checkmarx.setDirectory(modulesArr.getAt(i).exclude)
+         checkmarx.setIncremental(modulesArr.getAt(i).incrementalScan)
 
-        if (modulesArr.getAt(i).interval) {
-            checkmarx.setScaneSchedule(true)
-            checkmarx.setScanCycle(modulesArr.getAt(i).interval.toInteger())
-        } else {
-            checkmarx.setScaneSchedule(false)
-            checkmarx.setScanCycle("10".toInteger())
-        }
-        checkmarx.add(delegate)
-    }
+         if (modulesArr.getAt(i).interval) {
+             checkmarx.setScaneSchedule(true)
+             checkmarx.setScanCycle(modulesArr.getAt(i).interval.toInteger())
+         } else {
+             checkmarx.setScaneSchedule(false)
+             checkmarx.setScanCycle("10".toInteger())
+         }
+         checkmarx.add(delegate)
+     }*/
 
     
 

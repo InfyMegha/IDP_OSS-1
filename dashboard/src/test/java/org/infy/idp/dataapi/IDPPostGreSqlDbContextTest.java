@@ -1,3 +1,10 @@
+/***********************************************************************************************
+*
+* Copyright 2018 Infosys Ltd.
+* Use of this source code is governed by MIT license that can be found in the LICENSE file or at
+* https://opensource.org/licenses/MIT.
+*
+***********************************************************************************************/
 package org.infy.idp.dataapi;
 
 import static org.junit.Assert.assertNull;
@@ -8,9 +15,12 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
 
+
+/*This test case is used for Postgre SQL*/
 public class IDPPostGreSqlDbContextTest {
 
 
+	
 	@InjectMocks
 	private IDPPostGreSqlDbContext idppostGreSqlDbContext;
 	

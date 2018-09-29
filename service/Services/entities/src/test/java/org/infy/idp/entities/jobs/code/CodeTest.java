@@ -8,31 +8,32 @@
 
 package org.infy.idp.entities.jobs.code;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.infy.idp.entities.jobs.common.RunScript;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  * CodeTest is a test class for Code
  *
  * @see org.infy.idp.entities.jobs.code.Code
- *  
+ * 
  */
-public class CodeTest extends PackageTestCase {
+public class CodeTest {
 
 	/**
 	 * Constructor for test class.
 	 *
-	 *  
+	 * 
 	 */
 	public CodeTest() {
 		/*
-		 * This constructor should not be modified. Any initialization code
-		 * should be placed in the setUp() method instead.
+		 * This constructor should not be modified. Any initialization code should be
+		 * placed in the setUp() method instead.
 		 */
 
 	}
@@ -40,11 +41,10 @@ public class CodeTest extends PackageTestCase {
 	/**
 	 * Test for method Code().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Code#Code()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -60,7 +60,7 @@ public class CodeTest extends PackageTestCase {
 		testedObject.setPassword("password");
 		testedObject.setPort("port");
 		testedObject.setUsername("username");
-		
+
 		Scm scmObj = new Scm();
 		List<Scm> scm = new ArrayList<Scm>();
 		scm.add(scmObj);
@@ -83,17 +83,16 @@ public class CodeTest extends PackageTestCase {
 		assertEquals("password", testedObject.getPassword());
 		assertEquals("port", testedObject.getPort());
 		assertEquals("username", testedObject.getUsername());
-		assertEquals("serverName",testedObject.getServerName());
+		assertEquals("serverName", testedObject.getServerName());
 	}
 
 	/**
 	 * Test for method Code().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Code#Code()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -117,11 +116,10 @@ public class CodeTest extends PackageTestCase {
 	/**
 	 * Test for method Code().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Code#Code()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -138,11 +136,10 @@ public class CodeTest extends PackageTestCase {
 	/**
 	 * Test for method getBuildScript().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Code#getBuildScript()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -155,11 +152,10 @@ public class CodeTest extends PackageTestCase {
 	/**
 	 * Test for method getScm().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Code#getScm()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -170,46 +166,14 @@ public class CodeTest extends PackageTestCase {
 	}
 
 	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
-	}
-	/**
 	 * Utility main method. Runs the test cases defined in this test class.
 	 * 
 	 * Usage: java CodeTest
 	 * 
-	 * @param args
-	 *            command line arguments are not needed
-	 *  
+	 * @param args command line arguments are not needed
+	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.code.CodeTest");
 	}
@@ -218,7 +182,7 @@ public class CodeTest extends PackageTestCase {
 	 * Get the class object of the class which will be tested.
 	 * 
 	 * @return the class which will be tested
-	 *  
+	 * 
 	 */
 	public Class<Code> getTestedClass() {
 		return Code.class;

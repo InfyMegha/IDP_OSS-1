@@ -8,6 +8,8 @@
 
 package org.infy.idp.utils;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,6 @@ import org.infy.idp.entities.jobs.common.RunScript;
 import org.infy.idp.entities.jobs.deployinfo.DeployInfo;
 import org.infy.idp.entities.jobs.testinfo.TestInfo;
 import org.infy.idp.entities.models.BuildStatus;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,7 +44,7 @@ import com.offbytwo.jenkins.JenkinsServer;
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class BuildServiceTest extends PackageTestCase {
+public class BuildServiceTest  {
 
 	@InjectMocks
 	private BuildService testedObject;
@@ -79,7 +80,7 @@ public class BuildServiceTest extends PackageTestCase {
 	public void testBuildService0() throws Throwable {
 		BuildService testedObject = new BuildService();
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -98,9 +99,9 @@ public class BuildServiceTest extends PackageTestCase {
 		URI serverUri = new URI("string_0");
 		JenkinsServer jenkins = new JenkinsServer(serverUri);
 		String result = testedObject.getBuildLogs(jenkins, "jobName", 0);
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -120,17 +121,16 @@ public class BuildServiceTest extends PackageTestCase {
 		URI serverUri = new URI("string_0");
 		JenkinsServer server = new JenkinsServer(serverUri);
 		BuildStatus result = testedObject.getBuildStatus(server, "jobName", 0, 0L);
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 	}
 
 	/***
 	 * 
 	 * Test for creating new job
 	 * 
-	 * @author rajaprabu.dharmaraj
+	 * @author Infosys
 	 */
 	@Test
-	// @RunWith(MockitoJUnitRunner.class)
 	public void testCreateNewJob2() throws Throwable {
 
 
@@ -143,7 +143,7 @@ public class BuildServiceTest extends PackageTestCase {
 	 * 
 	 * Test for getbuildLogs
 	 * 
-	 * @author rajaprabu.dharmaraj
+	 * @author Infosys
 	 */
 
 	@Test
@@ -176,8 +176,6 @@ public class BuildServiceTest extends PackageTestCase {
 		 * Repository.putTemporary() to provide initialized instances of objects to be
 		 * used when testing.
 		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
 
 		configmanager.setJenkinsurl("https://idp-server:8085");
 		configmanager.setJenkinsuserid("admin");
@@ -185,7 +183,6 @@ public class BuildServiceTest extends PackageTestCase {
 		configmanager.setSharePath("D:\\IDP\\IDP_Versions\\DSL");
 		configmanager.setPipelineScriptPath("D:\\IDP\\IDP_Versions\\DSL\\src\\main\\groovy\\pipeline_sequence");
 
-		// BuildService testedObject = new BuildService();
 		idpjson = new IDPJob();
 		idpjson.setSsoName("idpjson");
 		idpjson.setSsoId("idpjson_1");
@@ -425,22 +422,6 @@ public class BuildServiceTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.

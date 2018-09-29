@@ -8,6 +8,8 @@
 
 package org.infy.idp.dataapi.services;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,6 @@ import org.infy.idp.entities.releasemanager.Slot;
 import org.infy.idp.entities.releasemanagerinfo.Release;
 import org.infy.idp.entities.releasemanagerinfo.ReleasePipeline;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,7 +40,7 @@ import jtest.AppContext;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class ReleaseDetailsTest extends PackageTestCase {
+public class ReleaseDetailsTest {
 
 	@Spy
 	@InjectMocks
@@ -100,13 +101,9 @@ public class ReleaseDetailsTest extends PackageTestCase {
 	public void testGetRemarks() throws Throwable {
 		Release release = new Release();
 		release.setReleaseNumber("1.0.0");
-		String remark= testedObject.getRemarks(release, 1L, 1L);
+		String remark = testedObject.getRemarks(release, 1L, 1L);
 		assertNotNull(remark);
 	}
-	
-	
-	
-
 
 	/**
 	 * Used to set up the test. This method is called by JUnit before each of the
@@ -136,23 +133,6 @@ public class ReleaseDetailsTest extends PackageTestCase {
 	}
 
 	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
-
-	/**
 	 * Utility main method. Runs the test cases defined in this test class.
 	 * 
 	 * Usage: java ReleaseDetailsTest
@@ -160,7 +140,7 @@ public class ReleaseDetailsTest extends PackageTestCase {
 	 * @param args command line arguments are not needed
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.dataapi.services.ReleaseDetailsTest");
 	}

@@ -222,8 +222,8 @@ export class TestInfoComponent implements OnInit {
         if (this.buildInfo.buildtool === "ant") {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
             [{ "name": "Selenium", "value": "selenium" },
-            { "name": "SAHI", "value": "sahi" },
-            { "name": "Protractor", "value": "protractor" }];
+            { "name": "SAHI", "value": "sahi" }];
+          // { 'name': 'Protractor', 'value': 'protractor' }];
         // {"name": "Microsoft Test Manager", "value": "mtm"}];
         // {"name": "HP UFT", "value": "hpUft"},
         // {"name": "HP ALM", "value": "hpAlm"}];
@@ -232,8 +232,8 @@ export class TestInfoComponent implements OnInit {
     if (category === "performance") {
         if (this.buildInfo.buildtool === "msBuild") {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
-            [{ "name": "JMeter", "value": "jMeter" },
-            { "name": "MSLoadTest", "value": "msLoadTest" }];
+            [{ "name": "JMeter", "value": "jMeter" }];
+          // { 'name': 'MSLoadTest', 'value': 'msLoadTest' }];
         } else if (this.buildInfo.buildtool === "maven" || this.buildInfo.buildtool === "ant") {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
             [{ "name": "JMeter", "value": "jMeter" }];
@@ -253,10 +253,10 @@ export class TestInfoComponent implements OnInit {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName = [];
         if (this.buildInfo.buildtool === "msBuild") {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
-            [{ "name": "Soap UI", "value": "soapUI" }, { "name": "Parasoft SOA", "value": "parasoftsoa" }];
+            [{ "name": "Soap UI", "value": "soapUI" }];
         } else {
         this.tempObjecttest.testEnv[outerIndex].testSteps[innerIndex].testTypeName =
-            [{ "name": "Soap UI", "value": "soapUI" }, { "name": "Parasoft SOA", "value": "parasoftsoa" }];
+            [{ "name": "Soap UI", "value": "soapUI" }];
         }
     }
   }

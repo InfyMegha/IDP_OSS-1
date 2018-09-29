@@ -8,28 +8,27 @@
 
 package org.infy.idp.entities.jobs.deployinfo;
 
-import org.infy.idp.entities.jobs.deployinfo.Server;
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
  * ServerTest is a test class for Server
  *
  * @see org.infy.idp.entities.jobs.deployinfo.Server
- *  
+ * 
  */
-public class ServerTest extends PackageTestCase {
+public class ServerTest {
 
 	/**
 	 * Constructor for test class.
 	 *
-	 *  
+	 * 
 	 */
 	public ServerTest() {
 		/*
-		 * This constructor should not be modified. Any initialization code
-		 * should be placed in the setUp() method instead.
+		 * This constructor should not be modified. Any initialization code should be
+		 * placed in the setUp() method instead.
 		 */
 
 	}
@@ -37,11 +36,10 @@ public class ServerTest extends PackageTestCase {
 	/**
 	 * Test for method Server().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Server#Server()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -61,32 +59,31 @@ public class ServerTest extends PackageTestCase {
 		testedObject.setUserName("userName12");
 		testedObject.setPassword("password12");
 		testedObject.setServerName("serverName11");
-		assertEquals("host12", testedObject.getHost()); // jtest_unverified
-		assertEquals("hostName12", testedObject.getHostName()); // jtest_unverified
-		assertEquals("dbName12", testedObject.getDbName()); // jtest_unverified
-		assertEquals("hostUserName12", testedObject.getHostUserName()); // jtest_unverified
-		assertEquals("hostPassword12", testedObject.getHostPassword()); // jtest_unverified
-		assertEquals("dbOwner12", testedObject.getDbOwner()); // jtest_unverified
-		assertEquals("repo12", testedObject.getRepo()); // jtest_unverified
-		assertEquals("srcPath12", testedObject.getSrcPath()); // jtest_unverified
-		assertEquals("password12", testedObject.getPassword()); // jtest_unverified
-		assertEquals("dbNameOfIndex12", testedObject.getDbNameOfIndex()); // jtest_unverified
-		assertEquals("userName12", testedObject.getUserName()); // jtest_unverified
-		assertEquals("datFilePath12", testedObject.getDatFilePath()); // jtest_unverified
-		assertEquals("serverName11", testedObject.getServerName()); // jtest_unverified
-		assertEquals("destinationPath12", testedObject.getDestinationPath()); // jtest_unverified
+		assertEquals("host12", testedObject.getHost());
+		assertEquals("hostName12", testedObject.getHostName());
+		assertEquals("dbName12", testedObject.getDbName());
+		assertEquals("hostUserName12", testedObject.getHostUserName());
+		assertEquals("hostPassword12", testedObject.getHostPassword());
+		assertEquals("dbOwner12", testedObject.getDbOwner());
+		assertEquals("repo12", testedObject.getRepo());
+		assertEquals("srcPath12", testedObject.getSrcPath());
+		assertEquals("password12", testedObject.getPassword());
+		assertEquals("dbNameOfIndex12", testedObject.getDbNameOfIndex());
+		assertEquals("userName12", testedObject.getUserName());
+		assertEquals("datFilePath12", testedObject.getDatFilePath());
+		assertEquals("serverName11", testedObject.getServerName());
+		assertEquals("destinationPath12", testedObject.getDestinationPath());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
 	 * Test for method Server().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Server#Server()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -106,85 +103,52 @@ public class ServerTest extends PackageTestCase {
 		testedObject.setUserName("userName0");
 		testedObject.setPassword("password0");
 		testedObject.setServerName((String) null);
-		assertEquals("host0", testedObject.getHost()); // jtest_unverified
-		assertEquals("hostName0", testedObject.getHostName()); // jtest_unverified
-		assertEquals("dbName0", testedObject.getDbName()); // jtest_unverified
-		assertEquals("hostUserName0", testedObject.getHostUserName()); // jtest_unverified
-		assertEquals("hostPassword0", testedObject.getHostPassword()); // jtest_unverified
-		assertEquals("dbOwner0", testedObject.getDbOwner()); // jtest_unverified
-		assertEquals("repo0", testedObject.getRepo()); // jtest_unverified
-		assertEquals("srcPath0", testedObject.getSrcPath()); // jtest_unverified
-		assertEquals("password0", testedObject.getPassword()); // jtest_unverified
-		assertEquals("dbNameOfIndex0", testedObject.getDbNameOfIndex()); // jtest_unverified
-		assertEquals("userName0", testedObject.getUserName()); // jtest_unverified
-		assertEquals("datFilePath0", testedObject.getDatFilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getServerName()); // jtest_unverified
-		assertEquals("destinationPath0", testedObject.getDestinationPath()); // jtest_unverified
+		assertEquals("host0", testedObject.getHost());
+		assertEquals("hostName0", testedObject.getHostName());
+		assertEquals("dbName0", testedObject.getDbName());
+		assertEquals("hostUserName0", testedObject.getHostUserName());
+		assertEquals("hostPassword0", testedObject.getHostPassword());
+		assertEquals("dbOwner0", testedObject.getDbOwner());
+		assertEquals("repo0", testedObject.getRepo());
+		assertEquals("srcPath0", testedObject.getSrcPath());
+		assertEquals("password0", testedObject.getPassword());
+		assertEquals("dbNameOfIndex0", testedObject.getDbNameOfIndex());
+		assertEquals("userName0", testedObject.getUserName());
+		assertEquals("datFilePath0", testedObject.getDatFilePath());
+		assertEquals(null, testedObject.getServerName());
+		assertEquals("destinationPath0", testedObject.getDestinationPath());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
 	 * Test for method Server().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see Server#Server()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
 	public void testServer3() throws Throwable {
 		Server testedObject = new Server();
-		assertEquals(null, testedObject.getHost()); // jtest_unverified
-		assertEquals(null, testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getDbName()); // jtest_unverified
-		assertEquals(null, testedObject.getHostUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getHostPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getDbOwner()); // jtest_unverified
-		assertEquals(null, testedObject.getRepo()); // jtest_unverified
-		assertEquals(null, testedObject.getSrcPath()); // jtest_unverified
-		assertEquals(null, testedObject.getPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getDbNameOfIndex()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getDatFilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getServerName()); // jtest_unverified
-		assertEquals(null, testedObject.getDestinationPath()); // jtest_unverified
+		assertEquals(null, testedObject.getHost());
+		assertEquals(null, testedObject.getHostName());
+		assertEquals(null, testedObject.getDbName());
+		assertEquals(null, testedObject.getHostUserName());
+		assertEquals(null, testedObject.getHostPassword());
+		assertEquals(null, testedObject.getDbOwner());
+		assertEquals(null, testedObject.getRepo());
+		assertEquals(null, testedObject.getSrcPath());
+		assertEquals(null, testedObject.getPassword());
+		assertEquals(null, testedObject.getDbNameOfIndex());
+		assertEquals(null, testedObject.getUserName());
+		assertEquals(null, testedObject.getDatFilePath());
+		assertEquals(null, testedObject.getServerName());
+		assertEquals(null, testedObject.getDestinationPath());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -192,12 +156,10 @@ public class ServerTest extends PackageTestCase {
 	 * 
 	 * Usage: java ServerTest
 	 * 
-	 * @param args
-	 *            command line arguments are not needed
-	 *  
+	 * @param args command line arguments are not needed
+	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.deployInfo.ServerTest");
 	}
@@ -206,10 +168,9 @@ public class ServerTest extends PackageTestCase {
 	 * Get the class object of the class which will be tested.
 	 * 
 	 * @return the class which will be tested
-	 *  
+	 * 
 	 */
 	public Class getTestedClass() {
 		return Server.class;
 	}
 }
-// JTEST_CURRENT_ID=126936383.

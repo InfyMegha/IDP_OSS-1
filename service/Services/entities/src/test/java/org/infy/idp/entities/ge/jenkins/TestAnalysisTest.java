@@ -8,27 +8,28 @@
 
 package org.infy.idp.entities.ge.jenkins;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
 /**
  * TestAnalysisTest is a test class for TestAnalysis
  *
  * @see org.infy.idp.entities.ge.jenkins.TestAnalysis
- *  
+ * 
  */
-public class TestAnalysisTest extends PackageTestCase {
+public class TestAnalysisTest {
 
 	/**
 	 * Constructor for test class.
 	 *
-	 *  
+	 * 
 	 */
 	public TestAnalysisTest() {
 		/*
-		 * This constructor should not be modified. Any initialization code
-		 * should be placed in the setUp() method instead.
+		 * This constructor should not be modified. Any initialization code should be
+		 * placed in the setUp() method instead.
 		 */
 
 	}
@@ -36,11 +37,10 @@ public class TestAnalysisTest extends PackageTestCase {
 	/**
 	 * Test for method TestAnalysis().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see TestAnalysis#TestAnalysis()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -61,11 +61,10 @@ public class TestAnalysisTest extends PackageTestCase {
 	/**
 	 * Test for method TestAnalysis().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see TestAnalysis#TestAnalysis()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
@@ -78,66 +77,30 @@ public class TestAnalysisTest extends PackageTestCase {
 		testedObject.setStatus((String) null);
 		assertEquals(858, testedObject.getSuccess());
 		assertEquals(2147483647, testedObject.getFailure());
-		assertEquals("Tool1", testedObject.getTool()); 
+		assertEquals("Tool1", testedObject.getTool());
 		assertNull(testedObject.getStatus());
 		assertEquals(1000, testedObject.getTotalTests());
 	}
-	
+
 	/**
 	 * Test for method TestAnalysis().
 	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
+	 * @throws Throwable Tests may throw any Throwable
 	 *
 	 * @see TestAnalysis#TestAnalysis()
-	 *  
+	 * 
 	 * 
 	 */
 	@Test
 	public void testTestAnalysisNull() throws Throwable {
 		TestAnalysis testedObject = new TestAnalysis();
-		assertEquals(0, testedObject.getSuccess()); // jtest_unverified
-		assertEquals(0, testedObject.getFailure()); // jtest_unverified
-		assertNull(testedObject.getTool()); // jtest_unverified
-		assertNull(testedObject.getStatus()); // jtest_unverified
-		assertEquals(0, testedObject.getTotalTests()); // jtest_unverified
+		assertEquals(0, testedObject.getSuccess());
+		assertEquals(0, testedObject.getFailure());
+		assertNull(testedObject.getTool());
+		assertNull(testedObject.getStatus());
+		assertEquals(0, testedObject.getTotalTests());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**
@@ -145,12 +108,11 @@ public class TestAnalysisTest extends PackageTestCase {
 	 * 
 	 * Usage: java TestAnalysisTest
 	 * 
-	 * @param args
-	 *            command line arguments are not needed
-	 *  
+	 * @param args command line arguments are not needed
+	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.ge.jenkins.TestAnalysisTest");
 	}
@@ -159,10 +121,9 @@ public class TestAnalysisTest extends PackageTestCase {
 	 * Get the class object of the class which will be tested.
 	 * 
 	 * @return the class which will be tested
-	 *  
+	 * 
 	 */
 	public Class<TestAnalysis> getTestedClass() {
 		return TestAnalysis.class;
 	}
 }
-// JTEST_CURRENT_ID=-1950607200.

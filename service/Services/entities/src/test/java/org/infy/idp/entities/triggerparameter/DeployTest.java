@@ -8,11 +8,11 @@
 
 package org.infy.idp.entities.triggerparameter;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 
 import org.infy.entities.triggerinputs.DeployArtifact;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -21,7 +21,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.triggerparameter.Deploy
  * 
  */
-public class DeployTest extends PackageTestCase {
+public class DeployTest {
 
 	/**
 	 * Constructor for test class.
@@ -95,11 +95,11 @@ public class DeployTest extends PackageTestCase {
 		testedObject.setSubModule(subModule);
 		assertEquals(subModule, testedObject.getSubModule());
 
-		assertEquals("nexusId11", testedObject.getNexusId()); // jtest_unverified
-		assertEquals("version12", testedObject.getVersion()); // jtest_unverified
-		assertEquals("artifactID12", testedObject.getArtifactID()); // jtest_unverified
+		assertEquals("nexusId11", testedObject.getNexusId());
+		assertEquals("version12", testedObject.getVersion());
+		assertEquals("artifactID12", testedObject.getArtifactID());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -117,11 +117,11 @@ public class DeployTest extends PackageTestCase {
 		testedObject.setVersion("version0");
 		testedObject.setArtifactID("artifactID0");
 		testedObject.setNexusId((String) null);
-		assertEquals(null, testedObject.getNexusId()); // jtest_unverified
-		assertEquals("version0", testedObject.getVersion()); // jtest_unverified
-		assertEquals("artifactID0", testedObject.getArtifactID()); // jtest_unverified
+		assertEquals(null, testedObject.getNexusId());
+		assertEquals("version0", testedObject.getVersion());
+		assertEquals("artifactID0", testedObject.getArtifactID());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -136,43 +136,11 @@ public class DeployTest extends PackageTestCase {
 	@Test
 	public void testDeploy3() throws Throwable {
 		Deploy testedObject = new Deploy();
-		assertEquals(null, testedObject.getNexusId()); // jtest_unverified
-		assertEquals(null, testedObject.getVersion()); // jtest_unverified
-		assertEquals(null, testedObject.getArtifactID()); // jtest_unverified
+		assertEquals(null, testedObject.getNexusId());
+		assertEquals(null, testedObject.getVersion());
+		assertEquals(null, testedObject.getArtifactID());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -184,7 +152,6 @@ public class DeployTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.triggerparameter.DeployTest");
 	}
@@ -199,4 +166,3 @@ public class DeployTest extends PackageTestCase {
 		return Deploy.class;
 	}
 }
-// JTEST_CURRENT_ID=-1497533494.

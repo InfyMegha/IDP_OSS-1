@@ -8,8 +8,8 @@
 
 package org.infy.entities.triggerinputs;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -18,7 +18,7 @@ import org.junit.Test;
  * @see org.infy.entities.triggerinputs.TriggerJobName
  * 
  */
-public class TriggerJobNameTest extends PackageTestCase {
+public class TriggerJobNameTest  {
 
 	/**
 	 * Constructor for test class.
@@ -52,15 +52,15 @@ public class TriggerJobNameTest extends PackageTestCase {
 		testedObject.setApplicationName("applicationName12");
 		testedObject.setPipelineName("pipelineName12");
 		testedObject.setUserName("userName11");
-		assertEquals("method12", testedObject.getMethod()); // jtest_unverified
-		assertEquals("applicationName12", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("pipelineName12", testedObject.getPipelineName()); // jtest_unverified
-		assertEquals("MailBody12", testedObject.getMailBody()); // jtest_unverified
-		assertEquals("userName11", testedObject.getUserName()); // jtest_unverified
+		assertEquals("method12", testedObject.getMethod()); 
+		assertEquals("applicationName12", testedObject.getApplicationName()); 
+		assertEquals("pipelineName12", testedObject.getPipelineName()); 
+		assertEquals("MailBody12", testedObject.getMailBody()); 
+		assertEquals("userName11", testedObject.getUserName()); 
 		assertEquals("dev", testedObject.getEnvName());
 		assertEquals("march18", testedObject.getReleaseNumber());
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -80,13 +80,13 @@ public class TriggerJobNameTest extends PackageTestCase {
 		testedObject.setApplicationName("applicationName0");
 		testedObject.setPipelineName("pipelineName0");
 		testedObject.setUserName((String) null);
-		assertEquals("method0", testedObject.getMethod()); // jtest_unverified
-		assertEquals("applicationName0", testedObject.getApplicationName()); // jtest_unverified
-		assertEquals("pipelineName0", testedObject.getPipelineName()); // jtest_unverified
-		assertEquals("MailBody0", testedObject.getMailBody()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
+		assertEquals("method0", testedObject.getMethod()); 
+		assertEquals("applicationName0", testedObject.getApplicationName()); 
+		assertEquals("pipelineName0", testedObject.getPipelineName()); 
+		assertEquals("MailBody0", testedObject.getMailBody()); 
+		assertEquals(null, testedObject.getUserName()); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -101,49 +101,15 @@ public class TriggerJobNameTest extends PackageTestCase {
 	@Test
 	public void testTriggerJobName3() throws Throwable {
 		TriggerJobName testedObject = new TriggerJobName();
-		assertEquals(null, testedObject.getMethod()); // jtest_unverified
-		assertEquals(null, testedObject.getApplicationName()); // jtest_unverified
-		assertEquals(null, testedObject.getPipelineName()); // jtest_unverified
-		assertEquals(null, testedObject.getMailBody()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
+		assertEquals(null, testedObject.getMethod()); 
+		assertEquals(null, testedObject.getApplicationName()); 
+		assertEquals(null, testedObject.getPipelineName()); 
+		assertEquals(null, testedObject.getMailBody()); 
+		assertEquals(null, testedObject.getUserName()); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -154,7 +120,7 @@ public class TriggerJobNameTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.entities.triggerinputs.TriggerJobNameTest");
 	}
@@ -170,4 +136,3 @@ public class TriggerJobNameTest extends PackageTestCase {
 		return TriggerJobName.class;
 	}
 }
-// JTEST_CURRENT_ID=-1090685269.

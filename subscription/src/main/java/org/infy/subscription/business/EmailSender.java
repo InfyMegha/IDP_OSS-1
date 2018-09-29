@@ -36,7 +36,6 @@ public class EmailSender {
 	private static final Logger logger = LoggerFactory.getLogger(EmailSender.class);
 
 	private static final String CREATE_ORG_MAIL_TEMPLATE_PATH = "CreateOrgMail.html";
-	//private static final String CREATE_LICENSE_MAIL_TEMPLATE_PATH = "CreateLicenseMail.html";
 	private static final String IDP_LINK = "IDP_LINK";
 	private static final String USER = "USER";
 	private static final String ORGANISATION = "ORGANIZATION";
@@ -46,31 +45,31 @@ public class EmailSender {
 
 	@Value("${idplink}")
 	private String idpLink;
-	
+
 	@Value("${emailserver}")
 	private String emailServer;
-	
+
 	@Value("${emaildomain}")
 	private String emailDomain;
-	
+
 	@Value("${emailusername}")
 	private String emailUserName;
-	
+
 	@Value("${emailpassword}")
 	private String emailPassword;
-	
+
 	@Value("${emailsmtphost}")
 	private String emailSmtpHost;
-	
+
 	@Value("${emailsmtpport}")
 	private String emailSmtpPort;
 
 	@Value("${emailsenderid}")
 	private String emailSenderId;
-	
+
 	@Autowired
 	private OrgBL organisationBL;
-	
+
 	EmailSender() {
 	}
 
@@ -78,8 +77,7 @@ public class EmailSender {
 	 * 
 	 * jobCreationSuccessMail
 	 * 
-	 * @param triggerJobName
-	 *            the TriggerJobName
+	 * @param triggerJobName the TriggerJobName
 	 * 
 	 * @return boolean
 	 * 
@@ -89,25 +87,21 @@ public class EmailSender {
 	public boolean orgCreationSuccessMail(OrganisationInfo orgInfo) {
 		boolean status = true;
 		String sub = "organisation";
-		orgInfo.setMailBody(
-				createOrgMailBody(orgInfo));
+		orgInfo.setMailBody(createOrgMailBody(orgInfo));
 		String emailserver = this.emailServer;
 		if (emailserver.equalsIgnoreCase("sendgrid")) {
 			status = sendEmailSendGrid(sub, orgInfo);
-		}
-		else {
+		} else {
 			status = sendEmail(sub, orgInfo);
 		}
 		return status;
 	}
-	
-	
+
 	/**
 	 * 
 	 * licenseCreationSuccessMail
 	 * 
-	 * @param triggerJobName
-	 *            the TriggerJobName
+	 * @param triggerJobName the TriggerJobName
 	 * 
 	 * @return boolean
 	 * 
@@ -117,40 +111,36 @@ public class EmailSender {
 	public boolean licenseCreationSuccessMail(OrganisationInfo orgInfo) {
 		boolean status = true;
 		String sub = "License";
-		orgInfo.setMailBody(
-				createLicenseMailBody(orgInfo));
+		orgInfo.setMailBody(createLicenseMailBody(orgInfo));
 		String emailserver = this.emailServer;
 		String orgDomain = organisationBL.findDomain(orgInfo.getOrgName());
 		orgInfo.setDomain(orgDomain);
 		if (emailserver.equalsIgnoreCase("sendgrid")) {
 			status = sendEmailSendGrid(sub, orgInfo);
-		}
-		else {
+		} else {
 			status = sendEmail(sub, orgInfo);
 		}
 		return status;
 	}
-	
+
 	/**
 	 * 
 	 * sendEmail SendGrid
 	 * 
-	 * @param triggerJobName
-	 *            the TriggerJobName
-	 * @param user
-	 *            the String
-	 * @param email
-	 *            the List
+	 * @param triggerJobName the TriggerJobName
+	 * @param user           the String
+	 * @param email          the List
 	 * 
 	 * @return List<String>
 	 * 
-	 *         Method is used to send the job creation success mail through send grid in azure
+	 *         Method is used to send the job creation success mail through send
+	 *         grid in azure
 	 *
 	 */
 	@SuppressWarnings("static-access")
 	public boolean sendEmailSendGrid(String sub, OrganisationInfo orgInfo) {
 		logger.info("Inside send mail");
-		String to;		
+		String to;
 		to = orgInfo.getUserName() + "@" + orgInfo.getDomain();
 		String from = "";
 		String username = this.emailUserName;
@@ -163,7 +153,7 @@ public class EmailSender {
 
 		String host = this.emailSmtpHost;
 		String port = this.emailSmtpPort;
-		
+
 		Properties properties = new Properties();
 		properties.setProperty("mail.smtp.host", host);
 		Session session = null;
@@ -172,10 +162,10 @@ public class EmailSender {
 			String password = this.emailPassword;
 			Authenticator authenticator = new Authenticator(username, password);
 			properties.setProperty("mail.smtp.port", port);
-			properties.put("mail.transport.protocol", "smtp"); 
+			properties.put("mail.transport.protocol", "smtp");
 			properties.setProperty("mail.smtp.auth", "true");
 			properties.put("mail.smtp.timeout", "60000");
-	        properties.put("mail.smtp.connectiontimeout","60000"); 
+			properties.put("mail.smtp.connectiontimeout", "60000");
 			properties.setProperty("mail.smtp.submitter", authenticator.getPasswordAuthentication().getUserName());
 			session = Session.getDefaultInstance(properties, authenticator);
 		} else {
@@ -191,7 +181,7 @@ public class EmailSender {
 
 			logger.info(orgInfo.getMailBody());
 			logger.info(message.getContent().toString());
-			
+
 			Transport transport = session.getTransport();
 			transport.connect();
 			transport.send(message);
@@ -210,17 +200,13 @@ public class EmailSender {
 		return true;
 	}
 
-
 	/**
 	 * 
 	 * sendEmail
 	 * 
-	 * @param triggerJobName
-	 *            the TriggerJobName
-	 * @param user
-	 *            the String
-	 * @param email
-	 *            the List
+	 * @param triggerJobName the TriggerJobName
+	 * @param user           the String
+	 * @param email          the List
 	 * 
 	 * @return List<String>
 	 * 
@@ -233,7 +219,6 @@ public class EmailSender {
 		logger.info("Inside send mail");
 		String to;
 		to = orgInfo.getUserName() + "@" + orgInfo.getDomain();
-//		String cc = getCC(emails);
 		String from = "";
 		String username = this.emailUserName;
 		if (username.contains("@")) {
@@ -266,7 +251,6 @@ public class EmailSender {
 			message.setFrom(new InternetAddress(from));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
-//			message.addRecipients(Message.RecipientType.CC, InternetAddress.parse(cc));
 			message.setSubject("IDP: " + sub + " configuration details ");
 			message.setContent(orgInfo.getMailBody(), "text/html");
 
@@ -303,141 +287,11 @@ public class EmailSender {
 		return cc.toString();
 	}
 
-	
-	/**
-	 * 
-	 * getUsersFromApplication
-	 * 
-	 * @param triggerJobName
-	 *            the TriggerJobName
-	 * @param user
-	 *            the String
-	 * 
-	 * @return List<String>
-	 * 
-	 *         Method is used to send the job creation success mail
-	 *
-	 */
-	/*
-	public List<String> getUsersFromApplication(String applicationName, String pipelineName, String user) {
-
-		TriggerJobName triggerJobName = new TriggerJobName();
-		triggerJobName.setApplicationName(applicationName);
-		triggerJobName.setPipelineName(pipelineName);
-		triggerJobName.setUserName(user);
-		List<String> users = getUsersFromApplication(triggerJobName, user);
-		return users;
-
-	}*/
-
-	/**
-	 * 
-	 * @param triggerJobName
-	 * @param user
-	 * @return List<String>
-	 */
-	/*public List<String> getUsersFromApplication(TriggerJobName triggerJobName, String user) {
-
-		List<String> emails = new ArrayList<>();
-		try {
-			boolean team = true;
-
-			ApplicationInfo app = getJobDetails.getApplication(triggerJobName.getApplicationName());
-			IDPJob idp = getJobDetails.getPipelineInfo(triggerJobName.getApplicationName(),
-					triggerJobName.getPipelineName());
-			if (idp.getBasicInfo().getAdditionalMailRecipients() != null
-					&& idp.getBasicInfo().getAdditionalMailRecipients().getApplicationTeam() != null
-					&& idp.getBasicInfo().getAdditionalMailRecipients().getApplicationTeam().equalsIgnoreCase("On")) {
-				emails = fetchJobDetails.getEmailRecipients(app);
-				team = false;
-			}
-			if (team) {
-				emails = fetchJobDetails.getPipelineAdmins(app);
-			}
-			if (idp.getBasicInfo().getAdditionalMailRecipients() != null
-					&& idp.getBasicInfo().getAdditionalMailRecipients().getEmailIds() != null
-					&& !("".equals(idp.getBasicInfo().getAdditionalMailRecipients().getEmailIds()))) {
-				emails = fetchJobDetails.splitUsers(idp.getBasicInfo().getAdditionalMailRecipients().getEmailIds(),
-						emails);
-			}
-
-			emails = getUserEmailIds(emails);
-
-		} catch (SQLException e) {
-			logger.error("Error in getting aplication", e);
-			logger.debug("Error in getting application : " + triggerJobName.getApplicationName());
-		}
-		return emails;
-
-	}*/
-
-	/**
-	 * 
-	 * getUsersForApplication
-	 * 
-	 * @param triggerJobName
-	 *            the TriggerJobName
-	 * @param user
-	 *            the String
-	 * 
-	 * @return List<String>
-	 * 
-	 *         Method is used to send the job creation success mail
-	 *
-	 */
-	/*public List<String> getUsersForApplication(TriggerJobName triggerJobName, String user) {
-
-		List<String> emails = new ArrayList<>();
-		try {
-			ApplicationInfo app = getJobDetails.getApplication(triggerJobName.getApplicationName());
-			emails = fetchJobDetails.getEmailRecipients(app);
-			emails = getUserEmailIds(emails);
-
-		} catch (SQLException e) {
-			logger.error("Error in getting aplication", e);
-			logger.debug("Error in getting application : " + triggerJobName.getApplicationName());
-		}
-		return emails;
-
-	}
-*/
-	/**
-	 * 
-	 * getUserEmailIds
-	 * 
-	 * @param users
-	 *            the List<String>
-	 * 
-	 * @return List<String>
-	 * 
-	 *         Method is used to send the job creation success mail
-	 *
-	 */
-/*
-	public List<String> getUserEmailIds(List<String> users) {
-
-		String domain = configmanager.getEmaildomain();
-		List<String> emails = new ArrayList<>();
-		int userSize = users.size();
-		for (int i = 0; i < userSize; i++) {
-			if (!users.get(i).contains(domain)) {
-
-				emails.add(users.get(i) + domain);
-			} else {
-
-				emails.add(users.get(i));
-			}
-		}
-		return emails;
-
-	}
-*/
 	/**
 	 * 
 	 * createOrgMailBody
 	 * 
-	 * @param idp
-	 *            the IDPJob>
+	 * @param idp the IDPJob>
 	 * 
 	 * @return String
 	 * 
@@ -449,28 +303,25 @@ public class EmailSender {
 
 		String idpLink = this.idpLink;
 		String method = "";
-	
+
 		if ("create".equalsIgnoreCase(org.getMethod())) {
 			method = "created";
 		} else if ("edit".equalsIgnoreCase(org.getMethod())) {
 			method = "edited";
 		}
-		
+
 		JtwigTemplate template = JtwigTemplate.classpathTemplate(CREATE_ORG_MAIL_TEMPLATE_PATH);
 		JtwigModel model = JtwigModel.newModel().with(USER, org.getOrgAdmin()).with(ORGANISATION, org.getOrgName())
-				.with(METHOD, method)
-				.with(IDP_LINK, idpLink);
+				.with(METHOD, method).with(IDP_LINK, idpLink);
 		return template.render(model);
 
 	}
-	
-	
+
 	/**
 	 * 
 	 * createOrgMailBody
 	 * 
-	 * @param idp
-	 *            the IDPJob>
+	 * @param idp the IDPJob>
 	 * 
 	 * @return String
 	 * 
@@ -481,90 +332,13 @@ public class EmailSender {
 	public String createLicenseMailBody(OrganisationInfo org) {
 
 		String idpLink = this.idpLink;
-	
+
 		JtwigTemplate template = JtwigTemplate.classpathTemplate(CREATE_ORG_MAIL_TEMPLATE_PATH);
-		JtwigModel model = JtwigModel.newModel().with(USER, org.getOrgAdmin()).with(LICENSE_SERVICES, org.getLicenseServices())
-				.with(LICENSE_EXPIRY_DATE, org.getLicenseExpiryDate())
+		JtwigModel model = JtwigModel.newModel().with(USER, org.getOrgAdmin())
+				.with(LICENSE_SERVICES, org.getLicenseServices()).with(LICENSE_EXPIRY_DATE, org.getLicenseExpiryDate())
 				.with(IDP_LINK, idpLink);
 		return template.render(model);
 
 	}
 
-	/**
-	 * 
-	 * createMailBody
-	 * 
-	 * @param idp
-	 *            the IDPJob>
-	 * 
-	 * @return String
-	 * 
-	 *         Method is used to create mail body
-	 *
-	 */
-
-	/*public String createMailBody(String user, String pipeline, String applicationName, String methodType) {
-
-		String idpLink = this..getIdplink();
-		StringBuilder successPageLink = new StringBuilder();
-		successPageLink.append(configmanager.getSuccesspage());
-		successPageLink.append("/");
-		successPageLink.append(applicationName);
-		successPageLink.append("/");
-		successPageLink.append(pipeline);
-		String method = "";
-		if ("create".equalsIgnoreCase(methodType)) {
-			method = "created";
-		} else if ("edit".equalsIgnoreCase(methodType)) {
-			method = "edited";
-		}
-
-		String dashboardLink = configmanager.getDashboardurl();
-		JtwigTemplate template = JtwigTemplate.classpathTemplate(MAIL_TEMPLATE_PATH);
-
-		JtwigModel model = JtwigModel.newModel().with(USER, user).with(METHOD, method)
-				.with(DASHBOARD_URL, dashboardLink).with(PIPELINE, pipeline).with(IDP_LINK, idpLink)
-				.with(IDP_PIPELINE_CONFIGURATIONS, successPageLink);
-		return template.render(model);
-
-	}
-*/
-	/**
-	 * 
-	 * @param user
-	 * @param pipeline
-	 * @param applicationName
-	 * @param method
-	 * @param release
-	 * @return String
-	 */
-/*
-	public String createReleaseMailBody(String user, String pipeline, String applicationName, String methodType,
-			String release) {
-
-		String idpLink = configmanager.getIdplink();
-		StringBuilder successPageLink = new StringBuilder();
-		successPageLink.append(configmanager.getSuccesspage());
-		successPageLink.append("/");
-		successPageLink.append(applicationName);
-		successPageLink.append("/");
-		successPageLink.append(pipeline);
-		String method = "";
-		if ("add".equalsIgnoreCase(methodType)) {
-			method = "Added";
-		} else if ("update".equalsIgnoreCase(methodType)) {
-			method = "Updated";
-		}
-
-		String dashboardLink = configmanager.getDashboardurl();
-		JtwigTemplate template = JtwigTemplate.classpathTemplate(RELEASE_MAIL_TEMPLATE_PATH);
-
-		JtwigModel model = JtwigModel.newModel().with(USER, user).with(METHOD, method)
-				.with(DASHBOARD_URL, dashboardLink).with(PIPELINE, pipeline).with(IDP_LINK, idpLink)
-				.with(RELEASE, release).with(APPLICATION, applicationName)
-				.with(IDP_PIPELINE_CONFIGURATIONS, successPageLink);
-		return template.render(model);
-
-	}
-*/
 }

@@ -8,17 +8,14 @@
 
 package org.infy.idp.entities.jobs.deployinfo;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.infy.idp.entities.jobs.common.AbortScript;
 import org.infy.idp.entities.jobs.common.Proxy;
 import org.infy.idp.entities.jobs.common.RunScript;
-import org.infy.idp.entities.jobs.deployinfo.DeployDatabase;
-import org.infy.idp.entities.jobs.deployinfo.DeployStep;
-import org.infy.idp.entities.jobs.deployinfo.DeployToContainer;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -27,7 +24,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.deployinfo.DeployStep
  * 
  */
-public class DeployStepTest extends PackageTestCase {
+public class DeployStepTest {
 
 	/**
 	 * Constructor for test class.
@@ -236,7 +233,6 @@ public class DeployStepTest extends PackageTestCase {
 		assertEquals(ab, testedObject.getAbortScript());
 		assertEquals("timeout", testedObject.getTimeout());
 
-		
 		assertEquals("appName", testedObject.getAppName());
 		assertEquals("appPackName", testedObject.getAppPackName());
 		assertEquals("buildproperties", testedObject.getBuildproperties());
@@ -394,21 +390,21 @@ public class DeployStepTest extends PackageTestCase {
 		assertEquals("s3location", testedObject.getS3location());
 
 		assertEquals(artifactsToBeDeployed, testedObject.getArtifactsToBeDeployed());
-		assertEquals("parameters22", testedObject.getParameters()); // jtest_unverified
-		assertEquals(port, testedObject.getPort()); // jtest_unverified
-		assertEquals(appPoolName, testedObject.getAppPoolName()); // jtest_unverified
-		assertEquals(websiteName, testedObject.getWebsiteName()); // jtest_unverified
-		assertEquals(deployScript, testedObject.getRunScript()); // jtest_unverified
-		assertEquals(deployToContainer, testedObject.getDeployToContainer()); // jtest_unverified
-		assertEquals(destServerPath, testedObject.getDestServerPath()); // jtest_unverified
-		assertEquals("adminPassword22", testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals("pathToFiles22", testedObject.getPathToFiles()); // jtest_unverified
-		assertEquals("stepName22", testedObject.getStepName()); // jtest_unverified
-		assertEquals("adminUserName21", testedObject.getAdminUserName()); // jtest_unverified
-		assertEquals("applicationPassword22", testedObject.getApplicationPassword()); // jtest_unverified
-		assertEquals("applicationUserName22", testedObject.getApplicationUserName()); // jtest_unverified
+		assertEquals("parameters22", testedObject.getParameters());
+		assertEquals(port, testedObject.getPort());
+		assertEquals(appPoolName, testedObject.getAppPoolName());
+		assertEquals(websiteName, testedObject.getWebsiteName());
+		assertEquals(deployScript, testedObject.getRunScript());
+		assertEquals(deployToContainer, testedObject.getDeployToContainer());
+		assertEquals(destServerPath, testedObject.getDestServerPath());
+		assertEquals("adminPassword22", testedObject.getAdminPassword());
+		assertEquals("pathToFiles22", testedObject.getPathToFiles());
+		assertEquals("stepName22", testedObject.getStepName());
+		assertEquals("adminUserName21", testedObject.getAdminUserName());
+		assertEquals("applicationPassword22", testedObject.getApplicationPassword());
+		assertEquals("applicationUserName22", testedObject.getApplicationUserName());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -436,21 +432,21 @@ public class DeployStepTest extends PackageTestCase {
 		testedObject.setApplicationPassword("applicationPassword1");
 		testedObject.setDeployToContainer((DeployToContainer) null);
 		testedObject.setAdminUserName("adminUserName0");
-		assertEquals("parameters1", testedObject.getParameters()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals(null, testedObject.getAppPoolName()); // jtest_unverified
-		assertEquals(null, testedObject.getWebsiteName()); // jtest_unverified
-		assertEquals(null, testedObject.getRunScript()); // jtest_unverified
-		assertEquals(null, testedObject.getDeployToContainer()); // jtest_unverified
-		assertEquals(null, testedObject.getDestServerPath()); // jtest_unverified
-		assertEquals("adminPassword1", testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals("pathToFiles1", testedObject.getPathToFiles()); // jtest_unverified
-		assertEquals("stepName1", testedObject.getStepName()); // jtest_unverified
-		assertEquals("adminUserName0", testedObject.getAdminUserName()); // jtest_unverified
-		assertEquals("applicationPassword1", testedObject.getApplicationPassword()); // jtest_unverified
-		assertEquals("applicationUserName1", testedObject.getApplicationUserName()); // jtest_unverified
+		assertEquals("parameters1", testedObject.getParameters());
+		assertEquals(null, testedObject.getPort());
+		assertEquals(null, testedObject.getAppPoolName());
+		assertEquals(null, testedObject.getWebsiteName());
+		assertEquals(null, testedObject.getRunScript());
+		assertEquals(null, testedObject.getDeployToContainer());
+		assertEquals(null, testedObject.getDestServerPath());
+		assertEquals("adminPassword1", testedObject.getAdminPassword());
+		assertEquals("pathToFiles1", testedObject.getPathToFiles());
+		assertEquals("stepName1", testedObject.getStepName());
+		assertEquals("adminUserName0", testedObject.getAdminUserName());
+		assertEquals("applicationPassword1", testedObject.getApplicationPassword());
+		assertEquals("applicationUserName1", testedObject.getApplicationUserName());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -478,21 +474,21 @@ public class DeployStepTest extends PackageTestCase {
 		testedObject.setApplicationPassword("applicationPassword0");
 		testedObject.setDeployToContainer((DeployToContainer) null);
 		testedObject.setAdminUserName((String) null);
-		assertEquals("parameters0", testedObject.getParameters()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals(null, testedObject.getAppPoolName()); // jtest_unverified
-		assertEquals(null, testedObject.getWebsiteName()); // jtest_unverified
-		assertEquals(null, testedObject.getRunScript()); // jtest_unverified
-		assertEquals(null, testedObject.getDeployToContainer()); // jtest_unverified
-		assertEquals(null, testedObject.getDestServerPath()); // jtest_unverified
-		assertEquals("adminPassword0", testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals("pathToFiles0", testedObject.getPathToFiles()); // jtest_unverified
-		assertEquals("stepName0", testedObject.getStepName()); // jtest_unverified
-		assertEquals(null, testedObject.getAdminUserName()); // jtest_unverified
-		assertEquals("applicationPassword0", testedObject.getApplicationPassword()); // jtest_unverified
-		assertEquals("applicationUserName0", testedObject.getApplicationUserName()); // jtest_unverified
+		assertEquals("parameters0", testedObject.getParameters());
+		assertEquals(null, testedObject.getPort());
+		assertEquals(null, testedObject.getAppPoolName());
+		assertEquals(null, testedObject.getWebsiteName());
+		assertEquals(null, testedObject.getRunScript());
+		assertEquals(null, testedObject.getDeployToContainer());
+		assertEquals(null, testedObject.getDestServerPath());
+		assertEquals("adminPassword0", testedObject.getAdminPassword());
+		assertEquals("pathToFiles0", testedObject.getPathToFiles());
+		assertEquals("stepName0", testedObject.getStepName());
+		assertEquals(null, testedObject.getAdminUserName());
+		assertEquals("applicationPassword0", testedObject.getApplicationPassword());
+		assertEquals("applicationUserName0", testedObject.getApplicationUserName());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -507,21 +503,21 @@ public class DeployStepTest extends PackageTestCase {
 	@Test
 	public void testDeployStep13() throws Throwable {
 		DeployStep testedObject = new DeployStep();
-		assertEquals(null, testedObject.getParameters()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals(null, testedObject.getAppPoolName()); // jtest_unverified
-		assertEquals(null, testedObject.getWebsiteName()); // jtest_unverified
-		assertEquals(null, testedObject.getRunScript()); // jtest_unverified
-		assertEquals(null, testedObject.getDeployToContainer()); // jtest_unverified
-		assertEquals(null, testedObject.getDestServerPath()); // jtest_unverified
-		assertEquals(null, testedObject.getAdminPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getPathToFiles()); // jtest_unverified
-		assertEquals(null, testedObject.getStepName()); // jtest_unverified
-		assertEquals(null, testedObject.getAdminUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getApplicationPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getApplicationUserName()); // jtest_unverified
+		assertEquals(null, testedObject.getParameters());
+		assertEquals(null, testedObject.getPort());
+		assertEquals(null, testedObject.getAppPoolName());
+		assertEquals(null, testedObject.getWebsiteName());
+		assertEquals(null, testedObject.getRunScript());
+		assertEquals(null, testedObject.getDeployToContainer());
+		assertEquals(null, testedObject.getDestServerPath());
+		assertEquals(null, testedObject.getAdminPassword());
+		assertEquals(null, testedObject.getPathToFiles());
+		assertEquals(null, testedObject.getStepName());
+		assertEquals(null, testedObject.getAdminUserName());
+		assertEquals(null, testedObject.getApplicationPassword());
+		assertEquals(null, testedObject.getApplicationUserName());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -537,9 +533,9 @@ public class DeployStepTest extends PackageTestCase {
 	public void testGetAppPoolName0() throws Throwable {
 		DeployStep testedObject = new DeployStep();
 		DeployToContainer result = testedObject.getAppPoolName();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -555,9 +551,9 @@ public class DeployStepTest extends PackageTestCase {
 	public void testGetDeployToContainer0() throws Throwable {
 		DeployStep testedObject = new DeployStep();
 		DeployToContainer result = testedObject.getDeployToContainer();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -573,9 +569,9 @@ public class DeployStepTest extends PackageTestCase {
 	public void testGetDestServerPath0() throws Throwable {
 		DeployStep testedObject = new DeployStep();
 		DeployToContainer result = testedObject.getDestServerPath();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -591,9 +587,9 @@ public class DeployStepTest extends PackageTestCase {
 	public void testGetPort0() throws Throwable {
 		DeployStep testedObject = new DeployStep();
 		Integer result = testedObject.getPort();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -609,9 +605,9 @@ public class DeployStepTest extends PackageTestCase {
 	public void testGetRunScript0() throws Throwable {
 		DeployStep testedObject = new DeployStep();
 		RunScript result = testedObject.getRunScript();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -627,41 +623,9 @@ public class DeployStepTest extends PackageTestCase {
 	public void testGetWebsiteName0() throws Throwable {
 		DeployStep testedObject = new DeployStep();
 		DeployToContainer result = testedObject.getWebsiteName();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -673,7 +637,6 @@ public class DeployStepTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.deployInfo.DeployStepTest");
 	}
@@ -688,4 +651,3 @@ public class DeployStepTest extends PackageTestCase {
 		return DeployStep.class;
 	}
 }
-// JTEST_CURRENT_ID=95358035.

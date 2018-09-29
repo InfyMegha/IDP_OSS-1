@@ -8,33 +8,17 @@
 
 package org.infy.entities.nexus;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.infy.entities.triggerinputs.DeployArtifact;
-import org.infy.entities.triggerinputs.PackageTestCase;
 import org.infy.idp.entities.nexus.TriggerDeployArtifact;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class TriggerDeployArtifactTest extends PackageTestCase {
-
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
+public class TriggerDeployArtifactTest {
 
 	@Test
 	public void testTriggerDeployArtifactValues() {
@@ -109,11 +93,6 @@ public class TriggerDeployArtifactTest extends PackageTestCase {
 		assertNull(artifact.getTimestamp());
 		assertNull(artifact.getUserInfo());
 		assertNull(artifact.getVersion());
-	}
-
-	@Override
-	public Class<TriggerDeployArtifact> getTestedClass() {
-		return TriggerDeployArtifact.class;
 	}
 
 }

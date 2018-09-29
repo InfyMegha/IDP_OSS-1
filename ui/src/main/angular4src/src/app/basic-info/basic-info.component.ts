@@ -113,7 +113,7 @@ export class BasicInfoComponent implements OnInit {
         "username": this.Idpdata.idpUserName
     };
     this.operation = this.Idpdata.operation;
-    console.log(this.operation);
+    // console.log(this.operation);
     if (this.Idpdata.devServerURL !== "") {
         this.getApplicationName(data);
     } else {
@@ -131,7 +131,7 @@ export class BasicInfoComponent implements OnInit {
                 this.Idpdata.uName = response.json().uName;
                 this.Idpdata.pass = response.json().pass;
                 if (this._cookieService.get("access_token")) {
-                console.log("details");
+                // console.log('details');
                 this.getApplicationName(data);
                 this.IdpService.getDetails();
                 }
@@ -209,9 +209,9 @@ export class BasicInfoComponent implements OnInit {
     this.IdprestapiService.getJobs(appName)
         .then(response => {
         try {
-            console.log("appName " + appName);
-            const pipetemp = JSON.parse(this.idpencryption.decryptAES(response.json().resource).toLowerCase());
-            if (typeof pipetemp !== "string") {
+         // console.log('appName ' + appName);
+          const pipetemp = JSON.parse(this.idpencryption.decryptAES(response.json().resource).toLowerCase());
+          if (typeof pipetemp !== 'string') {
             this.pipeLineNames = JSON.parse(this.idpencryption.decryptAES(response.json().resource));
             if (this.basicInfo.pipelineName !== undefined && this.basicInfo.pipelineName !== null && this.basicInfo.pipelineName !== "") {
                 this.checkJobName(this.basicInfo.pipelineName);

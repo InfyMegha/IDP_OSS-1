@@ -8,12 +8,11 @@
 
 package org.infy.idp.entities.jobs.deployinfo;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.infy.idp.entities.jobs.deployinfo.DeployInfo;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -22,7 +21,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.deployinfo.DeployInfo
  * 
  */
-public class DeployInfoTest extends PackageTestCase {
+public class DeployInfoTest {
 
 	/**
 	 * Constructor for test class.
@@ -51,9 +50,9 @@ public class DeployInfoTest extends PackageTestCase {
 		DeployInfo testedObject = new DeployInfo();
 		List deployEnv = new ArrayList();
 		testedObject.setDeployEnv(deployEnv);
-		assertEquals(deployEnv, testedObject.getDeployEnv()); // jtest_unverified
+		assertEquals(deployEnv, testedObject.getDeployEnv());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -69,9 +68,9 @@ public class DeployInfoTest extends PackageTestCase {
 	public void testDeployInfo1() throws Throwable {
 		DeployInfo testedObject = new DeployInfo();
 		testedObject.setDeployEnv((List) null);
-		assertEquals(null, testedObject.getDeployEnv()); // jtest_unverified
+		assertEquals(null, testedObject.getDeployEnv());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -86,9 +85,9 @@ public class DeployInfoTest extends PackageTestCase {
 	@Test
 	public void testDeployInfo2() throws Throwable {
 		DeployInfo testedObject = new DeployInfo();
-		assertEquals(null, testedObject.getDeployEnv()); // jtest_unverified
+		assertEquals(null, testedObject.getDeployEnv());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -104,41 +103,9 @@ public class DeployInfoTest extends PackageTestCase {
 	public void testGetDeployEnv0() throws Throwable {
 		DeployInfo testedObject = new DeployInfo();
 		List result = testedObject.getDeployEnv();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -150,7 +117,6 @@ public class DeployInfoTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.deployInfo.DeployInfoTest");
 	}

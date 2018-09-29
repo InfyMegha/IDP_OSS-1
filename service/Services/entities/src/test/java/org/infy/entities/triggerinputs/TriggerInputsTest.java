@@ -8,6 +8,8 @@
 
 package org.infy.entities.triggerinputs;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -17,8 +19,6 @@ import java.util.Set;
 
 import org.infy.idp.entities.jobs.applicationinfo.SlavesDetail;
 import org.infy.idp.entities.triggerparameter.ApplicationDetails;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -27,7 +27,7 @@ import org.junit.Test;
  * @see org.infy.entities.triggerinputs.TriggerInputs
  * 
  */
-public class TriggerInputsTest extends PackageTestCase {
+public class TriggerInputsTest {
 
 	/**
 	 * Constructor for test class.
@@ -55,9 +55,9 @@ public class TriggerInputsTest extends PackageTestCase {
 	public void testGetBuild0() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
 		Build result = testedObject.getBuild();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -98,9 +98,9 @@ public class TriggerInputsTest extends PackageTestCase {
 	public void testGetDeploy0() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
 		Deploy result = testedObject.getDeploy();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -116,9 +116,9 @@ public class TriggerInputsTest extends PackageTestCase {
 	public void testGetDeployTestEnv0() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
 		DeployTestEnv result = testedObject.getDeployTestEnv();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -134,9 +134,9 @@ public class TriggerInputsTest extends PackageTestCase {
 	public void testGetPermissions0() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
 		List result = testedObject.getPermissions();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -152,9 +152,9 @@ public class TriggerInputsTest extends PackageTestCase {
 	public void testGetRoles0() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
 		List result = testedObject.getRoles();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -170,9 +170,9 @@ public class TriggerInputsTest extends PackageTestCase {
 	public void testGetSlaves0() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
 		List result = testedObject.getSlaves();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	/**
@@ -187,20 +187,20 @@ public class TriggerInputsTest extends PackageTestCase {
 	@Test
 	public void testTriggerInputs12() throws Throwable {
 		TriggerInputs testedObject = new TriggerInputs();
-		assertEquals(null, testedObject.getPermissions()); // jtest_unverified
-		assertEquals(null, testedObject.getDeployTestEnv()); // jtest_unverified
-		assertEquals(null, testedObject.getBuild()); // jtest_unverified
-		assertEquals(null, testedObject.getSlaves()); // jtest_unverified
-		assertEquals(null, testedObject.getDeploy()); // jtest_unverified
-		assertEquals(null, testedObject.getRoles()); // jtest_unverified
-		assertEquals(null, testedObject.getTest()); // jtest_unverified
-		assertEquals(null, testedObject.getJobStatus()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getPipelineName()); // jtest_unverified
-		assertEquals(null, testedObject.getReleaseNumber()); // jtest_unverified
-		assertEquals(null, testedObject.getApplicationName()); // jtest_unverified
+		assertEquals(null, testedObject.getPermissions()); 
+		assertEquals(null, testedObject.getDeployTestEnv()); 
+		assertEquals(null, testedObject.getBuild()); 
+		assertEquals(null, testedObject.getSlaves()); 
+		assertEquals(null, testedObject.getDeploy()); 
+		assertEquals(null, testedObject.getRoles()); 
+		assertEquals(null, testedObject.getTest()); 
+		assertEquals(null, testedObject.getJobStatus()); 
+		assertEquals(null, testedObject.getUserName()); 
+		assertEquals(null, testedObject.getPipelineName()); 
+		assertEquals(null, testedObject.getReleaseNumber()); 
+		assertEquals(null, testedObject.getApplicationName()); 
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	@Test
@@ -220,7 +220,7 @@ public class TriggerInputsTest extends PackageTestCase {
 		listBranch.add("master");
 		testedObject.setBranchList(listBranch);
 		testedObject.setTagList(listString);
-		testedObject.setNexusURL("idpwinv05:8081");
+		testedObject.setNexusURL("server1:8081");
 		testedObject.setRepoName("idp_Nexus");
 		artifact.setArtifactID("101");
 		artifact.setArtifactName("artifact1");
@@ -270,7 +270,7 @@ public class TriggerInputsTest extends PackageTestCase {
 		assertEquals(listBranch, testedObject.getBranchList());
 		assertEquals("app", testedObject.getSubApplicationName());
 		assertEquals(listString, testedObject.getTagList());
-		assertEquals("idpwinv05:8081", testedObject.getNexusURL());
+		assertEquals("server1:8081", testedObject.getNexusURL());
 		assertEquals("idp_Nexus", testedObject.getRepoName());
 		assertEquals(deployArtifact, testedObject.getArtifactList());
 		assertEquals(listString, testedObject.getSystemNames());
@@ -287,40 +287,6 @@ public class TriggerInputsTest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -331,7 +297,7 @@ public class TriggerInputsTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.entities.triggerinputs.TriggerInputsTest");
 	}
@@ -346,4 +312,3 @@ public class TriggerInputsTest extends PackageTestCase {
 		return TriggerInputs.class;
 	}
 }
-// JTEST_CURRENT_ID=1568702564.

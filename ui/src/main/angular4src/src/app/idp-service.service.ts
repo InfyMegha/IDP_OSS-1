@@ -65,7 +65,7 @@ export class IdpService {
   getValidatedLicense() {
     this.idprestapiService.getValidatedLicense()
         .then(response => {
-        console.log(response);
+       // console.log(response);
         try {
             if (response) {
             const data = JSON.parse(response.json().status);
@@ -104,11 +104,11 @@ export class IdpService {
         .then(response => {
         try {
             if (response) {
-            console.log(response);
+            // console.log(response);
             const userDetails = JSON.parse(response.json().resource);
             this.idpdataService.idpUserName = userDetails.user_id;
             this.idpdataService.organization = userDetails.orgName;
-            console.log(this.idpdataService.idpUserName);
+            // console.log(this.idpdataService.idpUserName);
             this.idpdataService.roles = userDetails.roles;
             this.idpdataService.permissions = userDetails.permissions;
             let permission = "";
@@ -120,7 +120,7 @@ export class IdpService {
             if (document.getElementById("idpUserName")) {
                 document.getElementById("idpUserName").title = this.idpdataService.role;
             }
-            console.log(this.idpdataService.permissions);
+            // console.log(this.idpdataService.permissions);
             console.log(this.idpdataService.role);
             if (this.idpdataService.role.indexOf("RELEASE_MANAGER") !== -1) {
                 this.idpdataService.showRelease = true;

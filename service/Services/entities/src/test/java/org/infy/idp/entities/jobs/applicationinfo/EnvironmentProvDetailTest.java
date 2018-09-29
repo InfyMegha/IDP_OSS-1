@@ -8,8 +8,9 @@
 
 package org.infy.idp.entities.jobs.applicationinfo;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 
 /**
@@ -18,7 +19,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.applicationinfo.EnvironmentOwnerDetail
  * 
  */
-public class EnvironmentProvDetailTest extends PackageTestCase {
+public class EnvironmentProvDetailTest  {
 
 	/**
 	 * Constructor for test class.
@@ -87,37 +88,6 @@ public class EnvironmentProvDetailTest extends PackageTestCase {
 		assertNull(testedObject.getToolName());
 	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -128,7 +98,7 @@ public class EnvironmentProvDetailTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.applicationInfo.EnvironmentProvDetailTest");
 	}
@@ -143,4 +113,3 @@ public class EnvironmentProvDetailTest extends PackageTestCase {
 		return EnvironmentProvDetails.class;
 	}
 }
-// JTEST_CURRENT_ID=257293771.

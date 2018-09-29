@@ -77,7 +77,7 @@ export class ShowConfigurationsComponent implements OnInit {
             // this.IdpdataService.devServerURL = "http://blrkec401189d:8889/idprest";
             // this.IdpdataService.devServerURL = "https://idplinv02:8889/idprest";
             // this.IdpdataService.devServerURL = "http://blrkec411214d:8889/idprest";
-              this.IdpdataService.subscriptionServerURL = response.json().idpsubscriptionurl;
+             // this.IdpdataService.subscriptionServerURL = response.json().idpsubscriptionurl;
             this.IdpdataService.IDPDashboardURL = response.json().idpdashboardurl;
             this.IdpdataService.IDPLink = response.json().IDPLink;
             this.IdpdataService.geUrl = response.json().geUrl;

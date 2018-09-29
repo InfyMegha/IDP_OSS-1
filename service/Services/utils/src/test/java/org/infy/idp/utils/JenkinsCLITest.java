@@ -8,9 +8,10 @@
 
 package org.infy.idp.utils;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.lang.reflect.Method;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +28,7 @@ import org.mockito.runners.MockitoJUnitRunner;
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class JenkinsCLITest extends PackageTestCase {
+public class JenkinsCLITest  {
 
 	@InjectMocks
 	private JenkinsCLI jenkinsCLI;
@@ -238,7 +239,6 @@ public class JenkinsCLITest extends PackageTestCase {
 		 * Repository.putTemporary() to provide initialized instances of objects to be
 		 * used when testing.
 		 */
-		super.setUp();
 
 		configmanager.setJenkinsurl("http://localhost:8085/jenkins");
 		configmanager.setJenkinsuserid("idpadmin");
@@ -252,22 +252,6 @@ public class JenkinsCLITest extends PackageTestCase {
 
 	}
 
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -278,7 +262,7 @@ public class JenkinsCLITest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.utils.JenkinsCLITest");
 	}

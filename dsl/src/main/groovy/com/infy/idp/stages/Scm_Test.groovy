@@ -9,7 +9,6 @@
 package com.infy.idp.stages
 
 import com.infy.idp.creators.*
-import com.infy.idp.customtools.GeGitUtil
 import com.infy.idp.plugins.scm.*
 import com.infy.idp.plugins.wrappers.BuildNameSetter
 import com.infy.idp.plugins.wrappers.PreBuildCleanup

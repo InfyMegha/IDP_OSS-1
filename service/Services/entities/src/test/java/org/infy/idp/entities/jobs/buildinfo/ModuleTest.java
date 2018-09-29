@@ -8,15 +8,14 @@
 
 package org.infy.idp.entities.jobs.buildinfo;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.infy.idp.entities.jobs.buildinfo.Module;
 import org.infy.idp.entities.jobs.common.AbortScript;
 import org.infy.idp.entities.jobs.common.Proxy;
 import org.infy.idp.entities.jobs.common.RunScript;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -25,7 +24,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.buildinfo.Module
  * 
  */
-public class ModuleTest extends PackageTestCase {
+public class ModuleTest {
 
 	/**
 	 * Constructor for test class.
@@ -85,7 +84,7 @@ public class ModuleTest extends PackageTestCase {
 		testedObject.setSrcSchName("srcSchName");
 		testedObject.setTarSchName("tarSchName");
 		testedObject.setUnitTestingTarget("unitTestingTarget");
-		
+
 		testedObject.setUiEarFileName("uiEarFileName22");
 		testedObject.setIntegrationFileName("integrationFileName22");
 		List reportMigration = new ArrayList();
@@ -238,23 +237,21 @@ public class ModuleTest extends PackageTestCase {
 		assertEquals("serverMachine22", testedObject.getServerMachine());
 		assertEquals("pig", testedObject.getPigProjectName());
 		assertEquals("pom.xml", testedObject.getPigPomPath());
-		
-		
-		
-		assertEquals("app_port22",testedObject.getAppPort());
-		assertEquals("app_server_domain22",testedObject.getAppServ());
-		assertEquals("arch_name22",testedObject.getArchName());
-		assertEquals("buildproperties_path22",testedObject.getBuildproperties());
-		assertEquals("code_analysis22",testedObject.getCodeAna());
-		assertEquals("codeAnalysisTarget22",testedObject.getCodeAnalysisTarget());
-		assertEquals("dllName",testedObject.getDllName());
-		assertEquals("fixPath",testedObject.getFixPath());
-		assertEquals("sonar_url",testedObject.getSonarUrl());
-		assertEquals("sonar_password",testedObject.getSonarPassword());
-		assertEquals("sonar_user",testedObject.getSonarUserName());
-		assertEquals("srcSchName",testedObject.getSrcSchName());
-		assertEquals("tarSchName",testedObject.getTarSchName());
-		assertEquals("unitTestingTarget",testedObject.getUnitTestingTarget());
+
+		assertEquals("app_port22", testedObject.getAppPort());
+		assertEquals("app_server_domain22", testedObject.getAppServ());
+		assertEquals("arch_name22", testedObject.getArchName());
+		assertEquals("buildproperties_path22", testedObject.getBuildproperties());
+		assertEquals("code_analysis22", testedObject.getCodeAna());
+		assertEquals("codeAnalysisTarget22", testedObject.getCodeAnalysisTarget());
+		assertEquals("dllName", testedObject.getDllName());
+		assertEquals("fixPath", testedObject.getFixPath());
+		assertEquals("sonar_url", testedObject.getSonarUrl());
+		assertEquals("sonar_password", testedObject.getSonarPassword());
+		assertEquals("sonar_user", testedObject.getSonarUserName());
+		assertEquals("srcSchName", testedObject.getSrcSchName());
+		assertEquals("tarSchName", testedObject.getTarSchName());
+		assertEquals("unitTestingTarget", testedObject.getUnitTestingTarget());
 		/////////////////////////////////
 		assertEquals("ut", testedObject.getPigUT());
 		assertEquals("hive", testedObject.getHiveProjectPath());
@@ -318,93 +315,93 @@ public class ModuleTest extends PackageTestCase {
 		assertEquals("privateKey", testedObject.getPrivateKey());
 		assertEquals("report", testedObject.getReport());
 
-		assertEquals("hostName22", testedObject.getHostName()); // jtest_unverified
-		assertEquals(port, testedObject.getPort()); // jtest_unverified
-		assertEquals("installGrunt22", testedObject.getInstallGrunt()); // jtest_unverified
-		assertEquals("multiModule22", testedObject.getMultiModule()); // jtest_unverified
-		assertEquals("exclude22", testedObject.getExclude()); // jtest_unverified
-		assertEquals("interval22", testedObject.getInterval()); // jtest_unverified
-		assertEquals("team22", testedObject.getTeam()); // jtest_unverified
-		assertEquals("preset22", testedObject.getPreset()); // jtest_unverified
-		assertEquals("serverUrl22", testedObject.getServerUrl()); // jtest_unverified
-		assertEquals("unitTestDir22", testedObject.getUnitTestDir()); // jtest_unverified
-		assertEquals("pafFilePath22", testedObject.getPafFilePath()); // jtest_unverified
-		assertEquals("analysisType22", testedObject.getOssAnalysisType()); // jtest_unverified
-		assertEquals("messageFlows22", testedObject.getMessageFlows()); // jtest_unverified
-		assertEquals("install22", testedObject.getInstall()); // jtest_unverified
-		assertEquals("relativePath22", testedObject.getRelativePath()); // jtest_unverified
-		assertEquals("avdName22", testedObject.getAvdName()); // jtest_unverified
-		assertEquals("destDB22", testedObject.getDestDB()); // jtest_unverified
-		assertEquals("mVNOPTS44", testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals("codeCoverage22", testedObject.getCodeCoverage()); // jtest_unverified
-		assertEquals("warPackaging22", testedObject.getWarPackaging()); // jtest_unverified
-		assertEquals("cdtOut22", testedObject.getCdtOut()); // jtest_unverified
-		
-		assertEquals(reportMigration, testedObject.getPublishForms()); // jtest_unverified
-		assertEquals("execute22", testedObject.getExecute()); // jtest_unverified
-		assertEquals("repository22", testedObject.getRepository()); // jtest_unverified
-		assertEquals("ejbDescriptor22", testedObject.getEjbDescriptor()); // jtest_unverified
-		assertEquals("dbName22", testedObject.getDbName()); // jtest_unverified
-		assertEquals("transfer22", testedObject.getTransfer()); // jtest_unverified
-		assertEquals("moduleName22", testedObject.getModuleName()); // jtest_unverified
-		assertEquals("outputFolder22", testedObject.getOutputFolder()); // jtest_unverified
-		assertEquals("jarPackaging22", testedObject.getJarPackaging()); // jtest_unverified
-		assertEquals("mVNOPTS44", testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals("home22", testedObject.getHome()); // jtest_unverified
-		assertEquals("args22", testedObject.getArgs()); // jtest_unverified
-		assertEquals("globalGoals22", testedObject.getGlobalGoals()); // jtest_unverified
-		assertEquals(runScript, testedObject.getRunScript()); // jtest_unverified
-		assertEquals("groupId22", testedObject.getGroupId()); // jtest_unverified
-		assertEquals("customScript22", testedObject.getCustomScript()); // jtest_unverified
-		assertEquals("buildType22", testedObject.getBuildType()); // jtest_unverified
-		assertEquals("javaMainClass22", testedObject.getJavaMainClass()); // jtest_unverified
-		assertEquals("projectName22", testedObject.getProjectName()); // jtest_unverified
-		assertEquals("thirdPartyJar22", testedObject.getThirdPartyJar()); // jtest_unverified
-		assertEquals("jsonPath22", testedObject.getJsonPath()); // jtest_unverified
-		assertEquals("nexusUrl22", testedObject.getNexusUrl()); // jtest_unverified
-		assertEquals("password22", testedObject.getPassword()); // jtest_unverified
-		assertEquals("controlFlow22", testedObject.getControlFlow()); // jtest_unverified
-		assertEquals("dbType22", testedObject.getDbType()); // jtest_unverified
-		assertEquals("uiEarFileName22", testedObject.getUiEarFileName()); // jtest_unverified
-		assertEquals("envName22", testedObject.getEnvName()); // jtest_unverified
-		assertEquals("productKey22", testedObject.getProductKey()); // jtest_unverified
-		assertEquals("renaming22", testedObject.getRenaming()); // jtest_unverified
-		assertEquals("nexusType22", testedObject.getNexusType()); // jtest_unverified
-		assertEquals("userName22", testedObject.getUserName()); // jtest_unverified
-		assertEquals("cdtIn22", testedObject.getCdtIn()); // jtest_unverified
-		assertEquals("classFileName22", testedObject.getClassFileName()); // jtest_unverified
-		assertEquals("destPassword22", testedObject.getDestPassword()); // jtest_unverified
-		assertEquals(reportMigration, testedObject.getCodeAnalysis()); // jtest_unverified
-		assertEquals("unitTesting22", testedObject.getUnitTesting()); // jtest_unverified
-		assertEquals("serverMachine22", testedObject.getServerMachine()); // jtest_unverified
-		assertEquals("version22", testedObject.getVersion()); // jtest_unverified
-		assertEquals("compile22", testedObject.getCompile()); // jtest_unverified
-		assertEquals("clean22", testedObject.getClean()); // jtest_unverified
-		assertEquals("encryption22", testedObject.getEncryption()); // jtest_unverified
-		assertEquals(reportMigration, testedObject.getHostCTLMigration()); // jtest_unverified
-		assertEquals("codeFormatting22", testedObject.getCodeFormatting()); // jtest_unverified
-		assertEquals("codeAnalysisTragets22", testedObject.getCodeAnalysisTargets()); // jtest_unverified
-		assertEquals("unitTestTargets22", testedObject.getUnitTestTargets()); // jtest_unverified
-		assertEquals(reportMigration, testedObject.getWorkFlowPublish()); // jtest_unverified
-		assertEquals("customBuildXml22", testedObject.getCustomBuildXml()); // jtest_unverified
-		assertEquals(reportMigration, testedObject.getOaFileMigration()); // jtest_unverified
-		assertEquals("masterMachineName22", testedObject.getMasterMachineName()); // jtest_unverified
-		assertEquals("securityProjName22", testedObject.getSecurityProjName()); // jtest_unverified
-		assertEquals("unitTestCategory22", testedObject.getUnitTestCategory()); // jtest_unverified
-		assertEquals("testSettingFilePath22", testedObject.getTestSettingFilePath()); // jtest_unverified
-		assertEquals("dependencyFile22", testedObject.getDependencyFile()); // jtest_unverified
-		assertEquals("unitTestProjectName22", testedObject.getUnitTestProjectName()); // jtest_unverified
-		assertEquals("localmachineExecution22", testedObject.getLocalmachineExecution()); // jtest_unverified
-		assertEquals(reportMigration, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals("securityAnalysis22", testedObject.getSecurityAnalysis()); // jtest_unverified
-		assertEquals("mailRecipients22", testedObject.getOssMailRecipients()); // jtest_unverified
-		assertEquals("distributionType22", testedObject.getOssDistributionType()); // jtest_unverified
-		assertEquals("checkmarxProjName22", testedObject.getCheckmarxProjName()); // jtest_unverified
-		assertEquals("integrationFileName22", testedObject.getIntegrationFileName()); // jtest_unverified
-		assertEquals("excludeFolders22", testedObject.getExcludeFolders()); // jtest_unverified
-		assertEquals("incrementalScan22", testedObject.getIncrementalScan()); // jtest_unverified
+		assertEquals("hostName22", testedObject.getHostName());
+		assertEquals(port, testedObject.getPort());
+		assertEquals("installGrunt22", testedObject.getInstallGrunt());
+		assertEquals("multiModule22", testedObject.getMultiModule());
+		assertEquals("exclude22", testedObject.getExclude());
+		assertEquals("interval22", testedObject.getInterval());
+		assertEquals("team22", testedObject.getTeam());
+		assertEquals("preset22", testedObject.getPreset());
+		assertEquals("serverUrl22", testedObject.getServerUrl());
+		assertEquals("unitTestDir22", testedObject.getUnitTestDir());
+		assertEquals("pafFilePath22", testedObject.getPafFilePath());
+		assertEquals("analysisType22", testedObject.getOssAnalysisType());
+		assertEquals("messageFlows22", testedObject.getMessageFlows());
+		assertEquals("install22", testedObject.getInstall());
+		assertEquals("relativePath22", testedObject.getRelativePath());
+		assertEquals("avdName22", testedObject.getAvdName());
+		assertEquals("destDB22", testedObject.getDestDB());
+		assertEquals("mVNOPTS44", testedObject.getmVNOPTS());
+		assertEquals("codeCoverage22", testedObject.getCodeCoverage());
+		assertEquals("warPackaging22", testedObject.getWarPackaging());
+		assertEquals("cdtOut22", testedObject.getCdtOut());
+
+		assertEquals(reportMigration, testedObject.getPublishForms());
+		assertEquals("execute22", testedObject.getExecute());
+		assertEquals("repository22", testedObject.getRepository());
+		assertEquals("ejbDescriptor22", testedObject.getEjbDescriptor());
+		assertEquals("dbName22", testedObject.getDbName());
+		assertEquals("transfer22", testedObject.getTransfer());
+		assertEquals("moduleName22", testedObject.getModuleName());
+		assertEquals("outputFolder22", testedObject.getOutputFolder());
+		assertEquals("jarPackaging22", testedObject.getJarPackaging());
+		assertEquals("mVNOPTS44", testedObject.getmVNOPTS());
+		assertEquals("home22", testedObject.getHome());
+		assertEquals("args22", testedObject.getArgs());
+		assertEquals("globalGoals22", testedObject.getGlobalGoals());
+		assertEquals(runScript, testedObject.getRunScript());
+		assertEquals("groupId22", testedObject.getGroupId());
+		assertEquals("customScript22", testedObject.getCustomScript());
+		assertEquals("buildType22", testedObject.getBuildType());
+		assertEquals("javaMainClass22", testedObject.getJavaMainClass());
+		assertEquals("projectName22", testedObject.getProjectName());
+		assertEquals("thirdPartyJar22", testedObject.getThirdPartyJar());
+		assertEquals("jsonPath22", testedObject.getJsonPath());
+		assertEquals("nexusUrl22", testedObject.getNexusUrl());
+		assertEquals("password22", testedObject.getPassword());
+		assertEquals("controlFlow22", testedObject.getControlFlow());
+		assertEquals("dbType22", testedObject.getDbType());
+		assertEquals("uiEarFileName22", testedObject.getUiEarFileName());
+		assertEquals("envName22", testedObject.getEnvName());
+		assertEquals("productKey22", testedObject.getProductKey());
+		assertEquals("renaming22", testedObject.getRenaming());
+		assertEquals("nexusType22", testedObject.getNexusType());
+		assertEquals("userName22", testedObject.getUserName());
+		assertEquals("cdtIn22", testedObject.getCdtIn());
+		assertEquals("classFileName22", testedObject.getClassFileName());
+		assertEquals("destPassword22", testedObject.getDestPassword());
+		assertEquals(reportMigration, testedObject.getCodeAnalysis());
+		assertEquals("unitTesting22", testedObject.getUnitTesting());
+		assertEquals("serverMachine22", testedObject.getServerMachine());
+		assertEquals("version22", testedObject.getVersion());
+		assertEquals("compile22", testedObject.getCompile());
+		assertEquals("clean22", testedObject.getClean());
+		assertEquals("encryption22", testedObject.getEncryption());
+		assertEquals(reportMigration, testedObject.getHostCTLMigration());
+		assertEquals("codeFormatting22", testedObject.getCodeFormatting());
+		assertEquals("codeAnalysisTragets22", testedObject.getCodeAnalysisTargets());
+		assertEquals("unitTestTargets22", testedObject.getUnitTestTargets());
+		assertEquals(reportMigration, testedObject.getWorkFlowPublish());
+		assertEquals("customBuildXml22", testedObject.getCustomBuildXml());
+		assertEquals(reportMigration, testedObject.getOaFileMigration());
+		assertEquals("masterMachineName22", testedObject.getMasterMachineName());
+		assertEquals("securityProjName22", testedObject.getSecurityProjName());
+		assertEquals("unitTestCategory22", testedObject.getUnitTestCategory());
+		assertEquals("testSettingFilePath22", testedObject.getTestSettingFilePath());
+		assertEquals("dependencyFile22", testedObject.getDependencyFile());
+		assertEquals("unitTestProjectName22", testedObject.getUnitTestProjectName());
+		assertEquals("localmachineExecution22", testedObject.getLocalmachineExecution());
+		assertEquals(reportMigration, testedObject.getReportMigration());
+		assertEquals("securityAnalysis22", testedObject.getSecurityAnalysis());
+		assertEquals("mailRecipients22", testedObject.getOssMailRecipients());
+		assertEquals("distributionType22", testedObject.getOssDistributionType());
+		assertEquals("checkmarxProjName22", testedObject.getCheckmarxProjName());
+		assertEquals("integrationFileName22", testedObject.getIntegrationFileName());
+		assertEquals("excludeFolders22", testedObject.getExcludeFolders());
+		assertEquals("incrementalScan22", testedObject.getIncrementalScan());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -507,96 +504,96 @@ public class ModuleTest extends PackageTestCase {
 		testedObject.setClean("clean1");
 		testedObject.setInstall("install1");
 		testedObject.setmVNOPTS("mVNOPTS2");
-		assertEquals("hostName1", testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals("installGrunt1", testedObject.getInstallGrunt()); // jtest_unverified
-		assertEquals("multiModule1", testedObject.getMultiModule()); // jtest_unverified
-		assertEquals("exclude1", testedObject.getExclude()); // jtest_unverified
-		assertEquals("interval1", testedObject.getInterval()); // jtest_unverified
-		assertEquals("team1", testedObject.getTeam()); // jtest_unverified
-		assertEquals("preset1", testedObject.getPreset()); // jtest_unverified
-		assertEquals("serverUrl1", testedObject.getServerUrl()); // jtest_unverified
-		assertEquals("unitTestDir1", testedObject.getUnitTestDir()); // jtest_unverified
-		assertEquals("pafFilePath1", testedObject.getPafFilePath()); // jtest_unverified
-		assertEquals("analysisType1", testedObject.getOssAnalysisType()); // jtest_unverified
-		assertEquals("messageFlows1", testedObject.getMessageFlows()); // jtest_unverified
-		assertEquals("install1", testedObject.getInstall()); // jtest_unverified
-		assertEquals("relativePath1", testedObject.getRelativePath()); // jtest_unverified
-		assertEquals("avdName1", testedObject.getAvdName()); // jtest_unverified
-		assertEquals("destDB1", testedObject.getDestDB()); // jtest_unverified
-		assertEquals("mVNOPTS2", testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals("codeCoverage1", testedObject.getCodeCoverage()); // jtest_unverified
-		assertEquals("warPackaging1", testedObject.getWarPackaging()); // jtest_unverified
-		assertEquals("cdtOut1", testedObject.getCdtOut()); // jtest_unverified
+		assertEquals("hostName1", testedObject.getHostName());
+		assertEquals(null, testedObject.getPort());
+		assertEquals("installGrunt1", testedObject.getInstallGrunt());
+		assertEquals("multiModule1", testedObject.getMultiModule());
+		assertEquals("exclude1", testedObject.getExclude());
+		assertEquals("interval1", testedObject.getInterval());
+		assertEquals("team1", testedObject.getTeam());
+		assertEquals("preset1", testedObject.getPreset());
+		assertEquals("serverUrl1", testedObject.getServerUrl());
+		assertEquals("unitTestDir1", testedObject.getUnitTestDir());
+		assertEquals("pafFilePath1", testedObject.getPafFilePath());
+		assertEquals("analysisType1", testedObject.getOssAnalysisType());
+		assertEquals("messageFlows1", testedObject.getMessageFlows());
+		assertEquals("install1", testedObject.getInstall());
+		assertEquals("relativePath1", testedObject.getRelativePath());
+		assertEquals("avdName1", testedObject.getAvdName());
+		assertEquals("destDB1", testedObject.getDestDB());
+		assertEquals("mVNOPTS2", testedObject.getmVNOPTS());
+		assertEquals("codeCoverage1", testedObject.getCodeCoverage());
+		assertEquals("warPackaging1", testedObject.getWarPackaging());
+		assertEquals("cdtOut1", testedObject.getCdtOut());
 		/*
 		 * Remove Jira ALM assertEquals("raiseJiraBug1",
-		 * testedObject.getRaiseJiraBug()); // jtest_unverified
+		 * testedObject.getRaiseJiraBug());
 		 */
-		assertEquals(null, testedObject.getPublishForms()); // jtest_unverified
-		assertEquals("execute1", testedObject.getExecute()); // jtest_unverified
-		assertEquals("repository1", testedObject.getRepository()); // jtest_unverified
-		assertEquals("ejbDescriptor1", testedObject.getEjbDescriptor()); // jtest_unverified
-		assertEquals("dbName1", testedObject.getDbName()); // jtest_unverified
-		assertEquals("transfer1", testedObject.getTransfer()); // jtest_unverified
-		assertEquals("moduleName1", testedObject.getModuleName()); // jtest_unverified
-		assertEquals("outputFolder1", testedObject.getOutputFolder()); // jtest_unverified
-		assertEquals("jarPackaging1", testedObject.getJarPackaging()); // jtest_unverified
-		assertEquals("mVNOPTS2", testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals("home1", testedObject.getHome()); // jtest_unverified
-		assertEquals("args1", testedObject.getArgs()); // jtest_unverified
-		assertEquals("globalGoals1", testedObject.getGlobalGoals()); // jtest_unverified
-		assertEquals(null, testedObject.getRunScript()); // jtest_unverified
-		assertEquals("groupId1", testedObject.getGroupId()); // jtest_unverified
-		assertEquals("customScript1", testedObject.getCustomScript()); // jtest_unverified
-		assertEquals("buildType1", testedObject.getBuildType()); // jtest_unverified
-		assertEquals("javaMainClass1", testedObject.getJavaMainClass()); // jtest_unverified
-		assertEquals("projectName1", testedObject.getProjectName()); // jtest_unverified
-		assertEquals("thirdPartyJar1", testedObject.getThirdPartyJar()); // jtest_unverified
-		assertEquals("jsonPath1", testedObject.getJsonPath()); // jtest_unverified
-		assertEquals("nexusUrl1", testedObject.getNexusUrl()); // jtest_unverified
-		assertEquals("password1", testedObject.getPassword()); // jtest_unverified
-		assertEquals("controlFlow1", testedObject.getControlFlow()); // jtest_unverified
-		assertEquals("dbType1", testedObject.getDbType()); // jtest_unverified
-		assertEquals("uiEarFileName1", testedObject.getUiEarFileName()); // jtest_unverified
-		assertEquals("envName1", testedObject.getEnvName()); // jtest_unverified
-		assertEquals("productKey1", testedObject.getProductKey()); // jtest_unverified
-		assertEquals("renaming1", testedObject.getRenaming()); // jtest_unverified
-		assertEquals("nexusType1", testedObject.getNexusType()); // jtest_unverified
-		assertEquals("userName1", testedObject.getUserName()); // jtest_unverified
-		assertEquals("cdtIn1", testedObject.getCdtIn()); // jtest_unverified
-		assertEquals("classFileName1", testedObject.getClassFileName()); // jtest_unverified
-		assertEquals("destPassword1", testedObject.getDestPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getCodeAnalysis()); // jtest_unverified
-		assertEquals("unitTesting1", testedObject.getUnitTesting()); // jtest_unverified
-		assertEquals("serverMachine1", testedObject.getServerMachine()); // jtest_unverified
-		assertEquals("version1", testedObject.getVersion()); // jtest_unverified
-		assertEquals("compile1", testedObject.getCompile()); // jtest_unverified
-		assertEquals("clean1", testedObject.getClean()); // jtest_unverified
-		assertEquals("encryption1", testedObject.getEncryption()); // jtest_unverified
-		assertEquals(null, testedObject.getHostCTLMigration()); // jtest_unverified
-		assertEquals("codeFormatting1", testedObject.getCodeFormatting()); // jtest_unverified
-		assertEquals("codeAnalysisTragets1", testedObject.getCodeAnalysisTargets()); // jtest_unverified
-		assertEquals("unitTestTargets1", testedObject.getUnitTestTargets()); // jtest_unverified
-		assertEquals(null, testedObject.getWorkFlowPublish()); // jtest_unverified
-		assertEquals("customBuildXml1", testedObject.getCustomBuildXml()); // jtest_unverified
-		assertEquals(null, testedObject.getOaFileMigration()); // jtest_unverified
-		assertEquals("masterMachineName1", testedObject.getMasterMachineName()); // jtest_unverified
-		assertEquals("securityProjName1", testedObject.getSecurityProjName()); // jtest_unverified
-		assertEquals("unitTestCategory1", testedObject.getUnitTestCategory()); // jtest_unverified
-		assertEquals("testSettingFilePath1", testedObject.getTestSettingFilePath()); // jtest_unverified
-		assertEquals("dependencyFile1", testedObject.getDependencyFile()); // jtest_unverified
-		assertEquals("unitTestProjectName1", testedObject.getUnitTestProjectName()); // jtest_unverified
-		assertEquals("localmachineExecution1", testedObject.getLocalmachineExecution()); // jtest_unverified
-		assertEquals(null, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals("securityAnalysis1", testedObject.getSecurityAnalysis()); // jtest_unverified
-		assertEquals("mailRecipients1", testedObject.getOssMailRecipients()); // jtest_unverified
-		assertEquals("distributionType1", testedObject.getOssDistributionType()); // jtest_unverified
-		assertEquals("checkmarxProjName1", testedObject.getCheckmarxProjName()); // jtest_unverified
-		assertEquals("integrationFileName1", testedObject.getIntegrationFileName()); // jtest_unverified
-		assertEquals("excludeFolders1", testedObject.getExcludeFolders()); // jtest_unverified
-		assertEquals("incrementalScan1", testedObject.getIncrementalScan()); // jtest_unverified
+		assertEquals(null, testedObject.getPublishForms());
+		assertEquals("execute1", testedObject.getExecute());
+		assertEquals("repository1", testedObject.getRepository());
+		assertEquals("ejbDescriptor1", testedObject.getEjbDescriptor());
+		assertEquals("dbName1", testedObject.getDbName());
+		assertEquals("transfer1", testedObject.getTransfer());
+		assertEquals("moduleName1", testedObject.getModuleName());
+		assertEquals("outputFolder1", testedObject.getOutputFolder());
+		assertEquals("jarPackaging1", testedObject.getJarPackaging());
+		assertEquals("mVNOPTS2", testedObject.getmVNOPTS());
+		assertEquals("home1", testedObject.getHome());
+		assertEquals("args1", testedObject.getArgs());
+		assertEquals("globalGoals1", testedObject.getGlobalGoals());
+		assertEquals(null, testedObject.getRunScript());
+		assertEquals("groupId1", testedObject.getGroupId());
+		assertEquals("customScript1", testedObject.getCustomScript());
+		assertEquals("buildType1", testedObject.getBuildType());
+		assertEquals("javaMainClass1", testedObject.getJavaMainClass());
+		assertEquals("projectName1", testedObject.getProjectName());
+		assertEquals("thirdPartyJar1", testedObject.getThirdPartyJar());
+		assertEquals("jsonPath1", testedObject.getJsonPath());
+		assertEquals("nexusUrl1", testedObject.getNexusUrl());
+		assertEquals("password1", testedObject.getPassword());
+		assertEquals("controlFlow1", testedObject.getControlFlow());
+		assertEquals("dbType1", testedObject.getDbType());
+		assertEquals("uiEarFileName1", testedObject.getUiEarFileName());
+		assertEquals("envName1", testedObject.getEnvName());
+		assertEquals("productKey1", testedObject.getProductKey());
+		assertEquals("renaming1", testedObject.getRenaming());
+		assertEquals("nexusType1", testedObject.getNexusType());
+		assertEquals("userName1", testedObject.getUserName());
+		assertEquals("cdtIn1", testedObject.getCdtIn());
+		assertEquals("classFileName1", testedObject.getClassFileName());
+		assertEquals("destPassword1", testedObject.getDestPassword());
+		assertEquals(null, testedObject.getCodeAnalysis());
+		assertEquals("unitTesting1", testedObject.getUnitTesting());
+		assertEquals("serverMachine1", testedObject.getServerMachine());
+		assertEquals("version1", testedObject.getVersion());
+		assertEquals("compile1", testedObject.getCompile());
+		assertEquals("clean1", testedObject.getClean());
+		assertEquals("encryption1", testedObject.getEncryption());
+		assertEquals(null, testedObject.getHostCTLMigration());
+		assertEquals("codeFormatting1", testedObject.getCodeFormatting());
+		assertEquals("codeAnalysisTragets1", testedObject.getCodeAnalysisTargets());
+		assertEquals("unitTestTargets1", testedObject.getUnitTestTargets());
+		assertEquals(null, testedObject.getWorkFlowPublish());
+		assertEquals("customBuildXml1", testedObject.getCustomBuildXml());
+		assertEquals(null, testedObject.getOaFileMigration());
+		assertEquals("masterMachineName1", testedObject.getMasterMachineName());
+		assertEquals("securityProjName1", testedObject.getSecurityProjName());
+		assertEquals("unitTestCategory1", testedObject.getUnitTestCategory());
+		assertEquals("testSettingFilePath1", testedObject.getTestSettingFilePath());
+		assertEquals("dependencyFile1", testedObject.getDependencyFile());
+		assertEquals("unitTestProjectName1", testedObject.getUnitTestProjectName());
+		assertEquals("localmachineExecution1", testedObject.getLocalmachineExecution());
+		assertEquals(null, testedObject.getReportMigration());
+		assertEquals("securityAnalysis1", testedObject.getSecurityAnalysis());
+		assertEquals("mailRecipients1", testedObject.getOssMailRecipients());
+		assertEquals("distributionType1", testedObject.getOssDistributionType());
+		assertEquals("checkmarxProjName1", testedObject.getCheckmarxProjName());
+		assertEquals("integrationFileName1", testedObject.getIntegrationFileName());
+		assertEquals("excludeFolders1", testedObject.getExcludeFolders());
+		assertEquals("incrementalScan1", testedObject.getIncrementalScan());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -699,96 +696,96 @@ public class ModuleTest extends PackageTestCase {
 		testedObject.setClean("clean0");
 		testedObject.setInstall("install0");
 		testedObject.setmVNOPTS((String) null);
-		assertEquals("hostName0", testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals("installGrunt0", testedObject.getInstallGrunt()); // jtest_unverified
-		assertEquals("multiModule0", testedObject.getMultiModule()); // jtest_unverified
-		assertEquals("exclude0", testedObject.getExclude()); // jtest_unverified
-		assertEquals("interval0", testedObject.getInterval()); // jtest_unverified
-		assertEquals("team0", testedObject.getTeam()); // jtest_unverified
-		assertEquals("preset0", testedObject.getPreset()); // jtest_unverified
-		assertEquals("serverUrl0", testedObject.getServerUrl()); // jtest_unverified
-		assertEquals("unitTestDir0", testedObject.getUnitTestDir()); // jtest_unverified
-		assertEquals("pafFilePath0", testedObject.getPafFilePath()); // jtest_unverified
-		assertEquals("analysisType0", testedObject.getOssAnalysisType()); // jtest_unverified
-		assertEquals("messageFlows0", testedObject.getMessageFlows()); // jtest_unverified
-		assertEquals("install0", testedObject.getInstall()); // jtest_unverified
-		assertEquals("relativePath0", testedObject.getRelativePath()); // jtest_unverified
-		assertEquals("avdName0", testedObject.getAvdName()); // jtest_unverified
-		assertEquals("destDB0", testedObject.getDestDB()); // jtest_unverified
-		assertEquals(null, testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals("codeCoverage0", testedObject.getCodeCoverage()); // jtest_unverified
-		assertEquals("warPackaging0", testedObject.getWarPackaging()); // jtest_unverified
-		assertEquals("cdtOut0", testedObject.getCdtOut()); // jtest_unverified
+		assertEquals("hostName0", testedObject.getHostName());
+		assertEquals(null, testedObject.getPort());
+		assertEquals("installGrunt0", testedObject.getInstallGrunt());
+		assertEquals("multiModule0", testedObject.getMultiModule());
+		assertEquals("exclude0", testedObject.getExclude());
+		assertEquals("interval0", testedObject.getInterval());
+		assertEquals("team0", testedObject.getTeam());
+		assertEquals("preset0", testedObject.getPreset());
+		assertEquals("serverUrl0", testedObject.getServerUrl());
+		assertEquals("unitTestDir0", testedObject.getUnitTestDir());
+		assertEquals("pafFilePath0", testedObject.getPafFilePath());
+		assertEquals("analysisType0", testedObject.getOssAnalysisType());
+		assertEquals("messageFlows0", testedObject.getMessageFlows());
+		assertEquals("install0", testedObject.getInstall());
+		assertEquals("relativePath0", testedObject.getRelativePath());
+		assertEquals("avdName0", testedObject.getAvdName());
+		assertEquals("destDB0", testedObject.getDestDB());
+		assertEquals(null, testedObject.getmVNOPTS());
+		assertEquals("codeCoverage0", testedObject.getCodeCoverage());
+		assertEquals("warPackaging0", testedObject.getWarPackaging());
+		assertEquals("cdtOut0", testedObject.getCdtOut());
 		/*
 		 * Remove Jira ALM assertEquals("raiseJiraBug0",
-		 * testedObject.getRaiseJiraBug()); // jtest_unverified
+		 * testedObject.getRaiseJiraBug());
 		 */
-		assertEquals(null, testedObject.getPublishForms()); // jtest_unverified
-		assertEquals("execute0", testedObject.getExecute()); // jtest_unverified
-		assertEquals("repository0", testedObject.getRepository()); // jtest_unverified
-		assertEquals("ejbDescriptor0", testedObject.getEjbDescriptor()); // jtest_unverified
-		assertEquals("dbName0", testedObject.getDbName()); // jtest_unverified
-		assertEquals("transfer0", testedObject.getTransfer()); // jtest_unverified
-		assertEquals("moduleName0", testedObject.getModuleName()); // jtest_unverified
-		assertEquals("outputFolder0", testedObject.getOutputFolder()); // jtest_unverified
-		assertEquals("jarPackaging0", testedObject.getJarPackaging()); // jtest_unverified
-		assertEquals(null, testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals("home0", testedObject.getHome()); // jtest_unverified
-		assertEquals("args0", testedObject.getArgs()); // jtest_unverified
-		assertEquals("globalGoals0", testedObject.getGlobalGoals()); // jtest_unverified
-		assertEquals(null, testedObject.getRunScript()); // jtest_unverified
-		assertEquals("groupId0", testedObject.getGroupId()); // jtest_unverified
-		assertEquals("customScript0", testedObject.getCustomScript()); // jtest_unverified
-		assertEquals("buildType0", testedObject.getBuildType()); // jtest_unverified
-		assertEquals("javaMainClass0", testedObject.getJavaMainClass()); // jtest_unverified
-		assertEquals("projectName0", testedObject.getProjectName()); // jtest_unverified
-		assertEquals("thirdPartyJar0", testedObject.getThirdPartyJar()); // jtest_unverified
-		assertEquals("jsonPath0", testedObject.getJsonPath()); // jtest_unverified
-		assertEquals("nexusUrl0", testedObject.getNexusUrl()); // jtest_unverified
-		assertEquals("password0", testedObject.getPassword()); // jtest_unverified
-		assertEquals("controlFlow0", testedObject.getControlFlow()); // jtest_unverified
-		assertEquals("dbType0", testedObject.getDbType()); // jtest_unverified
-		assertEquals("uiEarFileName0", testedObject.getUiEarFileName()); // jtest_unverified
-		assertEquals("envName0", testedObject.getEnvName()); // jtest_unverified
-		assertEquals("productKey0", testedObject.getProductKey()); // jtest_unverified
-		assertEquals("renaming0", testedObject.getRenaming()); // jtest_unverified
-		assertEquals("nexusType0", testedObject.getNexusType()); // jtest_unverified
-		assertEquals("userName0", testedObject.getUserName()); // jtest_unverified
-		assertEquals("cdtIn0", testedObject.getCdtIn()); // jtest_unverified
-		assertEquals("classFileName0", testedObject.getClassFileName()); // jtest_unverified
-		assertEquals("destPassword0", testedObject.getDestPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getCodeAnalysis()); // jtest_unverified
-		assertEquals("unitTesting0", testedObject.getUnitTesting()); // jtest_unverified
-		assertEquals("serverMachine0", testedObject.getServerMachine()); // jtest_unverified
-		assertEquals("version0", testedObject.getVersion()); // jtest_unverified
-		assertEquals("compile0", testedObject.getCompile()); // jtest_unverified
-		assertEquals("clean0", testedObject.getClean()); // jtest_unverified
-		assertEquals("encryption0", testedObject.getEncryption()); // jtest_unverified
-		assertEquals(null, testedObject.getHostCTLMigration()); // jtest_unverified
-		assertEquals("codeFormatting0", testedObject.getCodeFormatting()); // jtest_unverified
-		assertEquals("codeAnalysisTragets0", testedObject.getCodeAnalysisTargets()); // jtest_unverified
-		assertEquals("unitTestTargets0", testedObject.getUnitTestTargets()); // jtest_unverified
-		assertEquals(null, testedObject.getWorkFlowPublish()); // jtest_unverified
-		assertEquals("customBuildXml0", testedObject.getCustomBuildXml()); // jtest_unverified
-		assertEquals(null, testedObject.getOaFileMigration()); // jtest_unverified
-		assertEquals("masterMachineName0", testedObject.getMasterMachineName()); // jtest_unverified
-		assertEquals("securityProjName0", testedObject.getSecurityProjName()); // jtest_unverified
-		assertEquals("unitTestCategory0", testedObject.getUnitTestCategory()); // jtest_unverified
-		assertEquals("testSettingFilePath0", testedObject.getTestSettingFilePath()); // jtest_unverified
-		assertEquals("dependencyFile0", testedObject.getDependencyFile()); // jtest_unverified
-		assertEquals("unitTestProjectName0", testedObject.getUnitTestProjectName()); // jtest_unverified
-		assertEquals("localmachineExecution0", testedObject.getLocalmachineExecution()); // jtest_unverified
-		assertEquals(null, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals("securityAnalysis0", testedObject.getSecurityAnalysis()); // jtest_unverified
-		assertEquals("mailRecipients0", testedObject.getOssMailRecipients()); // jtest_unverified
-		assertEquals("distributionType0", testedObject.getOssDistributionType()); // jtest_unverified
-		assertEquals("checkmarxProjName0", testedObject.getCheckmarxProjName()); // jtest_unverified
-		assertEquals("integrationFileName0", testedObject.getIntegrationFileName()); // jtest_unverified
-		assertEquals("excludeFolders0", testedObject.getExcludeFolders()); // jtest_unverified
-		assertEquals("incrementalScan0", testedObject.getIncrementalScan()); // jtest_unverified
+		assertEquals(null, testedObject.getPublishForms());
+		assertEquals("execute0", testedObject.getExecute());
+		assertEquals("repository0", testedObject.getRepository());
+		assertEquals("ejbDescriptor0", testedObject.getEjbDescriptor());
+		assertEquals("dbName0", testedObject.getDbName());
+		assertEquals("transfer0", testedObject.getTransfer());
+		assertEquals("moduleName0", testedObject.getModuleName());
+		assertEquals("outputFolder0", testedObject.getOutputFolder());
+		assertEquals("jarPackaging0", testedObject.getJarPackaging());
+		assertEquals(null, testedObject.getmVNOPTS());
+		assertEquals("home0", testedObject.getHome());
+		assertEquals("args0", testedObject.getArgs());
+		assertEquals("globalGoals0", testedObject.getGlobalGoals());
+		assertEquals(null, testedObject.getRunScript());
+		assertEquals("groupId0", testedObject.getGroupId());
+		assertEquals("customScript0", testedObject.getCustomScript());
+		assertEquals("buildType0", testedObject.getBuildType());
+		assertEquals("javaMainClass0", testedObject.getJavaMainClass());
+		assertEquals("projectName0", testedObject.getProjectName());
+		assertEquals("thirdPartyJar0", testedObject.getThirdPartyJar());
+		assertEquals("jsonPath0", testedObject.getJsonPath());
+		assertEquals("nexusUrl0", testedObject.getNexusUrl());
+		assertEquals("password0", testedObject.getPassword());
+		assertEquals("controlFlow0", testedObject.getControlFlow());
+		assertEquals("dbType0", testedObject.getDbType());
+		assertEquals("uiEarFileName0", testedObject.getUiEarFileName());
+		assertEquals("envName0", testedObject.getEnvName());
+		assertEquals("productKey0", testedObject.getProductKey());
+		assertEquals("renaming0", testedObject.getRenaming());
+		assertEquals("nexusType0", testedObject.getNexusType());
+		assertEquals("userName0", testedObject.getUserName());
+		assertEquals("cdtIn0", testedObject.getCdtIn());
+		assertEquals("classFileName0", testedObject.getClassFileName());
+		assertEquals("destPassword0", testedObject.getDestPassword());
+		assertEquals(null, testedObject.getCodeAnalysis());
+		assertEquals("unitTesting0", testedObject.getUnitTesting());
+		assertEquals("serverMachine0", testedObject.getServerMachine());
+		assertEquals("version0", testedObject.getVersion());
+		assertEquals("compile0", testedObject.getCompile());
+		assertEquals("clean0", testedObject.getClean());
+		assertEquals("encryption0", testedObject.getEncryption());
+		assertEquals(null, testedObject.getHostCTLMigration());
+		assertEquals("codeFormatting0", testedObject.getCodeFormatting());
+		assertEquals("codeAnalysisTragets0", testedObject.getCodeAnalysisTargets());
+		assertEquals("unitTestTargets0", testedObject.getUnitTestTargets());
+		assertEquals(null, testedObject.getWorkFlowPublish());
+		assertEquals("customBuildXml0", testedObject.getCustomBuildXml());
+		assertEquals(null, testedObject.getOaFileMigration());
+		assertEquals("masterMachineName0", testedObject.getMasterMachineName());
+		assertEquals("securityProjName0", testedObject.getSecurityProjName());
+		assertEquals("unitTestCategory0", testedObject.getUnitTestCategory());
+		assertEquals("testSettingFilePath0", testedObject.getTestSettingFilePath());
+		assertEquals("dependencyFile0", testedObject.getDependencyFile());
+		assertEquals("unitTestProjectName0", testedObject.getUnitTestProjectName());
+		assertEquals("localmachineExecution0", testedObject.getLocalmachineExecution());
+		assertEquals(null, testedObject.getReportMigration());
+		assertEquals("securityAnalysis0", testedObject.getSecurityAnalysis());
+		assertEquals("mailRecipients0", testedObject.getOssMailRecipients());
+		assertEquals("distributionType0", testedObject.getOssDistributionType());
+		assertEquals("checkmarxProjName0", testedObject.getCheckmarxProjName());
+		assertEquals("integrationFileName0", testedObject.getIntegrationFileName());
+		assertEquals("excludeFolders0", testedObject.getExcludeFolders());
+		assertEquals("incrementalScan0", testedObject.getIncrementalScan());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -803,128 +800,96 @@ public class ModuleTest extends PackageTestCase {
 	@Test
 	public void testModule13() throws Throwable {
 		Module testedObject = new Module();
-		assertEquals(null, testedObject.getHostName()); // jtest_unverified
-		assertEquals(null, testedObject.getPort()); // jtest_unverified
-		assertEquals(null, testedObject.getInstallGrunt()); // jtest_unverified
-		assertEquals(null, testedObject.getMultiModule()); // jtest_unverified
-		assertEquals(null, testedObject.getExclude()); // jtest_unverified
-		assertEquals(null, testedObject.getInterval()); // jtest_unverified
-		assertEquals(null, testedObject.getTeam()); // jtest_unverified
-		assertEquals(null, testedObject.getPreset()); // jtest_unverified
-		assertEquals(null, testedObject.getServerUrl()); // jtest_unverified
-		assertEquals(null, testedObject.getUnitTestDir()); // jtest_unverified
-		assertEquals(null, testedObject.getPafFilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getOssAnalysisType()); // jtest_unverified
-		assertEquals(null, testedObject.getMessageFlows()); // jtest_unverified
-		assertEquals(null, testedObject.getInstall()); // jtest_unverified
-		assertEquals(null, testedObject.getRelativePath()); // jtest_unverified
-		assertEquals(null, testedObject.getAvdName()); // jtest_unverified
-		assertEquals(null, testedObject.getDestDB()); // jtest_unverified
-		assertEquals(null, testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals(null, testedObject.getCodeCoverage()); // jtest_unverified
-		assertEquals(null, testedObject.getWarPackaging()); // jtest_unverified
-		assertEquals(null, testedObject.getCdtOut()); // jtest_unverified
+		assertEquals(null, testedObject.getHostName());
+		assertEquals(null, testedObject.getPort());
+		assertEquals(null, testedObject.getInstallGrunt());
+		assertEquals(null, testedObject.getMultiModule());
+		assertEquals(null, testedObject.getExclude());
+		assertEquals(null, testedObject.getInterval());
+		assertEquals(null, testedObject.getTeam());
+		assertEquals(null, testedObject.getPreset());
+		assertEquals(null, testedObject.getServerUrl());
+		assertEquals(null, testedObject.getUnitTestDir());
+		assertEquals(null, testedObject.getPafFilePath());
+		assertEquals(null, testedObject.getOssAnalysisType());
+		assertEquals(null, testedObject.getMessageFlows());
+		assertEquals(null, testedObject.getInstall());
+		assertEquals(null, testedObject.getRelativePath());
+		assertEquals(null, testedObject.getAvdName());
+		assertEquals(null, testedObject.getDestDB());
+		assertEquals(null, testedObject.getmVNOPTS());
+		assertEquals(null, testedObject.getCodeCoverage());
+		assertEquals(null, testedObject.getWarPackaging());
+		assertEquals(null, testedObject.getCdtOut());
 		/*
 		 * Remove Jira ALM assertEquals(null, testedObject.getRaiseJiraBug()); //
 		 * jtest_unverified
 		 */
-		assertEquals(null, testedObject.getPublishForms()); // jtest_unverified
-		assertEquals(null, testedObject.getExecute()); // jtest_unverified
-		assertEquals(null, testedObject.getRepository()); // jtest_unverified
-		assertEquals(null, testedObject.getEjbDescriptor()); // jtest_unverified
-		assertEquals(null, testedObject.getDbName()); // jtest_unverified
-		assertEquals(null, testedObject.getTransfer()); // jtest_unverified
-		assertEquals(null, testedObject.getModuleName()); // jtest_unverified
-		assertEquals(null, testedObject.getOutputFolder()); // jtest_unverified
-		assertEquals(null, testedObject.getJarPackaging()); // jtest_unverified
-		assertEquals(null, testedObject.getmVNOPTS()); // jtest_unverified
-		assertEquals(null, testedObject.getHome()); // jtest_unverified
-		assertEquals(null, testedObject.getArgs()); // jtest_unverified
-		assertEquals(null, testedObject.getGlobalGoals()); // jtest_unverified
-		assertEquals(null, testedObject.getRunScript()); // jtest_unverified
-		assertEquals(null, testedObject.getGroupId()); // jtest_unverified
-		assertEquals(null, testedObject.getCustomScript()); // jtest_unverified
-		assertEquals(null, testedObject.getBuildType()); // jtest_unverified
-		assertEquals(null, testedObject.getJavaMainClass()); // jtest_unverified
-		assertEquals(null, testedObject.getProjectName()); // jtest_unverified
-		assertEquals(null, testedObject.getThirdPartyJar()); // jtest_unverified
-		assertEquals(null, testedObject.getJsonPath()); // jtest_unverified
-		assertEquals(null, testedObject.getNexusUrl()); // jtest_unverified
-		assertEquals(null, testedObject.getPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getControlFlow()); // jtest_unverified
-		assertEquals(null, testedObject.getDbType()); // jtest_unverified
-		assertEquals(null, testedObject.getUiEarFileName()); // jtest_unverified
-		assertEquals(null, testedObject.getEnvName()); // jtest_unverified
-		assertEquals(null, testedObject.getProductKey()); // jtest_unverified
-		assertEquals(null, testedObject.getRenaming()); // jtest_unverified
-		assertEquals(null, testedObject.getNexusType()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getCdtIn()); // jtest_unverified
-		assertEquals(null, testedObject.getClassFileName()); // jtest_unverified
-		assertEquals(null, testedObject.getDestPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getCodeAnalysis()); // jtest_unverified
-		assertEquals(null, testedObject.getUnitTesting()); // jtest_unverified
-		assertEquals(null, testedObject.getServerMachine()); // jtest_unverified
-		assertEquals(null, testedObject.getVersion()); // jtest_unverified
-		assertEquals(null, testedObject.getCompile()); // jtest_unverified
-		assertEquals(null, testedObject.getClean()); // jtest_unverified
-		assertEquals(null, testedObject.getEncryption()); // jtest_unverified
-		assertEquals(null, testedObject.getHostCTLMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getCodeFormatting()); // jtest_unverified
-		assertEquals(null, testedObject.getCodeAnalysisTargets()); // jtest_unverified
-		assertEquals(null, testedObject.getUnitTestTargets()); // jtest_unverified
-		assertEquals(null, testedObject.getWorkFlowPublish()); // jtest_unverified
-		assertEquals(null, testedObject.getCustomBuildXml()); // jtest_unverified
-		assertEquals(null, testedObject.getOaFileMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getMasterMachineName()); // jtest_unverified
-		assertEquals(null, testedObject.getSecurityProjName()); // jtest_unverified
-		assertEquals(null, testedObject.getUnitTestCategory()); // jtest_unverified
-		assertEquals(null, testedObject.getTestSettingFilePath()); // jtest_unverified
-		assertEquals(null, testedObject.getDependencyFile()); // jtest_unverified
-		assertEquals(null, testedObject.getUnitTestProjectName()); // jtest_unverified
-		assertEquals(null, testedObject.getLocalmachineExecution()); // jtest_unverified
-		assertEquals(null, testedObject.getReportMigration()); // jtest_unverified
-		assertEquals(null, testedObject.getSecurityAnalysis()); // jtest_unverified
-		assertEquals(null, testedObject.getOssMailRecipients()); // jtest_unverified
-		assertEquals(null, testedObject.getOssDistributionType()); // jtest_unverified
-		assertEquals(null, testedObject.getCheckmarxProjName()); // jtest_unverified
-		assertEquals(null, testedObject.getIntegrationFileName()); // jtest_unverified
-		assertEquals(null, testedObject.getExcludeFolders()); // jtest_unverified
-		assertEquals(null, testedObject.getIncrementalScan()); // jtest_unverified
+		assertEquals(null, testedObject.getPublishForms());
+		assertEquals(null, testedObject.getExecute());
+		assertEquals(null, testedObject.getRepository());
+		assertEquals(null, testedObject.getEjbDescriptor());
+		assertEquals(null, testedObject.getDbName());
+		assertEquals(null, testedObject.getTransfer());
+		assertEquals(null, testedObject.getModuleName());
+		assertEquals(null, testedObject.getOutputFolder());
+		assertEquals(null, testedObject.getJarPackaging());
+		assertEquals(null, testedObject.getmVNOPTS());
+		assertEquals(null, testedObject.getHome());
+		assertEquals(null, testedObject.getArgs());
+		assertEquals(null, testedObject.getGlobalGoals());
+		assertEquals(null, testedObject.getRunScript());
+		assertEquals(null, testedObject.getGroupId());
+		assertEquals(null, testedObject.getCustomScript());
+		assertEquals(null, testedObject.getBuildType());
+		assertEquals(null, testedObject.getJavaMainClass());
+		assertEquals(null, testedObject.getProjectName());
+		assertEquals(null, testedObject.getThirdPartyJar());
+		assertEquals(null, testedObject.getJsonPath());
+		assertEquals(null, testedObject.getNexusUrl());
+		assertEquals(null, testedObject.getPassword());
+		assertEquals(null, testedObject.getControlFlow());
+		assertEquals(null, testedObject.getDbType());
+		assertEquals(null, testedObject.getUiEarFileName());
+		assertEquals(null, testedObject.getEnvName());
+		assertEquals(null, testedObject.getProductKey());
+		assertEquals(null, testedObject.getRenaming());
+		assertEquals(null, testedObject.getNexusType());
+		assertEquals(null, testedObject.getUserName());
+		assertEquals(null, testedObject.getCdtIn());
+		assertEquals(null, testedObject.getClassFileName());
+		assertEquals(null, testedObject.getDestPassword());
+		assertEquals(null, testedObject.getCodeAnalysis());
+		assertEquals(null, testedObject.getUnitTesting());
+		assertEquals(null, testedObject.getServerMachine());
+		assertEquals(null, testedObject.getVersion());
+		assertEquals(null, testedObject.getCompile());
+		assertEquals(null, testedObject.getClean());
+		assertEquals(null, testedObject.getEncryption());
+		assertEquals(null, testedObject.getHostCTLMigration());
+		assertEquals(null, testedObject.getCodeFormatting());
+		assertEquals(null, testedObject.getCodeAnalysisTargets());
+		assertEquals(null, testedObject.getUnitTestTargets());
+		assertEquals(null, testedObject.getWorkFlowPublish());
+		assertEquals(null, testedObject.getCustomBuildXml());
+		assertEquals(null, testedObject.getOaFileMigration());
+		assertEquals(null, testedObject.getMasterMachineName());
+		assertEquals(null, testedObject.getSecurityProjName());
+		assertEquals(null, testedObject.getUnitTestCategory());
+		assertEquals(null, testedObject.getTestSettingFilePath());
+		assertEquals(null, testedObject.getDependencyFile());
+		assertEquals(null, testedObject.getUnitTestProjectName());
+		assertEquals(null, testedObject.getLocalmachineExecution());
+		assertEquals(null, testedObject.getReportMigration());
+		assertEquals(null, testedObject.getSecurityAnalysis());
+		assertEquals(null, testedObject.getOssMailRecipients());
+		assertEquals(null, testedObject.getOssDistributionType());
+		assertEquals(null, testedObject.getCheckmarxProjName());
+		assertEquals(null, testedObject.getIntegrationFileName());
+		assertEquals(null, testedObject.getExcludeFolders());
+		assertEquals(null, testedObject.getIncrementalScan());
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -936,7 +901,6 @@ public class ModuleTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.buildInfo.ModuleTest");
 	}
@@ -951,4 +915,3 @@ public class ModuleTest extends PackageTestCase {
 		return Module.class;
 	}
 }
-// JTEST_CURRENT_ID=1360461667.

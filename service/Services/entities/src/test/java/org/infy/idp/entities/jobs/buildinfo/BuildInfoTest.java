@@ -8,12 +8,12 @@
 
 package org.infy.idp.entities.jobs.buildinfo;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.infy.idp.entities.jobs.common.RunScript;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -22,7 +22,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.jobs.buildinfo.BuildInfo
  * 
  */
-public class BuildInfoTest extends PackageTestCase {
+public class BuildInfoTest {
 
 	/**
 	 * Constructor for test class.
@@ -74,27 +74,25 @@ public class BuildInfoTest extends PackageTestCase {
 		testedObject.setBuildtool("buildtool21");
 		ArtifactToStage artifactToStage = new ArtifactToStage();
 		testedObject.setArtifactToStage(artifactToStage);
-		List<Module>  modules = new ArrayList<>();
+		List<Module> modules = new ArrayList<>();
 		testedObject.setModules(modules);
-		assertEquals(modules, testedObject.getModules()); // jtest_unverified
-		assertEquals("sonar_url",testedObject.getSonarUrl());
-		assertEquals("sonar_password",testedObject.getSonarPassword());
-		assertEquals("sonar_user",testedObject.getSonarUserName());
-		assertEquals(artifactToStage, testedObject.getArtifactToStage()); // jtest_unverified
-		assertEquals(postBuildScript, testedObject.getPostBuildScript()); // jtest_unverified
-		assertEquals("ejbModules21", testedObject.getEjbModules()); // jtest_unverified
-		assertEquals("userName21", testedObject.getUserName()); // jtest_unverified
-		assertEquals("javaModules21", testedObject.getJavaModules()); // jtest_unverified
-		// assertEquals("jiraProjKey21", testedObject.getJiraProjKey()); //
-		// jtest_unverified
-		assertEquals("nexusType21", testedObject.getNexusType()); // jtest_unverified
-		assertEquals("password21", testedObject.getPassword()); // jtest_unverified
-		assertEquals("webModules21", testedObject.getWebModules()); // jtest_unverified
-		assertEquals("buildtool21", testedObject.getBuildtool()); // jtest_unverified
-		assertEquals("nexusUrl21", testedObject.getNexusUrl()); // jtest_unverified
+		assertEquals(modules, testedObject.getModules());
+		assertEquals("sonar_url", testedObject.getSonarUrl());
+		assertEquals("sonar_password", testedObject.getSonarPassword());
+		assertEquals("sonar_user", testedObject.getSonarUserName());
+		assertEquals(artifactToStage, testedObject.getArtifactToStage());
+		assertEquals(postBuildScript, testedObject.getPostBuildScript());
+		assertEquals("ejbModules21", testedObject.getEjbModules());
+		assertEquals("userName21", testedObject.getUserName());
+		assertEquals("javaModules21", testedObject.getJavaModules());
+
+		assertEquals("nexusType21", testedObject.getNexusType());
+		assertEquals("password21", testedObject.getPassword());
+		assertEquals("webModules21", testedObject.getWebModules());
+		assertEquals("buildtool21", testedObject.getBuildtool());
+		assertEquals("nexusUrl21", testedObject.getNexusUrl());
 		assertEquals(subModule, testedObject.getSubModule());
-		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -109,10 +107,7 @@ public class BuildInfoTest extends PackageTestCase {
 	@Test
 	public void testBuildInfo11() throws Throwable {
 		BuildInfo testedObject = new BuildInfo();
-		/*
-		 * Remove Jira ALM testedObject.setJiraProjKey("jiraProjKey0");
-		 * testedObject.setJiraAssigneeName("jiraAssigneeName0");
-		 */
+
 		testedObject.setJavaModules("javaModules0");
 		testedObject.setEjbModules("ejbModules0");
 		testedObject.setWebModules("webModules0");
@@ -124,17 +119,17 @@ public class BuildInfoTest extends PackageTestCase {
 		testedObject.setBuildtool("buildtool0");
 		testedObject.setArtifactToStage((ArtifactToStage) null);
 		testedObject.setModules((List) null);
-		assertEquals(null, testedObject.getModules()); // jtest_unverified
-		assertEquals(null, testedObject.getArtifactToStage()); // jtest_unverified
-		assertEquals(null, testedObject.getPostBuildScript()); // jtest_unverified
-		assertEquals("ejbModules0", testedObject.getEjbModules()); // jtest_unverified
-		assertEquals("userName0", testedObject.getUserName()); // jtest_unverified
-		assertEquals("javaModules0", testedObject.getJavaModules()); // jtest_unverified
-		assertEquals("nexusType0", testedObject.getNexusType()); // jtest_unverified
-		assertEquals("password0", testedObject.getPassword()); // jtest_unverified
-		assertEquals("webModules0", testedObject.getWebModules()); // jtest_unverified
-		assertEquals("buildtool0", testedObject.getBuildtool()); // jtest_unverified
-		assertEquals("nexusUrl0", testedObject.getNexusUrl()); // jtest_unverified
+		assertEquals(null, testedObject.getModules());
+		assertEquals(null, testedObject.getArtifactToStage());
+		assertEquals(null, testedObject.getPostBuildScript());
+		assertEquals("ejbModules0", testedObject.getEjbModules());
+		assertEquals("userName0", testedObject.getUserName());
+		assertEquals("javaModules0", testedObject.getJavaModules());
+		assertEquals("nexusType0", testedObject.getNexusType());
+		assertEquals("password0", testedObject.getPassword());
+		assertEquals("webModules0", testedObject.getWebModules());
+		assertEquals("buildtool0", testedObject.getBuildtool());
+		assertEquals("nexusUrl0", testedObject.getNexusUrl());
 	}
 
 	/**
@@ -149,17 +144,17 @@ public class BuildInfoTest extends PackageTestCase {
 	@Test
 	public void testBuildInfo12() throws Throwable {
 		BuildInfo testedObject = new BuildInfo();
-		assertEquals(null, testedObject.getModules()); // jtest_unverified
-		assertEquals(null, testedObject.getArtifactToStage()); // jtest_unverified
-		assertEquals(null, testedObject.getPostBuildScript()); // jtest_unverified
-		assertEquals(null, testedObject.getEjbModules()); // jtest_unverified
-		assertEquals(null, testedObject.getUserName()); // jtest_unverified
-		assertEquals(null, testedObject.getJavaModules()); // jtest_unverified
-		assertEquals(null, testedObject.getNexusType()); // jtest_unverified
-		assertEquals(null, testedObject.getPassword()); // jtest_unverified
-		assertEquals(null, testedObject.getWebModules()); // jtest_unverified
-		assertEquals(null, testedObject.getBuildtool()); // jtest_unverified
-		assertEquals(null, testedObject.getNexusUrl()); // jtest_unverified
+		assertEquals(null, testedObject.getModules());
+		assertEquals(null, testedObject.getArtifactToStage());
+		assertEquals(null, testedObject.getPostBuildScript());
+		assertEquals(null, testedObject.getEjbModules());
+		assertEquals(null, testedObject.getUserName());
+		assertEquals(null, testedObject.getJavaModules());
+		assertEquals(null, testedObject.getNexusType());
+		assertEquals(null, testedObject.getPassword());
+		assertEquals(null, testedObject.getWebModules());
+		assertEquals(null, testedObject.getBuildtool());
+		assertEquals(null, testedObject.getNexusUrl());
 	}
 
 	/**
@@ -175,11 +170,10 @@ public class BuildInfoTest extends PackageTestCase {
 	public void testGetArtifactToStage0() throws Throwable {
 		BuildInfo testedObject = new BuildInfo();
 		ArtifactToStage result = testedObject.getArtifactToStage();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
-	}
 
+	}
 
 	/**
 	 * Test for method getModules().
@@ -194,9 +188,9 @@ public class BuildInfoTest extends PackageTestCase {
 	public void testGetModules0() throws Throwable {
 		BuildInfo testedObject = new BuildInfo();
 		List result = testedObject.getModules();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -212,40 +206,9 @@ public class BuildInfoTest extends PackageTestCase {
 	public void testGetPostBuildScript0() throws Throwable {
 		BuildInfo testedObject = new BuildInfo();
 		RunScript result = testedObject.getPostBuildScript();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		/*
-		 * Add any necessary cleanup code here (e.g., close a socket).
-		 */
-		super.tearDown();
 	}
 
 	/**
@@ -257,7 +220,7 @@ public class BuildInfoTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.jobs.buildInfo.BuildInfoTest");
 	}

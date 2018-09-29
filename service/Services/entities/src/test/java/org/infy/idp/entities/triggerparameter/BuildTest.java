@@ -8,11 +8,11 @@
 
 package org.infy.idp.entities.triggerparameter;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -21,7 +21,7 @@ import org.junit.Test;
  * @see org.infy.idp.entities.triggerparameter.Build
  * 
  */
-public class BuildTest extends PackageTestCase {
+public class BuildTest {
 
 	/**
 	 * Constructor for test class.
@@ -68,10 +68,10 @@ public class BuildTest extends PackageTestCase {
 		assertEquals("cast", testedObject.getCast());
 		assertEquals("date", testedObject.getCurrentDate());
 		assertEquals("1.1", testedObject.getNewVersion());
-		assertEquals(module, testedObject.getModule()); // jtest_unverified
-		assertEquals("branchSelected11", testedObject.getBranchSelected()); // jtest_unverified
+		assertEquals(module, testedObject.getModule());
+		assertEquals("branchSelected11", testedObject.getBranchSelected());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -88,10 +88,10 @@ public class BuildTest extends PackageTestCase {
 		Build testedObject = new Build();
 		testedObject.setBranchSelected("branchSelected0");
 		testedObject.setModule((List) null);
-		assertEquals(null, testedObject.getModule()); // jtest_unverified
-		assertEquals("branchSelected0", testedObject.getBranchSelected()); // jtest_unverified
+		assertEquals(null, testedObject.getModule());
+		assertEquals("branchSelected0", testedObject.getBranchSelected());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -106,10 +106,10 @@ public class BuildTest extends PackageTestCase {
 	@Test
 	public void testBuild2() throws Throwable {
 		Build testedObject = new Build();
-		assertEquals(null, testedObject.getModule()); // jtest_unverified
-		assertEquals(null, testedObject.getBranchSelected()); // jtest_unverified
+		assertEquals(null, testedObject.getModule());
+		assertEquals(null, testedObject.getBranchSelected());
 		// No exception thrown
-		// jtest_unverified
+
 	}
 
 	/**
@@ -125,44 +125,9 @@ public class BuildTest extends PackageTestCase {
 	public void testGetModule0() throws Throwable {
 		Build testedObject = new Build();
 		List result = testedObject.getModule();
-		assertEquals(null, result); // jtest_unverified
+		assertEquals(null, result);
 		// No exception thrown
-		// jtest_unverified
-	}
 
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of the
-	 * tests are executed.
-	 * 
-	 * 
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket). Call
-		 * Repository.putTemporary() to provide initialized instances of objects to be
-		 * used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 * 
-	 * 
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**
@@ -174,7 +139,6 @@ public class BuildTest extends PackageTestCase {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.entities.triggerparameter.BuildTest");
 	}
@@ -189,4 +153,3 @@ public class BuildTest extends PackageTestCase {
 		return Build.class;
 	}
 }
-// JTEST_CURRENT_ID=-448371246.

@@ -14,7 +14,6 @@ import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
 import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.utils.ConfigurationManager;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +33,7 @@ import jtest.AppContext;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppContext.class)
-public class TriggerDetailBLTest extends PackageTestCase {
+public class TriggerDetailBLTest {
 
 	@Spy
 	@InjectMocks
@@ -81,7 +80,7 @@ public class TriggerDetailBLTest extends PackageTestCase {
 
 		tjb.setApplicationName("firstApp");
 		tjb.setPipelineName("job01");
-		tjb.setUserName("kruti.vyas");
+		tjb.setUserName("idpadmin");
 		TriggerInputs ti = testedObject.fecthTriggerOptions(tjb);
 		TriggerInputs t2 = new TriggerInputs();
 		t2.setRepoName("na");
@@ -102,31 +101,11 @@ public class TriggerDetailBLTest extends PackageTestCase {
 			postConstruct.setAccessible(true);
 			postConstruct.invoke(postGreSqlDbContext);
 
-			// isCalledAlready=true;
-
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		// }
-		// throw new Exception();
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after each of
-	 * the tests have been completed.
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
 	}
 
 	/**

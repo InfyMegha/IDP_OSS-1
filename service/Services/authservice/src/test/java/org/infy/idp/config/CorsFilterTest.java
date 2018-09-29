@@ -15,8 +15,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -26,7 +24,7 @@ import org.junit.Test;
  *  
  */
 
-public class CorsFilterTest extends PackageTestCase {
+public class CorsFilterTest{
 
 	/**
 	 * Constructor for test class.
@@ -59,7 +57,7 @@ public class CorsFilterTest extends PackageTestCase {
 		CorsFilter testedObject = new CorsFilter();
 		testedObject.destroy();
 		// No exception thrown
-		// jtest_unverified
+		
 	}
 
 	
@@ -72,13 +70,12 @@ public class CorsFilterTest extends PackageTestCase {
 	 *             Tests may throw any Throwable
 	 *
 	 * @see CorsFilter#doFilter(javax.servlet.ServletRequest,javax.servlet.ServletResponse,javax.servlet.FilterChain)
-	 * @author rajaprabu.dharmaraj
+	 * @author Infosys
 	 * 
 	 */
 	@Test
 	public void testDoFilter_ifCondition() throws Throwable {
 		CorsFilter testedObject = new CorsFilter();
-//		testedObject
 		HttpServletRequest servletRequest = mock(HttpServletRequest.class);
 		HttpServletResponse servletResponse = mock(HttpServletResponse.class);
 		FilterChain filterChain = mock(FilterChain.class);
@@ -87,7 +84,6 @@ public class CorsFilterTest extends PackageTestCase {
 		
 		testedObject.doFilter(servletRequest, servletResponse, filterChain);
 
-		// jtest.NoSuchValueException thrown
 	}
 	
 	/**
@@ -99,7 +95,7 @@ public class CorsFilterTest extends PackageTestCase {
 	 *             Tests may throw any Throwable
 	 *
 	 * @see CorsFilter#doFilter(javax.servlet.ServletRequest,javax.servlet.ServletResponse,javax.servlet.FilterChain)
-	 * @author rajaprabu.dharmaraj
+	 * @author Infosys
 	 * 
 	 */
 	@Test
@@ -116,51 +112,6 @@ public class CorsFilterTest extends PackageTestCase {
 	}
 	
 
-	/**
-	 * Test for method init(javax.servlet.FilterConfig).
-	 * 
-	 * @throws Throwable
-	 *             Tests may throw any Throwable
-	 *
-	 * @see CorsFilter#init(javax.servlet.FilterConfig)
-	 *  
-	 * 
-	 */
-
-	/**
-	 * Used to set up the test. This method is called by JUnit before each of
-	 * the tests are executed.
-	 * 
-	 *  
-	 */
-	@Before
-	public void setUp() throws Exception {
-		/*
-		 * Add any necessary initialization code here (e.g., open a socket).
-		 * Call Repository.putTemporary() to provide initialized instances of
-		 * objects to be used when testing.
-		 */
-		super.setUp();
-		// jtest.Repository.putTemporary("name", object);
-
-	}
-
-	/**
-	 * Used to clean up after the test. This method is called by JUnit after
-	 * each of the tests have been completed.
-	 * 
-	 *  
-	 */
-	@After
-	public void tearDown() throws Exception {
-		try {
-			/*
-			 * Add any necessary cleanup code here (e.g., close a socket).
-			 */
-		} finally {
-			super.tearDown();
-		}
-	}
 
 	/**
 	 * Utility main method. Runs the test cases defined in this test class.
@@ -172,7 +123,7 @@ public class CorsFilterTest extends PackageTestCase {
 	 *  
 	 */
 	public static void main(String[] args) {
-		// junit.textui.TestRunner will print the test results to stdout.
+		
 
 		org.junit.runner.JUnitCore.main("org.infy.idp.config.CorsFilterTest");
 	}
@@ -187,4 +138,3 @@ public class CorsFilterTest extends PackageTestCase {
 		return CorsFilter.class;
 	}
 }
-// JTEST_CURRENT_ID=-1497715408.

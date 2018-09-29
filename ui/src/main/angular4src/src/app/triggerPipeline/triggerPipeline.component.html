@@ -911,7 +911,7 @@
 													<div class="col-md-5 text-left">
 														<angular2-multiselect id="trmsdst" [data]="dropdownListDeploy" [(ngModel)]="tempDeploySteps" name="deploySteps" (onSelect)="onItemSelectDepSteps($event)"
 														 (onDeSelect)="onItemDeSelectDepSteps($event)" (onSelectAll)="onSelectAllDepSteps($event)" (onDeSelectAll)="onDeSelectAllDepSteps($event)"
-														 [settings]="deployMultiselectSettings">
+														 [settings]="deployMultiselectSettings" required>
 														</angular2-multiselect>
 													</div>
 												</div>
