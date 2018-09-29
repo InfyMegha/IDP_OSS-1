@@ -26,134 +26,134 @@ describe("AntCtrlComponent", () => {
   class IdpdataServiceStub {
 
 
-	constructor() { }
-	template: any = {
-		"grantAccess": {
-		"applicationName": "",
-		"developers": [],
-		"pipelineAdmins": [],
-		"releaseManager": [],
-		"environmentOwnerDetails": [{
-			"environmentName": "",
-			"environmentOwners": [],
-			"dbOwners": []
-		}],
-		"slaveDetails": [
-			{
-			"slaveName": "",
-			"buildServerOS": "",
-			"workspacePath": "",
-			"createNewSlave": "",
-			"labels": "",
-			"sshKeyPath": "",
-			"slaveUsage": "both"
-			}
-		]
-		},
-		"basicInfo": {
-		"additionalMailRecipients": {
-			"applicationTeam": "",
-			"emailIds": ""
-		},
-		"applicationName": "",
-		"buildInterval": {
-			"buildInterval": "",
-			"buildIntervalValue": 0,
-			"pollSCM": "off"
-		},
-		"buildServerOS": "",
-		"engine": "",
-		"pipelineName": ""
-		},
-		"code": {
-		"category": "",
-		"technology": "",
-		"scm": [],
-		"buildScript": [{ "tool": "" }, { "tool": "" }, {}]
-		},
-		"buildInfo": {
-		"buildtool": "",
-		"castAnalysis": {},
-		"artifactToStage": {},
-		"modules": []
-		},
-		"deployInfo": {
-		"deployEnv": []
-		},
-		"testInfo": {
-		"testEnv": []
-		},
-		"formStatus": {
-		"basicInfo": {
-			"appNameStatus": "0",
-			"formStatus": "0"
-		},
-		"codeInfo": "",
-		"buildInfo": {
-			"buildToolStatus": "0",
-			"formStatus": "0",
-			"ibmsiTypeStatus": "0"
-		},
-		"deployInfo": "",
-		"testInfo": "",
-		"operation": ""
-		},
-		"checkboxStatus": {
-		"basicInfo": {},
-		"codeInfo": {},
-		"buildInfo": {},
-		"deployInfo": {},
-		"testInfo": {},
-		"others": {}
-		},
-		"backUp": {
-		"deployInfo": {},
-		"testInfo": {}
-		},
-		"masterJson": {}
-	};
-	data: any = JSON.parse(JSON.stringify(this.template));
+    constructor() { }
+    template: any = {
+        "grantAccess": {
+        "applicationName": "",
+        "developers": [],
+        "pipelineAdmins": [],
+        "releaseManager": [],
+        "environmentOwnerDetails": [{
+            "environmentName": "",
+            "environmentOwners": [],
+            "dbOwners": []
+        }],
+        "slaveDetails": [
+            {
+            "slaveName": "",
+            "buildServerOS": "",
+            "workspacePath": "",
+            "createNewSlave": "",
+            "labels": "",
+            "sshKeyPath": "",
+            "slaveUsage": "both"
+            }
+        ]
+        },
+        "basicInfo": {
+        "additionalMailRecipients": {
+            "applicationTeam": "",
+            "emailIds": ""
+        },
+        "applicationName": "",
+        "buildInterval": {
+            "buildInterval": "",
+            "buildIntervalValue": 0,
+            "pollSCM": "off"
+        },
+        "buildServerOS": "",
+        "engine": "",
+        "pipelineName": ""
+        },
+        "code": {
+        "category": "",
+        "technology": "",
+        "scm": [],
+        "buildScript": [{ "tool": "" }, { "tool": "" }, {}]
+        },
+        "buildInfo": {
+        "buildtool": "",
+        "castAnalysis": {},
+        "artifactToStage": {},
+        "modules": []
+        },
+        "deployInfo": {
+        "deployEnv": []
+        },
+        "testInfo": {
+        "testEnv": []
+        },
+        "formStatus": {
+        "basicInfo": {
+            "appNameStatus": "0",
+            "formStatus": "0"
+        },
+        "codeInfo": "",
+        "buildInfo": {
+            "buildToolStatus": "0",
+            "formStatus": "0",
+            "ibmsiTypeStatus": "0"
+        },
+        "deployInfo": "",
+        "testInfo": "",
+        "operation": ""
+        },
+        "checkboxStatus": {
+        "basicInfo": {},
+        "codeInfo": {},
+        "buildInfo": {},
+        "deployInfo": {},
+        "testInfo": {},
+        "others": {}
+        },
+        "backUp": {
+        "deployInfo": {},
+        "testInfo": {}
+        },
+        "masterJson": {}
+    };
+    data: any = JSON.parse(JSON.stringify(this.template));
 
 
-	language = "english";
-	idpUserName = "";
-	roles = [];
-	access_token: any;
-	permissions = [];
-	createAppflag = false;
-	createPipelineflag = false;
-	copyPipelineflag = false;
-	editPipelineflag = false;
-	deletePipelineflag = false;
-	test = false;
-	devServerURL: any = "";
-	IDPDashboardURL = "";
-	IDPLink = "";
-	geUrl = "";
-	role = "";
-	IDPDropdownProperties: any = {};
-	showConfig: any;
-	pa = true;
-	continuecontrol: any;
-	geFlag: any;
-	p: any = false;
-	ejbVal: any;
-	warVal: any;
-	jarVal: any;
-	pipelineData: any;
-	triggerJobData: any;
-	application: any;
-	freezeNavBars = false;
-	osFlag: any;
-	op: any;
-	operation: any;
-	initMain: any = false;
-	RestApiDetails = false;
-	buildInfoReset = false;
-	compMove: any;
-	unit: any;
-	code: any;
-	refreshBuild = false;
+    language = "english";
+    idpUserName = "";
+    roles = [];
+    access_token: any;
+    permissions = [];
+    createAppflag = false;
+    createPipelineflag = false;
+    copyPipelineflag = false;
+    editPipelineflag = false;
+    deletePipelineflag = false;
+    test = false;
+    devServerURL: any = "";
+    IDPDashboardURL = "";
+    IDPLink = "";
+    geUrl = "";
+    role = "";
+    IDPDropdownProperties: any = {};
+    showConfig: any;
+    pa = true;
+    continuecontrol: any;
+    geFlag: any;
+    p: any = false;
+    ejbVal: any;
+    warVal: any;
+    jarVal: any;
+    pipelineData: any;
+    triggerJobData: any;
+    application: any;
+    freezeNavBars = false;
+    osFlag: any;
+    op: any;
+    operation: any;
+    initMain: any = false;
+    RestApiDetails = false;
+    buildInfoReset = false;
+    compMove: any;
+    unit: any;
+    code: any;
+    refreshBuild = false;
   }
   class IdpServiceStub {
 
@@ -163,7 +163,7 @@ describe("AntCtrlComponent", () => {
   }
 
   class RouterStub {
-	navigate(commands: any[], extras?: NavigationExtras) { }
+    navigate(commands: any[], extras?: NavigationExtras) { }
   }
   const idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
   const routerStub: RouterStub = new RouterStub();
@@ -171,204 +171,204 @@ describe("AntCtrlComponent", () => {
   const idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [AntCtrlComponent, ParentFormConnectComponent],
+    TestBed.configureTestingModule({
+        declarations: [AntCtrlComponent, ParentFormConnectComponent],
 
-		imports: [FormsModule, TranslateModule],
-		providers: [{ provide: IdprestapiService, useValue: idprestapiServiceStub },
-		{ provide: IdpService, useValue: idpServiceStub },
-		{ provide: IdpdataService, useValue: idpdataserviceStub },
-		{ provide: Router, useValue: routerStub },
-		TranslateService, TranslateLoader, TranslateParser
-		]
-	})
-		.compileComponents();
+        imports: [FormsModule, TranslateModule],
+        providers: [{ provide: IdprestapiService, useValue: idprestapiServiceStub },
+        { provide: IdpService, useValue: idpServiceStub },
+        { provide: IdpdataService, useValue: idpdataserviceStub },
+        { provide: Router, useValue: routerStub },
+        TranslateService, TranslateLoader, TranslateParser
+        ]
+    })
+        .compileComponents();
   }));
 
   beforeEach(() => {
-	router = TestBed.get(Router);
-	idpService = TestBed.get(IdpService);
-	idpdataService = TestBed.get(IdpdataService);
-	idprestapiService = TestBed.get(IdprestapiService);
-	fixture = TestBed.createComponent(AntCtrlComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    router = TestBed.get(Router);
+    idpService = TestBed.get(IdpService);
+    idpdataService = TestBed.get(IdpdataService);
+    idprestapiService = TestBed.get(IdprestapiService);
+    fixture = TestBed.createComponent(AntCtrlComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
 
   it("code analysis on", () => {
-	component.tempObject.modules[0].codeAnalysis = "on";
-	component.buildInfo.modules[0].codeAnalysis[0] = "off";
-	component.buildInfo.modules[0].codeAnalysis[1] = "off";
-	component.buildInfo.modules[0].codeAnalysis[2] = "off";
-	component.buildInfo.modules[0].codeAnalysis[3] = "off";
-	expect(component.checkCodeAnalysisOn(0)).toBeFalsy();
+    component.tempObject.modules[0].codeAnalysis = "on";
+    component.buildInfo.modules[0].codeAnalysis[0] = "off";
+    component.buildInfo.modules[0].codeAnalysis[1] = "off";
+    component.buildInfo.modules[0].codeAnalysis[2] = "off";
+    component.buildInfo.modules[0].codeAnalysis[3] = "off";
+    expect(component.checkCodeAnalysisOn(0)).toBeFalsy();
   });
 
   it("code analysis on1", () => {
-	component.tempObject.modules[0].codeAnalysis = "on";
-	component.buildInfo.modules[0].codeAnalysis[0] = "on";
-	component.buildInfo.modules[0].codeAnalysis[1] = "off";
-	component.buildInfo.modules[0].codeAnalysis[2] = "off";
-	component.buildInfo.modules[0].codeAnalysis[3] = "off";
-	expect(component.checkCodeAnalysisOn(0)).toBeTruthy();
+    component.tempObject.modules[0].codeAnalysis = "on";
+    component.buildInfo.modules[0].codeAnalysis[0] = "on";
+    component.buildInfo.modules[0].codeAnalysis[1] = "off";
+    component.buildInfo.modules[0].codeAnalysis[2] = "off";
+    component.buildInfo.modules[0].codeAnalysis[3] = "off";
+    expect(component.checkCodeAnalysisOn(0)).toBeTruthy();
   });
 
   it("default values set", () => {
-	expect(component.buildInfo.modules[0].javaMainClass.toBe(""));
-	expect(component.buildInfo.modules[0].ejbDescriptor.toBe(""));
-	expect(component.buildInfo.modules[0].warPackaging.toBe(""));
-	expect(component.buildInfo.modules[0].compile.toBe("off"));
-	expect(component.buildInfo.modules[0].unitTesting.toBe("off"));
-	expect(component.buildInfo.modules[0].codeCoverage.toBe("off"));
-	expect(component.buildInfo.modules[0].codeAnalysis[0].toBe("on"));
-	expect(component.buildInfo.modules[0].codeAnalysis[1].toBe("off"));
-	expect(component.buildInfo.modules[0].codeAnalysis[2].toBe("off"));
-	expect(component.buildInfo.modules[0].codeAnalysis[3].toBe("off"));
-	expect(component.buildInfo.modules[0].chkjar.toBe("off"));
-	expect(component.buildInfo.modules[0].WARPackaging.toBe("off"));
-	expect(component.setSomeValues1(0)).toBeFalsy();
+    expect(component.buildInfo.modules[0].javaMainClass.toBe(""));
+    expect(component.buildInfo.modules[0].ejbDescriptor.toBe(""));
+    expect(component.buildInfo.modules[0].warPackaging.toBe(""));
+    expect(component.buildInfo.modules[0].compile.toBe("off"));
+    expect(component.buildInfo.modules[0].unitTesting.toBe("off"));
+    expect(component.buildInfo.modules[0].codeCoverage.toBe("off"));
+    expect(component.buildInfo.modules[0].codeAnalysis[0].toBe("on"));
+    expect(component.buildInfo.modules[0].codeAnalysis[1].toBe("off"));
+    expect(component.buildInfo.modules[0].codeAnalysis[2].toBe("off"));
+    expect(component.buildInfo.modules[0].codeAnalysis[3].toBe("off"));
+    expect(component.buildInfo.modules[0].chkjar.toBe("off"));
+    expect(component.buildInfo.modules[0].WARPackaging.toBe("off"));
+    expect(component.setSomeValues1(0)).toBeFalsy();
   });
 
   it("code analysis clear", () => {
-	expect(component.buildInfo.modules[0].codeAnalysis.toBe([]));
-	expect(component.clearCodeAnalysis(0)).toBeFalsy();
+    expect(component.buildInfo.modules[0].codeAnalysis.toBe([]));
+    expect(component.clearCodeAnalysis(0)).toBeFalsy();
   });
 
   it("code analysis clear", () => {
-	expect(component.buildInfo.modules[0].codeAnalysis.toBe(["off" , "off" , "off" , "off"]));
-	expect(component. createCodeAnalysis(0)).toBeTruthy();
+    expect(component.buildInfo.modules[0].codeAnalysis.toBe(["off" , "off" , "off" , "off"]));
+    expect(component. createCodeAnalysis(0)).toBeTruthy();
   });
 
   it("set customBuild", () => {
-	expect(component.tempObject.modules[0].customBuildXml.toBe("on"));
-	expect(component.setcustomBuildXml(0)).toBeFalsy();
+    expect(component.tempObject.modules[0].customBuildXml.toBe("on"));
+    expect(component.setcustomBuildXml(0)).toBeFalsy();
   });
 
   it("code analysis three", () => {
-	expect(component.buildInfo.modules[0].codeAnalysis[3].toBe("off"));
-	expect(component.tempObject.modules[0].WARPackaging.toBe("off"));
-	expect(component.setcodeAnalysisthree(0)).toBeFalsy();
+    expect(component.buildInfo.modules[0].codeAnalysis[3].toBe("off"));
+    expect(component.tempObject.modules[0].WARPackaging.toBe("off"));
+    expect(component.setcodeAnalysisthree(0)).toBeFalsy();
   });
 
   it("compile off", () => {
-	expect(component.setWarPack(0));
-	expect(component.setCompileOff(0)).toBe("off");
+    expect(component.setWarPack(0));
+    expect(component.setCompileOff(0)).toBe("off");
   });
 
   it("customBuild on", () => {
-	expect(component.buildInfo.modules[0].javaMainClass.toBe(""));
-	expect(component.buildInfo.modules[0].ejbDescriptor.toBe(""));
-	expect(component.buildInfo.modules[0].warPackaging.toBe(""));
-	expect(component.buildInfo.modules[0].compile.toBe("off"));
-	expect(component.buildInfo.modules[0].unitTesting.toBe("off"));
-	expect(component.buildInfo.modules[0].codeCoverage.toBe("off"));
-	expect(component.buildInfo.modules[0].codeAnalysis[1].toBe("off"));
-	expect(component.buildInfo.modules[0].codeAnalysis[2].toBe("off"));
-	expect(component.buildInfo.modules[0].codeAnalysis[3].toBe("off"));
-	expect(component.tempObject.modules[0].chkjar.toBe("off"));
-	expect(component.tempObject.modules[0].WARPackaging.toBe("off"));
-	expect(component.setCustomBuildOn(0)).toBeTruthy();
+    expect(component.buildInfo.modules[0].javaMainClass.toBe(""));
+    expect(component.buildInfo.modules[0].ejbDescriptor.toBe(""));
+    expect(component.buildInfo.modules[0].warPackaging.toBe(""));
+    expect(component.buildInfo.modules[0].compile.toBe("off"));
+    expect(component.buildInfo.modules[0].unitTesting.toBe("off"));
+    expect(component.buildInfo.modules[0].codeCoverage.toBe("off"));
+    expect(component.buildInfo.modules[0].codeAnalysis[1].toBe("off"));
+    expect(component.buildInfo.modules[0].codeAnalysis[2].toBe("off"));
+    expect(component.buildInfo.modules[0].codeAnalysis[3].toBe("off"));
+    expect(component.tempObject.modules[0].chkjar.toBe("off"));
+    expect(component.tempObject.modules[0].WARPackaging.toBe("off"));
+    expect(component.setCustomBuildOn(0)).toBeTruthy();
   });
 
   it("customBuild off", () => {
-	expect(component.buildInfo.modules[0].customBuildXml.toBe(""));
-	expect(component.buildInfo.modules[0].args.toBe(""));
-	expect(component.setCustomBuildOff(0)).toBeFalsy();
+    expect(component.buildInfo.modules[0].customBuildXml.toBe(""));
+    expect(component.buildInfo.modules[0].args.toBe(""));
+    expect(component.setCustomBuildOff(0)).toBeFalsy();
   });
 
   it("war pack set", () => {
-	expect(component.tempObject.modules[0].WARPackaging.toBe("off"));
-	expect(component.buildInfo.modules[0].warPackaging.toBe(""));
-	expect(component.setWarPack(0)).toBeFalsy();
+    expect(component.tempObject.modules[0].WARPackaging.toBe("off"));
+    expect(component.buildInfo.modules[0].warPackaging.toBe(""));
+    expect(component.setWarPack(0)).toBeFalsy();
   });
 
   it("checkForEarPackWAR", () => {
-	component.tempObject.warList = undefined;
-	expect(component.checkForEarPackWAR()).toBeFalsy();
+    component.tempObject.warList = undefined;
+    expect(component.checkForEarPackWAR()).toBeFalsy();
   });
 
   it("checkForEarPackWAR", () => {
-	component.tempObject.warList = ["abc"];
-	expect(component.checkForEarPackWAR()).toBeTruthy();
+    component.tempObject.warList = ["abc"];
+    expect(component.checkForEarPackWAR()).toBeTruthy();
   });
 
   it("setContinuecontrolFalse()", () => {
-	const a = component.setContinuecontrolFalse();
-	expect(a).toBeFalsy();
+    const a = component.setContinuecontrolFalse();
+    expect(a).toBeFalsy();
   });
 
   it("setContinuecontrolTrue()", () => {
-	const a = component.setContinuecontrolTrue();
-	expect(a).toBeFalsy();
+    const a = component.setContinuecontrolTrue();
+    expect(a).toBeFalsy();
   });
 
   it("setpaFalse()", () => {
-	const a = component.setpaFalse();
-	expect(a).toBeFalsy();
+    const a = component.setpaFalse();
+    expect(a).toBeFalsy();
   });
 
   it("setpaTrue()", () => {
-	const a = component.setpaTrue();
-	expect(a).toBeFalsy();
+    const a = component.setpaTrue();
+    expect(a).toBeFalsy();
   });
 
   it("setejbValFalse()", () => {
-	const a = component.setejbValFalse();
-	expect(a).toBeFalsy();
+    const a = component.setejbValFalse();
+    expect(a).toBeFalsy();
   });
 
   it("setejbValTrue()", () => {
-	const a = component.setejbValTrue();
-	expect(a).toBeFalsy();
+    const a = component.setejbValTrue();
+    expect(a).toBeFalsy();
   });
 
   it("setwarValFalse()", () => {
-	const a = component.setwarValFalse();
-	expect(a).toBeFalsy();
+    const a = component.setwarValFalse();
+    expect(a).toBeFalsy();
   });
 
   it("setwarValTrue()", () => {
-	const a = component.setwarValTrue();
-	expect(a).toBeFalsy();
+    const a = component.setwarValTrue();
+    expect(a).toBeFalsy();
   });
 
   it("setJavaModules()", () => {
-	const a = component.setJavaModules();
-	expect(component.buildInfo.javaModules).toBe("");
-	expect(a).toBeFalsy();
+    const a = component.setJavaModules();
+    expect(component.buildInfo.javaModules).toBe("");
+    expect(a).toBeFalsy();
   });
 
   it("setEjbModules()", () => {
-	const a = component.setEjbModules();
-	expect(component.buildInfo.ejbModules).toBe("");
-	expect(a).toBeFalsy();
+    const a = component.setEjbModules();
+    expect(component.buildInfo.ejbModules).toBe("");
+    expect(a).toBeFalsy();
   });
 
   it("setwebModules()", () => {
-	const a = component.setwebModules();
-	expect(component.buildInfo.webModules).toBe("");
-	expect(a).toBeFalsy();
+    const a = component.setwebModules();
+    expect(component.buildInfo.webModules).toBe("");
+    expect(a).toBeFalsy();
   });
 
   it("setwebejbjavaModules()", () => {
-	const a = component.setwebejbjavaModules();
-	expect(component.buildInfo.ejbModules).toBe("");
-	expect(component.buildInfo.webModules).toBe("");
-	expect(component.buildInfo.javaModules).toBe("");
-	expect(a).toBeFalsy();
+    const a = component.setwebejbjavaModules();
+    expect(component.buildInfo.ejbModules).toBe("");
+    expect(component.buildInfo.webModules).toBe("");
+    expect(component.buildInfo.javaModules).toBe("");
+    expect(a).toBeFalsy();
   });
 
   it("checkForEarPackJava", () => {
-	component.tempObject.javalist = undefined;
-	const a = component.checkForEarPackJava();
-	expect(a).toBeFalsy();
+    component.tempObject.javalist = undefined;
+    const a = component.checkForEarPackJava();
+    expect(a).toBeFalsy();
   });
 
   it("javaOptionList", () => {
-	expect(component.tempObject.javalist.toBe([]));
-	expect(component.buildInfo.modules[0].javaMainClass.toBe("hello"));
-	const a = component.javaOptionList();
-	expect(a).toBeFalsy();
+    expect(component.tempObject.javalist.toBe([]));
+    expect(component.buildInfo.modules[0].javaMainClass.toBe("hello"));
+    const a = component.javaOptionList();
+    expect(a).toBeFalsy();
   });
 });

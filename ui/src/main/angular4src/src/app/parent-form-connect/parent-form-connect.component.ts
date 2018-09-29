@@ -6,40 +6,40 @@ import {NgForm} from "@angular/forms";
 export class ParentFormConnectComponent implements OnInit, OnDestroy {
 
   @Input()
-	public parentFormConnect = "child";
+    public parentFormConnect = "child";
 
-	private removeControlFunction: () => void = () => {};
+    private removeControlFunction: () => void = () => {};
 
-	constructor(@Optional() @SkipSelf() private parentForm: NgForm,
-				private form: NgForm) {
+    constructor(@Optional() @SkipSelf() private parentForm: NgForm,
+                private form: NgForm) {
 
-		console.log("parentFormConnect construct");
-	}
+        console.log("parentFormConnect construct");
+    }
 
-	ngOnInit(): void {
+    ngOnInit(): void {
 
-		if (this.parentForm) {
-		console.log("parent register as " + this.parentFormConnect);
+        if (this.parentForm) {
+        console.log("parent register as " + this.parentFormConnect);
 
-		if (this.parentForm.form.contains(this.parentFormConnect) === true) {
+        if (this.parentForm.form.contains(this.parentFormConnect) === true) {
 
-			// alert("goht it gibts scho");
-			return;
-		}
+            // alert("goht it gibts scho");
+            return;
+        }
 
-		this.parentForm.form.addControl(this.parentFormConnect, this.form.form);
-		this.removeControlFunction = () => {
+        this.parentForm.form.addControl(this.parentFormConnect, this.form.form);
+        this.removeControlFunction = () => {
 
-			console.log("parent unregister " + this.parentFormConnect);
-			this.parentForm.form.removeControl(this.parentFormConnect);
-		};
-		}
-	}
+            console.log("parent unregister " + this.parentFormConnect);
+            this.parentForm.form.removeControl(this.parentFormConnect);
+        };
+        }
+    }
 
-	ngOnDestroy(): void {
+    ngOnDestroy(): void {
 
-		this.removeControlFunction();
+        this.removeControlFunction();
 
-	}
+    }
 
 }

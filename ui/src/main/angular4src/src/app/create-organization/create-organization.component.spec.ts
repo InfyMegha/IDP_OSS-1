@@ -13,19 +13,19 @@ describe("CreateOrganizationComponent", () => {
   let fixture: ComponentFixture<CreateOrganizationComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ CreateOrganizationComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ CreateOrganizationComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(CreateOrganizationComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(CreateOrganizationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

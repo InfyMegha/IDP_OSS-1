@@ -24,18 +24,18 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	deployInfoRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	AngularMultiSelectModule,
-	DateTimePickerModule,
-	IdpEncryptionModule
+    CommonModule,
+    deployInfoRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    AngularMultiSelectModule,
+    DateTimePickerModule,
+    IdpEncryptionModule
   ],
   declarations: [DeployInfoComponent]
 })

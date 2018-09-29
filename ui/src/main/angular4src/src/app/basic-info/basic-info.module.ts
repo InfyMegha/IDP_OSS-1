@@ -18,15 +18,15 @@ export function createTranslateLoader(http: Http) {
 }
 @NgModule({
   imports: [
-	CommonModule,
-	basicInfoRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule
+    CommonModule,
+    basicInfoRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule
   ],
   declarations: [BasicInfoComponent]
 })

@@ -15,14 +15,14 @@ import { ShowConfigurationsComponent } from "../show-config/show-config.componen
 export class TriggerServiceComponent implements OnInit {
 
   constructor(
-	private showconfig: ShowConfigurationsComponent
+    private showconfig: ShowConfigurationsComponent
 
 
   ) {
    }
 
    callAllRestApi() {
-		this.showconfig.getPipelineData();
+        this.showconfig.getPipelineData();
 
    }
 

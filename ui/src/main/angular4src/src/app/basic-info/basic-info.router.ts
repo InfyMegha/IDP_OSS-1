@@ -9,10 +9,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { BasicInfoComponent } from "./basic-info.component";
 
 const BASIC_INFO_ROUTER: Routes = [
-	{
-		path: "",
-		component: BasicInfoComponent
-	}
+    {
+        path: "",
+        component: BasicInfoComponent
+    }
 ];
 
 export const basicInfoRouter = RouterModule.forChild(BASIC_INFO_ROUTER );

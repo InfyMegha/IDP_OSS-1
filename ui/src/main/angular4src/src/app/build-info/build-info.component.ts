@@ -27,13 +27,13 @@ export class BuildInfoComponent implements OnInit {
 
   /*constructor start*/
   constructor(
-	private ref: ChangeDetectorRef,
-	public IdpdataService: IdpdataService,
-	private IdpSubmitService: IdpSubmitService,
-	private router: Router,
-	private IdpService: IdpService,
+    private ref: ChangeDetectorRef,
+    public IdpdataService: IdpdataService,
+    private IdpSubmitService: IdpSubmitService,
+    private router: Router,
+    private IdpService: IdpService,
   ) {
-	this.IdpSubmitService.message = "";
+    this.IdpSubmitService.message = "";
   }
   buildInfo = this.IdpdataService.data.buildInfo;
   buildtool = this.buildInfo.buildtool;
@@ -41,155 +41,155 @@ export class BuildInfoComponent implements OnInit {
   loc: any;
   listToFillFields: any = [];
   TriggerAlert() {
-	this.button.nativeElement.click();
+    this.button.nativeElement.click();
 
   }
 
   redirectTo() {
-	if (this.loc) {
-		this.router.navigate([this.loc]);
-	}
+    if (this.loc) {
+        this.router.navigate([this.loc]);
+    }
   }
 
   go() {
 
-	if (this.IdpdataService.pa) {
-		if ((this.buildInfo.artifactToStage.artifact === undefined || this.buildInfo.artifactToStage.artifact === "")
-		&& this.buildInfo.artifactToStage.artifactRepoName !== "na" && this.IdpdataService.artifactAppVariable === true) {
-		alert("Artifact Repository manager selected at application level.Either give repository at pipeline level or fill the artifact pattern.");
-		return;
-		}
+    if (this.IdpdataService.pa) {
+        if ((this.buildInfo.artifactToStage.artifact === undefined || this.buildInfo.artifactToStage.artifact === "")
+        && this.buildInfo.artifactToStage.artifactRepoName !== "na" && this.IdpdataService.artifactAppVariable === true) {
+        alert("Artifact Repository manager selected at application level.Either give repository at pipeline level or fill the artifact pattern.");
+        return;
+        }
 
-		this.IdpdataService.data.buildInfo = this.buildInfo;
-		this.IdpdataService.data.masterJson["buildInfo"] = this.buildInfo;
-		console.log(this.IdpdataService.data);
-		if (this.IdpdataService.buildSubscriptionSubmit !== true) {
-		this.router.navigate(["/createConfig/deployInfo"]);
-		} else if (this.IdpdataService.buildSubscriptionSubmit === true) {
-		if (this.IdpdataService.allFormStatus.basicInfo &&
-			this.IdpdataService.allFormStatus.codeInfo &&
-			this.IdpdataService.allFormStatus.buildInfo) {
-			this.confirmationAlert.nativeElement.click();
-		} else {
-			if (!this.IdpdataService.allFormStatus.basicInfo && this.listToFillFields.indexOf("BasicInfo") === -1) {
-			this.listToFillFields.push("BasicInfo");
-			}
-			if (!this.IdpdataService.allFormStatus.codeInfo && this.listToFillFields.indexOf("CodeInfo") === -1) {
-			this.listToFillFields.push("CodeInfo");
-			}
-			if (!this.IdpdataService.allFormStatus.buildInfo && this.listToFillFields.indexOf("BuildInfo") === -1) {
-			this.listToFillFields.push("BuildInfo");
-			}
-			this.mandatoryFieldsAlert.nativeElement.click();
-		}
+        this.IdpdataService.data.buildInfo = this.buildInfo;
+        this.IdpdataService.data.masterJson["buildInfo"] = this.buildInfo;
+        console.log(this.IdpdataService.data);
+        if (this.IdpdataService.buildSubscriptionSubmit !== true) {
+        this.router.navigate(["/createConfig/deployInfo"]);
+        } else if (this.IdpdataService.buildSubscriptionSubmit === true) {
+        if (this.IdpdataService.allFormStatus.basicInfo &&
+            this.IdpdataService.allFormStatus.codeInfo &&
+            this.IdpdataService.allFormStatus.buildInfo) {
+            this.confirmationAlert.nativeElement.click();
+        } else {
+            if (!this.IdpdataService.allFormStatus.basicInfo && this.listToFillFields.indexOf("BasicInfo") === -1) {
+            this.listToFillFields.push("BasicInfo");
+            }
+            if (!this.IdpdataService.allFormStatus.codeInfo && this.listToFillFields.indexOf("CodeInfo") === -1) {
+            this.listToFillFields.push("CodeInfo");
+            }
+            if (!this.IdpdataService.allFormStatus.buildInfo && this.listToFillFields.indexOf("BuildInfo") === -1) {
+            this.listToFillFields.push("BuildInfo");
+            }
+            this.mandatoryFieldsAlert.nativeElement.click();
+        }
 
-		}
-	} else {
-		alert("Please select atleast one tool for code analysis.");
-	}
+        }
+    } else {
+        alert("Please select atleast one tool for code analysis.");
+    }
 
   }
 
   // ngOnInit starts
   ngOnInit() {
-	if (this.IdpdataService.data.formStatus.basicInfo.appNameStatus === "0") {
-		this.msg = "Application Name";
-		this.loc = "/createConfig/basicInfo";
-		this.TriggerAlert();
-	} else if (this.IdpdataService.data.formStatus.buildInfo.buildToolStatus === "0") {
+    if (this.IdpdataService.data.formStatus.basicInfo.appNameStatus === "0") {
+        this.msg = "Application Name";
+        this.loc = "/createConfig/basicInfo";
+        this.TriggerAlert();
+    } else if (this.IdpdataService.data.formStatus.buildInfo.buildToolStatus === "0") {
 
-		this.msg = "Technology Type";
-		this.loc = "/createConfig/codeInfo";
-		// this.IdpdataService.data.p=true;
-		this.TriggerAlert();
+        this.msg = "Technology Type";
+        this.loc = "/createConfig/codeInfo";
+        // this.IdpdataService.data.p=true;
+        this.TriggerAlert();
 
-	}
-	if (this.buildInfo.buildtool === "msBuild" && this.IdpdataService.data.basicInfo.buildServerOS !== "windows") {
-		this.dotNetButton.nativeElement.click();
+    }
+    if (this.buildInfo.buildtool === "msBuild" && this.IdpdataService.data.basicInfo.buildServerOS !== "windows") {
+        this.dotNetButton.nativeElement.click();
 
-	}
+    }
 
   }
 
 
   setFormStatus(data) {
-	this.IdpdataService.allFormStatus.buildInfo = data;
+    this.IdpdataService.allFormStatus.buildInfo = data;
   }
   // ngOnInit ends
   resetData() {
-	const buildtool = this.buildInfo.buildtool;
-	const x = confirm("Are you sure to Reset ?");
-	if (x) {
-		this.buildInfo = {
-		"buildtool": buildtool,
-		"castAnalysis": {},
-		"artifactToStage": {},
-		"modules": [],
-		"dependentPipelineList": []
-		};
-	}
+    const buildtool = this.buildInfo.buildtool;
+    const x = confirm("Are you sure to Reset ?");
+    if (x) {
+        this.buildInfo = {
+        "buildtool": buildtool,
+        "castAnalysis": {},
+        "artifactToStage": {},
+        "modules": [],
+        "dependentPipelineList": []
+        };
+    }
 
-	this.IdpdataService.data.buildInfo = this.buildInfo;
-	this.IdpdataService.data.checkboxStatus.others = {};
-	this.IdpdataService.data.checkboxStatus.buildInfo = {};
-	console.log(this.IdpdataService.data.buildInfo);
-	console.log(this.IdpdataService.data.buildInfo);
-	this.router.navigateByUrl("/Dummy", { skipLocationChange: true })
-		.then(() => this.router.navigate(["/createConfig/buildInfo"]));
+    this.IdpdataService.data.buildInfo = this.buildInfo;
+    this.IdpdataService.data.checkboxStatus.others = {};
+    this.IdpdataService.data.checkboxStatus.buildInfo = {};
+    console.log(this.IdpdataService.data.buildInfo);
+    console.log(this.IdpdataService.data.buildInfo);
+    this.router.navigateByUrl("/Dummy", { skipLocationChange: true })
+        .then(() => this.router.navigate(["/createConfig/buildInfo"]));
   }
   redirectToBasicInfo() {
-	this.router.navigate(["/createConfig/basicInfo"]);
+    this.router.navigate(["/createConfig/basicInfo"]);
   }
 
   buildSubscriptionNotSubmitCheck() {
-	if (this.IdpdataService.buildSubscriptionSubmit !== true) {
-		return true;
-	} else {
-		return false;
-	}
+    if (this.IdpdataService.buildSubscriptionSubmit !== true) {
+        return true;
+    } else {
+        return false;
+    }
   }
 
   buildSubscriptionSubmitCheck() {
-	if (this.IdpdataService.buildSubscriptionSubmit === true) {
-		return true;
-	} else {
-		return false;
-	}
+    if (this.IdpdataService.buildSubscriptionSubmit === true) {
+        return true;
+    } else {
+        return false;
+    }
   }
 
   checkLoaderOn() {
-	if (this.IdpSubmitService.loader === "on") {
-		return true;
-	} else {
-		return false;
-	}
+    if (this.IdpSubmitService.loader === "on") {
+        return true;
+    } else {
+        return false;
+    }
   }
 
   checkLoaderOff() {
-	if (this.IdpSubmitService.loader === "off") {
-		return true;
-	} else {
-		return false;
-	}
+    if (this.IdpSubmitService.loader === "off") {
+        return true;
+    } else {
+        return false;
+    }
   }
 
   checkMsgSuccess() {
-	if (this.IdpSubmitService.message === "success") {
-		return true;
-	} else {
-		return false;
-	}
+    if (this.IdpSubmitService.message === "success") {
+        return true;
+    } else {
+        return false;
+    }
   }
 
   checkMsgError() {
-	if (this.IdpSubmitService.message === "error") {
-		return true;
-	} else {
-		return false;
-	}
+    if (this.IdpSubmitService.message === "error") {
+        return true;
+    } else {
+        return false;
+    }
   }
 
   submitData() {
-	this.IdpSubmitService.submitData();
+    this.IdpSubmitService.submitData();
   }
 }

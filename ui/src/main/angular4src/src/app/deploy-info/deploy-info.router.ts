@@ -9,10 +9,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { DeployInfoComponent } from "./deploy-info.component";
 
 const DEPLOY_INFO_ROUTER: Routes = [
-	{
-		path: "",
-		component: DeployInfoComponent
-	}
+    {
+        path: "",
+        component: DeployInfoComponent
+    }
 ];
 
 export const deployInfoRouter = RouterModule.forChild(DEPLOY_INFO_ROUTER );

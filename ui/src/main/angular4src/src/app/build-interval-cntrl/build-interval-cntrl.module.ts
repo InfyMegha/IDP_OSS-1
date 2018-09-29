@@ -17,23 +17,23 @@ export function createTranslateLoader(http: Http) {
 }
 
 @NgModule({
-	declarations: [
-	BuildIntervalCntrlComponent
-	],
+    declarations: [
+    BuildIntervalCntrlComponent
+    ],
   imports: [
-	CommonModule,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	AngularMultiSelectModule,
-	DateTimePickerModule,
-	TreeviewModule.forRoot(),
-	TriggerModule,
-	buildScheduleRouter
+    CommonModule,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    AngularMultiSelectModule,
+    DateTimePickerModule,
+    TreeviewModule.forRoot(),
+    TriggerModule,
+    buildScheduleRouter
   ],
   bootstrap: [BuildIntervalCntrlComponent]
 })

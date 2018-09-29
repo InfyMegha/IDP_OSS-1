@@ -7,19 +7,19 @@ describe("ActiveReleaseComponent", () => {
   let fixture: ComponentFixture<ActiveReleaseComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ ActiveReleaseComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ ActiveReleaseComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(ActiveReleaseComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(ActiveReleaseComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should be created", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

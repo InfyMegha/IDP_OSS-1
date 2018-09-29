@@ -27,37 +27,37 @@ export class SuccessComponent implements OnInit {
   ngOnInit() { }
   /* Constructor */
   constructor(
-	public IdpdataService: IdpdataService,
-	private IdprestapiService: IdprestapiService) {
+    public IdpdataService: IdpdataService,
+    private IdprestapiService: IdprestapiService) {
 
-	this.IdpdataService.freezeNavBars = false;
-	this.pipelineDetails = IdpdataService.data.masterJson;
-	this.pipelineAdminName = IdpdataService.idpUserName;
-	this.pipelineName = this.pipelineDetails.basicInfo.pipelineName;
-	this.application = this.IdpdataService.application;
+    this.IdpdataService.freezeNavBars = false;
+    this.pipelineDetails = IdpdataService.data.masterJson;
+    this.pipelineAdminName = IdpdataService.idpUserName;
+    this.pipelineName = this.pipelineDetails.basicInfo.pipelineName;
+    this.application = this.IdpdataService.application;
 
   }
 
   /* Gets App details for Displaying in success page */
   getAppDetails(appName) {
-	this.IdprestapiService.getApplicationDetails(appName)
-		.then(response => {
-		if (response) {
-			const resp = response.json().resource;
-			let parsed;
-			try {
-			parsed = JSON.parse(resp);
-			if (parsed) {
-				this.IdpdataService.application = parsed.appJson;
-				console.log(this.IdpdataService.application);
-				console.log(this.IdpdataService.data);
-				this.application = this.IdpdataService.application;
-			}
-			} catch (e) {
-			alert("Failed to get Application Details");
-			console.log(e);
-			}
-		}
-		});
+    this.IdprestapiService.getApplicationDetails(appName)
+        .then(response => {
+        if (response) {
+            const resp = response.json().resource;
+            let parsed;
+            try {
+            parsed = JSON.parse(resp);
+            if (parsed) {
+                this.IdpdataService.application = parsed.appJson;
+                console.log(this.IdpdataService.application);
+                console.log(this.IdpdataService.data);
+                this.application = this.IdpdataService.application;
+            }
+            } catch (e) {
+            alert("Failed to get Application Details");
+            console.log(e);
+            }
+        }
+        });
   }
 }

@@ -20,43 +20,43 @@ import { CookieService } from "ngx-cookie";
 export class ReleaseConfigsComponent implements OnInit {
 
   constructor(private IdpService: IdpService,
-	public IdpdataService: IdpdataService, private cdr: ChangeDetectorRef,
-	private IdprestapiService: IdprestapiService, private _cookieService: CookieService) {
-		this.callforRest();
-	}
+    public IdpdataService: IdpdataService, private cdr: ChangeDetectorRef,
+    private IdprestapiService: IdprestapiService, private _cookieService: CookieService) {
+        this.callforRest();
+    }
 
   ngOnInit() {
   }
 
   /* Fetching java rest to get details */
   callforRest() {
-	this.IdprestapiService.getData()
-		.then(response => {
-		try {
-			if (response) {
-				this.IdpdataService.devServerURL = response.json().idpresturl;
-			// this.IdpdataService.devServerURL = "http://blrkec411161d:8889/idprest";
-				// this.IdpdataService.devServerURL = "http://blrkec411214d:8889/idprest";
-			this.IdpdataService.IDPDashboardURL = response.json().idpdashboardurl;
-			this.IdpdataService.IDPLink = response.json().IDPLink;
-			this.IdpdataService.geUrl = response.json().geUrl;
-			this.IdpdataService.geFlag = response.json().geFlag;
-			this.IdpdataService.serverUrl = response.json().tfsServerUrl;
-			this.IdpdataService.uName = response.json().uName;
-			this.IdpdataService.pass = response.json().pass;
-			console.log(this.IdpdataService.devServerURL);
+    this.IdprestapiService.getData()
+        .then(response => {
+        try {
+            if (response) {
+                this.IdpdataService.devServerURL = response.json().idpresturl;
+            // this.IdpdataService.devServerURL = "http://blrkec411161d:8889/idprest";
+                // this.IdpdataService.devServerURL = "http://blrkec411214d:8889/idprest";
+            this.IdpdataService.IDPDashboardURL = response.json().idpdashboardurl;
+            this.IdpdataService.IDPLink = response.json().IDPLink;
+            this.IdpdataService.geUrl = response.json().geUrl;
+            this.IdpdataService.geFlag = response.json().geFlag;
+            this.IdpdataService.serverUrl = response.json().tfsServerUrl;
+            this.IdpdataService.uName = response.json().uName;
+            this.IdpdataService.pass = response.json().pass;
+            console.log(this.IdpdataService.devServerURL);
 
-			if (this._cookieService.get("access_token")) {
-				console.log("details");
-				this.IdpdataService.loadReleasePage = true;
-				this.IdpService.getDetails();
-			}
-			}
-		} catch (e) {
-			alert("failed to get properties details");
-			console.log(e);
-		}
-		});
+            if (this._cookieService.get("access_token")) {
+                console.log("details");
+                this.IdpdataService.loadReleasePage = true;
+                this.IdpService.getDetails();
+            }
+            }
+        } catch (e) {
+            alert("failed to get properties details");
+            console.log(e);
+        }
+        });
   }
 
 }

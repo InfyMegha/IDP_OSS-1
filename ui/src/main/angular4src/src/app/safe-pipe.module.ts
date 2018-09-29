@@ -10,10 +10,10 @@ import {SafePipePipe} from "./safe-pipe.pipe";
 
 @NgModule({
   declarations: [
-	SafePipePipe
+    SafePipePipe
   ],
   exports: [
-	SafePipePipe
+    SafePipePipe
   ]
 })
 export class SafePipeModule {}

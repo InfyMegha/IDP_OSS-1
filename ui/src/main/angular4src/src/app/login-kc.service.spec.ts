@@ -10,12 +10,12 @@ import { LoginKcService } from "./login-kc.service";
 
 describe("LoginKcService", () => {
   beforeEach(() => {
-	TestBed.configureTestingModule({
-		providers: [LoginKcService]
-	});
+    TestBed.configureTestingModule({
+        providers: [LoginKcService]
+    });
   });
 
   it("should be created", inject([LoginKcService], (service: LoginKcService) => {
-	expect(service).toBeTruthy();
+    expect(service).toBeTruthy();
   }));
 });

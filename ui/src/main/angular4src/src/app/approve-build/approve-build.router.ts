@@ -9,10 +9,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { ApproveBuildComponent } from "./approve-build.component";
 
 const APPROVE_BUILD_ROUTER: Routes = [
-	{
-		path: "",
-		component: ApproveBuildComponent
-	}
+    {
+        path: "",
+        component: ApproveBuildComponent
+    }
 ];
 
 export const approvebuildRouter = RouterModule.forChild(APPROVE_BUILD_ROUTER);

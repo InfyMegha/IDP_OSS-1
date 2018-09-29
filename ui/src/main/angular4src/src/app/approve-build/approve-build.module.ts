@@ -20,16 +20,16 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	approvebuildRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	AngularMultiSelectModule
+    CommonModule,
+    approvebuildRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    AngularMultiSelectModule
   ],
   declarations: [ApproveBuildComponent]
 })

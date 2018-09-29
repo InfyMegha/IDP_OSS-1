@@ -24,80 +24,80 @@ export class AddUpdateReleaseComponent implements OnInit {
   releaseManagerData: any;
   /* Constructor */
   constructor(private Idpdata: IdpdataService,
-	private Idprestapi: IdprestapiService,
-	private router: Router
+    private Idprestapi: IdprestapiService,
+    private router: Router
   ) {
-	this.Idpdata.workflowData = [];
-	this.Idpdata.workflowDataTemp = [];
-	this.getApplicationName();
-	this.Idpdata.releaseManagerData = JSON.parse(JSON.stringify(this.Idpdata.releaseManagerTemplate));
-	this.releaseManagerData = this.Idpdata.releaseManagerData;
+    this.Idpdata.workflowData = [];
+    this.Idpdata.workflowDataTemp = [];
+    this.getApplicationName();
+    this.Idpdata.releaseManagerData = JSON.parse(JSON.stringify(this.Idpdata.releaseManagerTemplate));
+    this.releaseManagerData = this.Idpdata.releaseManagerData;
   }
 
   ngOnInit() {
   }
   /* Gets Applicaion Name */
   getApplicationName() {
-	this.Idprestapi.getApplicationNameForReleaseManager(this.Idpdata.idpUserName)
-		.then(response => {
-		if (response) {
-			const appDetails = JSON.parse(response.json().resource);
-			this.appNames = appDetails.names;
-		}
-		});
+    this.Idprestapi.getApplicationNameForReleaseManager(this.Idpdata.idpUserName)
+        .then(response => {
+        if (response) {
+            const appDetails = JSON.parse(response.json().resource);
+            this.appNames = appDetails.names;
+        }
+        });
   }
 
   getPipelineNames() {
-	if (this.releaseManagerData.applicationName !== "") {
-		this.Idpdata.releaseUpdateSuccess = false;
-		this.Idpdata.activeReleasePipelineName = "";
-		this.Idpdata.releasePipelineName = "";
-		this.Idpdata.noPipelines = false;
-		this.Idpdata.releaseAddSuccess = false;
-		this.Idprestapi.getPipelineNames(this.releaseManagerData.applicationName).then(response => {
-		const resp = response.json();
-		this.Idpdata.pipelineNames = [];
-		if (resp.resource !== "No Pipelines") {
-			const pipData = JSON.parse(resp.resource);
-			for (const i of pipData.names) {
-			this.Idpdata.pipelineNames.push(i);
-			}
-		} else {
-			this.Idpdata.noPipelines = true;
-		}
-		});
-		return true;
-	}
+    if (this.releaseManagerData.applicationName !== "") {
+        this.Idpdata.releaseUpdateSuccess = false;
+        this.Idpdata.activeReleasePipelineName = "";
+        this.Idpdata.releasePipelineName = "";
+        this.Idpdata.noPipelines = false;
+        this.Idpdata.releaseAddSuccess = false;
+        this.Idprestapi.getPipelineNames(this.releaseManagerData.applicationName).then(response => {
+        const resp = response.json();
+        this.Idpdata.pipelineNames = [];
+        if (resp.resource !== "No Pipelines") {
+            const pipData = JSON.parse(resp.resource);
+            for (const i of pipData.names) {
+            this.Idpdata.pipelineNames.push(i);
+            }
+        } else {
+            this.Idpdata.noPipelines = true;
+        }
+        });
+        return true;
+    }
   }
 
   addSuccessFalse() {
-	this.Idpdata.releaseAddSuccess = false;
-	this.pipelinesEmpty();
+    this.Idpdata.releaseAddSuccess = false;
+    this.pipelinesEmpty();
   }
   updateSuccessFalse() {
-	this.pipelinesEmpty();
-	this.Idpdata.releaseUpdateSuccess = false;
+    this.pipelinesEmpty();
+    this.Idpdata.releaseUpdateSuccess = false;
   }
   pipelinesEmpty() {
-	this.Idpdata.activeReleasePipelineName = "";
-	this.Idpdata.releasePipelineName = "";
+    this.Idpdata.activeReleasePipelineName = "";
+    this.Idpdata.releasePipelineName = "";
   }
   getRouteConfig() {
-	this.router.events.subscribe((val: any) => {
-		const url = val.url;
-		if (url.includes("activeRelease")) {
-		this.activeRelease = true;
-		this.addRelease = false;
-		this.releaseHistory = false;
-		} else if (url.includes("addRelease")) {
-		this.addRelease = true;
-		this.releaseHistory = false;
-		this.activeRelease = false;
-		} else if (url.includes("releaseHistory")) {
-		this.releaseHistory = true;
-		this.addRelease = false;
-		this.activeRelease = false;
-		}
-	});
+    this.router.events.subscribe((val: any) => {
+        const url = val.url;
+        if (url.includes("activeRelease")) {
+        this.activeRelease = true;
+        this.addRelease = false;
+        this.releaseHistory = false;
+        } else if (url.includes("addRelease")) {
+        this.addRelease = true;
+        this.releaseHistory = false;
+        this.activeRelease = false;
+        } else if (url.includes("releaseHistory")) {
+        this.releaseHistory = true;
+        this.addRelease = false;
+        this.activeRelease = false;
+        }
+    });
   }
 }

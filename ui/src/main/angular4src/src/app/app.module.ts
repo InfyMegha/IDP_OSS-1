@@ -52,80 +52,80 @@ import { CreateOrganizationComponent } from "./create-organization/create-organi
 import { NotificationInfoComponent } from "./notification-info/notification-info.component";
 import { DynamicComponentDirective } from "./custom-directive/dynamicComponent.directive";
 export function createTranslateLoader(http: Http) {
-	return new TranslateStaticLoader(http, "assets/i18n", ".json");
+    return new TranslateStaticLoader(http, "assets/i18n", ".json");
 }
 
 export function startupServiceFactory(startupService: StartupService): Function {
-	return () => startupService.load();
+    return () => startupService.load();
 }
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		LoginComponent,
-		KeycloakComponent,
-		IdpheaderComponent,
-		CreateConfigComponent,
-		IdpNavBarComponent,
-		PreviousConfigComponent,
-		SuccessComponent,
-		TriggerServiceComponent,
-		MailSuccessComponent,
-		ReleaseConfigsComponent,
-		ServicePortalComponent,
-		ManageEnvironmentComponent,
-		CreateLicenseComponent,
-		NotificationInfoComponent,
-		CreateOrganizationComponent,
-		DynamicComponentDirective
-	],
-	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		DateTimePickerModule,
-		CookieModule.forRoot(),
-		HttpModule,
-		Ng2TableModule,
-		AngularMultiSelectModule,
-		FormsModule,
-		CommonModule,
-		PaginationModule.forRoot(),
-		TranslateModule.forRoot({
-			provide: TranslateLoader,
-			useFactory: (createTranslateLoader),
-			deps: [Http]
-		}),
-		FormsModule,
-		CommonModule,
-		AppRoutingModule,
-		LoadingModule.forRoot({
-			animationType: ANIMATION_TYPES.rectangleBounce
-		}),
-		TriggerModule,
-		SortablejsModule.forRoot({ animation: 150 })
-	],
-	schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-	providers: [IdpService, IdpSubmitService, SubscriptionService, IdprestapiService, IdpdataService,
-		AuthGuardService, CookieService, IDPEncryption, Adal4Service,
-		{
-			provide: Adal4HTTPService,
-			useFactory: Adal4HTTPService.factory,
-			deps: [Http, Adal4Service]
-		},
-		StartupService,
-		{
-			provide: APP_INITIALIZER,
-			useFactory: startupServiceFactory,
-			deps: [StartupService],
-			multi: true
-		},
-		LoginKcService,
-		{
-			provide: KeycloakHttp,
-			useFactory: keycloakHttpFactory,
-			deps: [XHRBackend, RequestOptions, KeycloakService]
-		},
-		KeycloakService],
-	bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        KeycloakComponent,
+        IdpheaderComponent,
+        CreateConfigComponent,
+        IdpNavBarComponent,
+        PreviousConfigComponent,
+        SuccessComponent,
+        TriggerServiceComponent,
+        MailSuccessComponent,
+        ReleaseConfigsComponent,
+        ServicePortalComponent,
+        ManageEnvironmentComponent,
+        CreateLicenseComponent,
+        NotificationInfoComponent,
+        CreateOrganizationComponent,
+        DynamicComponentDirective
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        DateTimePickerModule,
+        CookieModule.forRoot(),
+        HttpModule,
+        Ng2TableModule,
+        AngularMultiSelectModule,
+        FormsModule,
+        CommonModule,
+        PaginationModule.forRoot(),
+        TranslateModule.forRoot({
+            provide: TranslateLoader,
+            useFactory: (createTranslateLoader),
+            deps: [Http]
+        }),
+        FormsModule,
+        CommonModule,
+        AppRoutingModule,
+        LoadingModule.forRoot({
+            animationType: ANIMATION_TYPES.rectangleBounce
+        }),
+        TriggerModule,
+        SortablejsModule.forRoot({ animation: 150 })
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    providers: [IdpService, IdpSubmitService, SubscriptionService, IdprestapiService, IdpdataService,
+        AuthGuardService, CookieService, IDPEncryption, Adal4Service,
+        {
+            provide: Adal4HTTPService,
+            useFactory: Adal4HTTPService.factory,
+            deps: [Http, Adal4Service]
+        },
+        StartupService,
+        {
+            provide: APP_INITIALIZER,
+            useFactory: startupServiceFactory,
+            deps: [StartupService],
+            multi: true
+        },
+        LoginKcService,
+        {
+            provide: KeycloakHttp,
+            useFactory: keycloakHttpFactory,
+            deps: [XHRBackend, RequestOptions, KeycloakService]
+        },
+        KeycloakService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

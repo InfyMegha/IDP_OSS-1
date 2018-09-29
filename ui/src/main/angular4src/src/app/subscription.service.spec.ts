@@ -11,12 +11,12 @@ import { SubscriptionService } from "./subscription.service";
 
 describe("SubscriptionService", () => {
   beforeEach(() => {
-	TestBed.configureTestingModule({
-		providers: [SubscriptionService]
-	});
+    TestBed.configureTestingModule({
+        providers: [SubscriptionService]
+    });
   });
 
   it("should be created", inject([SubscriptionService], (service: SubscriptionService) => {
-	expect(service).toBeTruthy();
+    expect(service).toBeTruthy();
   }));
 });

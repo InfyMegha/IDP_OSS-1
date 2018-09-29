@@ -9,10 +9,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { NotificationInfoComponent } from "./notification-info.component";
 
 const SHOW_CONFIG_ROUTER: Routes = [
-	{
-		path: "",
-		component: NotificationInfoComponent
-	}
+    {
+        path: "",
+        component: NotificationInfoComponent
+    }
 ];
 
 export const showConfigRouter = RouterModule.forChild(SHOW_CONFIG_ROUTER );

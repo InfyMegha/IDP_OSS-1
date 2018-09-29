@@ -20,43 +20,43 @@ import {LoginKcService} from "../login-kc.service";
 export class KeycloakComponent implements OnInit {
 
   constructor(private IdpdataService: IdpdataService,
-	private IdpService: IdpService,
-	private IdprestapiService: IdprestapiService,
-	private router: Router,
-	private keycloakService: KeycloakService,
-	private _cookieService: CookieService,
-	private loginkcService: LoginKcService) {
+    private IdpService: IdpService,
+    private IdprestapiService: IdprestapiService,
+    private router: Router,
+    private keycloakService: KeycloakService,
+    private _cookieService: CookieService,
+    private loginkcService: LoginKcService) {
 // alert("In KeycloakkkC");
-			this.IdprestapiService.getData()
-		.then(response => {
-		try {
-		if (response) {
-				 this.IdpdataService.devServerURL = response.json().idpresturl;
-				// this.IdpdataService.devServerURL = "https://idplinv02:8889/idprest";
-				// this.IdpdataService.devServerURL = "http://blrkec411214d:8889/idprest";
-				this.IdpdataService.subscriptionServerURL = response.json().idpsubscriptionurl;
-				this.IdpdataService.IDPDashboardURL = response.json().idpdashboardurl;
-				this.IdpdataService.IDPLink = response.json().IDPLink;
-				this.IdpdataService.geUrl = response.json().geUrl;
-				this.IdpdataService.geFlag = response.json().geFlag;
-				this.IdpdataService.serverUrl = response.json().tfsServerUrl;
-				this.IdpdataService.uName = response.json().uName;
-				this.IdpdataService.pass = response.json().pass;
-				console.log(this.IdpdataService.devServerURL);
+            this.IdprestapiService.getData()
+        .then(response => {
+        try {
+        if (response) {
+                 this.IdpdataService.devServerURL = response.json().idpresturl;
+                // this.IdpdataService.devServerURL = "https://idplinv02:8889/idprest";
+                // this.IdpdataService.devServerURL = "http://blrkec411214d:8889/idprest";
+                this.IdpdataService.subscriptionServerURL = response.json().idpsubscriptionurl;
+                this.IdpdataService.IDPDashboardURL = response.json().idpdashboardurl;
+                this.IdpdataService.IDPLink = response.json().IDPLink;
+                this.IdpdataService.geUrl = response.json().geUrl;
+                this.IdpdataService.geFlag = response.json().geFlag;
+                this.IdpdataService.serverUrl = response.json().tfsServerUrl;
+                this.IdpdataService.uName = response.json().uName;
+                this.IdpdataService.pass = response.json().pass;
+                console.log(this.IdpdataService.devServerURL);
 
-				// KC properties
-				this.IdpdataService.keycloakUrl = response.json().keycloakUrl;
-				this.IdpdataService.keycloakRealm = response.json().keycloakRealm;
-				this.IdpdataService.keycloakClientId = response.json().keycloakClientId;
-				KeycloakService.init(this.IdpdataService.keycloakUrl, this.IdpdataService.keycloakRealm, this.IdpdataService.keycloakClientId)
-	.then(() => this.loginkcService.getData())
-	.catch(e => console.log(e));
-			}
-		} catch (e) {
-			 console.log(e);
-			alert("Failed in getting the KC properties ");
-		}
-	  });
+                // KC properties
+                this.IdpdataService.keycloakUrl = response.json().keycloakUrl;
+                this.IdpdataService.keycloakRealm = response.json().keycloakRealm;
+                this.IdpdataService.keycloakClientId = response.json().keycloakClientId;
+                KeycloakService.init(this.IdpdataService.keycloakUrl, this.IdpdataService.keycloakRealm, this.IdpdataService.keycloakClientId)
+    .then(() => this.loginkcService.getData())
+    .catch(e => console.log(e));
+            }
+        } catch (e) {
+             console.log(e);
+            alert("Failed in getting the KC properties ");
+        }
+      });
 }
 
   ngOnInit() {

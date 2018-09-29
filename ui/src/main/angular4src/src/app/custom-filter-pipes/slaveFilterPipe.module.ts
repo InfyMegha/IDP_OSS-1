@@ -4,7 +4,7 @@ import {SlaveLabelfilterPipe} from "./slaveFilterPipe";
 
 @NgModule({
   imports: [
-	],
+    ],
   declarations: [SlaveLabelfilterPipe],
   exports: [SlaveLabelfilterPipe],
 })

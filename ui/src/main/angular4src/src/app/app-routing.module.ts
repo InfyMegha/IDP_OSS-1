@@ -29,40 +29,40 @@ export const appRoutes: Routes = [
   { path : "login", component: LoginComponent, canActivate: [AuthGuardService] },
   { path : "keycloak", component: KeycloakComponent },
   { path : "createConfig", component : CreateConfigComponent, canActivate : [AuthGuardService],
-	children : [
-		{ path : "", redirectTo : "basicInfo", pathMatch : "full" },
-		{ path : "createapp", loadChildren : "app/create-application/create-application.module#CreateApplicationModule" },
-		{ path : "basicInfo", loadChildren : "app/basic-info/basic-info.module#BasicInfoModule" },
-		{ path : "codeInfo", loadChildren : "app/code-info/code-info.module#CodeInfoModule" },
-		{ path : "buildInfo", loadChildren : "app/build-info/build-info.module#BuildInfoModule" },
-		{ path : "testInfo", loadChildren : "app/test-info/test-info.module#TestInfoModule" },
-		{ path : "deployInfo", loadChildren : "app/deploy-info/deploy-info.module#DeployInfoModule" },
-		{ path : "**", redirectTo : "basicInfo", pathMatch : "full" },
-	]
+    children : [
+        { path : "", redirectTo : "basicInfo", pathMatch : "full" },
+        { path : "createapp", loadChildren : "app/create-application/create-application.module#CreateApplicationModule" },
+        { path : "basicInfo", loadChildren : "app/basic-info/basic-info.module#BasicInfoModule" },
+        { path : "codeInfo", loadChildren : "app/code-info/code-info.module#CodeInfoModule" },
+        { path : "buildInfo", loadChildren : "app/build-info/build-info.module#BuildInfoModule" },
+        { path : "testInfo", loadChildren : "app/test-info/test-info.module#TestInfoModule" },
+        { path : "deployInfo", loadChildren : "app/deploy-info/deploy-info.module#DeployInfoModule" },
+        { path : "**", redirectTo : "basicInfo", pathMatch : "full" },
+    ]
   },
   { path : "previousConfig", component : PreviousConfigComponent, canActivate : [AuthGuardService],
-	children : [
-		{ path : "", redirectTo : "showConfigurations", pathMatch : "full" },
-		{ path : "showConfigurations", loadChildren : "app/show-config/show-config.module#ShowConfigModule" },
-		{ path : "stageviewTrigger", loadChildren : "app/stageview-trigger/stageview-trigger.module#StageviewTriggerModule" },
-		{ path : "stageviewHistory", loadChildren : "app/stageview-history/stageview-history.module#StageviewHistoryModule" },
-		{ path : "trigger", component : TriggerComponent },
-		{ path : "schedule", loadChildren : "app/build-interval-cntrl/build-interval-cntrl.module#BuildIntervalModule"},
-		{ path : "approveBuild" , loadChildren : "app/approve-build/approve-build.module#ApproveBuildModule"},
-		{ path : "createLicense", component : CreateLicenseComponent },
-	{ path : "servicePortal", component : ServicePortalComponent },
-	{ path : "createorg", component : CreateOrganizationComponent },
-	  { path : "**", redirectTo : "showConfigurations", pathMatch : "full" },
-	]
+    children : [
+        { path : "", redirectTo : "showConfigurations", pathMatch : "full" },
+        { path : "showConfigurations", loadChildren : "app/show-config/show-config.module#ShowConfigModule" },
+        { path : "stageviewTrigger", loadChildren : "app/stageview-trigger/stageview-trigger.module#StageviewTriggerModule" },
+        { path : "stageviewHistory", loadChildren : "app/stageview-history/stageview-history.module#StageviewHistoryModule" },
+        { path : "trigger", component : TriggerComponent },
+        { path : "schedule", loadChildren : "app/build-interval-cntrl/build-interval-cntrl.module#BuildIntervalModule"},
+        { path : "approveBuild" , loadChildren : "app/approve-build/approve-build.module#ApproveBuildModule"},
+        { path : "createLicense", component : CreateLicenseComponent },
+    { path : "servicePortal", component : ServicePortalComponent },
+    { path : "createorg", component : CreateOrganizationComponent },
+      { path : "**", redirectTo : "showConfigurations", pathMatch : "full" },
+    ]
   },
   {path  : "pipelines/configuration/:appPipeName/:pipeLineName", component: MailSuccessComponent, canActivate: [AuthGuardService]},
   {
-	path: "releaseConfig", component: ReleaseConfigsComponent, canActivate: [AuthGuardService],
-	children : [
-		{ path: "", redirectTo: "release", pathMatch: "full" },
-		{ path: "release", loadChildren: "app/add-update-release/add-update-release.module#AddUpdateReleaseModule"},
-	  { path: "**", redirectTo: "release", pathMatch: "full" }
-	]
+    path: "releaseConfig", component: ReleaseConfigsComponent, canActivate: [AuthGuardService],
+    children : [
+        { path: "", redirectTo: "release", pathMatch: "full" },
+        { path: "release", loadChildren: "app/add-update-release/add-update-release.module#AddUpdateReleaseModule"},
+      { path: "**", redirectTo: "release", pathMatch: "full" }
+    ]
   },
   { path: "success", component: SuccessComponent, canActivate: [AuthGuardService] },
   { path: "**", redirectTo: "/previousConfig", pathMatch: "full", canActivate: [AuthGuardService] }

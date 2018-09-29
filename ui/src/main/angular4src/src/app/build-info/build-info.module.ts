@@ -33,29 +33,29 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	buildInfoRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	AngularMultiSelectModule,
-	IdpEncryptionModule
+    CommonModule,
+    buildInfoRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    AngularMultiSelectModule,
+    IdpEncryptionModule
   ],
   declarations: [BuildInfoComponent,
-		AngularCntrlComponent,
-		AntCtrlComponent,
-		BuildInfoSubComponent,
-		PythonCntrlComponent,
-		GeneralCntrlComponent,
-		GoCntrlComponent,
-		MavenCntrlComponent,
-		ParentFormConnectComponent,
-		MsbuildCntrlComponent,
-		NodejsCntrlComponent,
-	]
+        AngularCntrlComponent,
+        AntCtrlComponent,
+        BuildInfoSubComponent,
+        PythonCntrlComponent,
+        GeneralCntrlComponent,
+        GoCntrlComponent,
+        MavenCntrlComponent,
+        ParentFormConnectComponent,
+        MsbuildCntrlComponent,
+        NodejsCntrlComponent,
+    ]
 })
 export class BuildInfoModule { }

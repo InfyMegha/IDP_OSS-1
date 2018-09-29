@@ -13,19 +13,19 @@ describe("NotificationInfoComponent", () => {
   let fixture: ComponentFixture<NotificationInfoComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ NotificationInfoComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ NotificationInfoComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(NotificationInfoComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(NotificationInfoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

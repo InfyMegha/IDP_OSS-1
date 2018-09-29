@@ -11,10 +11,10 @@ import {EncryptionDirective} from "./idpEncryption.directive";
 
 @NgModule({
   declarations: [
-	EncryptionDirective
+    EncryptionDirective
   ],
   exports: [
-	EncryptionDirective
+    EncryptionDirective
   ]
 })
 export class IdpEncryptionModule {}

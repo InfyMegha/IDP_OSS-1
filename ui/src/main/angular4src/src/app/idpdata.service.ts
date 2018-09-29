@@ -13,153 +13,153 @@ export class IdpdataService {
 
   constructor() { }
   template: any = {
-	"artifactVariable": false,
-	"artifactAppVariable": false,
-	"grantAccess": {
-		"applicationName": "",
-		"developers": [],
-		"pipelineAdmins": [],
-		"releaseManager": [],
-		"artifactToStage": {},
-		"environmentOwnerDetails": [{
-		"environmentName": "",
-		"environmentOwners": [],
-		"dBOwners": []
-		}],
-		"virtualServiceServerDetails": {},
-		"slaveDetails": [
-		{
-			"slaveName": "",
-			"buildServerOS": "",
-			"workspacePath": "",
-			"createNewSlave": "",
-			"labels": "",
-			"sshKeyPath": "",
-			"slaveUsage": "both",
-			"build": "off",
-			"deploy": "off",
-			"test": "off"
-		}
-		]
-	},
-	"basicInfo": {
-		"additionalMailRecipients": {
-		"applicationTeam": "",
-		"emailIds": "",
-		"userName": ""
+    "artifactVariable": false,
+    "artifactAppVariable": false,
+    "grantAccess": {
+        "applicationName": "",
+        "developers": [],
+        "pipelineAdmins": [],
+        "releaseManager": [],
+        "artifactToStage": {},
+        "environmentOwnerDetails": [{
+        "environmentName": "",
+        "environmentOwners": [],
+        "dBOwners": []
+        }],
+        "virtualServiceServerDetails": {},
+        "slaveDetails": [
+        {
+            "slaveName": "",
+            "buildServerOS": "",
+            "workspacePath": "",
+            "createNewSlave": "",
+            "labels": "",
+            "sshKeyPath": "",
+            "slaveUsage": "both",
+            "build": "off",
+            "deploy": "off",
+            "test": "off"
+        }
+        ]
+    },
+    "basicInfo": {
+        "additionalMailRecipients": {
+        "applicationTeam": "",
+        "emailIds": "",
+        "userName": ""
 
-		},
-		"pipelineStatus": "create",
-		"applicationName": "",
-		"buildInterval": {
-		"buildInterval": "",
-		"buildIntervalValue": 0,
-		"pollSCM": "off"
-		},
-		"buildServerOS": "",
-		"engine": "",
-		"pipelineName": "",
-		"customPipelineAdmins": [
-		]
-	},
-	"code": {
-		"category": "",
-		"technology": "",
-		"subApplication": "",
-		"scm": [],
-		"jobParam" : [],
-		"buildScript": [{ "tool": "" }, { "tool": "" }, {}]
-	},
-	"buildInfo": {
-		"buildtool": "",
-		"castAnalysis": {},
-		"artifactToStage": {},
-		"modules": []
-	},
-	"deployInfo": {
-		"deployEnv": []
-	},
-	"testInfo": {
-		"testEnv": []
-	},
-	"formStatus": {
-		"basicInfo": {
-		"appNameStatus": "0",
-		"formStatus": "0"
-		},
-		"codeInfo": "",
-		"buildInfo": {
-		"buildToolStatus": "0",
-		"formStatus": "0",
-		"ibmsiTypeStatus": "0"
-		},
-		"deployInfo": "",
-		"testInfo": "",
-		"operation": ""
-	},
-	"checkboxStatus": {
-		"basicInfo": {},
-		"codeInfo": {},
-		"buildInfo": {},
-		"deployInfo": {},
-		"testInfo": {},
-		"others": {}
-	},
-	"backUp": {
-		"deployInfo": {},
-		"testInfo": {}
-	},
-	"masterJson": {},
-	"pipelineList": []
+        },
+        "pipelineStatus": "create",
+        "applicationName": "",
+        "buildInterval": {
+        "buildInterval": "",
+        "buildIntervalValue": 0,
+        "pollSCM": "off"
+        },
+        "buildServerOS": "",
+        "engine": "",
+        "pipelineName": "",
+        "customPipelineAdmins": [
+        ]
+    },
+    "code": {
+        "category": "",
+        "technology": "",
+        "subApplication": "",
+        "scm": [],
+        "jobParam" : [],
+        "buildScript": [{ "tool": "" }, { "tool": "" }, {}]
+    },
+    "buildInfo": {
+        "buildtool": "",
+        "castAnalysis": {},
+        "artifactToStage": {},
+        "modules": []
+    },
+    "deployInfo": {
+        "deployEnv": []
+    },
+    "testInfo": {
+        "testEnv": []
+    },
+    "formStatus": {
+        "basicInfo": {
+        "appNameStatus": "0",
+        "formStatus": "0"
+        },
+        "codeInfo": "",
+        "buildInfo": {
+        "buildToolStatus": "0",
+        "formStatus": "0",
+        "ibmsiTypeStatus": "0"
+        },
+        "deployInfo": "",
+        "testInfo": "",
+        "operation": ""
+    },
+    "checkboxStatus": {
+        "basicInfo": {},
+        "codeInfo": {},
+        "buildInfo": {},
+        "deployInfo": {},
+        "testInfo": {},
+        "others": {}
+    },
+    "backUp": {
+        "deployInfo": {},
+        "testInfo": {}
+    },
+    "masterJson": {},
+    "pipelineList": []
   };
 releaseManagerTemplate: any  = {
-		"applicationName": "",
+        "applicationName": "",
   "releasePipeline": [
-	{
-		"pipelineName": "",
-		"release": [
-		{
-			"actualEndDate": "",
-			"actualStartDate": "",
-			"additionalMailRecipients": {
-			"applicationTeam": "",
-			"emailIds": ""
-			},
-			"branchList": [
-			"na"
-			],
-			"expectedEndDate": "",
-			"expectedStartDate": "",
-			"releaseNumber": "",
-			"remarks": "",
-			"status": "on",
-			"vstsReleaseName": ""
-		}
-		]
-	}
+    {
+        "pipelineName": "",
+        "release": [
+        {
+            "actualEndDate": "",
+            "actualStartDate": "",
+            "additionalMailRecipients": {
+            "applicationTeam": "",
+            "emailIds": ""
+            },
+            "branchList": [
+            "na"
+            ],
+            "expectedEndDate": "",
+            "expectedStartDate": "",
+            "releaseNumber": "",
+            "remarks": "",
+            "status": "on",
+            "vstsReleaseName": ""
+        }
+        ]
+    }
   ]
   };
 
   passwordEncryptionList: any = {
-	"code.scm": ["password", "PSpassword"],
-	"code.buildScript": ["password"],
-	"buildInfo": ["password", "artifactToStage.artifactRepo.repoPassword", "postBuildScript.password"],
-	"buildInfo.modules": ["npmProxyPassword", "password", "pegaPassword", "destPassword", "siebelPassword", "ipcPassword",
-		"servPass", "publishForms.password", "publishForms.dbPassword",
-	"workFlowPublish.password", "workFlowPublish.dbPassword", "proxy.password", "sourcePassword"],
+    "code.scm": ["password", "PSpassword"],
+    "code.buildScript": ["password"],
+    "buildInfo": ["password", "artifactToStage.artifactRepo.repoPassword", "postBuildScript.password"],
+    "buildInfo.modules": ["npmProxyPassword", "password", "pegaPassword", "destPassword", "siebelPassword", "ipcPassword",
+        "servPass", "publishForms.password", "publishForms.dbPassword",
+    "workFlowPublish.password", "workFlowPublish.dbPassword", "proxy.password", "sourcePassword"],
 
-	"deployInfo.deployEnv.deploySteps": ["password", "ipcPassword", "dbPassword", "dbpasswordOTM",
-	"dbPasswordOTM", "dbOwnerPassword", "bizPassword", "formsDbPass", "databasePassword", "ddltmpPassword",
-	"datExportPassword", "workFlowDbPass", "deployPassword", "scalaPassword", "pigPassword", "hivePassword", "dbPwd", "staticPassword",
-	"srfPassword", "admPassword", "adminPassword", "dbOwnerPassword", "appsPass", "tomPwd",
-	"runScript.password", "deployToContainer.password", "deployToContainer.adminPassword",
-	"deployToContainer.sshPassword", "deployToContainer.dbOwnerPassword",
-	"deployToContainer.staticFiles.password", "deployDatabase.restorpassword",
-	"deployDatabase.dbpassword", "targetPassword", "proxy.password"],
+    "deployInfo.deployEnv.deploySteps": ["password", "ipcPassword", "dbPassword", "dbpasswordOTM",
+    "dbPasswordOTM", "dbOwnerPassword", "bizPassword", "formsDbPass", "databasePassword", "ddltmpPassword",
+    "datExportPassword", "workFlowDbPass", "deployPassword", "scalaPassword", "pigPassword", "hivePassword", "dbPwd", "staticPassword",
+    "srfPassword", "admPassword", "adminPassword", "dbOwnerPassword", "appsPass", "tomPwd",
+    "runScript.password", "deployToContainer.password", "deployToContainer.adminPassword",
+    "deployToContainer.sshPassword", "deployToContainer.dbOwnerPassword",
+    "deployToContainer.staticFiles.password", "deployDatabase.restorpassword",
+    "deployDatabase.dbpassword", "targetPassword", "proxy.password"],
 
-	"testInfo.testEnv.testSteps": ["runScript.password", "test.password"],
+    "testInfo.testEnv.testSteps": ["runScript.password", "test.password"],
 
-	"virtualServiceServerDetails": ["password"]
+    "virtualServiceServerDetails": ["password"]
   };
 
 
@@ -195,12 +195,12 @@ releaseManagerTemplate: any  = {
   pausedBuildsData: any= {};
   checkPausedBuilds: any= false;
   allFormStatus: any= {
-	"basicInfo": false,
-	"codeInfo": false,
-	"buildInfo": false,
-	"deployInfo": false,
-	"testInfo": false,
-	"workflowInfo": false
+    "basicInfo": false,
+    "codeInfo": false,
+    "buildInfo": false,
+    "deployInfo": false,
+    "testInfo": false,
+    "workflowInfo": false
   };
   IDPDropdownProperties: any = {};
   showConfig: any;
@@ -237,16 +237,16 @@ releaseManagerTemplate: any  = {
  artifactAppVariable: any= false;
   public loading =  false;
   refreshBuild= false;
-	 showRelease= false;
+     showRelease= false;
   isSAPApplication= false;
   checkpollALM: boolean ;
   SAPScmCheck: any ;
   authmode= "ldap";
   adalConfig: any=
-	{"clientId": "",
-	"tenate": "",
-	"postLogoutRedirectUri": "",
-	"endpoints": {},
+    {"clientId": "",
+    "tenate": "",
+    "postLogoutRedirectUri": "",
+    "endpoints": {},
   };
   pipelineName= "";
   appName= "";
@@ -288,10 +288,10 @@ releaseManagerTemplate: any  = {
   hideApp= false;
 
   PagePersmission: any= {
-	"basic" : false,
-	"code" : false,
-	"build" : false,
-	"deploy": false,
-	"test": false
+    "basic" : false,
+    "code" : false,
+    "build" : false,
+    "deploy": false,
+    "test": false
    };
 }

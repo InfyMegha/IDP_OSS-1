@@ -13,19 +13,19 @@ describe("StageviewHistoryComponent", () => {
   let fixture: ComponentFixture<StageviewHistoryComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ StageviewHistoryComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ StageviewHistoryComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(StageviewHistoryComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(StageviewHistoryComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   xit("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

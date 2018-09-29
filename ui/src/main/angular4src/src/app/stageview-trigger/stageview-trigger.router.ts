@@ -9,10 +9,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { StageviewTriggerComponent } from "./stageview-trigger.component";
 
 const STAGEVIEW_TRIGGER_ROUTER: Routes = [
-	{
-		path: "",
-		component: StageviewTriggerComponent
-	}
+    {
+        path: "",
+        component: StageviewTriggerComponent
+    }
 ];
 
 export const stageviewTriggerRouter = RouterModule.forChild(STAGEVIEW_TRIGGER_ROUTER );

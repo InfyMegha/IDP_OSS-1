@@ -13,19 +13,19 @@ describe("ReleaseConfigsComponent", () => {
   let fixture: ComponentFixture<ReleaseConfigsComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ ReleaseConfigsComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ ReleaseConfigsComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(ReleaseConfigsComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(ReleaseConfigsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

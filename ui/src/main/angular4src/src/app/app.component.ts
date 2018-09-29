@@ -20,25 +20,25 @@ export class AppComponent implements OnInit {
   profile: any;
   constructor(private idprestapiService: IdprestapiService, private idpdataService: IdpdataService) { }
   getProfile() {
-	this.idprestapiService.getData()
-		.then(response => {
-		try {
-			if (response) {
-			this.idpdataService.profile = response.json().profile;
-			this.setProfile();
-			}
-		} catch (e) {
-			alert("Failed to get the Properties Details");
-		}
-		});
+    this.idprestapiService.getData()
+        .then(response => {
+        try {
+            if (response) {
+            this.idpdataService.profile = response.json().profile;
+            this.setProfile();
+            }
+        } catch (e) {
+            alert("Failed to get the Properties Details");
+        }
+        });
   }
   setProfile() {
-	this.profile = this.idpdataService.profile;
-	if (this.profile === undefined || this.profile === "idp") {
-		require("style-loader!./../styles.css");
-	}
+    this.profile = this.idpdataService.profile;
+    if (this.profile === undefined || this.profile === "idp") {
+        require("style-loader!./../styles.css");
+    }
   }
   ngOnInit() {
-	this.getProfile();
+    this.getProfile();
   }
 }

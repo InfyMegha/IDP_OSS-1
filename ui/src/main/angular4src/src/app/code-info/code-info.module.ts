@@ -20,16 +20,16 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	codeInfoRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	IdpEncryptionModule
+    CommonModule,
+    codeInfoRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    IdpEncryptionModule
   ],
   declarations: [CodeInfoComponent]
 })

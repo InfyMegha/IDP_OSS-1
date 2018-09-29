@@ -19,25 +19,25 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	AngularMultiSelectModule,
-	DateTimePickerModule,
-	TreeviewModule.forRoot(),
-	SlaveLabelFilterModule
+    CommonModule,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    AngularMultiSelectModule,
+    DateTimePickerModule,
+    TreeviewModule.forRoot(),
+    SlaveLabelFilterModule
   ],
   declarations: [
-	TriggerComponent,
-	// SlaveLabelfilterPipe
-	],
-	exports: [
-	TriggerComponent
+    TriggerComponent,
+    // SlaveLabelfilterPipe
+    ],
+    exports: [
+    TriggerComponent
   ]
 })
 export class TriggerModule { }

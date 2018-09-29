@@ -21,31 +21,31 @@ export class ReleaseHistoryComponent implements OnInit {
   closedRel = [];
   /* Constructor */
   constructor(public idpdata: IdpdataService, private idprestapi: IdprestapiService) {
-	this.idpdata.releasePipelineName = "";
-	this.showReleases();
+    this.idpdata.releasePipelineName = "";
+    this.showReleases();
   }
 
   ngOnInit() {
-	this.showReleases();
+    this.showReleases();
   }
   /* Show Release in Release history */
   showReleases() {
-	this.release = [];
-	if (this.idpdata.releasePipelineName !== "") {
-		this.idprestapi.getHistoryReleases(this.idpdata.releasePipelineName).then(response => {
-		const resp = response.json();
-		console.log(resp);
-		const errorMsg = resp.errorMessage;
-			this.closedRel = JSON.parse(resp.resource).releasePipeline[0].release;
-			console.log(this.closedRel);
-			this.closedRel.forEach((value, index) => {
-			if (value.actualStartDate !== undefined && value.actualStartDate !== "" ) {
-				this.release.push(value);
-			}
-			}),
-		console.log(this.release);
-		});
-	}
+    this.release = [];
+    if (this.idpdata.releasePipelineName !== "") {
+        this.idprestapi.getHistoryReleases(this.idpdata.releasePipelineName).then(response => {
+        const resp = response.json();
+        console.log(resp);
+        const errorMsg = resp.errorMessage;
+            this.closedRel = JSON.parse(resp.resource).releasePipeline[0].release;
+            console.log(this.closedRel);
+            this.closedRel.forEach((value, index) => {
+            if (value.actualStartDate !== undefined && value.actualStartDate !== "" ) {
+                this.release.push(value);
+            }
+            }),
+        console.log(this.release);
+        });
+    }
   }
 
   update() { }

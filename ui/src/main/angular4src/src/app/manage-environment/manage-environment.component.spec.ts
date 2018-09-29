@@ -13,19 +13,19 @@ describe("ManageEnvironmentComponent", () => {
   let fixture: ComponentFixture<ManageEnvironmentComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ ManageEnvironmentComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ ManageEnvironmentComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(ManageEnvironmentComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(ManageEnvironmentComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

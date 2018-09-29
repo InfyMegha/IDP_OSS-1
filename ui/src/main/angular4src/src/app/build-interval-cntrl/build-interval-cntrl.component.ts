@@ -28,7 +28,7 @@ export class BuildIntervalCntrlComponent implements OnInit {
   dropdownListTest: any = [];
   dropdownListDeploy: any = [];
 @ViewChild("modalforTotalSubmit") submitButton;
-	ngOnInit() {
+    ngOnInit() {
   }
 
   constructor(
@@ -37,106 +37,106 @@ export class BuildIntervalCntrlComponent implements OnInit {
   private router: Router,
   private idpencryption: IDPEncryption,
   public IdpService: IdpService) {
-	const data = {
-		"applicationName": this.IdpdataService.triggerJobData.applicationName,
-		"pipelineName": this.IdpdataService.pipelineName,
-		"userName": this.IdpdataService.idpUserName
-	};
-	this.IdpdataService.loading = true;
+    const data = {
+        "applicationName": this.IdpdataService.triggerJobData.applicationName,
+        "pipelineName": this.IdpdataService.pipelineName,
+        "userName": this.IdpdataService.idpUserName
+    };
+    this.IdpdataService.loading = true;
    this.IdprestapiService.getPipelineDetails(data)
-		.then(response => {
-		console.log(new Date().toUTCString(), "Pipeline details retrieved");
-		try {
-			const responseData = this.idpencryption.decryptAES(response.json().resource);
-			let resp = JSON.parse(responseData);
-			resp = this.idpencryption.doubleEncryptPassword(resp.pipelineJson);
-		  this.IdpdataService.buildIntervalData = resp.basicInfo.customTriggerInterval.interval;
-		} catch (e) {
-			console.log("Failed to get the Build Interval Schedule Details");
-			console.log(e);
-		}
-		});
-	  this.IdpdataService.loading = false;
+        .then(response => {
+        console.log(new Date().toUTCString(), "Pipeline details retrieved");
+        try {
+            const responseData = this.idpencryption.decryptAES(response.json().resource);
+            let resp = JSON.parse(responseData);
+            resp = this.idpencryption.doubleEncryptPassword(resp.pipelineJson);
+          this.IdpdataService.buildIntervalData = resp.basicInfo.customTriggerInterval.interval;
+        } catch (e) {
+            console.log("Failed to get the Build Interval Schedule Details");
+            console.log(e);
+        }
+        });
+      this.IdpdataService.loading = false;
   }
   submit() {
-	const x = this.checkDetailsFilled();
-	if (x) {
-		this.submitButton.nativeElement.click();
-	} else {
-		alert("Details not added for all jobs!!");
-	}
-	}
-	totalSubmit() {
-	this.IdpdataService.loading = true;
-	for (const i in this.IdpdataService.buildIntervalData) {
-		this.IdpdataService.buildIntervalData[i].details.schedule = true;
-	}
-	 const data = {"interval": this.IdpdataService.buildIntervalData};
-		this.IdprestapiService.buildIntervalTriggerJobs(data)
-		.then(response => {
-			try {
-			if (response) {
-			const err = response.json().errorMessage;
-			if (err === null && response.json().resource.toLowerCase() === "success") {
-				this.IdpdataService.loading = false;
-				alert("Successfully submitted details!!");
-			  this.IdpdataService.schedulePage = false;
-			  setTimeout(() => { location.reload(); }, 5);
-			} else {
-				this.IdpdataService.loading = false;
-			  alert("Error! Couldn\"t submit. Please try again.");
-			}
-			}
-		} catch (e) {
-			console.log(e);
-			alert("Failed while submitting ");
-			}
-		});
-	}
+    const x = this.checkDetailsFilled();
+    if (x) {
+        this.submitButton.nativeElement.click();
+    } else {
+        alert("Details not added for all jobs!!");
+    }
+    }
+    totalSubmit() {
+    this.IdpdataService.loading = true;
+    for (const i in this.IdpdataService.buildIntervalData) {
+        this.IdpdataService.buildIntervalData[i].details.schedule = true;
+    }
+     const data = {"interval": this.IdpdataService.buildIntervalData};
+        this.IdprestapiService.buildIntervalTriggerJobs(data)
+        .then(response => {
+            try {
+            if (response) {
+            const err = response.json().errorMessage;
+            if (err === null && response.json().resource.toLowerCase() === "success") {
+                this.IdpdataService.loading = false;
+                alert("Successfully submitted details!!");
+              this.IdpdataService.schedulePage = false;
+              setTimeout(() => { location.reload(); }, 5);
+            } else {
+                this.IdpdataService.loading = false;
+              alert("Error! Couldn\"t submit. Please try again.");
+            }
+            }
+        } catch (e) {
+            console.log(e);
+            alert("Failed while submitting ");
+            }
+        });
+    }
 
   redirectTo() {
 
   }
 
 setIndex(i) {
-	this.IdpdataService.index = i;
+    this.IdpdataService.index = i;
 }
   checkDetailsSingle(i ) {
-	  console.log(this.IdpdataService.buildIntervalData);
-	  if (this.IdpdataService.buildIntervalData[i] !== undefined) {
-	  if (Object.getOwnPropertyNames(this.IdpdataService.buildIntervalData[i].details).length === 0) {
-		  return false;
-	} else {
-		  return true;
-	  }
-	  }
+      console.log(this.IdpdataService.buildIntervalData);
+      if (this.IdpdataService.buildIntervalData[i] !== undefined) {
+      if (Object.getOwnPropertyNames(this.IdpdataService.buildIntervalData[i].details).length === 0) {
+          return false;
+    } else {
+          return true;
+      }
+      }
   }
   checkDetailsFilled() {
-	  for (const interval of this.IdpdataService.buildIntervalData) {
-		  console.log(interval.details);
-		  if (Object.getOwnPropertyNames(interval.details).length === 0) {
-			  return false;
-		  }
-	  }
-	  return true;
+      for (const interval of this.IdpdataService.buildIntervalData) {
+          console.log(interval.details);
+          if (Object.getOwnPropertyNames(interval.details).length === 0) {
+              return false;
+          }
+      }
+      return true;
   }
   deleteDetails(i) {
-	  const x = confirm("Are you sure you want to remove these details?");
-	  if (x) {
-	  this.IdpdataService.buildIntervalData[i].details = {};
-	  }
+      const x = confirm("Are you sure you want to remove these details?");
+      if (x) {
+      this.IdpdataService.buildIntervalData[i].details = {};
+      }
   }
   deleteBuildInterval(i) {
-	  const x = confirm("Are you sure you want to remove these details?");
-	  if (x) {
-	  this.IdpdataService.buildIntervalData.splice(i, 1);
-	  }
+      const x = confirm("Are you sure you want to remove these details?");
+      if (x) {
+      this.IdpdataService.buildIntervalData.splice(i, 1);
+      }
   }
   addJob() {
-	this.IdpdataService.buildIntervalData.push({"type": "", "minute": "", "time": "", "details": {}});
+    this.IdpdataService.buildIntervalData.push({"type": "", "minute": "", "time": "", "details": {}});
 
   }
   closeModal(id) {
-	  jQuery("#" + id).modal("hide");
+      jQuery("#" + id).modal("hide");
   }
 }

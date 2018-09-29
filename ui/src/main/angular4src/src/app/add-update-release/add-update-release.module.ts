@@ -23,20 +23,20 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	addUpdateReleaseRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
+    CommonModule,
+    addUpdateReleaseRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
   FormsModule,
   DateTimePickerModule],
   declarations: [AddUpdateReleaseComponent,
-			ActiveReleaseComponent,
-					AddReleaseComponent,
-			ReleaseHistoryComponent
-		]
+            ActiveReleaseComponent,
+                    AddReleaseComponent,
+            ReleaseHistoryComponent
+        ]
 })
 export class AddUpdateReleaseModule { }

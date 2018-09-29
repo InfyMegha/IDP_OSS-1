@@ -18,8 +18,8 @@ export class PreviousConfigComponent implements OnInit {
 
   constructor(private IdpService: IdpService,
   public IdpdataService: IdpdataService) {
-	// this.IdpService.initMain();
-	 // console.log(this.IdpdataService.IDPDashboardURL);
+    // this.IdpService.initMain();
+     // console.log(this.IdpdataService.IDPDashboardURL);
    }
 
   ngOnInit() {

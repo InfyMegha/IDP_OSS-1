@@ -13,19 +13,19 @@ describe("CreateLicenseComponent", () => {
   let fixture: ComponentFixture<CreateLicenseComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ CreateLicenseComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ CreateLicenseComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(CreateLicenseComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(CreateLicenseComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

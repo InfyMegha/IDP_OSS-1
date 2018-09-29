@@ -7,19 +7,19 @@ describe("BuildIntervalCntrlComponent", () => {
   let fixture: ComponentFixture<BuildIntervalCntrlComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ BuildIntervalCntrlComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ BuildIntervalCntrlComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(BuildIntervalCntrlComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(BuildIntervalCntrlComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

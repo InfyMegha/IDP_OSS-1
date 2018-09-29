@@ -6,9 +6,9 @@
 *
 **/
 export const allServices = {
-	"CI": "CI as a Service",
-	"CD": "CD as a service",
-	"CT": "CT as a Service",
-	"ML": "ML as a Service",
-	"ALM": "ALM as a Service"
+    "CI": "CI as a Service",
+    "CD": "CD as a service",
+    "CT": "CT as a Service",
+    "ML": "ML as a Service",
+    "ALM": "ALM as a Service"
 };

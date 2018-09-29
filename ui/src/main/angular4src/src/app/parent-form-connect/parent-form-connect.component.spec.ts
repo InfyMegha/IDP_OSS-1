@@ -13,19 +13,19 @@ describe("ParentFormConnectComponent", () => {
   let fixture: ComponentFixture<ParentFormConnectComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ ParentFormConnectComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ ParentFormConnectComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(ParentFormConnectComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(ParentFormConnectComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   xit("should create", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

@@ -9,10 +9,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { ShowConfigurationsComponent } from "./show-config.component";
 
 const SHOW_CONFIG_ROUTER: Routes = [
-	{
-		path: "",
-		component: ShowConfigurationsComponent
-	}
+    {
+        path: "",
+        component: ShowConfigurationsComponent
+    }
 ];
 
 export const showConfigRouter = RouterModule.forChild(SHOW_CONFIG_ROUTER );

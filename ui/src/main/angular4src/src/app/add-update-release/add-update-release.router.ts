@@ -9,9 +9,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { AddUpdateReleaseComponent } from "./add-update-release.component";
 
 const ADD_UPDATE_ROUTER: Routes = [
-	{ path: "",
-		component: AddUpdateReleaseComponent
-	}
+    { path: "",
+        component: AddUpdateReleaseComponent
+    }
 ];
 
 export const addUpdateReleaseRouter = RouterModule.forChild(ADD_UPDATE_ROUTER );

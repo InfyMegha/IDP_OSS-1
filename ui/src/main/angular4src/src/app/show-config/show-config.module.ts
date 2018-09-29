@@ -21,17 +21,17 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-	CommonModule,
-	showConfigRouter,
-	TranslateModule.forRoot({
-		provide: TranslateLoader,
-		useFactory: (createTranslateLoader),
-		deps: [Http]
-	}),
-	HttpModule,
-	FormsModule,
-	Ng2TableModule,
-	PaginationModule.forRoot()
+    CommonModule,
+    showConfigRouter,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    }),
+    HttpModule,
+    FormsModule,
+    Ng2TableModule,
+    PaginationModule.forRoot()
   ],
   declarations: [ShowConfigurationsComponent]
 })

@@ -14,44 +14,44 @@ describe("BuildInfoComponent", () => {
   let fixture: ComponentFixture<BuildInfoComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ BuildInfoComponent, ParentFormConnectComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ BuildInfoComponent, ParentFormConnectComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(BuildInfoComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(BuildInfoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   xit("should be created", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it("buildSubscriptionNotSubmitCheck()", () => {
-	const a = component.buildSubscriptionNotSubmitCheck();
-	expect(component.IdpdataService.buildSubscriptionSubmit).toBeTruthy();
-	expect(a).toBeFalsy();
+    const a = component.buildSubscriptionNotSubmitCheck();
+    expect(component.IdpdataService.buildSubscriptionSubmit).toBeTruthy();
+    expect(a).toBeFalsy();
   });
 
   it("buildSubscriptionNotSubmitCheck()", () => {
-	const a = component.buildSubscriptionNotSubmitCheck();
-	expect(component.IdpdataService.buildSubscriptionSubmit).toBeFalsy();
-	expect(a).toBeTruthy();
+    const a = component.buildSubscriptionNotSubmitCheck();
+    expect(component.IdpdataService.buildSubscriptionSubmit).toBeFalsy();
+    expect(a).toBeTruthy();
   });
 
   it("buildSubscriptionSubmitCheck()", () => {
-	const a = component.buildSubscriptionSubmitCheck();
-	expect(component.IdpdataService.buildSubscriptionSubmit).toBeTruthy();
-	expect(a).toBeTruthy();
+    const a = component.buildSubscriptionSubmitCheck();
+    expect(component.IdpdataService.buildSubscriptionSubmit).toBeTruthy();
+    expect(a).toBeTruthy();
   });
 
   it("buildSubscriptionSubmitCheck()", () => {
-	const a = component.buildSubscriptionSubmitCheck();
-	expect(component.IdpdataService.buildSubscriptionSubmit).toBeFalsy();
-	expect(a).toBeFalsy();
+    const a = component.buildSubscriptionSubmitCheck();
+    expect(component.IdpdataService.buildSubscriptionSubmit).toBeFalsy();
+    expect(a).toBeFalsy();
   });
 
 

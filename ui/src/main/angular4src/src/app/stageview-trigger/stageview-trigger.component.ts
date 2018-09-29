@@ -19,26 +19,26 @@ export class StageviewTriggerComponent implements OnInit {
   username = this.IdpdataService.idpUserName;
   jobUrl: any;
   constructor(private IdpdataService: IdpdataService,
-	private IdpService: IdpService,
-	private IdprestapiService: IdprestapiService,
-	private router: Router) {
+    private IdpService: IdpService,
+    private IdprestapiService: IdprestapiService,
+    private router: Router) {
 
-		this.getUrl();
-	}
+        this.getUrl();
+    }
 
   ngOnInit() {
   }
 
-	getUrl() {
-		this.IdprestapiService.getStageViewUrl().then(response => {
-		console.log("resssssssssssss" + JSON.stringify(response.json()));
-			const resp = response.json();
-			const errorMsg = resp.errorMessage;
-			/* console.log("required"+JSON.stringify(resp)); */
-			console.log(resp.resource);
-		this.jobUrl = resp.resource;
-		console.log("uuuuuuuurrrrr" + this.jobUrl);
-		});
-		return true;
-		}
+    getUrl() {
+        this.IdprestapiService.getStageViewUrl().then(response => {
+        console.log("resssssssssssss" + JSON.stringify(response.json()));
+            const resp = response.json();
+            const errorMsg = resp.errorMessage;
+            /* console.log("required"+JSON.stringify(resp)); */
+            console.log(resp.resource);
+        this.jobUrl = resp.resource;
+        console.log("uuuuuuuurrrrr" + this.jobUrl);
+        });
+        return true;
+        }
 }

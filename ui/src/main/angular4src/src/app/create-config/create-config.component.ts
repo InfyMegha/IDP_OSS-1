@@ -23,28 +23,28 @@ export class CreateConfigComponent implements OnInit {
 
 
   constructor(
-	private cdr: ChangeDetectorRef,
-	private translate: TranslateService,
-	private IdpService: IdpService,
-	public IdpdataService: IdpdataService,
-	private router: Router
+    private cdr: ChangeDetectorRef,
+    private translate: TranslateService,
+    private IdpService: IdpService,
+    public IdpdataService: IdpdataService,
+    private router: Router
   ) {
-	console.log(this.IdpdataService.language);
-	this.IdpService.initMain();
-	console.log(this.IdpdataService.createAppflag);
+    console.log(this.IdpdataService.language);
+    this.IdpService.initMain();
+    console.log(this.IdpdataService.createAppflag);
   }
 
   ngOnInit() {
   }
 
   ngAfterContentChecked () {
-	this.cdr.detectChanges();
-	this.updateConfigShow();
-	console.log("fewfwf " + this.IdpdataService.hideApp);
+    this.cdr.detectChanges();
+    this.updateConfigShow();
+    console.log("fewfwf " + this.IdpdataService.hideApp);
   }
 
   updateConfigShow() {
-	return this.IdpdataService.hideApp;
+    return this.IdpdataService.hideApp;
   }
 
 }

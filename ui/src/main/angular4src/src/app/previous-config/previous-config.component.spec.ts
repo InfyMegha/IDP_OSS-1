@@ -13,19 +13,19 @@ describe("PreviousConfigComponent", () => {
   let fixture: ComponentFixture<PreviousConfigComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ PreviousConfigComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ PreviousConfigComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(PreviousConfigComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(PreviousConfigComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   xit("should be created", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

@@ -13,28 +13,28 @@ describe("BasicInfoComponent", () => {
   let fixture: ComponentFixture<BasicInfoComponent>;
 
   beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ BasicInfoComponent ]
-	})
-	.compileComponents();
+    TestBed.configureTestingModule({
+        declarations: [ BasicInfoComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(BasicInfoComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
+    fixture = TestBed.createComponent(BasicInfoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should be created", () => {
-	expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it("clearBuildInterval()", () => {
-	const a = component.clearBuildInterval();
-	expect(component.basicInfo.buildInterval.buildInterval).toBe("");
-	expect(component.basicInfo.buildInterval.buildIntervalValue).toBe("");
-	expect(component.basicInfo.buildInterval.pollSCM).toBe("off");
-	expect(a).toBe("off");
+    const a = component.clearBuildInterval();
+    expect(component.basicInfo.buildInterval.buildInterval).toBe("");
+    expect(component.basicInfo.buildInterval.buildIntervalValue).toBe("");
+    expect(component.basicInfo.buildInterval.pollSCM).toBe("off");
+    expect(a).toBe("off");
   });
 });
 

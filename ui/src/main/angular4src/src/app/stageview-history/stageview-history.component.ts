@@ -20,23 +20,23 @@ import { Router } from "@angular/router";
 export class StageviewHistoryComponent implements OnInit {
   jobUrl: any;
   constructor(private IdpdataService: IdpdataService,
-	private IdpService: IdpService,
-	private IdprestapiService: IdprestapiService,
-	private router: Router) {
-	this.getUrl();
+    private IdpService: IdpService,
+    private IdprestapiService: IdprestapiService,
+    private router: Router) {
+    this.getUrl();
   }
 
   ngOnInit() {
   }
 
-	getUrl() {
-		this.IdprestapiService.getStageViewUrl().then(response => {
-			const resp = response.json();
-			const errorMsg = resp.errorMessage;
-			/* console.log("required"+JSON.stringify(resp)); */
-			console.log(resp.resource);
-		this.jobUrl = resp.resource;
-		});
-		return true;
-		}
+    getUrl() {
+        this.IdprestapiService.getStageViewUrl().then(response => {
+            const resp = response.json();
+            const errorMsg = resp.errorMessage;
+            /* console.log("required"+JSON.stringify(resp)); */
+            console.log(resp.resource);
+        this.jobUrl = resp.resource;
+        });
+        return true;
+        }
 }
