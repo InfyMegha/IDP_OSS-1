@@ -102,8 +102,11 @@ Below instructions will help the users to get to know the structure of this repo
 </tr>
 <tr>
   <td align="center"><sup><b>Scheduler</b></sup></td>
-  <td></td>
-  <td></td>
+  <td><sup>This Java based component is for timed execution of pipelines.</sup></td>
+  <td>  <ol>
+    <li><sup><b>Framework :</b> Spring Boot, Spring MVC, OAUth2.0</sup></li>
+    <li><sup><b>Dependency Management:</b> Maven</sup></li>
+    </ol></td>
 </tr>
 <tr>
   <td align="center"><sup><b>Jenkins</b></sup></td>
@@ -118,11 +121,6 @@ Below instructions will help the users to get to know the structure of this repo
 <tr>
   <td align="center"><sup><b>Data Files</b></sup></td>
   <td><sup>This folder contains the database initialization scripts for Postgres. It also consists of the Grafana configuration file (grafana.ini) with all the necessary configurations for integrating Grafana dashboard with IDP</sup></td>
-  <td align="center"><sup>-</sup></td>
-</tr>
-<tr>
-  <td><sup><b>build.sh</b></sup></td>
-  <td></td>
   <td align="center"><sup>-</sup></td>
 </tr>
 </tbody>
