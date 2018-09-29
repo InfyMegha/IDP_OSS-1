@@ -35,6 +35,8 @@ echo -en " Checking Auth Server Port:\033[s"
 port_check $OAUTH_PORT
 echo -en " Checking Dashboard Server Port:\033[s"
 port_check $DASHBOARD_PORT
+echo -en " Checking UI Server Port:\033[s"
+port_check $IDPAPP_PORT
 echo -en " Checking Subscription Server Port:\033[s"
 port_check $SUBSCRIPTION_PORT
 echo -en " Checking Services Server Port:\033[s"
