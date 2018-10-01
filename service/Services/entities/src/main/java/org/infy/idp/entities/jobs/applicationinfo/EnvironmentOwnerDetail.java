@@ -10,6 +10,7 @@ package org.infy.idp.entities.jobs.applicationinfo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 /**
  * Entity to store env owner details
  * 
@@ -41,14 +42,6 @@ public class EnvironmentOwnerDetail {
 	@Expose
 	private String systemId;
 
-	public String getSystemId() {
-		return systemId;
-	}
-
-	public void setSystemId(String systemId) {
-		this.systemId = systemId;
-	}
-
 	@SerializedName("client")
 	@Expose
 	private String client;
@@ -75,6 +68,14 @@ public class EnvironmentOwnerDetail {
 	@SerializedName("connType")
 	@Expose
 	private String connType;
+
+	public String getSystemId() {
+		return systemId;
+	}
+
+	public void setSystemId(String systemId) {
+		this.systemId = systemId;
+	}
 
 	public String getServerName() {
 		return ServerName;
