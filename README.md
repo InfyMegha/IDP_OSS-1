@@ -27,7 +27,7 @@
 
 This repository is intended to hold the code base along with the required dependencies for the Infosys DevOps Platform OSS version.
 
-## Getting Started
+## Getting Started.   
 
 Below instructions will help the users to get to know the structure of this repository. See [WIKI](https://github.com/krishnakanthbn/IDP_OSS/wiki) for notes on how to deploy the platform on a live system.
 
