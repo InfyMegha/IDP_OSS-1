@@ -6,7 +6,7 @@
 *
 ***********************************************************************************************/
 
-package org.infy.idp.schedulerService;
+package org.infy.idp.schedulerservice;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -26,7 +26,6 @@ import org.apache.commons.collections.ListUtils;
 import org.infy.idp.configure.PostGreSqlDbContext;
 import org.infy.idp.entities.DeployArtifact;
 import org.infy.idp.entities.Nexus;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,6 @@ import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
-import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 
 @Component
@@ -52,13 +50,10 @@ public class NexusDetails {
 	  private static final String FROM_CLAUSE = " FROM ";
 	  private static final String APPLICATION_NAME = " application_name LIKE ? ";
 	  private static final String PIPELINE_NAME = " pipeline_name LIKE ? ";
-	  private static final String USER_ID = " user_id LIKE ? ";
 	  private static final String APPLICATION_ID=" tpipeline_info.application_id=tapplication_info.application_id ";
-	  private static final String ORDER_BY=" ORDER BY ";
 	  private static final String ACTIVE_PIPELINE =" and active = true ";
 	  protected final String ERROR1="Postgres Error while fetching user details:";
-	  private static final String SUB_APPLICATION_NAME = " sub_application LIKE ? ";
-	  private static final String TECHNOLOGY_NAME =" and technology LIKE ? ";
+
 	  
 	
 	protected Logger logger= LoggerFactory.getLogger(NexusDetails.class);
@@ -136,7 +131,6 @@ public class NexusDetails {
 		String passWord=null;
 		String nexusURL=null;
 		String repoName=null;
-		String flattenFile="off";
     	List<DeployArtifact> arList= new ArrayList();     
 		System.out.println("2");
 		JSONObject idp=JSONObject.fromObject(idpData);
@@ -201,12 +195,8 @@ public class NexusDetails {
 						
 						}
 				}
-			} else {
-				
-					//triggerInputs.setRepoName("na");
-				
 			}
-			//triggerInputs.setArtifactList(arList);
+
 
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
@@ -225,7 +215,7 @@ public class NexusDetails {
 		  String tableName="public.tapplication_info";
 		  String column="public.tapplication_info.entity_info";
 		  //ApplicationInfo app = new ApplicationInfo();
-		  Gson gson = new Gson();
+	  
 		  StringBuilder queryStatement = new StringBuilder();
 		   
 		   queryStatement.append(SELECT_CLAUSE+column+FROM_CLAUSE+tableName

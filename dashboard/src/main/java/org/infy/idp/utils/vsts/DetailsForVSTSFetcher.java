@@ -21,7 +21,6 @@ import org.apache.commons.codec.binary.Base64;
 import org.infy.idp.dataapi.InsertFetchVSTS;
 import org.infy.idp.entities.VSTSDataBean;
 import org.infy.idp.utils.ConfigurationManager;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

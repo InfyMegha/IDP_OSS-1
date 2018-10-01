@@ -14,13 +14,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
-
 import java.util.List;
 
 import org.infy.idp.entities.Column;
 import org.infy.idp.entities.QueryResponse;
 import org.infy.idp.utils.ConfigurationManager;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +30,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class FetchDetailsBL {
 	@Autowired
 	private PostGreSqlDbContext postGreSqlDbContext;
@@ -115,11 +114,11 @@ public class FetchDetailsBL {
 	 * @param query
 	 * @return
 	 */
-	public List<QueryResponse> runQuery(String query)
+	public List<QueryResponse> runQuery(String inputquery)
 
 	{
 
-		query=query.replace("\\", "");
+		String query=inputquery.replace("\\", "");
 		logger.info("Executing " , query);
 		///
 		
@@ -139,8 +138,8 @@ public class FetchDetailsBL {
 	 * @return
 	 */
 
-	public QueryResponse runTableQuery(String query) {
-		query=query.replace("\\", "");
+	public QueryResponse runTableQuery(String inputQuery) {
+		String query=inputQuery.replace("\\", "");
 		
 		///
 		logger.info("Executing table query : %s", query);
@@ -240,9 +239,9 @@ public class FetchDetailsBL {
 		return appid;
 	}
 	
-	public List<String> runSearchQuery(String query,String userid) { 
+	public List<String> runSearchQuery(String inputQuery,String userid) { 
 
-		query=query.replace("\\", "");
+		String query=inputQuery.replace("\\", "");
 		logger.info("Executing %s", query);
 		List<String> results = new ArrayList<>();
 		if(query.equalsIgnoreCase("select application_name from appinfo")){

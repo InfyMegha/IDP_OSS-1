@@ -1,3 +1,4 @@
+#!/bin/sh
 echo "Performing Health Checks .........."
 status=false;
 retries_allowed=3
@@ -31,7 +32,7 @@ while [ "$status" != true ]
 		print_status $status
 	fi
 	sleep 5
-	wait_count=`expr $wait_count - 1`
+	wait_count=$(($wait_count - 1))
 	if [ "$wait_count" -eq "0" ]
 	then
 		print_status $status

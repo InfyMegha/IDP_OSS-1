@@ -105,6 +105,7 @@ import net.sf.json.JSONObject;
  */
 
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class JobsBL {
 	protected Logger logger = LoggerFactory.getLogger(JobsBL.class);
 
@@ -170,7 +171,8 @@ public class JobsBL {
 	/**
 	 * Process job and create
 	 *
-	 * @param idpjson the idpjson
+	 * @param idpjson
+	 *            the idpjson
 	 */
 	public void processJobs(IDPJob idpjson) {
 		buildService.createNewJob(idpjson);
@@ -180,11 +182,13 @@ public class JobsBL {
 	/**
 	 * submits the specified Job
 	 * 
-	 * @param idp the IDPJob
+	 * @param idp
+	 *            the IDPJob
 	 * 
 	 */
 
-	public String submitJob(IDPJob idp, String user) {
+	public String submitJob(IDPJob inputIdp, String user) {
+		IDPJob idp = inputIdp;
 		Gson gson = new Gson();
 		logger.debug("submit job start");
 
@@ -200,11 +204,30 @@ public class JobsBL {
 		if (!(permissions.contains(CREATE_PIPELINE) || permissions.contains(EDIT_PIPELINE))) {
 			return "User Does not have permission to create pipeline";
 		}
+		setArtificatStage(idp);
 		IDPJob a = new IDPJob();
 		Gson g = new Gson();
 		String newidp = g.toJson(idp);
 		a = g.fromJson(newidp, IDPJob.class);
 		logger.info(newidp);
+		
+
+		idp = fetchJobDetails.getSonarInfo(idp);
+		logger.info("IDP JSON " + gson.toJson(idp, IDPJob.class).toString());
+		logger.debug("IDP JSON " + gson.toJson(idp, IDPJob.class).toString());
+
+		buildService.createNewJob(idp);
+
+		logger.info(
+				idp.getBasicInfo().getApplicationName() + "_" + idp.getBasicInfo().getPipelineName() + " Job created.");
+
+		IDPJob idpLocal = idp;
+		IDPJob aLocal = a;
+		
+		runInThread(idpLocal,aLocal,user);
+		return "SUCCESS";
+	}
+	private void setArtificatStage(IDPJob idp){
 		if (idp.getBuildInfo() != null && idp.getBuildInfo().getArtifactToStage() != null) {
 			logger.info(idp.getBuildInfo().getArtifactToStage().getArtifactRepoName());
 			if (idp.getBuildInfo().getArtifactToStage().getArtifactRepoName() == null
@@ -235,18 +258,8 @@ public class JobsBL {
 				}
 			}
 		}
-
-		idp = fetchJobDetails.getSonarInfo(idp);
-		logger.info("IDP JSON " + gson.toJson(idp, IDPJob.class).toString());
-		logger.debug("IDP JSON " + gson.toJson(idp, IDPJob.class).toString());
-
-		buildService.createNewJob(idp);
-
-		logger.info(
-				idp.getBasicInfo().getApplicationName() + "_" + idp.getBasicInfo().getPipelineName() + " Job created.");
-
-		IDPJob idpLocal = idp;
-		IDPJob aLocal = a;
+	}
+	private void runInThread(IDPJob idpLocal,IDPJob aLocal,String user){
 		new Thread(new Runnable() {
 
 			@Override
@@ -308,18 +321,17 @@ public class JobsBL {
 
 			}
 		}).start();
-
-		return "SUCCESS";
 	}
-
 	/**
 	 * submits the trigger interval
 	 * 
-	 * @param idp the IDPJob
+	 * @param idp
+	 *            the IDPJob
 	 * 
 	 */
 
-	public String submitInterval(org.infy.idp.entities.jobs.basicinfo.TriggerInterval idp, String user) {
+	public String submitInterval(org.infy.idp.entities.jobs.basicinfo.TriggerInterval inputIdp, String user) {
+		org.infy.idp.entities.jobs.basicinfo.TriggerInterval idp = inputIdp;
 		TriggerJobName triggerJobName = new TriggerJobName();
 		triggerJobName.setApplicationName(idp.getInterval().get(0).getDetails().getApplicationName());
 		triggerJobName.setPipelineName(idp.getInterval().get(0).getDetails().getPipelineName());
@@ -434,7 +446,8 @@ public class JobsBL {
 	 * 
 	 * Returns release list of the specified app
 	 *
-	 * @param userName the String
+	 * @param userName
+	 *            the String
 	 * 
 	 * @return applications the Applications
 	 */
@@ -549,7 +562,8 @@ public class JobsBL {
 	/**
 	 * getExistingApps.
 	 *
-	 * @param userName the String
+	 * @param userName
+	 *            the String
 	 * 
 	 * @return applications the Applications
 	 */
@@ -579,9 +593,11 @@ public class JobsBL {
 	/**
 	 * getExistingApps for organization.
 	 *
-	 * @param userName the String
+	 * @param userName
+	 *            the String
 	 * 
-	 * @param orgName  the String
+	 * @param orgName
+	 *            the String
 	 * 
 	 * @return applications the Applications
 	 */
@@ -638,7 +654,8 @@ public class JobsBL {
 	/**
 	 * getExistingPipelines.
 	 *
-	 * @param userName the String
+	 * @param userName
+	 *            the String
 	 * 
 	 * @return applications the Applications
 	 */
@@ -665,7 +682,8 @@ public class JobsBL {
 	/**
 	 * Return pipelines of the specified app
 	 *
-	 * @param appName the String
+	 * @param appName
+	 *            the String
 	 * @return Pipelines
 	 */
 
@@ -698,7 +716,8 @@ public class JobsBL {
 	/**
 	 * Return env details of specified app
 	 *
-	 * @param appName the String
+	 * @param appName
+	 *            the String
 	 * 
 	 * @return env the EnvName
 	 */
@@ -724,19 +743,42 @@ public class JobsBL {
 		}
 		return env;
 	}
+	private ArrayList<TestStepInfo> addTestSteps(IDPJob idpjob,TriggerParameters triggerparameters){
+		ArrayList<TestStepInfo> testStepInfoList = new ArrayList<>();
+		if (idpjob != null && null != idpjob.getTestInfo() && idpjob.getTestInfo().getTestEnv() != null
+				&& idpjob.getTestInfo().getTestEnv().size() > 0) {
+			for (TestEnv testenv : idpjob.getTestInfo().getTestEnv()) {
+				if (testenv != null && testenv.getTestSteps() != null && testenv.getTestSteps().size() > 0) {
+		for (String testStepName : triggerparameters.getTestStep()) {
+			for (TestStep testStep : testenv.getTestSteps()) {
+				if (testStepName.equalsIgnoreCase(testStep.getStepName())) {
 
+					TestStepInfo testStepInfo = new TestStepInfo();
+					testStepInfo.setTestStepName(testStep.getStepName());
+					testStepInfo.setTestStepTool(testStep.getTest().getTestTypeName());
+
+					testStepInfoList.add(testStepInfo);
+				}
+			}
+		}
+				}
+			}
+		}
+		return testStepInfoList;
+	}
 	/**
 	 * Triggers job with specified parameter.
 	 *
-	 * @param triggerparameters the TriggerParameters
+	 * @param triggerparameters
+	 *            the TriggerParameters
 	 */
 
-	public String triggerJobs(TriggerParameters triggerparameters, String userName) {
+	public String triggerJobs(TriggerParameters inputTriggerparameters, String userName) {
 		logger.debug("Triggering jobs");
-
+		TriggerParameters triggerparameters = inputTriggerparameters;
 		IDPJob idpjob = null;
 		Gson g = new Gson();
-		String artifactName = "";
+
 		try {
 			idpjob = jobDetailsDL.getPipelineInfo(triggerparameters.getApplicationName(),
 					triggerparameters.getPipelineName());
@@ -754,25 +796,8 @@ public class JobsBL {
 
 		// Populating test step details
 		ArrayList<TestStepInfo> testStepInfoList = new ArrayList<>();
-		if (idpjob != null && null != idpjob.getTestInfo() && idpjob.getTestInfo().getTestEnv() != null
-				&& idpjob.getTestInfo().getTestEnv().size() > 0) {
-			for (TestEnv testenv : idpjob.getTestInfo().getTestEnv()) {
-				if (testenv != null && testenv.getTestSteps() != null && testenv.getTestSteps().size() > 0) {
-					for (String testStepName : triggerparameters.getTestStep()) {
-						for (TestStep testStep : testenv.getTestSteps()) {
-							if (testStepName.equalsIgnoreCase(testStep.getStepName())) {
 
-								TestStepInfo testStepInfo = new TestStepInfo();
-								testStepInfo.setTestStepName(testStep.getStepName());
-								testStepInfo.setTestStepTool(testStep.getTest().getTestTypeName());
-
-								testStepInfoList.add(testStepInfo);
-							}
-						}
-					}
-				}
-			}
-		}
+		testStepInfoList = addTestSteps(idpjob, triggerparameters);
 
 		triggerparameters.setTestStepDetails(testStepInfoList);
 		triggerparameters.setLanscapeName(triggerparameters.getEnvSelected());
@@ -780,7 +805,16 @@ public class JobsBL {
 
 		triggerparameters = setDbDeployDetails(triggerparameters, idpjob);
 
+		triggerJobs(triggerparameters, idpjob, userName);
+		logger.info("Job " + triggerparameters.getApplicationName() + "_" + triggerparameters.getPipelineName()
+				+ "is triggered.");
+		return "SUCESS";
+	}
+
+	private void triggerJobs(TriggerParameters triggerparameters, IDPJob idpjob, String userName) {
 		// Modularized email ids
+
+		Gson g = new Gson();
 		List<String> users = emailSender.getUsersFromApplication(triggerparameters.getApplicationName(),
 				triggerparameters.getPipelineName(), triggerparameters.getUserName());
 
@@ -789,12 +823,9 @@ public class JobsBL {
 		triggerparameters.setSonardashBoardLink(configmanager.getSonardashboardurl());
 		logger.info(g.toJson(triggerparameters));
 
-		if (idpjob.getBuildInfo() != null && null != idpjob.getBuildInfo().getArtifactToStage().getnuspecFilePath()
-				&& !(idpjob.getBuildInfo().getArtifactToStage().getnuspecFilePath().equals(""))) {
-			triggerparameters.setNugetPackaging(true);
-		} else {
-			triggerparameters.setNugetPackaging(false);
-		}
+		triggerparameters.setNugetPackaging((idpjob.getBuildInfo() != null && null != idpjob.getBuildInfo().getArtifactToStage().getnuspecFilePath()
+				&& !(idpjob.getBuildInfo().getArtifactToStage().getnuspecFilePath().equals(""))) ? true:false);
+		
 
 		// setting scm branch
 
@@ -807,7 +838,23 @@ public class JobsBL {
 		String buildObj = getJobJSON(triggerparameters.getApplicationName() + "_" + triggerparameters.getPipelineName(),
 				"nextBuild_Pipeline");
 		JSONObject buildJson = JSONObject.fromObject(buildObj);
+		String artifactName = getAritifactName(triggerparameters, buildJson);
+		
 
+		jobDetailsInsertion.updateTriggerHistory(triggerId, buildJson.getString("nextBuildNumber"), artifactName);
+		
+
+		logger.info("nuget packaging is set to:" + triggerparameters.getNugetPackaging());
+
+		if (triggerparameters.getDeploy() != null || triggerparameters.getBuild() != null) {
+			insertArtifact(triggerparameters, buildJson, userName);
+
+		}
+		triggerBuilds.buildByJobName(triggerparameters);
+
+	}
+	private String getAritifactName(TriggerParameters triggerparameters,JSONObject buildJson){
+		String artifactName="";
 		if (triggerparameters.getBuild() != null) {
 			if (triggerparameters.getDeploy() != null
 					&& triggerparameters.getArtifactorySelected().equalsIgnoreCase("on")) {
@@ -826,28 +873,8 @@ public class JobsBL {
 			}
 
 		}
-
-		jobDetailsInsertion.updateTriggerHistory(triggerId, buildJson.getString("nextBuildNumber"), artifactName);
-		if (idpjob.getBuildInfo() != null && null != idpjob.getBuildInfo().getArtifactToStage().getnuspecFilePath()
-				&& !(idpjob.getBuildInfo().getArtifactToStage().getnuspecFilePath().equals(""))) {
-			triggerparameters.setNugetPackaging(true);
-		} else {
-			triggerparameters.setNugetPackaging(false);
-		}
-
-		logger.info("nuget packaging is set to:" + triggerparameters.getNugetPackaging());
-
-		if ((triggerparameters.getDeploy() != null || triggerparameters.getBuild() != null)) {
-			insertArtifact(triggerparameters, buildJson, userName);
-
-		}
-		triggerBuilds.buildByJobName(triggerparameters);
-
-		logger.info("Job " + triggerparameters.getApplicationName() + "_" + triggerparameters.getPipelineName()
-				+ "is triggered.");
-		return "SUCESS";
+		return artifactName;
 	}
-
 	/**
 	 * Sets SCM Branch specified job
 	 * 
@@ -1350,7 +1377,8 @@ public class JobsBL {
 	 * 
 	 * check Available Jobs To Trigger
 	 * 
-	 * @param userName the String
+	 * @param userName
+	 *            the String
 	 * @return history the History
 	 * 
 	 */
@@ -1383,7 +1411,8 @@ public class JobsBL {
 	 * 
 	 * create Application
 	 * 
-	 * @param appInfo the ApplicationInfo
+	 * @param appInfo
+	 *            the ApplicationInfo
 	 * 
 	 * 
 	 */
@@ -1432,7 +1461,8 @@ public class JobsBL {
 	 * 
 	 * InsertApplicationDetails
 	 * 
-	 * @param appInfo the ApplicationInfo
+	 * @param appInfo
+	 *            the ApplicationInfo
 	 * 
 	 * 
 	 */
@@ -1647,9 +1677,12 @@ public class JobsBL {
 	 * 
 	 * insertApplicationDetails
 	 * 
-	 * @param appInfo the ApplicationInfo
-	 * @param user    the String
-	 * @param orgName the String
+	 * @param appInfo
+	 *            the ApplicationInfo
+	 * @param user
+	 *            the String
+	 * @param orgName
+	 *            the String
 	 * 
 	 * @return TriggerInputs
 	 */
@@ -1874,7 +1907,8 @@ public class JobsBL {
 	 * 
 	 * Fetch Trigger Information
 	 * 
-	 * @param triggerJobName the TriggerJobName
+	 * @param triggerJobName
+	 *            the TriggerJobName
 	 * 
 	 * @return TriggerInputs
 	 */
@@ -1945,7 +1979,8 @@ public class JobsBL {
 	 * 
 	 * Returns Filtered Application
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * 
 	 * @return appNames the AppNames
 	 */
@@ -2002,7 +2037,8 @@ public class JobsBL {
 	 * 
 	 * Returns Application Details
 	 * 
-	 * @param appName the String
+	 * @param appName
+	 *            the String
 	 * 
 	 * @return app the Application
 	 */
@@ -2026,7 +2062,8 @@ public class JobsBL {
 	 * 
 	 * Returns user Roles
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * 
 	 * @return userRoles the String
 	 */
@@ -2042,7 +2079,8 @@ public class JobsBL {
 	 * 
 	 * Returns user Permissions
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * 
 	 * @return userPermissions the String
 	 */
@@ -2058,7 +2096,8 @@ public class JobsBL {
 	 * 
 	 * Returns user Base Role
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * 
 	 * @return userBaseRoles the String
 	 */
@@ -2074,7 +2113,8 @@ public class JobsBL {
 	 * 
 	 * Returns user Base permission
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * @return userBasePermission the String
 	 */
 	public List<String> getBasePermission(String userId) {
@@ -2089,7 +2129,8 @@ public class JobsBL {
 	 * 
 	 * Returns user all permission
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * @return List<String>
 	 */
 	public List<String> getAllPermission(String userId) {
@@ -2105,7 +2146,8 @@ public class JobsBL {
 	 * 
 	 * Returns user all permission for app
 	 * 
-	 * @param userId the String
+	 * @param userId
+	 *            the String
 	 * @return userBasePermission the String
 	 */
 	public List<String> getAllPermissionforApp(String appName, String userId) {
@@ -2123,7 +2165,8 @@ public class JobsBL {
 	/**
 	 * Create create list of slaves for application
 	 * 
-	 * @param appInfo the ApplicationInfo
+	 * @param appInfo
+	 *            the ApplicationInfo
 	 * 
 	 */
 
@@ -2157,7 +2200,8 @@ public class JobsBL {
 	 * 
 	 * Returns build for the given jobs
 	 * 
-	 * @param jobName the TriggerJobName
+	 * @param jobName
+	 *            the TriggerJobName
 	 * 
 	 */
 
@@ -2193,7 +2237,8 @@ public class JobsBL {
 	 * Return job JSON
 	 * 
 	 * @param jobName
-	 * @param param   - job type
+	 * @param param
+	 *            - job type
 	 * @return
 	 */
 	public String getJobJSON(String jobName, String param) {
@@ -2287,7 +2332,8 @@ public class JobsBL {
 	 * 
 	 * Returns Pipeline Details
 	 * 
-	 * @param triggerJobName the TriggerJobName
+	 * @param triggerJobName
+	 *            the TriggerJobName
 	 * 
 	 * @return pipeline the Pipeline
 	 */
@@ -2319,7 +2365,8 @@ public class JobsBL {
 	 * 
 	 * Returns JobParam Details
 	 * 
-	 * @param triggerJobName the TriggerJobName
+	 * @param triggerJobName
+	 *            the TriggerJobName
 	 * 
 	 * @return pipeline the Pipeline
 	 */
@@ -2335,7 +2382,8 @@ public class JobsBL {
 	 * 
 	 * Returns download url for Artifacts
 	 * 
-	 * @param downloadArtifactInputs the DownloadArtifactInputs
+	 * @param downloadArtifactInputs
+	 *            the DownloadArtifactInputs
 	 * 
 	 * @return String
 	 * 
@@ -2401,7 +2449,8 @@ public class JobsBL {
 	 * 
 	 * Deletes Pipeline
 	 * 
-	 * @param triggerJobName the TriggerJobName
+	 * @param triggerJobName
+	 *            the TriggerJobName
 	 * 
 	 * @return boolean
 	 * 
@@ -2434,8 +2483,10 @@ public class JobsBL {
 	 * 
 	 * Returns user Roles for App
 	 * 
-	 * @param userId  the String
-	 * @param appName the String
+	 * @param userId
+	 *            the String
+	 * @param appName
+	 *            the String
 	 * 
 	 * @return userRoles the String
 	 */
@@ -2452,7 +2503,8 @@ public class JobsBL {
 	 * 
 	 * Returns user Permissions for given roles
 	 * 
-	 * @param roles the String
+	 * @param roles
+	 *            the String
 	 * 
 	 * @return userPermissions the String
 	 */
@@ -2474,7 +2526,8 @@ public class JobsBL {
 	/**
 	 * Add ALM server in Jenkins configuration
 	 * 
-	 * @param idp Json object
+	 * @param idp
+	 *            Json object
 	 * @since April 2018
 	 */
 	private void addALMServer(IDPJob idp) {
@@ -2587,8 +2640,10 @@ public class JobsBL {
 	 * 
 	 * Fetch Trigger Steps
 	 * 
-	 * @param appName the Application Name
-	 * @param envName the Environment Selected
+	 * @param appName
+	 *            the Application Name
+	 * @param envName
+	 *            the Environment Selected
 	 * 
 	 * @return deploy and Test Steps
 	 */
@@ -2605,7 +2660,8 @@ public class JobsBL {
 	/**
 	 * Returns dependent Pipelines.
 	 *
-	 * @param appName the String
+	 * @param appName
+	 *            the String
 	 * @return Pipelines
 	 */
 
@@ -2636,7 +2692,8 @@ public class JobsBL {
 	/**
 	 * Fetch sub application for given application name.
 	 * 
-	 * @param the appName
+	 * @param the
+	 *            appName
 	 * 
 	 * @return the list of sub applications
 	 * 
@@ -2653,7 +2710,8 @@ public class JobsBL {
 	/**
 	 * Fetch database deployment operations
 	 * 
-	 * @param subApplicationName the sub application name
+	 * @param subApplicationName
+	 *            the sub application name
 	 * 
 	 * @return the String of operations
 	 */
@@ -2677,8 +2735,10 @@ public class JobsBL {
 	 * 
 	 * Returns Pipeline List for DBDeploy for Particular Application
 	 * 
-	 * @param appName  the Application Name
-	 * @param userName the user
+	 * @param appName
+	 *            the Application Name
+	 * @param userName
+	 *            the user
 	 * 
 	 * @return dbdeploy pipeline list of selected application
 	 */
@@ -2699,8 +2759,8 @@ public class JobsBL {
 	}
 
 	/**
-	 * Setting true or false if the branches are present in other SCM to checkout
-	 * the branches provides by the user on trigger page from the SCMs
+	 * Setting true or false if the branches are present in other SCM to
+	 * checkout the branches provides by the user on trigger page from the SCMs
 	 * 
 	 * @param idpjob
 	 * @param branchOrTagValue
@@ -2877,7 +2937,8 @@ public class JobsBL {
 	/**
 	 * Fetch applicationId for given Application Name
 	 * 
-	 * @param applicationName the Application Name
+	 * @param applicationName
+	 *            the Application Name
 	 * @return the application Id
 	 */
 	public String getApplicationID(String applicationName) {
@@ -2890,8 +2951,10 @@ public class JobsBL {
 	/**
 	 * Fetch pipelineId for given Pipeline Name
 	 * 
-	 * @param applicationName the application name
-	 * @param pipelineName    the Pipeline Name
+	 * @param applicationName
+	 *            the application name
+	 * @param pipelineName
+	 *            the Pipeline Name
 	 * @return the pipeline Id
 	 */
 	public String getPipelineID(String applicationName, String pipelineName) {
@@ -3014,7 +3077,8 @@ public class JobsBL {
 	 * 
 	 * Returns permission for pipeline
 	 * 
-	 * @param appName the Application Name
+	 * @param appName
+	 *            the Application Name
 	 * 
 	 * @return pipelineName the Pipeline Name
 	 */
@@ -3031,7 +3095,8 @@ public class JobsBL {
 	 * 
 	 * Returns Pipeline permission for application
 	 * 
-	 * @param appName the Application Name
+	 * @param appName
+	 *            the Application Name
 	 * 
 	 * @return pipelineName the Pipeline Name
 	 */
@@ -3045,7 +3110,8 @@ public class JobsBL {
 	 * 
 	 * Method is used to add artifactory in global configuration of jenkins
 	 * 
-	 * @param appInfo the ApplicationInfo
+	 * @param appInfo
+	 *            the ApplicationInfo
 	 * 
 	 */
 

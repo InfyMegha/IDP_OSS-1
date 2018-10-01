@@ -33,6 +33,7 @@ import com.google.gson.Gson;
  * @author Infosys
  */
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class JobDetailsInsertionService {
 	@Autowired
 	private PostGreSqlDbContext postGreSqlDbContext;

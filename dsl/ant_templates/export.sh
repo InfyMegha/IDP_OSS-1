@@ -23,21 +23,26 @@ CLASSPATH=${CLASSPATH}:${PROP_DIR}
 sysname=`uname -s`
 
 case "$sysname" in
-  SunOS) ECHO='/usr/ucb/echo'
-     BSDFLAGS='-n'
-     NONBSDFLAGS='';;
-  Linux) ECHO='/bin/echo'
-     BSDFLAGS='-n'
-     NONBSDFLAGS='';;
-  HP-UX|AIX) BSDFLAGS=''
-         NONBSDFLAGS='\c'
-         ECHO='/usr/bin/echo';;
-  OS400|OS/390) BSDFLAGS=''
-         NONBSDFLAGS='\c'
-         ECHO='/bin/echo';;
-  CYGWIN_NT-*) PS="/usr/bin/ps"
-         ECHO='/usr/bin/echo'
-         NONBSDFLAGS='' ;;
+  SunOS)
+	export ECHO='/usr/ucb/echo'
+	export BSDFLAGS='-n'
+	export NONBSDFLAGS='';;
+  Linux)
+	export ECHO='/bin/echo'
+	export BSDFLAGS='-n'
+	export NONBSDFLAGS='';;
+  HP-UX|AIX) 
+	export BSDFLAGS=''
+	export NONBSDFLAGS='\c'
+	export ECHO='/usr/bin/echo';;
+  OS400|OS/390)
+	export BSDFLAGS=''
+	export NONBSDFLAGS='\c'
+	export ECHO='/bin/echo';;
+  CYGWIN_NT-*) 
+	export PS="/usr/bin/ps"
+	export ECHO='/usr/bin/echo'
+	export NONBSDFLAGS='' ;;
   *)
     echo "cannot determine OStype, to choose echo command. please fix switch"
     exit 1;;

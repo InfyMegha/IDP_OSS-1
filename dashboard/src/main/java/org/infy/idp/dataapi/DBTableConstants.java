@@ -7,14 +7,12 @@
 ***********************************************************************************************/
 package org.infy.idp.dataapi;
 
-import org.slf4j.LoggerFactory;
-
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * 

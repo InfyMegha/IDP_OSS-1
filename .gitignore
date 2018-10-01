@@ -1,3 +1,9 @@
+#Datafiles#
+postgresdata
+dsldata
+jenkinsdata
+datafiles/grafanadata/data/grafana.db
+datafiles/dsldata/
 ### Maven Build ###
 target
 

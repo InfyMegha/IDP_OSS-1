@@ -13,7 +13,6 @@ package org.infy.idp;
 
 import java.util.List;
 
-
 import org.infy.idp.bl.RetrieveInfoBL;
 import org.infy.idp.dataapi.BuildInfoDL;
 import org.infy.idp.entities.AnnotationRequest;

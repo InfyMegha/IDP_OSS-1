@@ -30,6 +30,7 @@ import org.springframework.stereotype.Component;
  * @author Infosys
  */
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class Executor {
 	private static final Logger logger = LoggerFactory.getLogger(Executor.class);
 	@Autowired

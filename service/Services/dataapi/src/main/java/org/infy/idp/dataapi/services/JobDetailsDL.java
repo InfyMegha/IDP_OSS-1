@@ -47,6 +47,7 @@ import com.google.gson.Gson;
  */
 
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class JobDetailsDL {
 	@Autowired
 	private PostGreSqlDbContext postGreSqlDbContext;

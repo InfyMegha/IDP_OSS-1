@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class BuildInfoDL {
 	@Autowired
 	private PostGreSqlDbContext postGreSqlDbContext;

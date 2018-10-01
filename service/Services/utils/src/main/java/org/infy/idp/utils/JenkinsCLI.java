@@ -40,6 +40,7 @@ import hudson.cli.CLI;
  * 
  */
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class JenkinsCLI {
 
 	@Autowired
@@ -304,11 +305,11 @@ public class JenkinsCLI {
 	 * @return int, status
 	 * @throws Exception
 	 */
-	public String addALMConfig(String almServerName, String almServerUrl) throws IOException {
+	public String addALMConfig(String inputalmServerName, String almServerUrl) throws IOException {
 
 		int iStatus = 1;
 		logger.info("addALMConfig Method call initiated ");
-
+		String almServerName = inputalmServerName;
 		InputStream is = null;
 		OutputStream os = null;
 		OutputStream err = null;

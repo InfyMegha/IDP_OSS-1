@@ -33,10 +33,10 @@ public class UserService {
 	 * @param password
 	 * @return
 	 */
-	public Response authenticate(String username, String password) {
+	public Response authenticate(String inputUsername, String inputPassword) {
 		// here goes your actual username && password verification logic
-		password = password.trim();
-		username = username.trim();
+		String password = inputPassword.trim();
+		String username = inputUsername.trim();
 		if ("Y".equals(configManager.getSkipAuthentication())) {
 			return Response.ok();
 		}

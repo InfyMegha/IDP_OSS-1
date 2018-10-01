@@ -6,7 +6,7 @@
 *
 ***********************************************************************************************/
 
-package org.infy.idp.schedulerService;
+package org.infy.idp.schedulerservice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,11 +46,6 @@ public class ArtifactHistory {
 	private static final String SELECT_CLAUSE = " SELECT ";
 	private static final String FROM_CLAUSE = " FROM ";
 	private static final String APPLICATION_NAME = " application_name LIKE ? ";
-	private static final String PIPELINE_NAME = " pipeline_name LIKE ? ";
-	private static final String USER_ID = " user_id LIKE ? ";
-	private static final String APPLICATION_ID = " tpipeline_info.application_id=tapplication_info.application_id ";
-	private static final String ORDER_BY = " ORDER BY ";
-	private static final String ACTIVE_PIPELINE = " and active = true ";
 	protected final String ERROR1 = "Postgres Error while fetching user details:";
 	protected Logger logger=  LoggerFactory.getLogger(ArtifactHistory.class);
 
@@ -227,17 +222,7 @@ public class ArtifactHistory {
 	public int getReleaseId(String appName, String pipelineName, String releaseNumber ,String status)
 			throws SQLException {
 		
-		int releaseId=0;
-		
-		/*SELECT release_id FROM
-		 public.tpipeline_info,tapplication_info,trelease_info where
-		 tapplication_info.application_id = tpipeline_info.application_id and
-		 tpipeline_info.application_id = trelease_info.application_id and
-		 tpipeline_info.pipeline_id = trelease_info.pipeline_id and
-		 tapplication_info.application_name like 'THIRD_APPLICATION' and
-		 tpipeline_info.pipeline_name like 'Tibco_Sanity_1' and status = 'on' 
-        and release_number like '1.0.1'*/
-		
+		int releaseId=0;		
 		StringBuilder queryStatement = new StringBuilder();
 
 		queryStatement.append(SELECT_CLAUSE);
@@ -354,11 +339,7 @@ public class ArtifactHistory {
 	  
 	  public int getEnvironmentId(String environmentName, int applicationId) throws SQLException {
 
-			/*
-			 * SELECT env_id FROM public.tenvironment_master WHERE environment_name
-			 * = 'DEV' AND application_id = 3
-			 */
-
+			
 			int env_id = -1;
 			StringBuilder queryStatement = new StringBuilder();
 
@@ -392,15 +373,7 @@ public class ArtifactHistory {
 		}
 	  
 	  public void insertArtifacttoData(int envId , int releaseId , String artifactName , String status) throws SQLException{
-			
-			/*
-			 * INSERT INTO public.tartifact_approval(
-		artifact_name, release_id, env_id, status)
-		VALUES ( 'ReleaseManagement29Dec_Informatica_RM_1', 26, 30, 'approved') 
-	    ON CONFLICT (artifact_name , release_id , env_id ) DO UPDATE
-	    SET artifact_name = 'ReleaseManagement29Dec_Informatica_RM_1';;
-			 */
-			
+					
 			StringBuilder queryStatement = new StringBuilder();
 			
 			queryStatement.append("INSERT INTO public.tartifact_approval( ");
@@ -430,11 +403,6 @@ public class ArtifactHistory {
 		}
 	  
 	  public int getArtifactId(String artifactName) throws SQLException {
-
-			/*
-			 * SELECT env_id FROM public.tenvironment_master WHERE environment_name
-			 * = 'DEV' AND application_id = 3
-			 */
 
 			int artifactId = -1;
 			StringBuilder queryStatement = new StringBuilder();
@@ -467,12 +435,7 @@ public class ArtifactHistory {
 
 	  public void insertArtifactDetails(int artifactId , String status , String remark , String environment , String env_owner ) throws SQLException{
 			
-			/*
-			 *INSERT INTO public.tartifact_history(
-		seq_id, artifact_id, status, remark, environment, env_owner, action_time)
-		VALUES (?, ?, ?, ?, ?, ?, ?)
-			 */
-			
+	
 			StringBuilder queryStatement = new StringBuilder();
 			
 			queryStatement.append("INSERT INTO public.tartifact_history( ");

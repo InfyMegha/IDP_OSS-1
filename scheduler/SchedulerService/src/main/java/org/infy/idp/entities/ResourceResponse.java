@@ -9,8 +9,6 @@
 
 package org.infy.idp.entities;
 
-import org.infy.idp.entities.BaseResponse;
-
 /**
  * The Class ResourceResponse.
  *

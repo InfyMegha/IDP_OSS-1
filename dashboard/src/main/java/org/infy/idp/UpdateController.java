@@ -8,7 +8,6 @@
 package org.infy.idp;
 
 import org.infy.idp.bl.InsertInfoBL;
-
 import org.infy.idp.entities.JsonClass;
 import org.infy.idp.entities.RebaseData;
 import org.infy.idp.utils.ConfigurationManager;

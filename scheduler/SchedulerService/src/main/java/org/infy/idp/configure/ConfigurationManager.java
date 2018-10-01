@@ -10,8 +10,6 @@
 
 package org.infy.idp.configure;
 
-import java.util.Map;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +18,7 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties
 @Component
+@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class ConfigurationManager {
 	private ConfigurationManager(){
 	}
