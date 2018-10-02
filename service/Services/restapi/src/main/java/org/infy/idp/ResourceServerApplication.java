@@ -47,8 +47,6 @@ public class ResourceServerApplication extends SpringBootServletInitializer {
 	@Autowired
 	private OrgInfoBL orgInfoBL;
 
-	@Autowired
-	private JobsBL jobsInfoBL;
 
 	/**
 	 * 

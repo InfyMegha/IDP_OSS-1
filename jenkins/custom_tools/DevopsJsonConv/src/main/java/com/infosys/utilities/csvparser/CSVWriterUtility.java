@@ -19,14 +19,15 @@ public class CSVWriterUtility {
 
 	public static void writeLine(Writer w, List<String> values, char separators, char customQuote) throws IOException {
 		boolean first = true;
+		char newSeparators=separators;
 		// default customQuote is empty
-		if (separators == ' ') {
-			separators = DEFAULT_SEPARATOR;
+		if (newSeparators == ' ') {
+			newSeparators = DEFAULT_SEPARATOR;
 		}
 		StringBuilder sb = new StringBuilder();
 		for (String value : values) {
 			if (!first) {
-				sb.append(separators);
+				sb.append(newSeparators);
 			}
 			if (customQuote == ' ') {
 				sb.append(followCVSformat(value));

@@ -292,11 +292,11 @@ public class BugCollection {
 			this.typelist = typelist;
 		}
 
-		public List<Class> getClass_() {
+		public List<Class> getClazz() {
 			return class_;
 		}
 
-		public void setClass_(List<Class> class_) {
+		public void setClazz(List<Class> class_) {
 			this.class_ = class_;
 		}
 
@@ -316,11 +316,11 @@ public class BugCollection {
 			this.sourceLine = sourceLine;
 		}
 
-		public List<Int> getInt_() {
+		public List<Int> getInts() {
 			return int_;
 		}
 
-		public void setInt_(List<Int> int_) {
+		public void setInts(List<Int> int_) {
 			this.int_ = int_;
 		}
 

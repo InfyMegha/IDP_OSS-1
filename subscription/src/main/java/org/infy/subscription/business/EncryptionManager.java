@@ -50,7 +50,7 @@ public class EncryptionManager {
 	 * @throws NoSuchAlgorithmException
 	 * @throws InvalidKeySpecException
 	 */
-	void process(byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	public void process(byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		if (publicKey == null) {
 			throw new NullPointerException("publicKey");
 		}

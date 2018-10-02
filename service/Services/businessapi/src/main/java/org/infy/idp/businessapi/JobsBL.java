@@ -193,9 +193,9 @@ public class JobsBL {
 		logger.debug("submit job start");
 
 		List<String> permissions = getPermissionForApplications(idp.getBasicInfo().getApplicationName(), user);
-		Long orgId = 0L;
+		
 		try {
-			orgId = jobDetailsDL.getOrgId(user);
+			jobDetailsDL.getOrgId(user);
 			if (!getPipelinePermissionforApplication(idp.getBasicInfo().getApplicationName(), user).isEmpty())
 				permissions.add(EDIT_PIPELINE);
 		} catch (SQLException e1) {
@@ -811,9 +811,9 @@ public class JobsBL {
 		return "SUCESS";
 	}
 
-	private void triggerJobs(TriggerParameters triggerparameters, IDPJob idpjob, String userName) {
+	private void triggerJobs(TriggerParameters inputTriggerparameters, IDPJob idpjob, String userName) {
 		// Modularized email ids
-
+		TriggerParameters triggerparameters=inputTriggerparameters;
 		Gson g = new Gson();
 		List<String> users = emailSender.getUsersFromApplication(triggerparameters.getApplicationName(),
 				triggerparameters.getPipelineName(), triggerparameters.getUserName());
@@ -1317,9 +1317,9 @@ public class JobsBL {
 
 		HashMap<String, Set<String>> releaseNum = new HashMap<String, Set<String>>();
 
-		IDPJob idp = null;
+		
 		try {
-			idp = jobDetailsDL.getPipelineInfo(appname, piplineName);
+			jobDetailsDL.getPipelineInfo(appname, piplineName);
 		} catch (SQLException e) {
 			logger.error(e.getMessage(), e);
 		}

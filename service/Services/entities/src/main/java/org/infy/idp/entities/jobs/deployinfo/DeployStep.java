@@ -310,10 +310,6 @@ public class DeployStep {
 	@Expose
 	private String dbOwnerPassword;
 
-	@SerializedName("iosDataPath")
-	@Expose
-	private String iosDataPath;
-
 	@SerializedName("bizScriptPath")
 	@Expose
 	private String bizScriptPath;

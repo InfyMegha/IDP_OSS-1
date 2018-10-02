@@ -121,13 +121,14 @@ public class ConvertPQM {
 	}
 
 	private static String roundOff(String val) {
-		int decPtIndex = val.indexOf('.');
+		String returnVal=val;
+		int decPtIndex = returnVal.indexOf('.');
 		// Appending "0" at the end if value is not upto 2 precision point
 		if (decPtIndex == -1)
-			val += ".00";
-		else if (val.substring(decPtIndex + 1).length() < 2)
-			val += "0";
-		return val.substring(0, val.indexOf('.') + 3);
+			returnVal += ".00";
+		else if (returnVal.substring(decPtIndex + 1).length() < 2)
+			returnVal += "0";
+		return returnVal.substring(0, returnVal.indexOf('.') + 3);
 	}
 
 	private static void iterageCodeMatrics(List<CodeMetric> cov, CSVInfo c, String prefixForId,

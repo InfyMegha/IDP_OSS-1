@@ -22,7 +22,7 @@ public final class SSLUtilities {
 	private static HostnameVerifier _hostnameVerifier;
 	private static TrustManager[] _trustManagers;
 
-	private static void __trustAllHostnames() {
+	private static void trustAllHostnamess() {
 		// Create a trust manager that does not validate certificate chains
 		if (__hostnameVerifier == null) {
 			__hostnameVerifier = new _FakeHostnameVerifier();
@@ -31,7 +31,7 @@ public final class SSLUtilities {
 		com.sun.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(__hostnameVerifier);
 	} // __trustAllHttpsCertificates
 
-	private static void __trustAllHttpsCertificates() {
+	private static void trustAllHttpsCertificatess() {
 		com.sun.net.ssl.SSLContext context;
 		// Create a trust manager that does not validate certificate chains
 		if (__trustManagers == null) {
@@ -51,7 +51,7 @@ public final class SSLUtilities {
 		return ("com.sun.net.ssl.internal.www.protocol".equals(System.getProperty("java.protocol.handler.pkgs")));
 	} // isDeprecatedSSLProtocol
 
-	private static void _trustAllHostnames() {
+	private static void trustAllHostname() {
 		// Create a trust manager that does not validate certificate chains
 		if (_hostnameVerifier == null) {
 			_hostnameVerifier = new FakeHostnameVerifier();
@@ -60,7 +60,7 @@ public final class SSLUtilities {
 		HttpsURLConnection.setDefaultHostnameVerifier(_hostnameVerifier);
 	} // _trustAllHttpsCertificates
 
-	private static void _trustAllHttpsCertificates() {
+	private static void trustAllHttpsCertificate() {
 		SSLContext context;
 		// Create a trust manager that does not validate certificate chains
 		if (_trustManagers == null) {
@@ -79,18 +79,18 @@ public final class SSLUtilities {
 	public static void trustAllHostnames() {
 		// Is the deprecated protocol setted?
 		if (isDeprecatedSSLProtocol()) {
-			__trustAllHostnames();
+			trustAllHostnamess();
 		} else {
-			_trustAllHostnames();
+			trustAllHostname();
 		} // else
 	} // trustAllHostnames
 
 	public static void trustAllHttpsCertificates() {
 		// Is the deprecated protocol setted?
 		if (isDeprecatedSSLProtocol()) {
-			__trustAllHttpsCertificates();
+			trustAllHttpsCertificatess();
 		} else {
-			_trustAllHttpsCertificates();
+			trustAllHttpsCertificate();
 		} // else
 	} // trustAllHttpsCertificates
 
@@ -126,9 +126,11 @@ public final class SSLUtilities {
 		private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[] {};
 
 		public void checkClientTrusted(X509Certificate[] chain, String authType) {
+			//implements parent method
 		} // checkClientTrusted
 
 		public void checkServerTrusted(X509Certificate[] chain, String authType) {
+			//implements parent method
 		} // checkServerTrusted
 
 		public X509Certificate[] getAcceptedIssuers() {

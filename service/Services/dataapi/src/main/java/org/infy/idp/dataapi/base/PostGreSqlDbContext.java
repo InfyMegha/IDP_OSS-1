@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
  * @author Infosys
  */
 @Component
-@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
+@SuppressWarnings({"PMD.MissingStaticMethodInNonInstantiatableClass","unused"})
 public class PostGreSqlDbContext {
 	
 	@Autowired
@@ -35,8 +35,6 @@ public class PostGreSqlDbContext {
 
 	private  String POSTGRES_CONN_URL;
 	private  String POSTGRES_USERNAME;
-	private  String POSTGRES_DB_NAME;
-
 	private  String POSTGRES_PASSWORD;
 	private  String POSTGRES_DRIVER_CLASS;
 	private  int POSTGRES_INITIAL_SIZE;
@@ -59,8 +57,7 @@ public class PostGreSqlDbContext {
 	private void init(){
 		POSTGRES_CONN_URL = configmanager.getUrl();
 		POSTGRES_USERNAME = configmanager.getPostgresqlusername();
-		POSTGRES_DB_NAME = configmanager.getPostgresqlschemaname();
-
+		
 		POSTGRES_PASSWORD = configmanager.getPostgresqlpassword();
 		POSTGRES_DRIVER_CLASS = "org.postgresql.Driver";
 		POSTGRES_INITIAL_SIZE = Integer.parseInt(configmanager.getPostgresqlinitialsize());

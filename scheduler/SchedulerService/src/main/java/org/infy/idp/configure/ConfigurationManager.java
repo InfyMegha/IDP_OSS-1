@@ -20,8 +20,7 @@ import org.springframework.stereotype.Component;
 @Component
 @SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
 public class ConfigurationManager {
-	private ConfigurationManager(){
-	}
+	
 	
 	private String postgresqlusername;
 	private String postgresqlpassword;
@@ -35,6 +34,8 @@ public class ConfigurationManager {
 	private String jenkinsuserid;
 	private String jenkinspassword;
 	
+	private ConfigurationManager(){
+	}
 	
 	public String getUrl() {
 		return url;

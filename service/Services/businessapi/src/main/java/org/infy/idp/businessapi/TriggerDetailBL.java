@@ -67,6 +67,7 @@ import net.sf.json.JSONObject;
 
 /**
  * The class TriggerDetailBL contains method for triggering the job
+ * 
  * @author Infosys
  */
 @Component
@@ -105,6 +106,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * Returns trigger option for trigger job
+	 * 
 	 * @param triggerJobName
 	 * @return Trigger Input
 	 * @throws SQLException
@@ -482,7 +484,8 @@ public class TriggerDetailBL {
 
 	/**
 	 * 
-	 * Checks approval of build 
+	 * Checks approval of build
+	 * 
 	 * @param jobName
 	 * @param jobType
 	 * @param workEnv
@@ -534,6 +537,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * Returns module build for pipeline
+	 * 
 	 * @param json
 	 * @param triggerInputs
 	 * @param type
@@ -604,6 +608,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * Checks if nexus is selected
+	 * 
 	 * @param idp
 	 * @return boolean
 	 */
@@ -620,6 +625,7 @@ public class TriggerDetailBL {
 	/**
 	 * 
 	 * Returns nexus or artifactory details for trigger job
+	 * 
 	 * @param triggerJobName
 	 * @param triggerInputs
 	 * @param idp
@@ -653,17 +659,18 @@ public class TriggerDetailBL {
 		} else if ((idp.getBuildInfo() != null && idp.getBuildInfo().getArtifactToStage() != null
 				&& (idp.getBuildInfo().getArtifactToStage().getArtifactRepoName() == null
 						|| idp.getBuildInfo().getArtifactToStage().getArtifactRepoName().equalsIgnoreCase(""))
-				|| (idp.getBuildInfo() != null && idp.getBuildInfo().getArtifactToStage() == null))) {
-			if (app.getArtifactToStage() != null && app.getArtifactToStage().getArtifactRepo() != null
-					&& !app.getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("na")
-					&& !app.getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("")) {
-				userName = app.getArtifactToStage().getArtifactRepo().getRepoUsername();
-				passWord = app.getArtifactToStage().getArtifactRepo().getRepoPassword();
-				nexusURL = app.getArtifactToStage().getArtifactRepo().getRepoURL();
-				repoName = app.getArtifactToStage().getArtifactRepo().getRepoName();
-				artifactType = app.getArtifactToStage().getArtifactRepoName();
-				artifact = true;
-			}
+				|| (idp.getBuildInfo() != null && idp.getBuildInfo().getArtifactToStage() == null))
+				&& (app.getArtifactToStage() != null && app.getArtifactToStage().getArtifactRepo() != null
+						&& !app.getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("na")
+						&& !app.getArtifactToStage().getArtifactRepoName().equalsIgnoreCase(""))) {
+
+			userName = app.getArtifactToStage().getArtifactRepo().getRepoUsername();
+			passWord = app.getArtifactToStage().getArtifactRepo().getRepoPassword();
+			nexusURL = app.getArtifactToStage().getArtifactRepo().getRepoURL();
+			repoName = app.getArtifactToStage().getArtifactRepo().getRepoName();
+			artifactType = app.getArtifactToStage().getArtifactRepoName();
+			artifact = true;
+
 		}
 		if (idp.getCode().getTechnology().equalsIgnoreCase("J2EE/Ant") && app.getArtifactToStage() != null
 				&& app.getArtifactToStage().getArtifactRepo() != null
@@ -766,12 +773,12 @@ public class TriggerDetailBL {
 								List<String> module = new ArrayList<>();
 								if (tpsb != null) {
 									TriggerParameters tpb = (TriggerParameters) tpsb.get(0);
-									if (tpb.getBuild() != null) {
-										if (tpb.getBuild().getModule() != null
-												&& tpb.getBuild().getModule().size() > 0) {
-											module = tpb.getBuild().getModule();
-											d1.setBuildModulesList(module);
-										}
+									if (tpb.getBuild() != null && (tpb.getBuild().getModule() != null
+											&& tpb.getBuild().getModule().size() > 0)) {
+
+										module = tpb.getBuild().getModule();
+										d1.setBuildModulesList(module);
+
 									}
 
 								}
@@ -964,6 +971,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * checks if repository is git
+	 * 
 	 * @param scm
 	 * @return String
 	 */
@@ -1143,6 +1151,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * Returns modules for job
+	 * 
 	 * @param idp
 	 * @return List<org.infy.entities.triggerinputs.SubModule>
 	 */
@@ -1169,6 +1178,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * Check if code analysis is selected
+	 * 
 	 * @param idp
 	 * @return boolean
 	 */
@@ -1189,6 +1199,7 @@ public class TriggerDetailBL {
 
 	/**
 	 * Checks if unit testing is selected
+	 * 
 	 * @param idp
 	 * @return boolean
 	 */
@@ -1207,10 +1218,8 @@ public class TriggerDetailBL {
 
 	}
 
-	
-
 	/**
-	 * Returns gitlab branch and tag 
+	 * Returns gitlab branch and tag
 	 * 
 	 * @param repoUrl
 	 * @param username

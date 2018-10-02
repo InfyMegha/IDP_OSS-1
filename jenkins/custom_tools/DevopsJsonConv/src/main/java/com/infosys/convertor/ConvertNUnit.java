@@ -19,6 +19,7 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 
+import com.infosys.json.JsonClass;
 import com.infosys.json.TestCaseResult;
 import com.infosys.utilities.nunit.Failure;
 import com.infosys.utilities.nunit.TestCase;
@@ -31,7 +32,8 @@ public class ConvertNUnit {
 	private ConvertNUnit() {
 	}
 
-	public static List<TestCaseResult> convert(String inputPath, List<TestCaseResult> tr, String prefixForId) {
+	public static List<TestCaseResult> convert(String inputPath, JsonClass json, String prefixForId) {
+		List<TestCaseResult> tr=json.getTestCaseResult();
 		if (tr == null)
 			tr = new ArrayList<>();
 		try {

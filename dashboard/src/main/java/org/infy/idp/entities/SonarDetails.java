@@ -36,6 +36,10 @@ public class SonarDetails {
 	@SerializedName("technicaldebt")
 	@Expose 
 	private String technicalDebt;
+	
+	@SerializedName("bugs")
+	@Expose
+	private String bugs;
 	public int getLoc() {
 		return loc;
 	}
@@ -46,9 +50,7 @@ public class SonarDetails {
 	}
 
 
-	@SerializedName("bugs")
-	@Expose
-	private String bugs;
+	
 	
 	public String getSonarServer() {
 		return sonarServer;

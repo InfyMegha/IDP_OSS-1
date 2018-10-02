@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
  * @author Infosys
  */
 @Component
+@SuppressWarnings("unused")
 public class PostGreSqlDbContext {
   
   @Autowired

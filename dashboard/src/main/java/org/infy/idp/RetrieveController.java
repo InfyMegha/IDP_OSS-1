@@ -14,13 +14,13 @@ package org.infy.idp;
 import java.util.List;
 
 import org.infy.idp.bl.RetrieveInfoBL;
-import org.infy.idp.dataapi.BuildInfoDL;
+
 import org.infy.idp.entities.AnnotationRequest;
 import org.infy.idp.entities.AnnotationResponse;
 import org.infy.idp.entities.QueryRequest;
 import org.infy.idp.entities.QueryResponse;
 import org.infy.idp.entities.SearchRequest;
-import org.infy.idp.utils.ConfigurationManager;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

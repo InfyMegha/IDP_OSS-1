@@ -40,14 +40,14 @@ import hudson.cli.CLI;
  * 
  */
 @Component
-@SuppressWarnings("PMD.MissingStaticMethodInNonInstantiatableClass")
+@SuppressWarnings({"PMD.MissingStaticMethodInNonInstantiatableClass","unused"})
 public class JenkinsCLI {
 
 	@Autowired
 	private ConfigurationManager configmanager;
 
 	@Autowired
-	ResourceLoader resourceLoader;
+	private ResourceLoader resourceLoader;
 
 	private static final Logger logger = LoggerFactory.getLogger(JenkinsCLI.class);
 	private String addProjectRole = "add-project-role";
@@ -59,7 +59,7 @@ public class JenkinsCLI {
 	private String whoAmI = "who-am-i";
 	private String addArtifcatoryRepo = "add-artifactory-repo";
 
-	CLI cli;
+	private CLI cli;
 
 	private JenkinsCLI() {
 

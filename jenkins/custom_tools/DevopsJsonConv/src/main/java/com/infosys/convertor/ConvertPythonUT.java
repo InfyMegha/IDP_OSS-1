@@ -24,7 +24,9 @@ public class ConvertPythonUT {
 	private ConvertPythonUT() {
 	}
 
-	public static List<TestCaseResult> convert(String inputPath, List<TestCaseResult> tr, String prefixForId) {
+	public static List<TestCaseResult> convert(String inputPath, JsonClass json, String prefixForId) {
+		List<TestCaseResult> tr=json.getTestCaseResult();
+		
 		if (tr == null)
 			tr = new ArrayList<>();
 		try {

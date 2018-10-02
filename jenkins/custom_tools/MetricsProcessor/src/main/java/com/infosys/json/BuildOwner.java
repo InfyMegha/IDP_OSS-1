@@ -25,7 +25,4 @@ public class BuildOwner {
 		this.id = id;
 	}
 
-	public BuildOwner() {
-		super();
-	}
 }

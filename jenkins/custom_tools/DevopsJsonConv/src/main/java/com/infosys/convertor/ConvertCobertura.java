@@ -69,9 +69,9 @@ public class ConvertCobertura {
 			}
 		} catch (Exception e) {
 			try {
-				jaxbContext = JAXBContext.newInstance(com.infosys.utilities.coberturajava.Coverage.class);
+				jaxbContext = JAXBContext.newInstance(Coverage.class);
 				jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-				com.infosys.utilities.coberturajava.Coverage coverageObj = (com.infosys.utilities.coberturajava.Coverage) jaxbUnmarshaller
+				Coverage coverageObj = (Coverage) jaxbUnmarshaller
 						.unmarshal(file);
 				if (coverageObj == null || coverageObj.getPackages() == null
 						|| coverageObj.getPackages().getPackage() == null

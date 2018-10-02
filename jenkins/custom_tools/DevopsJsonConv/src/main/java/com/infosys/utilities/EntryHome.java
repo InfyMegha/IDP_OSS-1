@@ -575,8 +575,9 @@ public class EntryHome {
 		return folderPath;
 	}
 
-	private static JsonClass computeIDPJson(File reportfile, JsonClass json, String[] args,
+	private static JsonClass computeIDPJson(File reportfile, JsonClass jsonObj, String[] args,
 			 List<CoverageDetails> cd) throws IOException {
+		JsonClass json=jsonObj;
 		String idPrefixFlag = args[4];
 		String appName = args[1];
 		String pipName = args[5];
@@ -633,7 +634,7 @@ public class EntryHome {
 					&& reportfile.getName().toLowerCase().endsWith("xml")) {
 				try {
 					List<TestCaseResult> tr ;
-					tr = ConvertPythonUT.convert(reportfile.getCanonicalPath(), json.getTestCaseResult(), prefixForId);
+					tr = ConvertPythonUT.convert(reportfile.getCanonicalPath(), json, prefixForId);
 					json.setTestCaseResult(tr);
 					Functional ft = json.getFunctionalTest();
 					PythonUT put = ConvertPythonUT.getPUnitSummary(json);
@@ -775,7 +776,7 @@ public class EntryHome {
 				json = ConvertJUnit.convertgo(reportfile.getPath(), json);
 			} else if (reportType.toLowerCase().contains("nunit") && reportType.toLowerCase().endsWith("xml")) {
 				List<TestCaseResult> tr ;
-				tr = ConvertNUnit.convert(reportfile.getCanonicalPath(), json.getTestCaseResult(), prefixForId);
+				tr = ConvertNUnit.convert(reportfile.getCanonicalPath(), json, prefixForId);
 				json.setTestCaseResult(tr);
 			} else if (reportType.toLowerCase().contains("nunit") && reportType.toLowerCase().endsWith("trx")) {
 				ConvertTRXNunit.convert(reportfile.getCanonicalPath(), json);

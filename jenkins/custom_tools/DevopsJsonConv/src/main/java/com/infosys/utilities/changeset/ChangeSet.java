@@ -94,10 +94,7 @@ public class ChangeSet {
 	public static class Culprits {
 		private List<String> name;
 
-		public Culprits() {
-			super();
-		}
-
+		
 		public List<String> getName() {
 			return name;
 		}

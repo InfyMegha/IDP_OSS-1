@@ -183,13 +183,13 @@ public class ArtifactHistory {
 	
 	public Integer updateTriggerHistory(int id, String artifactName)
 	  {
-		  Gson gson = new Gson();
+		  
 		  /*INSERT INTO public.ttrigger_history(
 		             pipeline_id, trigger_entity, release_number, 
 		            version)
 		    VALUES ( ?, ?, ?, ?);*/
 		  	Integer productId =null ;
-		   String tableName = "ttrigger_history";
+		   
 		   
 		   String queryStatement ="Update ttrigger_history set artifact_name = ? where trigger_id=?";
 		   try (Connection connection = postGreSqlDbContext.getConnection();

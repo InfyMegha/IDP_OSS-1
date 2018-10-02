@@ -2901,7 +2901,7 @@ public class JobDetailsDL {
 
 		List<Pipeline> pips = new ArrayList<>();
 		Gson gson = new Gson();
-		IDPJob jobJson = new IDPJob();
+		
 		String tableName = "public.tpipeline_info,public.tapplication_info ";
 		String column = " pipeline_name, public.tpipeline_info.entity_info ";
 		StringBuilder queryStatement = new StringBuilder();
@@ -2927,7 +2927,7 @@ public class JobDetailsDL {
 			while (rs.next()) {
 				byte[] encryptedIDP = rs.getBytes(2);
 				String decryptedIDP = EncryptionUtil.decrypt(new String(encryptedIDP));
-				jobJson = gson.fromJson(decryptedIDP, IDPJob.class);
+				gson.fromJson(decryptedIDP, IDPJob.class);
 
 			}
 		} catch (SQLException | NullPointerException e) {

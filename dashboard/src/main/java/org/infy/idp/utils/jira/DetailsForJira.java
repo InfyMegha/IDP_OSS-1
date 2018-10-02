@@ -9,7 +9,7 @@ package org.infy.idp.utils.jira;
 
 
 import org.infy.idp.dataapi.InsertFetchJira;
-import org.infy.idp.utils.ConfigurationManager;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

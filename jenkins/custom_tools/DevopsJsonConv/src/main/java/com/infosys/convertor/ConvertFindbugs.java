@@ -50,9 +50,9 @@ public class ConvertFindbugs {
 			}
 			List<BugInstance> instance = c.getBugInstance();
 			for (BugInstance i : instance) {
-				if (i.getClass_() == null)
+				if (i.getClazz() == null)
 					continue;
-				List<BugInstance.Class> clsList = i.getClass_();
+				List<BugInstance.Class> clsList = i.getClazz();
 				final String noDesc = "No description available at this time";
 				final String bugCategory = "findbugs";
 				final String medSeverity = "medium";

@@ -28,9 +28,6 @@ public class EnvironmentOwnerDetail {
 	@Expose
 	private String qa;
 
-	@SerializedName("landscapeType")
-	@Expose
-	private String landscapeType;
 	@SerializedName("hostName")
 	@Expose
 	private String hostName;

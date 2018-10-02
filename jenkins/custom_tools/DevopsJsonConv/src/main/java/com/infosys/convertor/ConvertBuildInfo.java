@@ -67,7 +67,7 @@ public class ConvertBuildInfo {
 	private static String buildTime = null;
 	private static String buildstatus = null;
 	private static String timestamp = null;
-	private static String stageName = null;
+	
 	private static final String SRC = "/src/";
 	private static final String CONEVERSIONERROR = "Conversion error for ";
 
@@ -88,9 +88,6 @@ public class ConvertBuildInfo {
 			// setting time stamp value in JSON ..
 			if (c.getTimestamp() != null) {
 				timestamp = c.getTimestamp();
-			}
-			if (c.getAppName() != null) {
-				stageName = c.getAppName();
 			}
 			if (c.getBuildStatus() != null) {
 				buildstatus = c.getBuildStatus();
@@ -208,24 +205,27 @@ public class ConvertBuildInfo {
 
 	private static VersionInfo setVersionInfoId(String cls, VersionInfo bi, String prefixForId,
 			HashMap<String, String> nsClassMapForDotNet, String tfsPath) {
-		if (cls.endsWith(".java")) {
-			if (cls.lastIndexOf(SRC) == -1)
+		String clsNew=cls;
+		if (clsNew.endsWith(".java")) {
+			if (clsNew.lastIndexOf(SRC) == -1)
 				return bi;
-			cls = cls.substring(cls.lastIndexOf(SRC));
+			
+			clsNew = clsNew.substring(clsNew.lastIndexOf(SRC));
 			String name;
-			if (cls.contains("src/main/java/"))
-				name = cls.split("src.main.java.")[1].replace("/", "_");
-			else if (cls.contains("src/test/java/"))
-				name = cls.split("src.test.java.")[1].replace("/", "_");
+			if (clsNew.contains("src/main/java/"))
+				name = clsNew.split("src.main.java.")[1].replace("/", "_");
+			else if (clsNew.contains("src/test/java/"))
+				name = clsNew.split("src.test.java.")[1].replace("/", "_");
 			else
-				name = cls.split("src.")[1].replace("/", "_");
+				name = clsNew.split("src.")[1].replace("/", "_");
 			bi.setid(prefixForId + name.replace(".", "_"));
-		} else if (cls.endsWith(".cs")) {
-			if (cls.startsWith("$")) {
-				cls = cls.split("\\" + tfsPath + "/")[1];
+		} else if (clsNew.endsWith(".cs")) {
+			
+			if (clsNew.startsWith("$")) {
+				clsNew = clsNew.split("\\" + tfsPath + "/")[1];
 			}
-			String keyToCheck = cls.replace("/", "\\");
-			String[] fileNameSplitArr = cls.split("/");
+			String keyToCheck = clsNew.replace("/", "\\");
+			String[] fileNameSplitArr = clsNew.split("/");
 			if (nsClassMapForDotNet != null && nsClassMapForDotNet.containsKey(keyToCheck)
 					&& !nsClassMapForDotNet.get(keyToCheck).equals(""))
 				bi.setid(prefixForId + nsClassMapForDotNet.get(keyToCheck));
@@ -235,20 +235,21 @@ public class ConvertBuildInfo {
 				bi.setid(prefixForId + "DefaultPackage_"
 						+ fileNameSplitArr[fileNameSplitArr.length - 1].replace(".", "_"));
 		} else {
-			if (cls.startsWith("$")) {
-				cls = cls.split("\\" + tfsPath + "/")[1];
-			} else if (cls.lastIndexOf(SRC) != -1) {
-				cls = cls.substring(cls.lastIndexOf(SRC));
-				if (cls.contains("src/main/resources/"))
-					cls = cls.split("src.main.resources.")[1].replace("/", "_");
-				else if (cls.contains("src/test/resources/"))
-					cls = cls.split("src.test.resources.")[1].replace("/", "_");
+			
+			if (clsNew.startsWith("$")) {
+				clsNew = clsNew.split("\\" + tfsPath + "/")[1];
+			} else if (clsNew.lastIndexOf(SRC) != -1) {
+				clsNew = clsNew.substring(clsNew.lastIndexOf(SRC));
+				if (clsNew.contains("src/main/resources/"))
+					clsNew = clsNew.split("src.main.resources.")[1].replace("/", "_");
+				else if (clsNew.contains("src/test/resources/"))
+					clsNew = clsNew.split("src.test.resources.")[1].replace("/", "_");
 				else
-					cls = cls.split("src.")[1].replace("/", "_");
+					clsNew = clsNew.split("src.")[1].replace("/", "_");
 			} else {
-				cls = cls.replace("/", "_");
+				clsNew = clsNew.replace("/", "_");
 			}
-			bi.setid(prefixForId + cls.replace(".", "_"));
+			bi.setid(prefixForId + clsNew.replace(".", "_"));
 		}
 		return bi;
 	}
@@ -370,8 +371,8 @@ public class ConvertBuildInfo {
 			int high = 0;
 			int medium = 0;
 			int low = 0;
-			for (com.infosys.utilities.checkmarx.CxXMLResults.Query query : obj.getQuery()) {
-				for (com.infosys.utilities.checkmarx.CxXMLResults.Query.Result result : query.getResult()) {
+			for (CxXMLResults.Query query : obj.getQuery()) {
+				for (CxXMLResults.Query.Result result : query.getResult()) {
 					if (result.getSeverity().equalsIgnoreCase("High")) {
 						high++;
 					} else if (result.getSeverity().equalsIgnoreCase("Medium")) {

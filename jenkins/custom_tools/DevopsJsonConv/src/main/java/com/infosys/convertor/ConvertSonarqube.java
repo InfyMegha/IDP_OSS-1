@@ -62,11 +62,10 @@ public class ConvertSonarqube {
 			String sonarVulURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "vul");
 			String sonarCSURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "cs");
 			SonarDetails sonarDetailsobj1=new SonarDetails();
-			SonarDetails sonarDetailsobj2=new SonarDetails();
-			sonarDetailsobj1 = getSonarDollarValue(sonarBUGURL, sonarVulURL, sonarCSURL, sonardetailsobj, sonarHost,
-					prefixForId);
+			
+			sonarDetailsobj1 = getSonarDollarValue(sonarBUGURL, sonarVulURL, sonarCSURL, sonardetailsobj, sonarHost);
 			String sonarLOCURL = generateSonarLOCURL(sonarPrjctKey, sonarHost);
-			sonarDetailsobj2 = getSonarLOC(sonarDetailsobj1, sonarLOCURL);
+			getSonarLOC(sonarDetailsobj1, sonarLOCURL);
 			//
 			logger.info("Sonarqube Report Generated..!!");
 		} catch (Exception e) {
@@ -181,13 +180,13 @@ public class ConvertSonarqube {
 			} else {
 				jsonResp = hitSonarWebServiceWithAuthentication(sonarPrjctIssuesURL + String.valueOf(nextPageIndex));
 			}
-			nextPageIndex = parseIssuesJson(jsonResp, caList, sonarPrjctKey, sonarHost, prefixForId, pathToCsvDir);
+			nextPageIndex = parseIssuesJson(jsonResp, caList, sonarHost, prefixForId, pathToCsvDir);
 		}
 		return caList;
 	}
 
 	private static SonarDetails getSonarDollarValue(String sonarBGURL, String sonarVULURL, String sonarCSURL,
-			SonarDetails sobj, String sonarHost, String prefixForId) {
+			SonarDetails sobj, String sonarHost) {
 		try {
 			String bugjsonResp;
 			String vuljsonResp;
@@ -302,7 +301,7 @@ public class ConvertSonarqube {
 		return jsonResponse;
 	}
 
-	private static int parseIssuesJson(String jsonResp, List<CodeAnalysis> caList, String sonarPrjctKey,
+	private static int parseIssuesJson(String jsonResp, List<CodeAnalysis> caList,
 			String sonarHost, String prefixForId, String pathToCsvDir) {
 		int nextPageIndex = -1;
 		int currPageIndex = -1;

@@ -32,11 +32,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class JobDetails {
-	private JobDetails() {
-	}
+	
 
 	private static final Logger logger = Logger.getLogger(CreateChangeLog.class);
 
+	private JobDetails() {
+	}
 	public static void createJobDetails(String server, String username, String password, String jobName,
 			String destPath, String time, String appName) {
 		String lastBuildId = null;

@@ -17,13 +17,15 @@ import org.apache.commons.io.FileUtils;
 import com.infosys.json.CodeAnalysis;
 
 public class ConvertTSLintReport {
-	private ConvertTSLintReport() {
-	}
+	
 
 	private static Integer lowViolations = 0;
 	private static Integer highViolations = 0;
 	private static Integer mediumViolations = 0;
 
+	private ConvertTSLintReport() {
+	}
+	
 	public static void setTotalSeverities(List<CodeAnalysis> ca) {
 		for (CodeAnalysis codeAnalysis : ca) {
 			if (codeAnalysis.getSeverity().equalsIgnoreCase("low")

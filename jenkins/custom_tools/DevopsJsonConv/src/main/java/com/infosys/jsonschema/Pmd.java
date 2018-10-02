@@ -43,19 +43,7 @@ public class Pmd {
 		// Empty Constructor
 	}
 
-	public Pmd(long begincolumn, long beginline, String _class, String content, long endcolumn, long endline,
-			String externalInfoUrl, long priority, String rule, String ruleset) {
-		this.begincolumn = begincolumn;
-		this.beginline = beginline;
-		this.id = _class;
-		this.message = content;
-		this.endcolumn = endcolumn;
-		this.endline = endline;
-		this.externalInfoUrl = externalInfoUrl;
-		this.priority = priority;
-		this.rule = rule;
-		this.ruleset = ruleset;
-	}
+	
 
 	@JsonProperty("begincolumn")
 	public long getBegincolumn() {
