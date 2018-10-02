@@ -284,7 +284,6 @@ describe("BuildInfoSubComponent", () => {
     expect(component.buildInfo.artifactToStage.artifactRepo).toBe({});
     expect(component.buildInfo.artifactToStage.artifact).toBe("");
     expect(component.checkBoxObject.nugetPackage).toBe("off");
-    //component.clearRunScripts();
     expect(component.clearArtifact()).toBe("off");
   });
 
