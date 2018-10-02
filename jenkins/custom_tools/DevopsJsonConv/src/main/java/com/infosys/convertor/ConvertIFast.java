@@ -18,7 +18,7 @@ import com.infosys.json.JsonClass;
 import com.infosys.json.ServiceTest;
 
 public class ConvertIFast {
-	static final Logger logger = Logger.getLogger(ConvertIFast.class);
+	private static final Logger logger = Logger.getLogger(ConvertIFast.class);
 
 	private ConvertIFast() {
 	}

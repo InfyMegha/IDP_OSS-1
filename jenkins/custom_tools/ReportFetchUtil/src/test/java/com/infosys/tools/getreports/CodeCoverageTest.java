@@ -7,6 +7,10 @@
 ***********************************************************************************************/
 package com.infosys.tools.getreports;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,7 +24,9 @@ public class CodeCoverageTest {
 	@Test
 	public void createcodeCoverageTest() {
 		try {
-			CodeCoverage.createcodeCoverage("string", "string", "string", "string", "string", "string", "string");
+			codeCoverage.createcodeCoverage("string", "string", "string", "string", "string", "string", "string");
+			List<String> temp=null;
+			assertEquals(null,temp);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

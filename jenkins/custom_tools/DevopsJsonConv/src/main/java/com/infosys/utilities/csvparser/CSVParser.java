@@ -45,14 +45,14 @@ public class CSVParser {
 				columnMapping.put("MI", "MI");
 				columnMapping.put("CP", "CP");
 				columnMapping.put("DP", "DP");
-				HeaderColumnNameTranslateMappingStrategy<bean> strategy = new HeaderColumnNameTranslateMappingStrategy<>();
-				strategy.setType(bean.class);
+				HeaderColumnNameTranslateMappingStrategy<Bean> strategy = new HeaderColumnNameTranslateMappingStrategy<>();
+				strategy.setType(Bean.class);
 				strategy.setColumnMapping(columnMapping);
-				CsvToBean<bean> csvToBean = new CsvToBean<>();
+				CsvToBean<Bean> csvToBean = new CsvToBean<>();
 				r = new CSVReader(new FileReader(pathToCsvFile), ',');
-				List<bean> beanList = csvToBean.parse(strategy, r);
+				List<Bean> beanList = csvToBean.parse(strategy, r);
 				csv = new ArrayList<>();
-				for (bean b : beanList) {
+				for (Bean b : beanList) {
 					CSVInfo c = getCSVInfoObject();
 					c.setName(b.getPackageName());
 					c.setCc(b.getCC() == null ? "0.00" : b.getCC());

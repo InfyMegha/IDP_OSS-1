@@ -19,7 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 public class Application implements CommandLineRunner {
-	static final Logger logger = Logger.getLogger(Application.class);
+	private static final Logger logger = Logger.getLogger(Application.class);
 
 	@Override
 	public void run(final String... args) {

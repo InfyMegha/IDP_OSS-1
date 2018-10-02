@@ -66,7 +66,7 @@ public class BugCollection {
 	}
 
 	@JsonProperty("bug_category")
-	public void setBugCategory_(String _class) {
+	public void setBugCategory(String _class) {
 		this.bug_category = _class;
 	}
 

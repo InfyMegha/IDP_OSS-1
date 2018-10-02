@@ -22,7 +22,7 @@ import com.infosys.utilities.checkstyle.Checkstyle;
 import com.infosys.utilities.checkstyle.Checkstyle.File.Error;
 
 public class ConvertJShintCS {
-	static final Logger logger = Logger.getLogger(ConvertJShintCS.class);
+	private static final Logger logger = Logger.getLogger(ConvertJShintCS.class);
 
 	private ConvertJShintCS() {
 	}

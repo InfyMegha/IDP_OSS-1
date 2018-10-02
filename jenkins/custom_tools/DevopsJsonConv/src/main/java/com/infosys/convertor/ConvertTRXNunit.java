@@ -24,12 +24,13 @@ import com.infosys.json.JsonClass;
 import com.infosys.json.TestCaseResult;
 
 public class ConvertTRXNunit {
-	static final Logger logger = Logger.getLogger(ConvertTRXNunit.class);
+	private static final Logger logger = Logger.getLogger(ConvertTRXNunit.class);
 
 	private ConvertTRXNunit() {
 	}
 
-	public static void convert(String inputPath, JsonClass json, List<TestCaseResult> tr) {
+	public static void convert(String inputPath, JsonClass json ) {
+		List<TestCaseResult> tr=json.getTestCaseResult();
 		if (tr == null)
 			tr = new ArrayList<>();
 		try {

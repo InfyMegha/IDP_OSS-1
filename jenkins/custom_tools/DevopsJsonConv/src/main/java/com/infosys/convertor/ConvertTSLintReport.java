@@ -9,6 +9,7 @@ package com.infosys.convertor;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -49,7 +50,8 @@ public class ConvertTSLintReport {
 		return mediumViolations;
 	}
 
-	public static List<CodeAnalysis> convert(String inputPath, List<CodeAnalysis> ca) {
+	public static List<CodeAnalysis> convert(String inputPath) {
+		List<CodeAnalysis> ca = new ArrayList<>();
 		File file = new File(inputPath);
 		try {
 			String string = FileUtils.readFileToString(file);

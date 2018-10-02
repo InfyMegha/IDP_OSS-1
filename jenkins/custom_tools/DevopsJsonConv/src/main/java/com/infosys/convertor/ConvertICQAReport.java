@@ -27,7 +27,7 @@ public class ConvertICQAReport {
 			String strSplit[];
 			int splitLength;
 			while ((str = br.readLine()) != null) {
-				if (!str.equals(" ")) {
+				if (!"".equals(str)) {
 					strSplit = str.split("\\s+");
 					splitLength = strSplit.length;
 					try {

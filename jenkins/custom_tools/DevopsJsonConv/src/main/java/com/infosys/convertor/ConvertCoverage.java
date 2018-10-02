@@ -21,7 +21,7 @@ import com.infosys.jsonschema.CodeMetric;
 import com.infosys.utilities.coberturajava.Coverage;
 
 public class ConvertCoverage {
-	static final Logger logger = Logger.getLogger(ConvertCoverage.class);
+	private static final Logger logger = Logger.getLogger(ConvertCoverage.class);
 
 	private ConvertCoverage() {
 	}

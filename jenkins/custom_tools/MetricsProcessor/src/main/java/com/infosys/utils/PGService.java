@@ -58,9 +58,11 @@ public class PGService {
 		StringBuilder jsonString = new StringBuilder();
 		try {
 			String application = URLEncoder.encode(app, "UTF-8");
-			pipName = URLEncoder.encode(pipName, "UTF-8");
-			requestUrl += application + "/" + pipName + "/" + buildID + "/update/";
-			URL url = new URL(requestUrl);
+			String encodedPipName;
+			encodedPipName = URLEncoder.encode(pipName, "UTF-8");
+			String modifiedRequestUrl;
+			modifiedRequestUrl=requestUrl + application + "/" + encodedPipName + "/" + buildID + "/update/";
+			URL url = new URL(modifiedRequestUrl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			String userCredentials = uname + ":" + pwd;
 			String basicAuth = "Basic " + new String(new Base64().encode(userCredentials.getBytes()));

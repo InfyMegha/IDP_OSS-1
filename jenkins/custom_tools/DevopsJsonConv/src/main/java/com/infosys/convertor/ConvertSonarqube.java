@@ -61,10 +61,12 @@ public class ConvertSonarqube {
 			String sonarBUGURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "bg");
 			String sonarVulURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "vul");
 			String sonarCSURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "cs");
-			sonardetailsobj = getSonarDollarValue(sonarBUGURL, sonarVulURL, sonarCSURL, sonardetailsobj, sonarHost,
-					prefixForId, pathToCsvDir.replaceAll("\\\\", "/"));
+			SonarDetails sonarDetailsobj1=new SonarDetails();
+			SonarDetails sonarDetailsobj2=new SonarDetails();
+			sonarDetailsobj1 = getSonarDollarValue(sonarBUGURL, sonarVulURL, sonarCSURL, sonardetailsobj, sonarHost,
+					prefixForId);
 			String sonarLOCURL = generateSonarLOCURL(sonarPrjctKey, sonarHost);
-			sonardetailsobj = getSonarLOC(sonardetailsobj, sonarLOCURL);
+			sonarDetailsobj2 = getSonarLOC(sonarDetailsobj1, sonarLOCURL);
 			//
 			logger.info("Sonarqube Report Generated..!!");
 		} catch (Exception e) {
@@ -98,7 +100,7 @@ public class ConvertSonarqube {
 					|| "NA".equalsIgnoreCase(sonardetailsobj.getSonarPassword())) {
 				locresponse = hitSonarWebService(sonarLOCURL);
 			} else {
-				locresponse = hitSonarWebService(sonarLOCURL, sonardetailsobj.getSonarPassword());
+				locresponse = hitSonarWebServiceWithAuthentication(sonarLOCURL);
 			}
 			Gson g = new Gson();
 			SonarDetailsLOCjson sl = g.fromJson(locresponse, SonarDetailsLOCjson.class);
@@ -177,7 +179,7 @@ public class ConvertSonarqube {
 					|| sonarPassword == null) {
 				jsonResp = hitSonarWebService(sonarPrjctIssuesURL + String.valueOf(nextPageIndex));
 			} else {
-				jsonResp = hitSonarWebService(sonarPrjctIssuesURL + String.valueOf(nextPageIndex), sonarPassword);
+				jsonResp = hitSonarWebServiceWithAuthentication(sonarPrjctIssuesURL + String.valueOf(nextPageIndex));
 			}
 			nextPageIndex = parseIssuesJson(jsonResp, caList, sonarPrjctKey, sonarHost, prefixForId, pathToCsvDir);
 		}
@@ -185,7 +187,7 @@ public class ConvertSonarqube {
 	}
 
 	private static SonarDetails getSonarDollarValue(String sonarBGURL, String sonarVULURL, String sonarCSURL,
-			SonarDetails sobj, String sonarHost, String prefixForId, String pathToCsvDir) {
+			SonarDetails sobj, String sonarHost, String prefixForId) {
 		try {
 			String bugjsonResp;
 			String vuljsonResp;
@@ -196,9 +198,9 @@ public class ConvertSonarqube {
 				csmjsonResp = hitSonarWebService(sonarCSURL);
 				vuljsonResp = hitSonarWebService(sonarVULURL);
 			} else {
-				bugjsonResp = hitSonarWebService(sonarBGURL, sobj.getSonarPassword());
-				csmjsonResp = hitSonarWebService(sonarCSURL, sobj.getSonarPassword());
-				vuljsonResp = hitSonarWebService(sonarVULURL, sobj.getSonarPassword());
+				bugjsonResp = hitSonarWebServiceWithAuthentication(sonarBGURL);
+				csmjsonResp = hitSonarWebServiceWithAuthentication(sonarCSURL);
+				vuljsonResp = hitSonarWebServiceWithAuthentication(sonarVULURL);
 			}
 			double bugEffort;
 			double vulEffort;
@@ -272,7 +274,7 @@ public class ConvertSonarqube {
 		return jsonResponse;
 	}
 
-	private static String hitSonarWebService(String sonarPrjctIssuesURL, String password) {
+	private static String hitSonarWebServiceWithAuthentication(String sonarPrjctIssuesURL) {
 		String jsonResponse = null;
 		BufferedReader in = null;
 		try {
@@ -307,7 +309,7 @@ public class ConvertSonarqube {
 		int totRec = -1;
 		int pageSize;
 		JSONParser parser = new JSONParser();
-		RecommendationByWebAPI recomObj = new RecommendationByWebAPI(sonarHost, sonarPrjctKey);
+		RecommendationByWebAPI recomObj = new RecommendationByWebAPI(sonarHost);
 		HashMap<String, String> nsClassMapForDotNet = mapNsClass(pathToCsvDir);
 		try {
 			JSONObject json = (JSONObject) parser.parse(jsonResp);
@@ -411,11 +413,11 @@ public class ConvertSonarqube {
 		if (rawKey.indexOf("\\") == -1) {
 			return rawKey;
 		}
-		rawKey = rawKey.substring(1);
-		if (rawKey.indexOf("\\") == -1) {
-			return rawKey;
+		String rawKeyNew = rawKey.substring(1);
+		if (rawKeyNew.indexOf("\\") == -1) {
+			return rawKeyNew;
 		}
-		return rawKey.substring(rawKey.indexOf("\\") + 1).replace("\\", "/");
+		return rawKeyNew.substring(rawKeyNew.indexOf("\\") + 1).replace("\\", "/");
 	}
 
 	private static String extractId(String component, Map<String, String> nsClassMapForDotNet) {

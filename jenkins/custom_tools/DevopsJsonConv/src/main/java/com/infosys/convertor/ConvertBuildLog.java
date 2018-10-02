@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 import com.infosys.json.JsonClass;
 
 public class ConvertBuildLog {
-	static final Logger logger = Logger.getLogger(ConvertBuildLog.class);
+	private static final Logger logger = Logger.getLogger(ConvertBuildLog.class);
 	public static final String APIJSONPRETTYTRUE = "/api/json?pretty=true";
 	public static final String JOB = "/job/";
 	public static final String AUTHORIZATION = "Authorization";

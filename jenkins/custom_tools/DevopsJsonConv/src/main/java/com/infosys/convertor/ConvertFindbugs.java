@@ -34,8 +34,9 @@ public class ConvertFindbugs {
 	private ConvertFindbugs() {
 	}
 
-	public static List<CodeAnalysis> convert(String inputPath, Map<String, String> ruleToValue, List<CodeAnalysis> ca,
+	public static List<CodeAnalysis> convert(String inputPath, Map<String, String> ruleToValue,
 			String prefixForId) {
+		List<CodeAnalysis> ca = new ArrayList<>();
 		try {
 			EditDocType.edit(inputPath);
 			File file = new File(inputPath);

@@ -12,11 +12,12 @@ import java.io.File;
 import org.apache.log4j.Logger;
 
 public class DeleteUtilityChangeLog {
+	private static final Logger logger = Logger.getLogger(DeleteUtilityChangeLog.class);
+
 	private DeleteUtilityChangeLog() {
 	};
 
-	private static final Logger logger = Logger.getLogger(DeleteUtilityChangeLog.class);
-
+	
 	public static void del(String destpath) {
 		File file = new File(destpath);
 		File[] files = file.listFiles();

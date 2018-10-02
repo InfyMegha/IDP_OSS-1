@@ -132,10 +132,12 @@ public final class SSLUtilities {
 
 		@Override
 		public void checkClientTrusted(X509Certificate[] chain, String authType) {
+			//implements inherited parent method
 		} // checkClientTrusted
 
 		@Override
 		public void checkServerTrusted(X509Certificate[] chain, String authType) {
+			//implements inherited parent method
 		} // checkServerTrusted
 
 		@Override

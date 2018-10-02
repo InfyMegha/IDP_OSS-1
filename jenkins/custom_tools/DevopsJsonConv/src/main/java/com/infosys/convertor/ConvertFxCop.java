@@ -40,7 +40,8 @@ public class ConvertFxCop {
 	private ConvertFxCop() {
 	}
 
-	public static List<CodeAnalysis> convert(String inputPath, List<CodeAnalysis> ca) {
+	public static List<CodeAnalysis> convert(String inputPath) {
+		List<CodeAnalysis> ca = new ArrayList<>();
 		try {
 			EditDocType.edit(inputPath);
 			File file = new File(inputPath);
@@ -247,8 +248,8 @@ public class ConvertFxCop {
 	}
 
 	public static void main(String[] args) throws IOException {
-		List<CodeAnalysis> c = new ArrayList<>();
-		c = ConvertFxCop.convert("D:\\CIWorkspace\\workspace\\AnalysisResult_fxCop.xml", c);
+		List<CodeAnalysis> c ;
+		c = ConvertFxCop.convert("D:\\CIWorkspace\\workspace\\AnalysisResult_fxCop.xml");
 		JsonClass json = new JsonClass();
 		json.setCodeAnalysis(c);
 		ObjectMapper mapper = new ObjectMapper();

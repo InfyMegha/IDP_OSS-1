@@ -31,7 +31,8 @@ public class ConvertJUnit {
 	private ConvertJUnit() {
 	}
 
-	public static List<TestCaseResult> convert(String inputPath, List<TestCaseResult> tr, String prefixForId) {
+	public static List<TestCaseResult> convert(String inputPath, JsonClass json, String prefixForId) {
+		List<TestCaseResult> tr=json.getTestCaseResult();
 		if (tr == null)
 			tr = new ArrayList<>();
 		try {
@@ -45,8 +46,8 @@ public class ConvertJUnit {
 				logger.info("Report Converted Successfully..!!");
 				return tr;
 			}
-			List<com.infosys.utilities.junit.Testsuite.Testcase> tcList = c.getTestcase();
-			for (com.infosys.utilities.junit.Testsuite.Testcase tc : tcList) {
+			List<Testcase> tcList = c.getTestcase();
+			for (Testcase tc : tcList) {
 				TestCaseResult tcObj = getTestCaseResultObject();
 				tcObj.setId(prefixForId + (tc.getClassname() + "_" + tc.getName()).replace(".", "_"));
 				tcObj.settestSuiteName(c.getName());

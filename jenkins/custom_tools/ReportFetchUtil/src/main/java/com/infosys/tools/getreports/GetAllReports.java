@@ -19,10 +19,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 public class GetAllReports {
+	private static final Logger logger = Logger.getLogger(GetAllReports.class);
 	private GetAllReports() {
 	}
 
-	static final Logger logger = Logger.getLogger(GetAllReports.class);
+	
 
 	public static void main(String[] args) throws IOException {
 		SSLUtilities.trustAllHostnames();
@@ -42,7 +43,7 @@ public class GetAllReports {
 		for (int j = 6; j < args.length; j++) {
 			String[] utilityPath = args[j].split(":");
 			String ext = utilityPath[1].substring(utilityPath[1].lastIndexOf('.') + 1);
-			if (!ext.equals("*")) {
+			if (!"*".equals(ext)) {
 				list.add(ext);
 			} else {
 				count = 1;
@@ -116,28 +117,28 @@ public class GetAllReports {
 				String utility = utilityPath[0];
 				String fileName = utilityPath[1];
 				String srcPath = i.getCanonicalPath();
-				if (utility.equals("put") && ((i.getName()).toLowerCase().contains("pythontest")
+				if ("put".equals(utility) && ((i.getName()).toLowerCase().contains("pythontest")
 						&& i.getName().toLowerCase().endsWith(".xml"))) {
 					copy(i.getCanonicalPath(), destPath, name, time, buildId, utility, appName);
-				} else if (utility.equals("test") && ((i.getName()).toUpperCase().startsWith("TEST-")
+				} else if ("test".equals(utility) && ((i.getName()).toUpperCase().startsWith("TEST-")
 						|| i.getName().equalsIgnoreCase("testresult.xml"))) {
 					copy(i.getCanonicalPath(), destPath, name, time, buildId, utility, appName);
-				} else if (utility.equals("tng") && (i.getName()).toLowerCase().contains("test-output")
+				} else if ("tng".equals(utility) && (i.getName()).toLowerCase().contains("test-output")
 						&& i.getName().equalsIgnoreCase("testng-results.xml")) {
 					copy(i.getCanonicalPath(), destPath, name, time, buildId, utility, appName);
-				} else if (utility.equals("if") && (i.getName()).endsWith("Fastest.json")) {
+				} else if ("if".equals(utility) && (i.getName()).endsWith("Fastest.json")) {
 					copy(i.getCanonicalPath(), destPath, name, time, buildId, utility, appName);
-				} else if (utility.equals("jcc") && (i.getName().toLowerCase().contains("jacoco"))) {
+				} else if ("jcc".equals(utility) && (i.getName().toLowerCase().contains("jacoco"))) {
 					copy(i.getCanonicalPath(), destPath, name, time, buildId, utility, appName);
-				} else if (utility.equals("alt") && (i.getName().toLowerCase().contains("lintreport"))) {
+				} else if ("alt".equals(utility) && (i.getName().toLowerCase().contains("lintreport"))) {
 					copy(i.getCanonicalPath(), destPath, name, time, buildId, utility, appName);
 				} else if (!fileName.startsWith(".")) {
 					String fileN = fileName.substring(0, fileName.lastIndexOf('.'));
 					String fileE = fileName.substring(fileName.lastIndexOf('.') + 1);
 					if (fileName.equalsIgnoreCase(i.getName().toLowerCase())) {
 						copy(srcPath, destPath, name, time, buildId, utility, appName);
-					} else if (fileN.equals("*")) {
-						if (fileE.equals(i.getName().split("\\.")[1]) || fileE.equals("*")) {
+					} else if ("*".equals(fileN)) {
+						if ((i.getName().split("\\.")[1]).equals(fileN) || "*".equals(fileE)) {
 							copy(srcPath, destPath, name, time, buildId, utility, appName);
 						} else {
 							logger.error("Specify correct path for copying " + utility + " report");

@@ -31,7 +31,7 @@ public final class SSLUtilities {
 		com.sun.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(hostnameVerifier);
 	} // __trustAllHttpsCertificates
 
-	private static void __trustAllHttpsCertificates() {
+	private static void trustAllHttpsCertificate() {
 		com.sun.net.ssl.SSLContext context;
 		// Create a trust manager that does not validate certificate chains
 		if (trustManagers == null) {
@@ -88,7 +88,7 @@ public final class SSLUtilities {
 	public static void trustAllHttpsCertificates() {
 		// Is the deprecated protocol setted?
 		if (isDeprecatedSSLProtocol()) {
-			__trustAllHttpsCertificates();
+			trustAllHttpsCertificate();
 		} else {
 			trustAllHttpsCertificatess();
 		} // else
@@ -132,10 +132,12 @@ public final class SSLUtilities {
 
 		@Override
 		public void checkClientTrusted(X509Certificate[] chain, String authType) {
+			//implements parent method
 		} // checkClientTrusted
 
 		@Override
 		public void checkServerTrusted(X509Certificate[] chain, String authType) {
+			//implements parent method
 		} // checkServerTrusted
 
 		@Override

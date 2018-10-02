@@ -28,9 +28,9 @@ public class ConvertJacoco {
 		JAXBContext jaxbContext;
 		Unmarshaller jaxbUnmarshaller;
 		try {
-			jaxbContext = JAXBContext.newInstance(com.infosys.utilities.coveragejacoco.Report.class);
+			jaxbContext = JAXBContext.newInstance(Report.class);
 			jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			com.infosys.utilities.coveragejacoco.Report t = (com.infosys.utilities.coveragejacoco.Report) jaxbUnmarshaller
+			Report t = (Report) jaxbUnmarshaller
 					.unmarshal(file);
 			Jacoco j = new Jacoco();
 			List<Counter> l = t.getCounter();
@@ -61,11 +61,11 @@ public class ConvertJacoco {
 			cc.setJacoco(j);
 			json.setCodecoverage(cc);
 			// detailed info
-			List<com.infosys.utilities.coveragejacoco.Report.Package> lp = t.getPackage();
-			for (com.infosys.utilities.coveragejacoco.Report.Package package1 : lp) {
+			List<Report.Package> lp = t.getPackage();
+			for (Report.Package package1 : lp) {
 				json.setCoverageDetails();
-				List<com.infosys.utilities.coveragejacoco.Report.Package.Class> clist = package1.getClazz();
-				for (com.infosys.utilities.coveragejacoco.Report.Package.Class class1 : clist) {
+				List<Report.Package.Class> clist = package1.getClazz();
+				for (Report.Package.Class class1 : clist) {
 					//
 					List<Report.Package.Class.Counter> counterlist = class1.getCounter();
 					float temp3;

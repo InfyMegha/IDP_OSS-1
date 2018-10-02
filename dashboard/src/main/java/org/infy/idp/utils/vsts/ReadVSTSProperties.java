@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 public class ReadVSTSProperties {
 	protected Logger logger=LoggerFactory.getLogger(ReadVSTSProperties.class);
 	private String exceptionStr = "Exception thrown: ";
-    Properties propertiesObj = null;
+    private Properties propertiesObj = null;
     private String serverURL;
     private String apiVersion;
     private String authorizationToken;

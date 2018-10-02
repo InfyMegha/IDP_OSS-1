@@ -127,9 +127,11 @@ public final class SSLUtilities {
 		private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[] {};
 
 		public void checkClientTrusted(X509Certificate[] chain, String authType) {
+			//implements parent method
 		} // checkClientTrusted
 
 		public void checkServerTrusted(X509Certificate[] chain, String authType) {
+			//implements parent method
 		} // checkServerTrusted
 
 		public X509Certificate[] getAcceptedIssuers() {

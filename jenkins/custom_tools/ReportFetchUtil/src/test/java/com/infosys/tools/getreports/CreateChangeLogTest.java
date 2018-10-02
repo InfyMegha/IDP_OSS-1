@@ -7,6 +7,8 @@
 ***********************************************************************************************/
 package com.infosys.tools.getreports;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,7 +22,8 @@ public class CreateChangeLogTest {
 	@Test
 	public void createChangeLogTest() {
 		try {
-			CreateChangeLog.createChangeLog("string", "string", "string", "string", "string", "string", "string");
+			String temp=createChangeLog.createChangeLog("string", "string", "string", "string", "string", "string", "string");
+			assertEquals(null,temp);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

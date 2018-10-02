@@ -17,7 +17,7 @@ import java.io.OutputStream;
 import org.apache.log4j.Logger;
 
 public class MoveFiles {
-	final static Logger logger = Logger.getLogger(MoveFiles.class);
+	private final static Logger logger = Logger.getLogger(MoveFiles.class);
 
 	private MoveFiles() {
 	}

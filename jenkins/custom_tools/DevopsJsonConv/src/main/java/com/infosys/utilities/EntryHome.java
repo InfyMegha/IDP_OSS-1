@@ -62,11 +62,11 @@ import com.infosys.convertor.ConvertParasoftSOATest;
 import com.infosys.convertor.ConvertPmd;
 import com.infosys.convertor.ConvertProtractor;
 import com.infosys.convertor.ConvertPythonUT;
-import com.infosys.convertor.ConvertSAPCast;
+
 import com.infosys.convertor.ConvertSAPUnit;
 import com.infosys.convertor.ConvertSCMInfo;
 import com.infosys.convertor.ConvertSci;
-import com.infosys.convertor.ConvertSiebelPackageContent;
+
 import com.infosys.convertor.ConvertSoapUIReport;
 import com.infosys.convertor.ConvertSonarqube;
 import com.infosys.convertor.ConvertTRXNunit;
@@ -88,7 +88,7 @@ import com.infosys.json.Protractor;
 import com.infosys.json.PythonUT;
 import com.infosys.json.Reports;
 import com.infosys.json.RuleSet;
-import com.infosys.json.Siebel;
+
 import com.infosys.json.SoapUIReport;
 import com.infosys.json.Sonar;
 import com.infosys.json.SonarDetails;
@@ -103,12 +103,13 @@ import com.opencsv.CSVReader;
 public class EntryHome {
 	@Autowired
 	private static final String JSON = ".json";
+	private static final Logger logger = Logger.getLogger(EntryHome.class);
 	private static CodeQuality codeQuality = new CodeQuality();
 
 	private EntryHome() {
 	}
 
-	private static final Logger logger = Logger.getLogger(EntryHome.class);
+	
 
 	public static void main(String[] args) {
 		SSLUtilities.trustAllHostnames();
@@ -157,24 +158,10 @@ public class EntryHome {
 			json.setGroupName(args[7]);
 		if (args.length > 8)
 			json.setbuildId(args[8]);
-		String technologyName = args[18];
-		String serviceUrl = args[14] + ":8889";
-		String jobName = args[1] + "_" + args[5];
-		String jenkinsServer = args[14] + ":8085/jenkins";
-		String pipelineId = args[8];
-		String jenkinsUserName = args[15];
-		String jenkinsPassword = args[16];
-		String artifactName = args[17];
-		String buildTool = "";
-		String sapWarName = "";
-		String stage = args[19];
-		boolean isCast = false;
-		if (args.length > 9 && !args[9].equals("NA"))
-			buildTool = args[9];
-		if (args.length > 10 && !args[10].equals("NA"))
-			sapWarName = args[10];
-		if (args.length > 19 && args[19].equalsIgnoreCase("cast"))
-			isCast = true;
+		
+		
+		
+		
 		// For VSTS
 		// Passing vsts flag and setting flag value accordingly
 		boolean isVSTS = false;
@@ -187,8 +174,8 @@ public class EntryHome {
 		if (index != -1) {
 			list2.add(listOfFiles[index]);
 		}
-		List<CodeAnalysis> ca = new ArrayList<>();
-		List<TestCaseResult> tr = null;
+		
+		
 		List<CoverageDetails> coverageDetails = null;
 		FileNet fileNetJsonObj = null;
 		boolean isFileNet = false;
@@ -266,27 +253,24 @@ public class EntryHome {
 			}
 		}
 		processVSTS(args, isVSTS);
-		Siebel siebel = new Siebel();
 		for (int i = 0; i < list2.size(); i++) {
 			if (list2.get(i).isFile() && list2.get(i).getName().toLowerCase().contains(args[1].toLowerCase())) {
-				json = computeIDPJson(list2.get(i), json, args, ca, tr, coverageDetails, serviceUrl, jobName,
-						jenkinsServer, pipelineId, stage, artifactName, jenkinsUserName, jenkinsPassword, siebel);
+				json = computeIDPJson(list2.get(i), json, args, coverageDetails);
 			}
 		}
 		logger.info(json.getCodecoverage());
 		String idPrefixFlag = args[4];
 		String appName = args[1];
 		String prefixForId = preparePrefixForId(idPrefixFlag, appName);
-		if (isCast && buildTool.toLowerCase().contains("sap") && !sapWarName.equals("")) {
-			ConvertSAPCast.convert(json, ca, sapWarName);
-		}
-		if (!args[2].equals("NA") && !args[3].equals("NA")) {
+		
+		if (!"NA".equals(args[2]) && !"NA".equals(args[3])) {
 			try {
 				SonarDetails sonarDetailsobj = new SonarDetails();
 				sonarDetailsobj.setRateperhour(ConvertSonarqube.readSonarrateperhour());
 				if (!args[3].endsWith("/")) {
 					args[3] = args[3].concat("/");
 				}
+				List<CodeAnalysis> ca = new ArrayList<>();
 				ConvertSonarqube.convert(args[0], ca, args[2], args[3], prefixForId, sonarDetailsobj);
 				List<Integer> severity = ConvertSonarqube.getSeverityDetails();
 				logger.info("try");
@@ -591,10 +575,8 @@ public class EntryHome {
 		return folderPath;
 	}
 
-	private static JsonClass computeIDPJson(File reportfile, JsonClass json, String[] args, List<CodeAnalysis> ca,
-			List<TestCaseResult> tr, List<CoverageDetails> cd, String serviceUrl, String jobName, String jenkinsServer,
-			String pipelineId, String stage, String artifactName, String jenkinsUserName, String jenkinsPassword,
-			Siebel siebel) throws IOException {
+	private static JsonClass computeIDPJson(File reportfile, JsonClass json, String[] args,
+			 List<CoverageDetails> cd) throws IOException {
 		String idPrefixFlag = args[4];
 		String appName = args[1];
 		String pipName = args[5];
@@ -615,11 +597,7 @@ public class EntryHome {
 			if ((reportfile.getName().toLowerCase().contains("pqm_report_pmd-existing"))
 					&& reportfile.getName().toLowerCase().endsWith(".txt")) {
 				ConvertICQAReport.convert(reportfile.getCanonicalPath(), args[1], args[5], args[11]);
-			} else if ((reportfile.getName().toLowerCase().contains("_repo_")
-					|| reportfile.getName().toLowerCase().contains("_static_"))
-					&& reportfile.getName().toLowerCase().endsWith("csv")) {
-				ConvertSiebelPackageContent.convert(reportfile.getCanonicalPath(), siebel);
-			} else if (reportType.toLowerCase().contains("parasoftsoatest")
+			}else if (reportType.toLowerCase().contains("parasoftsoatest")
 					&& reportType.toLowerCase().endsWith("xml")) {
 				List<TestCaseResult> listTR = json.getTestCaseResult();
 				if (listTR == null)
@@ -640,7 +618,7 @@ public class EntryHome {
 			} else if (reportfile.getName().toLowerCase().contains("codeanalysisreports")
 					&& reportfile.getName().toLowerCase().endsWith("xls")) {
 				try {
-					ConvertOracleAnalysis.convert(reportfile.getCanonicalPath(), json, ca);
+					ConvertOracleAnalysis.convert(reportfile.getCanonicalPath(), json);
 				} catch (Exception e) {
 					logger.info("Exception in converting Oracle Analysis Report" + e.getMessage());
 				}
@@ -654,6 +632,7 @@ public class EntryHome {
 			} else if (reportfile.getName().toLowerCase().contains("pythontest")
 					&& reportfile.getName().toLowerCase().endsWith("xml")) {
 				try {
+					List<TestCaseResult> tr ;
 					tr = ConvertPythonUT.convert(reportfile.getCanonicalPath(), json.getTestCaseResult(), prefixForId);
 					json.setTestCaseResult(tr);
 					Functional ft = json.getFunctionalTest();
@@ -671,7 +650,8 @@ public class EntryHome {
 			} else if (reportfile.getName().toLowerCase().contains("result")
 					&& reportfile.getName().toLowerCase().endsWith("txt")) {
 				try {
-					ca = ConvertTSLintReport.convert(reportfile.getCanonicalPath(), ca);
+					List<CodeAnalysis> ca ;
+					ca = ConvertTSLintReport.convert(reportfile.getCanonicalPath());
 					TSLint tsLint = new TSLint();
 					ConvertTSLintReport.setTotalSeverities(ca);
 					tsLint.setHighViolations(ConvertTSLintReport.getHighViolations());
@@ -686,6 +666,7 @@ public class EntryHome {
 			} else if (reportfile.getName().toLowerCase().contains("lintreport")
 					&& reportfile.getName().toLowerCase().endsWith("xml")) {
 				Lint lint = new Lint();
+				List<CodeAnalysis> ca = new ArrayList<>();
 				ConvertLintReport.convert(reportfile.getCanonicalPath(), lint, codeQuality, ca);
 				json.setCodeAnalysis(ca);
 				json.setCodeQuality(codeQuality);
@@ -707,8 +688,7 @@ public class EntryHome {
 				}
 				logger.info("SoapUI report parsed");
 			} else if (reportType.toLowerCase().contains("protractorxml") && reportType.toLowerCase().endsWith("xml")) {
-				if (tr == null)
-					tr = new ArrayList<>();
+				List<TestCaseResult> tr = new ArrayList<>();
 				Protractor pt = ConvertProtractor.convert(reportfile.getCanonicalPath(), json, tr);
 				if (json.getFunctionalTest() != null) {
 					Functional ft = json.getFunctionalTest();
@@ -721,6 +701,7 @@ public class EntryHome {
 				}
 				logger.info("protractor report parsed");
 			} else if (reportfile.getName().toLowerCase().contains("jshint-checkstyle")) {
+				List<CodeAnalysis> ca = new ArrayList<>();
 				Map<String, String> ruleToValueCheckStyle = new HashMap<>();
 				ConvertJShintCS.convert(reportfile.getCanonicalPath(), ruleToValueCheckStyle, ca);
 				json.setCodeAnalysis(ca);
@@ -729,7 +710,8 @@ public class EntryHome {
 			} else if (reportType.toLowerCase().contains("checkstyle")) {
 				Map<String, String> ruleToValueCheckStyle = RecommendationByCSV.createMap("csv/checkstyle.csv",
 						"Check");
-				ca = ConvertCheckstyle.convert(reportfile.getCanonicalPath(), ruleToValueCheckStyle, ca, prefixForId);
+				List<CodeAnalysis> ca ;
+				ca = ConvertCheckstyle.convert(reportfile.getCanonicalPath(), ruleToValueCheckStyle, prefixForId);
 				List<Integer> severity = ConvertCheckstyle.getcheckStyleSeverity();
 				Checkstyle checkstyle = new Checkstyle();
 				checkstyle.setCritical(severity.get(0));
@@ -746,7 +728,8 @@ public class EntryHome {
 				ConvertBuildLog.convert(reportfile.getCanonicalPath(), json);
 			} else if (reportType.toLowerCase().contains("findbugs")) {
 				Map<String, String> ruleToValueCheckStyle = RecommendationByCSV.createMap("csv/findbugs.csv", "Check");
-				ca = ConvertFindbugs.convert(reportfile.getCanonicalPath(), ruleToValueCheckStyle, ca, prefixForId);
+				List<CodeAnalysis> ca;
+				ca = ConvertFindbugs.convert(reportfile.getCanonicalPath(), ruleToValueCheckStyle, prefixForId);
 				List<Integer> severity = ConvertFindbugs.getFindBugsSeverity();
 				FindBugs fb = new FindBugs();
 				fb.setCritical(severity.get(0));
@@ -761,7 +744,8 @@ public class EntryHome {
 				json.setCodeAnalysis(ca);
 			} else if (reportType.toLowerCase().contains("pmd")) {
 				Map<String, String> ruleToValuePMD = RecommendationByCSV.createMap("csv/pmd.csv", "");
-				ca = ConvertPmd.convert(reportfile.getCanonicalPath(), ruleToValuePMD, ca, prefixForId);
+				List<CodeAnalysis> ca ;
+				ca = ConvertPmd.convert(reportfile.getCanonicalPath(), ruleToValuePMD, prefixForId);
 				List<Integer> severity = ConvertPmd.getPmdSeverity();
 				Pmd pmd = new Pmd();
 				pmd.setCritical(severity.get(0));
@@ -776,7 +760,8 @@ public class EntryHome {
 					|| (reportType.toLowerCase().contains("junit_") && !reportType.toLowerCase().contains("junit_test"))
 					|| reportType.toLowerCase().contains("android")) {
 				// *********
-				tr = ConvertJUnit.convert(reportfile.getCanonicalPath(), json.getTestCaseResult(), prefixForId);
+				List<TestCaseResult> tr ;
+				tr = ConvertJUnit.convert(reportfile.getCanonicalPath(), json, prefixForId);
 				json.setTestCaseResult(tr);
 				Functional ft = json.getFunctionalTest();
 				JUnit ju = ConvertJUnit.getJUnitSummary(json);
@@ -789,13 +774,15 @@ public class EntryHome {
 			} else if (reportType.toLowerCase().contains("goreportunit") && reportType.toLowerCase().endsWith("xml")) {
 				json = ConvertJUnit.convertgo(reportfile.getPath(), json);
 			} else if (reportType.toLowerCase().contains("nunit") && reportType.toLowerCase().endsWith("xml")) {
+				List<TestCaseResult> tr ;
 				tr = ConvertNUnit.convert(reportfile.getCanonicalPath(), json.getTestCaseResult(), prefixForId);
 				json.setTestCaseResult(tr);
 			} else if (reportType.toLowerCase().contains("nunit") && reportType.toLowerCase().endsWith("trx")) {
-				ConvertTRXNunit.convert(reportfile.getCanonicalPath(), json, json.getTestCaseResult());
+				ConvertTRXNunit.convert(reportfile.getCanonicalPath(), json);
 			} else if (reportType.equalsIgnoreCase("findbugs")) {
 				Map<String, String> ruleToValueFindBugs = RecommendationByCSV.createMap("csv/findbugs.csv", "");
-				ca = ConvertFindbugs.convert(reportfile.getCanonicalPath(), ruleToValueFindBugs, ca, prefixForId);
+				List<CodeAnalysis> ca;
+				ca = ConvertFindbugs.convert(reportfile.getCanonicalPath(), ruleToValueFindBugs, prefixForId);
 				json.setCodeAnalysis(ca);
 			} else if (reportfile.getName().toLowerCase().contains("jacoco")) {
 				ConvertJacoco.convert(reportfile.getCanonicalPath(), cd, json);
@@ -805,7 +792,8 @@ public class EntryHome {
 			} else if (reportType.toLowerCase().contains("coverage")) {
 				ConvertCobertura.convert(reportfile.getCanonicalPath(), json);
 			} else if (reportType.toLowerCase().contains("analysisresult")) {
-				ca = ConvertFxCop.convert(reportfile.getCanonicalPath(), ca);
+				List<CodeAnalysis> ca ;
+				ca = ConvertFxCop.convert(reportfile.getCanonicalPath());
 				codeQuality.setFxCopReport(ConvertFxCopCons.convert(reportfile.getCanonicalPath()));
 				json.setCodeAnalysis(ca);
 			} else if (reportType.toLowerCase().contains("dspriv")) {
@@ -857,6 +845,7 @@ public class EntryHome {
 				json.setFunctionalTest(fn);
 				json.setTestCaseResult(tc);
 			} else if (reportType.contains("SAP_REPORTSconsoleSci")) {
+				List<CodeAnalysis> ca = new ArrayList<>();
 				ConvertSci.convert(reportfile.getCanonicalPath(), ca, codeQuality);
 				json.setCodeAnalysis(ca);
 			} else if (reportType.contains("SAP_REPORTSconsoleUnit")) {

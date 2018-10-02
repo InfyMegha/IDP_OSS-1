@@ -45,14 +45,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class RetrieveController {
 	/** The logger. */
 	protected Logger logger;
-	@Autowired
-	private ConfigurationManager configmanager;
+	
 	
 	@Autowired
     private RetrieveInfoBL retrieveBL;
 	
-	@Autowired
-    private BuildInfoDL jobsDL;
+	
 	/**
 
 	 * constructor FooController

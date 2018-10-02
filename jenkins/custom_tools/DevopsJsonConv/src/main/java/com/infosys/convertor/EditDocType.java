@@ -31,11 +31,11 @@ import org.xml.sax.SAXException;
 
 public class EditDocType {
 	private static final Logger logger = Logger.getLogger(EditDocType.class);
-
+	private static ArrayList<String> messagesforPunit = new ArrayList<>();
 	private EditDocType() {
 	}
 
-	private static ArrayList<String> messagesforPunit = new ArrayList<>();
+	
 
 	public static String getCharacterDataFromElement(Element e) {
 		if ((Node) e.getFirstChild() instanceof CharacterData) {

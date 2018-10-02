@@ -19,13 +19,13 @@ import com.infosys.json.Lint;
 import com.infosys.utilities.lint.Issues;
 
 public class ConvertLintReport {
-	private ConvertLintReport() {
-	}
+	
 
 	private static int highViolations = 0;
 	private static int lowViolations = 0;
 	private static int mediumViolations = 0;
-
+	private ConvertLintReport() {
+	}
 	public static void convert(String inputPath, Lint lint, CodeQuality cq, List<CodeAnalysis> ca) {
 		EditDocType.edit(inputPath);
 		File file = new File(inputPath);

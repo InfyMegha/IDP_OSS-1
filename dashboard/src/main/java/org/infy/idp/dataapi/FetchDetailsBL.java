@@ -18,11 +18,11 @@ import java.util.List;
 
 import org.infy.idp.entities.Column;
 import org.infy.idp.entities.QueryResponse;
-import org.infy.idp.utils.ConfigurationManager;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -125,8 +125,8 @@ public class FetchDetailsBL {
 	
 		public QueryResponse runTableQuerySCM(String query){
 		logger.info("Executing table query ", query);
-		List<Column> columns = new ArrayList();
-		List<List<String>> rows = new ArrayList();
+		List<Column> columns = new ArrayList<>();
+		List<List<String>> rows = new ArrayList<>();
 		Column c;
 		StringBuilder queryStatement = new StringBuilder();
 		queryStatement.append(query);

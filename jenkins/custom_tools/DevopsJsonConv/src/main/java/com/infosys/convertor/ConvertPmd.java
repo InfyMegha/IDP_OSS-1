@@ -25,13 +25,14 @@ public class ConvertPmd {
 	public static int blocker;
 	public static int critical;
 	public static int info;
-	final static Logger logger = Logger.getLogger(ConvertPmd.class);
+	private final static Logger logger = Logger.getLogger(ConvertPmd.class);
 
 	private ConvertPmd() {
 	}
 
-	public static List<CodeAnalysis> convert(String inputPath, Map<String, String> ruleToValue, List<CodeAnalysis> ca,
+	public static List<CodeAnalysis> convert(String inputPath, Map<String, String> ruleToValue,
 			String prefixForId) {
+		List<CodeAnalysis> ca = new ArrayList<>();
 		try {
 			EditDocType.edit(inputPath);
 			File file = new File(inputPath);

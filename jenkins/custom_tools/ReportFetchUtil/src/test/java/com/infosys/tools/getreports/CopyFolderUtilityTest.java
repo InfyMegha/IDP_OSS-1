@@ -7,6 +7,8 @@
 ***********************************************************************************************/
 package com.infosys.tools.getreports;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 
 import org.junit.Test;
@@ -24,7 +26,8 @@ public class CopyFolderUtilityTest {
 		try {
 			File file = new File("test");
 			File file1 = new File("test");
-			CopyFolderUtility.copyFolder(file, file1, "string", "string", "string");
+			Boolean temp=copyFolderUtility.copyFolder(file, file1, "string", "string", "string");
+			assertEquals(false,temp);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

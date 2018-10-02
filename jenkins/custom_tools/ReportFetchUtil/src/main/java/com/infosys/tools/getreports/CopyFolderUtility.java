@@ -50,9 +50,9 @@ public class CopyFolderUtility {
 				fileN = "JUnit_test_Angular_" + fileN;
 			else if (fileN.toLowerCase().contains("coberturacoverage.xml"))
 				fileN = "cobertura_coverage_Angular_" + fileN;
-			if (src.getPath().contains("test-output") && fileN.equals("testng-results"))
+			if (src.getPath().contains("test-output") && "testng-results".equals(fileN))
 				fileN = "selenium-testng_" + fileN;
-			else if (fileN.equals("testng-results"))
+			else if ("testng-results".equals(fileN))
 				fileN = "itops_" + fileN;
 			try {
 				File afile = new File(src.getCanonicalPath());

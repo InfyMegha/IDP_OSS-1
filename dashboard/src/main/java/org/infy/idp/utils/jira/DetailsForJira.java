@@ -26,10 +26,9 @@ public class DetailsForJira {
 	protected Logger logger=LoggerFactory.getLogger(DetailsForJira.class);
 	
 	@Autowired
-	InsertFetchJira insertFetchJira;
+	private InsertFetchJira insertFetchJira;
 	
-	@Autowired 
-	ConfigurationManager configurationManager;
+	
 	
 public String getFromDatabase(Integer trigegrid){
 	String jiraprojectKeyUserStories=null;

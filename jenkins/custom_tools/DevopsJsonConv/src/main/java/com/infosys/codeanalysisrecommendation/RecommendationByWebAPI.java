@@ -29,7 +29,7 @@ public class RecommendationByWebAPI {
 		super();
 	}
 
-	public RecommendationByWebAPI(String host, String key) {
+	public RecommendationByWebAPI(String host) {
 		super();
 		this.host = host;
 	}

@@ -40,7 +40,7 @@ public class ConvertSCMInfo {
 			List<SCMInfo> listInfo = null;
 			if (c.getItem() != null) {
 				List<ChangeSet.Item> item = c.getItem();
-				listInfo = iterateItem(item, app, listInfo, c);
+				listInfo = iterateItem(item, app, c);
 			}
 			jsonClass.setScmInfo(listInfo);
 			logger.info("Report Converted Successfully..!!");
@@ -51,10 +51,11 @@ public class ConvertSCMInfo {
 		return jsonClass;
 	}
 
-	private static List<SCMInfo> iterateItem(List<ChangeSet.Item> item, String app, List<SCMInfo> listInfo,
+	private static List<SCMInfo> iterateItem(List<ChangeSet.Item> item, String app,
 			ChangeSet c) {
+		List<SCMInfo> listInfo = new ArrayList<>();
 		try {
-			listInfo = new ArrayList<>();
+			
 			DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 			for (ChangeSet.Item i : item) {
 				if (i.getAffectedPath() == null)

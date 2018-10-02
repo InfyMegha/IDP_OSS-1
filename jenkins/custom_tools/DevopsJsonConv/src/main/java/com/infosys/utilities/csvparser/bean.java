@@ -7,7 +7,7 @@
 ***********************************************************************************************/
 package com.infosys.utilities.csvparser;
 
-public class bean {
+public class Bean {
 	// @CsvBindByPosition(position=0)
 	private String packageName;
 	// @CsvBindByPosition(position=15)

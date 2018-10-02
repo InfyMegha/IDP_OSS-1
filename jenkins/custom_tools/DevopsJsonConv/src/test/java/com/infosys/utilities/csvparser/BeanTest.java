@@ -10,7 +10,7 @@ public class BeanTest {
 	@Test
 	public void testEquals()
 	{
-		bean bean=new bean();
+		Bean bean=new Bean();
 		
 		bean.setCC("cc");
 		bean.setCP("cP");
@@ -28,7 +28,7 @@ public class BeanTest {
 	@Test
 	public void testNotEquals()
 	{
-		bean bean=new bean();
+		Bean bean=new Bean();
 		
 		bean.setCC("cc");
 		bean.setCP("cP");

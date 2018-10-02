@@ -9,6 +9,7 @@ package com.infosys.convertor;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,8 +25,9 @@ public class ConvertOracleAnalysis {
 	private ConvertOracleAnalysis() {
 	};
 
-	public static JsonClass convert(String inputPath, JsonClass jsonClass, List<CodeAnalysis> ca) {
+	public static JsonClass convert(String inputPath, JsonClass jsonClass) {
 		try {
+			List<CodeAnalysis> ca = new ArrayList<>();
 			FileInputStream file = new FileInputStream(new File(inputPath));
 			HSSFWorkbook workbook = new HSSFWorkbook(file);
 			HSSFSheet sheet = workbook.getSheet("Report");

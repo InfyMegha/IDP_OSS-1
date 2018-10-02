@@ -41,7 +41,7 @@ public class DetailsForVSTSFetcher {
 	private InsertFetchVSTS insertFetchVSTS;
 	
 	@Autowired 
-	ConfigurationManager configurationManager;
+	private ConfigurationManager configurationManager;
 	
 	private static String buildNoStr = "PIPELINE_BUILD_ID";
 	 private static String apiString = "/api/json?tree=builds[number,timestamp,id,result,building,actions[parameters[name,value]]]";
