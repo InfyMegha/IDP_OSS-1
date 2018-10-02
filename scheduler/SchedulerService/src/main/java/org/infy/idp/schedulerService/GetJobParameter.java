@@ -162,7 +162,7 @@ public class GetJobParameter {
 							+ "_" + buildJson.getString("nextBuildNumber");
 				artifactHistory.updateTriggerHistory(triggerId,artifactName);
 		    	
-				if (jsonObj.getString("technology")!="SapNonCharm" && (jsonObj.has("deploy") || jsonObj.has("build"))) {
+				if (!"SapNonCharm".equals(jsonObj.getString("technology")) && (jsonObj.has("deploy") || jsonObj.has("build"))) {
 					artifactHistory.insertArtifact(jsonObj,buildJson , jsonObj.getString("userName"));
 					
 				}

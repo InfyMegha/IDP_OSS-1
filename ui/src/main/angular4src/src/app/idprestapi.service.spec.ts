@@ -1,27 +1,27 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { IdprestapiService } from './idprestapi.service';
+import { IdprestapiService } from "./idprestapi.service";
 import {
     MockBackend,
     MockConnection
-} from '@angular/http/testing';
-import {  HttpModule,  XHRBackend,  ResponseOptions,  Response,  RequestMethod} from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import { IdpdataService } from './idpdata.service';
-import { CookieService } from 'ngx-cookie';
-import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
-import { Adal4Service } from 'adal-angular4';
-import { StartupService } from './startup.service';
-import { KeycloakService } from './keycloak/keycloak.service';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { asyncData, asyncError } from './testing/async-observables-helpers';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs';
+} from "@angular/http/testing";
+import {  HttpModule,  XHRBackend,  ResponseOptions,  Response,  RequestMethod} from "@angular/http";
+import "rxjs/add/operator/toPromise";
+import { IdpdataService } from "./idpdata.service";
+import { CookieService } from "ngx-cookie";
+import { Router } from "@angular/router";
+import { environment } from "../environments/environment";
+import { Adal4Service } from "adal-angular4";
+import { StartupService } from "./startup.service";
+import { KeycloakService } from "./keycloak/keycloak.service";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { asyncData, asyncError } from "./testing/async-observables-helpers";
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { HttpClient, HttpResponse, HttpErrorResponse } from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
+import {of} from "rxjs";
 
-describe('IdprestapiService', () => {
+describe("IdprestapiService", () => {
 	
 	let httpTestingController : HttpTestingController;
 	 class  IdpdataServiceStub {
@@ -29,96 +29,96 @@ describe('IdprestapiService', () => {
 
 	constructor() {}
   template: any = {
-    'grantAccess': {
-      'applicationName': '',
-      'developers': [],
-      'pipelineAdmins': [],
-      'releaseManager': [],
-      'environmentOwnerDetails': [{
-        'environmentName': '',
-        'environmentOwners': [],
-        'dbOwners': []
+    "grantAccess": {
+      "applicationName": "",
+      "developers": [],
+      "pipelineAdmins": [],
+      "releaseManager": [],
+      "environmentOwnerDetails": [{
+        "environmentName": "",
+        "environmentOwners": [],
+        "dbOwners": []
       }],
-      'slaveDetails': [
+      "slaveDetails": [
         {
-          'slaveName': '',
-          'buildServerOS': '',
-          'workspacePath': '',
-          'createNewSlave': '',
-          'labels': '',
-          'sshKeyPath': '',
-          'slaveUsage': 'both'
+          "slaveName": "",
+          "buildServerOS": "",
+          "workspacePath": "",
+          "createNewSlave": "",
+          "labels": "",
+          "sshKeyPath": "",
+          "slaveUsage": "both"
         }
       ]
     },
-    'basicInfo': {
-      'additionalMailRecipients': {
-        'applicationTeam': '',
-        'emailIds': ''
+    "basicInfo": {
+      "additionalMailRecipients": {
+        "applicationTeam": "",
+        "emailIds": ""
       },
-      'applicationName': '',
-      'buildInterval': {
-        'buildInterval': '',
-        'buildIntervalValue': 0,
-        'pollSCM': 'off'
+      "applicationName": "",
+      "buildInterval": {
+        "buildInterval": "",
+        "buildIntervalValue": 0,
+        "pollSCM": "off"
       },
-      'buildServerOS': '',
-      'engine': '',
-      'pipelineName': ''
+      "buildServerOS": "",
+      "engine": "",
+      "pipelineName": ""
     },
-    'code': {
-      'category': '',
-      'technology': '',
-      'scm': [],
-      'buildScript':  [{'tool':''}, {'tool':''},{}]
+    "code": {
+      "category": "",
+      "technology": "",
+      "scm": [],
+      "buildScript":  [{"tool":""}, {"tool":""},{}]
     },
-    'buildInfo': {
-      'buildtool': '',
-      'castAnalysis': {},
-      'artifactToStage': {},
-      'modules': [],
-	  'postBuildScript': {}
+    "buildInfo": {
+      "buildtool": "",
+      "castAnalysis": {},
+      "artifactToStage": {},
+      "modules": [],
+	  "postBuildScript": {}
     },
-    'deployInfo': {
-      'deployEnv': []
+    "deployInfo": {
+      "deployEnv": []
     },
-    'testInfo': {
-      'testEnv': []
+    "testInfo": {
+      "testEnv": []
     },
-    'formStatus': {
-      'basicInfo': {
-        'appNameStatus': '0',
-        'formStatus': '0'
+    "formStatus": {
+      "basicInfo": {
+        "appNameStatus": "0",
+        "formStatus": "0"
       },
-      'codeInfo': '',
-      'buildInfo': {
-        'buildToolStatus': '0',
-        'formStatus': '0',
-        'ibmsiTypeStatus':'0'
+      "codeInfo": "",
+      "buildInfo": {
+        "buildToolStatus": "0",
+        "formStatus": "0",
+        "ibmsiTypeStatus":"0"
       },
-      'deployInfo': '',
-      'testInfo': '',
-      'operation': ''
+      "deployInfo": "",
+      "testInfo": "",
+      "operation": ""
     },
-    'checkboxStatus': {
-      'basicInfo': {},
-      'codeInfo':{},
-      'buildInfo': {},
-      'deployInfo': {},
-      'testInfo': {},
-      'others': {}
+    "checkboxStatus": {
+      "basicInfo": {},
+      "codeInfo":{},
+      "buildInfo": {},
+      "deployInfo": {},
+      "testInfo": {},
+      "others": {}
     },
-    'backUp': {
-      'deployInfo': {},
-      'testInfo': {}
+    "backUp": {
+      "deployInfo": {},
+      "testInfo": {}
     },
-    'masterJson': {}
+    "masterJson": {}
   };
   data:any =  JSON.parse(JSON.stringify(this.template));
 
 
-  language = 'english';
-  idpUserName = '';
+  language = "english";
+  idpUserName = "";
   roles = [];
   access_token:any;
   permissions = [];
@@ -128,11 +128,11 @@ describe('IdprestapiService', () => {
   editPipelineflag = false;
   deletePipelineflag = false;
   test = false;
-  devServerURL: any='';
-  IDPDashboardURL = '';
-  IDPLink = '';
-  geUrl = '';
-  role = '';
+  devServerURL: any="";
+  IDPDashboardURL = "";
+  IDPLink = "";
+  geUrl = "";
+  role = "";
   IDPDropdownProperties: any = {};
   showConfig:any;
   pa:boolean=true;
@@ -163,13 +163,13 @@ describe('IdprestapiService', () => {
   };
   
   class StartUpServiceStub{
-	authmode = 'ldap';
-    keycloakUrl = 'abc';
-    keycloakRealm = 'aa';
-    keycloakClientId = '';
-    clouddeployurl = '';
+	authmode = "ldap";
+    keycloakUrl = "abc";
+    keycloakRealm = "aa";
+    keycloakClientId = "";
+    clouddeployurl = "";
 	getData(){
-		return 'data';
+		return "data";
 	}  
   };
 	let idpdataserviceStub: IdpdataServiceStub=new IdpdataServiceStub();
@@ -211,22 +211,22 @@ describe('IdprestapiService', () => {
   function setup(){
 	  
 	const cookieServiceSpy =
-    jasmine.createSpyObj('CookieService', ['get']);
+    jasmine.createSpyObj("CookieService", ["get"]);
   const stubValue = true;
-  const stub = { id: 1, name: 'A' };
+  const stub = { id: 1, name: "A" };
   const httpServiceSpy =
-    jasmine.createSpyObj('Http', ['get']);
+    jasmine.createSpyObj("Http", ["get"]);
   /* const stubPromiseValue = Promise.resolve(new Response(
           new ResponseOptions({body: "Hello from the other side !!", "status": "SUCCESS", resource:"Hello from the other side !!" })
 		)); */
 		
 	const adalServiceSpy =
-    jasmine.createSpyObj('Adal4Service', ['get']);
+    jasmine.createSpyObj("Adal4Service", ["get"]);
 	
 	
 	
 	const keycloakServiceSpy =
-    jasmine.createSpyObj('KeycloakService', ['get']);
+    jasmine.createSpyObj("KeycloakService", ["get"]);
 	
   const idprestService = new IdprestapiService(httpServiceSpy, idpdataserviceStub, cookieServiceSpy, routerStub, adalServiceSpy, startupStub, keycloakServiceSpy);
 
@@ -240,7 +240,7 @@ describe('IdprestapiService', () => {
   }
 
  
- fit('#getValue should return stubbed value from a spy', () => {
+ fit("#getValue should return stubbed value from a spy", () => {
     // create `getValue` spy on an object representing the ValueService
     
 	const { idprestService, stubValue, stub, cookieServiceSpy, httpServiceSpy, adalServiceSpy, startupStub, keycloakServiceSpy } = setup();
@@ -249,10 +249,10 @@ describe('IdprestapiService', () => {
 	idprestService.getNotification().then(res => {response=res;})
 	
     expect(response)
-      .toBe(stub, 'service returned stub value');
+      .toBe(stub, "service returned stub value");
 	  
     expect(httpServiceSpy.getValue.calls.count())
-      .toBe(1, 'spy method was called once');
+      .toBe(1, "spy method was called once");
     expect(httpServiceSpy.getValue.calls.mostRecent().returnValue)
       .toBe(stubPromiseValue);
   });

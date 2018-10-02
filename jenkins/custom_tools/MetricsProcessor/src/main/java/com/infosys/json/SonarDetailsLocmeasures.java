@@ -14,15 +14,19 @@ public class SonarDetailsLocmeasures {
 	public String getMetric() {
 		return metric;
 	}
+
 	public void setMetric(String metric) {
 		this.metric = metric;
 	}
+
 	public int getValue() {
 		return value;
 	}
+
 	public void setValue(int value) {
 		this.value = value;
 	}
+
 	@SerializedName("metric")
 	@Expose
 	private String metric;

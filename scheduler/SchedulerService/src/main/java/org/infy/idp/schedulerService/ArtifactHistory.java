@@ -190,8 +190,8 @@ public class ArtifactHistory {
 		    VALUES ( ?, ?, ?, ?);*/
 		  	Integer productId =null ;
 		   String tableName = "ttrigger_history";
-		   String queryStatement = new String();
-		   queryStatement="Update ttrigger_history set artifact_name = ? where trigger_id=?";
+		   
+		   String queryStatement ="Update ttrigger_history set artifact_name = ? where trigger_id=?";
 		   try (Connection connection = postGreSqlDbContext.getConnection();
 		        PreparedStatement preparedStatement = connection.prepareStatement(queryStatement)) {
 		    	preparedStatement.setString(1, artifactName);
@@ -478,14 +478,14 @@ public class ArtifactHistory {
 				int releaseId = getReleaseId(jsonInput.getString("applicationName"),
 						jsonInput.getString("pipelineName"), jsonInput.getString("releaseNumber"), "on");
 				int applicationId = getApplicationId(jsonInput.getString("applicationName")).intValue();
-				if(jsonInput.has("envSelected") && jsonInput.getString("envSelected")!="")
+				if(jsonInput.has("envSelected") && !"".equals(jsonInput.getString("envSelected")))
 					envId = getEnvironmentId(jsonInput.getString("envSelected"), applicationId);
 
 				String artifactName;
 				if (jsonInput.has("build")) {
 					artifactName =  jsonInput.getString("applicationName")+ "_" + jsonInput.getString("pipelineName")
 							+ "_" + jsonInput.getString("releaseNumber") + "-" ;
-					if(jsonInput.has("branchOrTag") && jsonInput.getString("branchOrTag")!="") {
+					if(jsonInput.has("branchOrTag") && !"".equals(jsonInput.getString("branchOrTag"))) {
 						artifactName = artifactName.concat(jsonInput.getString("branchOrTag"));
 					}
 					else {

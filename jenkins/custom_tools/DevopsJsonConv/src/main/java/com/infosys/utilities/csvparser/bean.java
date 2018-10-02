@@ -34,7 +34,7 @@ public class bean {
 	public void setCC(String cc) {
 		CC = cc;
 	}
-	
+
 	public String getMI() {
 		return MI;
 	}
@@ -58,5 +58,4 @@ public class bean {
 	public void setDP(String dP) {
 		DP = dP;
 	}
-
 }

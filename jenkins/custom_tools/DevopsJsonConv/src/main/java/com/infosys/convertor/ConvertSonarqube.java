@@ -37,7 +37,6 @@ import com.infosys.json.SonarIssues;
 import com.infosys.json.SonarJson;
 
 public class ConvertSonarqube {
-
 	private static final Logger logger = Logger.getLogger(ConvertSonarqube.class);
 	private static final String TEXTRANGE = "textRange";
 	private static final String NAMESPACECLASSMAP = "/NamespaceClassMap.csv";
@@ -50,17 +49,6 @@ public class ConvertSonarqube {
 	private ConvertSonarqube() {
 	}
 
-	/**
-	 * returns list of codeanalysis objects after parsing sonar api reports
-	 * 
-	 * @param pathToCsvDir
-	 * @param ca
-	 * @param sonarPrjctKey
-	 * @param sonarHost
-	 * @param prefixForId
-	 * @param sonardetailsobj
-	 * @return
-	 */
 	public static List<CodeAnalysis> convert(String pathToCsvDir, List<CodeAnalysis> ca, String sonarPrjctKey,
 			String sonarHost, String prefixForId, SonarDetails sonardetailsobj) {
 		try {
@@ -85,22 +73,12 @@ public class ConvertSonarqube {
 		return ca;
 	}
 
-	/**
-	 * method to loop through all sonar urls to get all details
-	 * 
-	 * @param sonarHost
-	 * @param sonarPrjctKey
-	 */
 	private static void waitForAnalysis(String sonarHost, String sonarPrjctKey) {
-
 		String prjctQueueUrl = sonarHost + "api/ce/component?componentKey=" + sonarPrjctKey;
-
 		// loop untill analysis is running
 		while (true) {
-
 			String jsonResp = hitSonarWebService(prjctQueueUrl);
 			JSONParser parser = new JSONParser();
-
 			try {
 				JSONObject json = (JSONObject) parser.parse(jsonResp);
 				JSONArray queueArr = (JSONArray) json.get("queue");
@@ -113,15 +91,7 @@ public class ConvertSonarqube {
 		logger.info("Sonar analysis is ready to be consumed");
 	}
 
-	/**
-	 * returns sonardetails after parsing sonarlocurl
-	 * 
-	 * @param sonardetailsobj
-	 * @param sonarLOCURL
-	 * @return
-	 */
 	private static SonarDetails getSonarLOC(SonarDetails sonardetailsobj, String sonarLOCURL) {
-
 		try {
 			String locresponse = "";
 			if ("NA".equalsIgnoreCase(sonardetailsobj.getSonarUserName())
@@ -143,15 +113,7 @@ public class ConvertSonarqube {
 		return null;
 	}
 
-	/**
-	 * returns sonarlocurl
-	 * 
-	 * @param sonarPrjctKey
-	 * @param sonarHost
-	 * @return
-	 */
 	private static String generateSonarLOCURL(String sonarPrjctKey, String sonarHost) {
-
 		try {
 			return sonarHost + "api/measures/component?componentKey=" + sonarPrjctKey + "&metricKeys=ncloc";
 		} catch (Exception e) {
@@ -161,41 +123,27 @@ public class ConvertSonarqube {
 	}
 
 	public static String readSonarrateperhour() {
-
 		Properties p = new Properties();
-
 		try {
 			p.load(ConvertSonarqube.class.getClassLoader().getResourceAsStream("sonar.properties"));
 			return p.getProperty("hourlyrate");
 		} catch (IOException e1) {
 			logger.error(e1);
 		}
-
 		return null;
 	}
 
 	private static String readSonarSeverities() {
-
 		Properties p = new Properties();
-
 		try {
 			p.load(ConvertSonarqube.class.getClassLoader().getResourceAsStream("sonar.properties"));
 			return p.getProperty("severities");
 		} catch (IOException e1) {
 			logger.error(e1);
 		}
-
 		return null;
 	}
 
-	/**
-	 * returns sonar api url based on project parameters
-	 * 
-	 * @param sonarPrjctKey
-	 * @param sonarHost
-	 * @param val
-	 * @return
-	 */
 	private static String generateSonarInfoURL(String sonarPrjctKey, String sonarHost, String val) {
 		try {
 			if (val.equalsIgnoreCase("bg"))
@@ -219,19 +167,6 @@ public class ConvertSonarqube {
 		}
 	}
 
-	/**
-	 * method to fetch all sonar issues
-	 * 
-	 * @param sonarPrjctIssuesURL
-	 * @param sonarUserName
-	 * @param sonarPassword
-	 * @param caList
-	 * @param sonarPrjctKey
-	 * @param sonarHost
-	 * @param prefixForId
-	 * @param pathToCsvDir
-	 * @return
-	 */
 	private static List<CodeAnalysis> getSonarIssuesList(String sonarPrjctIssuesURL, String sonarUserName,
 			String sonarPassword, List<CodeAnalysis> caList, String sonarPrjctKey, String sonarHost, String prefixForId,
 			String pathToCsvDir) {
@@ -282,17 +217,13 @@ public class ConvertSonarqube {
 			totalEffort = bugEffort + csmEffort + vulEffort;
 			totalEffort = totalEffort / 8;
 			sobj.setBugs(bjson.get("total").toString());
-
 			sobj.setCodesmells(cjson.get("total").toString());
 			sobj.setVulnerabilities(vjson.get("total").toString());
 			double totalDebt = Double.parseDouble(sobj.getRateperhour()) * totalEffort;
 			sobj.setTechnicalDebt(String.valueOf(java.lang.Math.ceil(totalDebt)));
-
 		} catch (Exception e) {
-
 			System.out.println("Error in generation of Dollar value");
 		}
-
 		return sobj;
 	}
 
@@ -307,7 +238,6 @@ public class ConvertSonarqube {
 						temp = s.getDebt();
 						temp = temp.replaceAll("min", "");
 						duration += Integer.parseInt(temp);
-
 					}
 				}
 				duration = duration / 60;
@@ -317,13 +247,6 @@ public class ConvertSonarqube {
 		return 0;
 	}
 
-	/**
-	 * 
-	 * method to return json object string after hitting sonar api
-	 * 
-	 * @param sonarPrjctIssuesURL
-	 * @return
-	 */
 	private static String hitSonarWebService(String sonarPrjctIssuesURL) {
 		String jsonResponse = null;
 		BufferedReader in = null;
@@ -349,19 +272,11 @@ public class ConvertSonarqube {
 		return jsonResponse;
 	}
 
-	/**
-	 * method to return json object string after hitting sonar api
-	 * 
-	 * @param sonarPrjctIssuesURL
-	 * @param password
-	 * @return
-	 */
 	private static String hitSonarWebService(String sonarPrjctIssuesURL, String password) {
 		String jsonResponse = null;
 		BufferedReader in = null;
 		try {
 			URL url = new URL(sonarPrjctIssuesURL);
-
 			String s = "admin" + ":" + "admin";
 			String encoding = Base64.getEncoder().encodeToString(s.getBytes());
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -385,17 +300,6 @@ public class ConvertSonarqube {
 		return jsonResponse;
 	}
 
-	/**
-	 * method to parse json object to get issues
-	 * 
-	 * @param jsonResp
-	 * @param caList
-	 * @param sonarPrjctKey
-	 * @param sonarHost
-	 * @param prefixForId
-	 * @param pathToCsvDir
-	 * @return
-	 */
 	private static int parseIssuesJson(String jsonResp, List<CodeAnalysis> caList, String sonarPrjctKey,
 			String sonarHost, String prefixForId, String pathToCsvDir) {
 		int nextPageIndex = -1;
@@ -422,7 +326,6 @@ public class ConvertSonarqube {
 					ca.setLine(((JSONObject) (((JSONObject) issuesArr.get(i)).get(TEXTRANGE))).get("startLine")
 							.toString());
 				}
-
 				ca.setRecommendation(
 						recomObj.getRecommendationByRule(((JSONObject) issuesArr.get(i)).get("rule").toString()));
 				String component = ((JSONObject) issuesArr.get(i)).get("component").toString();
@@ -446,22 +349,16 @@ public class ConvertSonarqube {
 	}
 
 	private static void countSeverity(String sonarSeverity) {
-
 		if (sonarSeverity.equalsIgnoreCase("blocker")) {
-
 			blocker++;
 		}
 		if (sonarSeverity.equalsIgnoreCase("critical")) {
-
 			critical++;
 		} else if (sonarSeverity.equalsIgnoreCase("major")) {
-
 			major++;
 		} else if (sonarSeverity.equalsIgnoreCase("minor")) {
-
 			minor++;
 		} else if (sonarSeverity.equalsIgnoreCase("info")) {
-
 			info++;
 		}
 	}
@@ -482,7 +379,6 @@ public class ConvertSonarqube {
 			nsClassMapForDotNet = readCsvFileInWs(
 					pathToCsvDir.split("\\\\IDP_DevopsJSON_Integration\\\\Jenkins_Reports")[0] + NAMESPACECLASSMAP);
 		}
-
 		return nsClassMapForDotNet;
 	}
 
@@ -497,7 +393,6 @@ public class ConvertSonarqube {
 				String[] kv = line.split(cvsSplitBy);
 				nsClassMapForDotNet.put(processKey(kv[0]), kv[1]);
 			}
-
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {

@@ -17,21 +17,11 @@ import com.infosys.json.FxCopReportJson;
 import com.infosys.utilities.fxcop.FxCopReport;
 
 public class ConvertFxCopCons {
-
 	private static Integer high = 0;
 	private static Integer medium = 0;
 	private static Integer low = 0;
 
-	/**
-	 * 
-	 * returns fxcopreportjson type object after parsing fxcopcons report
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static FxCopReportJson convert(String inputPath) {
-
 		try {
 			EditDocType.edit(inputPath);
 			File file = new File(inputPath);
@@ -39,9 +29,7 @@ public class ConvertFxCopCons {
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			FxCopReportJson fxj = new FxCopReportJson();
 			FxCopReport c = (FxCopReport) jaxbUnmarshaller.unmarshal(file);
-
 			List<FxCopReport.Targets.Target> t1 = c.getTargets().getTarget();
-
 			for (FxCopReport.Targets.Target t2 : t1) {
 				if (t2.getModules() == null || t2.getModules().getModule() == null)
 					continue;
@@ -55,17 +43,13 @@ public class ConvertFxCopCons {
 							String lvl = iss.getLevel();
 							if (lvl.equalsIgnoreCase("criticalerror") || lvl.equalsIgnoreCase("error")) {
 								high++;
-
 							} else if (lvl.equalsIgnoreCase("warning")) {
 								low++;
-
 							} else if (lvl.equalsIgnoreCase("criticalwarning")) {
 								medium++;
-
 							}
 						}
 					}
-
 					if (mod2.getNamespaces() != null) {
 						List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace> nsp1 = mod2.getNamespaces()
 								.getNamespace();
@@ -80,21 +64,16 @@ public class ConvertFxCopCons {
 										for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message nmsg2 : nmsg1) {
 											FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue iss = nmsg2
 													.getIssue();
-
 											String lvl1 = iss.getLevel();
 											if (lvl1.equalsIgnoreCase("criticalerror")
 													|| lvl1.equalsIgnoreCase("error")) {
 												high++;
-
 											} else if (lvl1.equalsIgnoreCase("warning")) {
 												low++;
-
 											} else if (lvl1.equalsIgnoreCase("criticalwarning")) {
 												medium++;
-
 											}
 										}
-
 									}
 									if (typ2.getMembers() != null) {
 										List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member> nmbr1 = typ2
@@ -111,19 +90,14 @@ public class ConvertFxCopCons {
 														if (lvl2.equalsIgnoreCase("criticalerror")
 																|| lvl2.equalsIgnoreCase("error")) {
 															high++;
-
 														} else if (lvl2.equalsIgnoreCase("warning")) {
 															low++;
-
 														} else if (lvl2.equalsIgnoreCase("criticalwarning")) {
 															medium++;
-
 														}
 													}
 												}
-
 											}
-
 										}
 									}
 								}
@@ -131,19 +105,15 @@ public class ConvertFxCopCons {
 						}
 					}
 				}
-
 			}
 			fxj.setHigh(high);
 			fxj.setLow(low);
 			fxj.setMedium(medium);
 			return fxj;
-
 		} catch (Exception e) {
-
 			FxCopReportJson fj = new FxCopReportJson();
 			fj = null;
 			return fj;
 		}
-
 	}
 }

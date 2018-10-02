@@ -2406,7 +2406,7 @@ public class JobsBL {
 		jobUrl.append("/");
 		jobUrl.append(downloadArtifactInputs.getBuildNumber());
 		jobUrl.append("/artifact/*zip*/archive.zip");
-		String line = new String();
+		String line = "";
 		FileOutputStream outputStream = null;
 		InputStream in = null;
 		try {

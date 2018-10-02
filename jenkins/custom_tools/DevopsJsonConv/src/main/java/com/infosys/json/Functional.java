@@ -1,3 +1,10 @@
+/***********************************************************************************************
+*
+* Copyright 2018 Infosys Ltd.
+* Use of this source code is governed by MIT license that can be found in the LICENSE file or at
+* https://opensource.org/licenses/MIT.
+*
+***********************************************************************************************/
 package com.infosys.json;
 
 import com.google.gson.annotations.Expose;
@@ -7,8 +14,7 @@ public class Functional {
 	@SerializedName("python")
 	@Expose
 	private PythonUT python;
-	
-	
+
 	public PythonUT getPython() {
 		return python;
 	}
@@ -16,44 +22,34 @@ public class Functional {
 	public void setPython(PythonUT python) {
 		this.python = python;
 	}
-	
-	
+
 	@SerializedName("accleratest")
 	@Expose
 	private Accleratest accleratest;
-	
 	@SerializedName("protractor")
 	@Expose
 	private Protractor protractor;
-	
 	@SerializedName("itops")
 	@Expose
 	private Itops itops;
-	
 	@SerializedName("robot")
 	@Expose
 	private RobotJson robot;
-
 	@SerializedName("selenium")
 	@Expose
 	private Selenium selenium;
-	
 	@SerializedName("ecatt")
 	@Expose
 	private Ecatt ecatt;
-	
 	@SerializedName("soapUIReport")
 	@Expose
 	private SoapUIReport soapUIReport;
-	
 	@SerializedName("qualitia")
 	@Expose
 	private Qualitia qualitia;
-	
 	@SerializedName("jUnit")
 	@Expose
 	private JUnit jUnit;
-	
 	@SerializedName("parasoftSOATest")
 	@Expose
 	private ParasoftSOATest parasoftSOATest;
@@ -64,8 +60,8 @@ public class Functional {
 
 	public void setjUnit(JUnit jUnit) {
 		this.jUnit = jUnit;
-	}	
-	
+	}
+
 	public RobotJson getRobot() {
 		return robot;
 	}
@@ -97,6 +93,7 @@ public class Functional {
 	public void setItops(Itops itops) {
 		this.itops = itops;
 	}
+
 	public Selenium getSelenium() {
 		return selenium;
 	}
@@ -136,6 +133,4 @@ public class Functional {
 	public void setParasoftSOATest(ParasoftSOATest parasoftSOATest) {
 		this.parasoftSOATest = parasoftSOATest;
 	}
-	
-	
 }

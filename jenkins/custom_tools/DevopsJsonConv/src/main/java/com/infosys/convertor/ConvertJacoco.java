@@ -21,14 +21,6 @@ import com.infosys.utilities.coveragejacoco.Report;
 import com.infosys.utilities.coveragejacoco.Report.Counter;
 
 public class ConvertJacoco {
-
-	/**
-	 * method to parse jacoco reports
-	 * 
-	 * @param inputPath
-	 * @param cdList
-	 * @param json
-	 */
 	public static void convert(String inputPath, List<CoverageDetails> cdList, JsonClass json) {
 		System.out.println("converting Jacoco");
 		EditDocType.edit(inputPath);
@@ -40,14 +32,12 @@ public class ConvertJacoco {
 			jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			com.infosys.utilities.coveragejacoco.Report t = (com.infosys.utilities.coveragejacoco.Report) jaxbUnmarshaller
 					.unmarshal(file);
-
 			Jacoco j = new Jacoco();
 			List<Counter> l = t.getCounter();
 			float temp1;
 			float temp2;
 			float rate;
 			for (Counter counter : l) {
-
 				temp1 = counter.getCovered();
 				temp2 = counter.getMissed();
 				rate = temp1 / (temp1 + temp2);
@@ -76,7 +66,6 @@ public class ConvertJacoco {
 				json.setCoverageDetails();
 				List<com.infosys.utilities.coveragejacoco.Report.Package.Class> clist = package1.getClazz();
 				for (com.infosys.utilities.coveragejacoco.Report.Package.Class class1 : clist) {
-
 					//
 					List<Report.Package.Class.Counter> counterlist = class1.getCounter();
 					float temp3;
@@ -97,13 +86,9 @@ public class ConvertJacoco {
 							else
 								cd.setBranchCoverage(String.valueOf(rate1));
 							cd.setCategory("Jacoco");
-
 							json.AddCoverageDetails(cd);
-
 						}
-
 					}
-
 				}
 			}
 		} catch (Exception e) {
@@ -115,5 +100,4 @@ public class ConvertJacoco {
 	private static CoverageDetails createCoverageDetails() {
 		return new CoverageDetails();
 	}
-
 }

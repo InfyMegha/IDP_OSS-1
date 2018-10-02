@@ -12,22 +12,17 @@ import java.io.Writer;
 import java.util.List;
 
 public class CSVWriterUtility {
-	
 	private static final char DEFAULT_SEPARATOR = ',';
 
 	private CSVWriterUtility() {
 	}
 
 	public static void writeLine(Writer w, List<String> values, char separators, char customQuote) throws IOException {
-
 		boolean first = true;
-
 		// default customQuote is empty
-
 		if (separators == ' ') {
 			separators = DEFAULT_SEPARATOR;
 		}
-
 		StringBuilder sb = new StringBuilder();
 		for (String value : values) {
 			if (!first) {
@@ -38,21 +33,17 @@ public class CSVWriterUtility {
 			} else {
 				sb.append(customQuote).append(followCVSformat(value)).append(customQuote);
 			}
-
 			first = false;
 		}
 		sb.append("\n");
 		w.append(sb.toString());
-
 	}
 
 	private static String followCVSformat(String value) {
-
 		String result = value;
 		if (result.contains("\"")) {
 			result = result.replace("\"", "\"\"");
 		}
 		return result;
-
 	}
 }

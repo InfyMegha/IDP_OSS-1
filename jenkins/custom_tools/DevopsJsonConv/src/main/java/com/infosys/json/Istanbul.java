@@ -1,3 +1,10 @@
+/***********************************************************************************************
+*
+* Copyright 2018 Infosys Ltd.
+* Use of this source code is governed by MIT license that can be found in the LICENSE file or at
+* https://opensource.org/licenses/MIT.
+*
+***********************************************************************************************/
 package com.infosys.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -5,16 +12,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Istanbul {
 	@JsonProperty("className")
 	private String className;
-
 	@JsonProperty("classCoverage")
 	private String classCoverage;
-
 	@JsonProperty("lineCoverage")
 	private String lineCoverage;
 	@JsonProperty("branchcoverage")
 	private String branchCoverage;
-	
-
 
 	public String getBranchCoverage() {
 		return branchCoverage;
@@ -58,7 +61,4 @@ public class Istanbul {
 	public void setMethodCoverage(String methodCoverage) {
 		this.methodCoverage = methodCoverage;
 	}
-	
-	
-
 }

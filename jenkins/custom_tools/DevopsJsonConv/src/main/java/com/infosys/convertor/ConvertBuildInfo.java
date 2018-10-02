@@ -58,15 +58,8 @@ import com.infosys.utilities.robot.Statistics;
 import com.infosys.utilities.robot.Stats;
 import com.infosys.utilities.seleniumtestng.Testng;
 
-/**
- * The class ConvertBuildInfo has methods for parsing build details
- * 
- * @author shivam.bhagat
- *
- */
 public class ConvertBuildInfo {
 	private static final Logger logger = Logger.getLogger(ConvertBuildInfo.class);
-
 	private static SecurityTest securityTest = new SecurityTest();
 	private static Codecoverage codeCoverage = new Codecoverage();
 	public static final String NAMESPACECLASSMAP = "/NamespaceClassMap.csv";
@@ -81,20 +74,11 @@ public class ConvertBuildInfo {
 	private ConvertBuildInfo() {
 	}
 
-	/**
-	 * 
-	 * @param inputPath
-	 * @param jsonClass
-	 * @param prefixForId
-	 * @param tfsPath
-	 * @return
-	 */
 	public static JsonClass convert(String inputPath, JsonClass jsonClass, String prefixForId, String tfsPath) {
 		try {
 			EditDocType.edit(inputPath);
 			File file = new File(inputPath);
 			JAXBContext jaxbContext = JAXBContext.newInstance(ChangeSet.class);
-
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			ChangeSet c = (ChangeSet) jaxbUnmarshaller.unmarshal(file);
 			List<VersionInfo> listInfo = null;
@@ -105,11 +89,9 @@ public class ConvertBuildInfo {
 			if (c.getTimestamp() != null) {
 				timestamp = c.getTimestamp();
 			}
-
 			if (c.getAppName() != null) {
 				stageName = c.getAppName();
 			}
-
 			if (c.getBuildStatus() != null) {
 				buildstatus = c.getBuildStatus();
 			}
@@ -126,26 +108,16 @@ public class ConvertBuildInfo {
 				jsonClass.getBuildDetails().get(0).setBuildTime(buildTime);
 				jsonClass.getBuildDetails().get(0).setTimestamp(timestamp);
 				jsonClass.getBuildDetails().get(0).setBuiltStatus(buildstatus);
-
 			}
 			jsonClass.setVersionInfo(listInfo);
-
 			logger.info("Report Converted Successfully..!!");
 			return jsonClass;
-
 		} catch (Exception e) {
 			logger.error(CONEVERSIONERROR + inputPath + ERROR + e);
 		}
 		return jsonClass;
-
 	}
 
-	/**
-	 * returns list of buildowners for all culprits
-	 * 
-	 * @param c
-	 * @return
-	 */
 	private static List<BuildOwner> iterateCulprits(ChangeSet c) {
 		List<BuildOwner> listB = new ArrayList<>();
 		for (Culprits m : c.getCulprits()) {
@@ -162,27 +134,13 @@ public class ConvertBuildInfo {
 		return new BuildOwner();
 	}
 
-	/**
-	 * returns list of versioninfo for all items
-	 * 
-	 * @param item
-	 * @param prefixForId
-	 * @param nsClassMapForDotNet
-	 * @param tfsPath
-	 * @param c
-	 * @return
-	 */
 	private static List<VersionInfo> iterateItem(List<ChangeSet.Item> item, String prefixForId,
 			HashMap<String, String> nsClassMapForDotNet, String tfsPath, ChangeSet c) {
-
 		List<VersionInfo> listInfo = new ArrayList<>();
 		DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-
 		for (ChangeSet.Item i : item) {
-
 			if (i.getAffectedPath() == null)
 				continue;
-
 			List<String> clas = i.getAffectedPath();
 			for (String cls : clas) {
 				VersionInfo bi = getVersionInfoObject();
@@ -190,46 +148,31 @@ public class ConvertBuildInfo {
 					Date date = getDate(i.getTimestamp());
 					bi.setLastModified(dateFormatter.format(date));
 				}
-
 				setCommitMsgFunc(i, bi);
-
 				if (bi.getCommitMessage().equals("")) {
 					bi.setCommitMessage("File Checked In");
 				}
-
 				setCommitIdFunc(i, bi);
 				setUserFunc(i, bi);
 				setVersionFunc(i, bi);
 				setRemoteUrlFunc(c, bi);
-
 				if (cls != null)
 					bi = setVersionInfoId(cls, bi, prefixForId, nsClassMapForDotNet, tfsPath);
-
 				if (!bi.getid().equals("none"))
 					listInfo.add(bi);
 			}
 		}
-
 		if (listInfo.isEmpty()) {
 			return listInfo;
 		}
-
 		return listInfo;
 	}
 
-	/**
-	 * 
-	 * @param c
-	 * @param bi
-	 */
 	private static void setRemoteUrlFunc(ChangeSet c, VersionInfo bi) {
-
 		if (c.getScmurl() != null) {
 			bi.setScmurl(c.getScmurl());
 			logger.info("SCM URL added");
-
 		}
-
 	}
 
 	private static Date getDate(Long timestamp) {
@@ -253,7 +196,6 @@ public class ConvertBuildInfo {
 	}
 
 	private static void setUserFunc(Item i, VersionInfo bi) {
-
 		if (i.getAuthor().getFullName() != null) {
 			bi.setLastModifiedBy(i.getAuthor().getFullName());
 		}
@@ -264,15 +206,6 @@ public class ConvertBuildInfo {
 			bi.setLatestFileVersion(i.getCommitId());
 	}
 
-	/**
-	 * 
-	 * @param cls
-	 * @param bi
-	 * @param prefixForId
-	 * @param nsClassMapForDotNet
-	 * @param tfsPath
-	 * @return
-	 */
 	private static VersionInfo setVersionInfoId(String cls, VersionInfo bi, String prefixForId,
 			HashMap<String, String> nsClassMapForDotNet, String tfsPath) {
 		if (cls.endsWith(".java")) {
@@ -306,7 +239,6 @@ public class ConvertBuildInfo {
 				cls = cls.split("\\" + tfsPath + "/")[1];
 			} else if (cls.lastIndexOf(SRC) != -1) {
 				cls = cls.substring(cls.lastIndexOf(SRC));
-
 				if (cls.contains("src/main/resources/"))
 					cls = cls.split("src.main.resources.")[1].replace("/", "_");
 				else if (cls.contains("src/test/resources/"))
@@ -321,11 +253,6 @@ public class ConvertBuildInfo {
 		return bi;
 	}
 
-	/**
-	 * 
-	 * @param pathToCsvDir
-	 * @return
-	 */
 	private static HashMap<String, String> mapNsClass(String pathToCsvDir) {
 		HashMap<String, String> nsClassMapForDotNet = null;
 		if (new File(pathToCsvDir.split("/IDP_DevopsJSON_Integration/Jenkins_Reports")[0] + NAMESPACECLASSMAP).isFile())
@@ -341,11 +268,6 @@ public class ConvertBuildInfo {
 		return nsClassMapForDotNet;
 	}
 
-	/**
-	 * 
-	 * @param filePath
-	 * @return
-	 */
 	private static HashMap<String, String> readCsvFileInWs(String filePath) {
 		HashMap<String, String> nsClassMapForDotNet = new HashMap<>();
 		BufferedReader br = null;
@@ -357,7 +279,6 @@ public class ConvertBuildInfo {
 				String[] kv = line.split(cvsSplitBy);
 				nsClassMapForDotNet.put(processKey(kv[0]), kv[1]);
 			}
-
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {
@@ -378,13 +299,6 @@ public class ConvertBuildInfo {
 		return rawKey.substring(1);
 	}
 
-	/**
-	 * method to parse jobdetails
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass convertJobDetail(String inputPath, JsonClass json) {
 		BuildDetail buildDetail = null;
 		try {
@@ -394,10 +308,8 @@ public class ConvertBuildInfo {
 			JobDetails details = (JobDetails) jaxbUnmarshaller.unmarshal(file);
 			buildDetail = new BuildDetail();
 			buildDetail.setLastFailedBuildId(details.getLastFailedBuildId());
-
 			buildDetail.setLastBuildId(details.getNumber());
 			buildDetail.setLastCompletedBuildId(details.getLastCompletedBuildId());
-
 			buildDetail.setLastSuccessfulBuildId(details.getLastCompletedBuildId());
 			buildDetail.setLastUnstableBuildId(details.getLastUnstableBuildId());
 			buildDetail.setLastUnsuccessfulBuildId(details.getLastUnsuccessfulBuildId());
@@ -408,7 +320,6 @@ public class ConvertBuildInfo {
 			String temp2 = buildDetail.getLastBuildId();
 			String temp = details.getUrl().substring(details.getUrl().lastIndexOf("job") + 4,
 					details.getUrl().lastIndexOf(temp2) - 1);
-
 			buildDetail.setStageName(temp);
 			if (json.getBuildDetails() == null) {
 				List<BuildDetail> bd = new ArrayList<>();
@@ -419,10 +330,8 @@ public class ConvertBuildInfo {
 				bd.add(buildDetail);
 			}
 			// logic to have a base URL
-
 			json.setBaseURL(details.getUrl() + "artifact");
 			//
-
 			logger.info("Job Details Report Converted Successfully..!!");
 		} catch (Exception e) {
 			logger.error(CONEVERSIONERROR + inputPath + ERROR + e);
@@ -430,15 +339,7 @@ public class ConvertBuildInfo {
 		return json;
 	}
 
-	/**
-	 * method to convert code coverage
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass convertCodeCoverage(String inputPath, JsonClass json) {
-
 		try {
 			File file = new File(inputPath);
 			JAXBContext jaxbContext = JAXBContext.newInstance(CodeCoverage.class);
@@ -460,13 +361,6 @@ public class ConvertBuildInfo {
 		return json;
 	}
 
-	/**
-	 * method to convert code checkmarx
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass convertCheckmarx(String inputPath, JsonClass json) {
 		try {
 			File file = new File(inputPath);
@@ -500,13 +394,6 @@ public class ConvertBuildInfo {
 		return json;
 	}
 
-	/**
-	 * method to convert acceleratest details
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass convertAcceleraTest(String inputPath, JsonClass json) {
 		JSONParser parser = new JSONParser();
 		int passed = 0;
@@ -521,7 +408,6 @@ public class ConvertBuildInfo {
 																					// the
 																					// parameter
 																					// XML
-
 			for (Object o : array) {
 				JSONObject object = (JSONObject) o;
 				JSONArray elements = (JSONArray) object.get("elements");
@@ -529,31 +415,24 @@ public class ConvertBuildInfo {
 					JSONObject elemobj = (JSONObject) oelements;
 					JSONArray steps = (JSONArray) elemobj.get("steps");
 					totalnooftests = elements.size();
-
 					boolean flag = false;
 					for (int i = 0; i < steps.size(); i++) {
 						JSONObject stepsobj = (JSONObject) steps.get(i);
 						JSONObject result = (JSONObject) stepsobj.get("result");
 						String status = (String) result.get("status");
-
 						if (!status.equalsIgnoreCase("passed")) {
 							failed++;
 							flag = true;
-
-						}
-
-						else {
+						} else {
 							if (i == steps.size() - 1) {
 								passed++;
 								flag = true;
-
 							}
 						}
 						if (flag)
 							break;
 					}
 				}
-
 			}
 			Accleratest accleratest = new Accleratest();
 			accleratest.setTotalTest(totalnooftests);
@@ -568,17 +447,9 @@ public class ConvertBuildInfo {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
-
 		return json;
 	}
 
-	/**
-	 * method to convert itops details
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass convertItops(String inputPath, JsonClass json) {
 		try {
 			File file = new File(inputPath);
@@ -613,13 +484,6 @@ public class ConvertBuildInfo {
 		return json;
 	}
 
-	/**
-	 * method to convert testng details
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass converTestng(String inputPath, JsonClass json) {
 		try {
 			File file = new File(inputPath);
@@ -654,18 +518,9 @@ public class ConvertBuildInfo {
 			logger.error(CONEVERSIONERROR + inputPath + ERROR + e);
 		}
 		return json;
-
 	}
 
-	/**
-	 * method to convert qualitia details
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass converQualitia(String inputPath, JsonClass json) {
-
 		try {
 			File file = new File(inputPath);
 			JAXBContext jaxbContext = JAXBContext.newInstance(QualitiaTest.class);
@@ -701,25 +556,15 @@ public class ConvertBuildInfo {
 		return json;
 	}
 
-	/**
-	 * 
-	 * method to convert robot details
-	 * 
-	 * @param inputPath
-	 * @param json
-	 * @return
-	 */
 	public static JsonClass converRobot(String inputPath, JsonClass json) {
 		try {
 			File file = new File(inputPath);
 			JAXBContext jaxbContext = JAXBContext.newInstance(Robot.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-
 			Robot robot = (Robot) jaxbUnmarshaller.unmarshal(file);
 			Statistics statistics = robot.getStatistics();
 			Stats stats = statistics.getTotal();
 			RobotJson robotTest = new RobotJson();
-
 			for (Stat statsTemp : stats.getStat()) {
 				if (statsTemp.getValue().equals("All Tests")) {
 					robotTest.setTotalTest(statsTemp.getFail() + statsTemp.getPass());

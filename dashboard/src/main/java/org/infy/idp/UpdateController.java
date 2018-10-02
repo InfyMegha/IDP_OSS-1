@@ -32,8 +32,7 @@ import com.google.gson.Gson;
 public class UpdateController {
 	/** The logger. */
 	protected Logger logger;
-	@Autowired
-	private ConfigurationManager configmanager;
+	
 	
 	@Autowired
     private InsertInfoBL insertbl;

@@ -100,7 +100,7 @@ public class Executor {
 			connection.setAutoCommit(false);
 			List<String> newUsers = checkExistingUsers(userList);
 			for (String user : newUsers) {
-				if (configmanager.getAuthProvider().toLowerCase().equals("keycloak")) {
+				if (configmanager.getAuthProvider().equalsIgnoreCase("keycloak")) {
 					if (!kcmgmt.addUser(user, "firstlogon@idp", true, orgName)) {
 						continue;
 					}

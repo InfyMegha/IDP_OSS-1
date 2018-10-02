@@ -40,43 +40,6 @@ public class FetchDetailsBL {
 	@Autowired
 	private DBQuery dbQuery;
 
-	@Autowired
-	private ConfigurationManager configurationManager;
-	
-	@Value("${mtmuser}")
-    private String mtmuser;
-	@Value("${mtmpassword}")
-    private String mtmpassword;
-	@Value("${mtmurl}")
-    private String mtmurl;
-	@Value("${mtmproject}")
-    private String mtmproject;
-	@Value("${serverURL}")
-    private String serverURL;
-	@Value("${projectName}")
-    private String projectName;
-	@Value("${authorizationToken}")
-    private String authorizationToken;
-	@Value("${proxyip}")
-    private String proxyip;
-	@Value("${proxyport}")
-    private String proxyport;
-	@Value("${jiraurl}")
-    private String jiraurl;
-	@Value("${jirauser}")
-    private String jirauser;
-	@Value("${jirapassword}")
-    private String jirapassword;
-	@Value("${proxyuser}")
-    private String proxyuser;
-	@Value("${proxypassword}")
-    private String proxypassword;
-	@Value("${jenkinsID}")
-    private String jenkinsID;
-	@Value("${jenkinsURL}")
-    private String jenkinsURL;
-	@Value("${jenkinsPassword}")
-    private String jenkinsPassword;
 	
 	public static final String VALUES="values are";
 	protected Logger logger = LoggerFactory.getLogger(FetchDetailsBL.class);
