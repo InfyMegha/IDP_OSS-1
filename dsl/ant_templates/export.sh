@@ -20,7 +20,7 @@ PROP_DIR="/home/admin/si/install/properties"
 CLASSPATH=${CLASSPATH}:${PROP_DIR}
 
 # os specific stuff
-sysname=`uname -s`
+sysname=$(uname -s)
 
 case "$sysname" in
   SunOS)
