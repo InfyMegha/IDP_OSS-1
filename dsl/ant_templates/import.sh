@@ -58,7 +58,7 @@ startupMySQL(){
 PROP_DIR="/home/admin/si/install/properties"
 
 # os specific stuff
-sysname=`uname -s`
+sysname=$(uname -s)
 
 case "$sysname" in
   SunOS) 
@@ -94,7 +94,7 @@ esac
 
 CLASSPATH=${CLASSPATH}:${PROP_DIR}
 NOTJNI=""
-if [ "$sysname" = "HP-UX" ] && [ "${JDK64BIT}" = "true" ] && [ "`uname -m`" != "ia64" ]
+if [ "$sysname" = "HP-UX" ] && [ "${JDK64BIT}" = "true" ] && [ "$(uname -m)" != "ia64" ]
 then
 	NOTJNI="-notJNI"
 fi
