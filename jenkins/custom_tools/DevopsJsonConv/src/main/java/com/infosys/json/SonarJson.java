@@ -18,7 +18,10 @@ public class SonarJson {
 	private String p;
 	@JsonProperty("total")
 	private String total;
-
+	@JsonProperty("ps")
+	private String ps;
+	@JsonProperty("paging")
+	private SonarPaging paging;
 	public ArrayList<SonarIssues> getIssues() {
 		return issues;
 	}
@@ -59,8 +62,5 @@ public class SonarJson {
 		this.paging = paging;
 	}
 
-	@JsonProperty("ps")
-	private String ps;
-	@JsonProperty("paging")
-	private SonarPaging paging;
+	
 }

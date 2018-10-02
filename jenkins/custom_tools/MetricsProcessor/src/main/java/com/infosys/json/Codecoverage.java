@@ -15,6 +15,15 @@ public class Codecoverage {
 	@Expose
 	private Cobertura cobertura;
 
+	
+
+	@SerializedName("jacoco")
+	@Expose
+	private Jacoco jacoco;
+
+	@SerializedName("istanbul")
+	@Expose
+	private Istanbul istanbul;
 	public void setCobertura(Cobertura cobertura) {
 		this.cobertura = cobertura;
 	}
@@ -22,11 +31,6 @@ public class Codecoverage {
 	public Cobertura getCobertura() {
 		return cobertura;
 	}
-
-	@SerializedName("jacoco")
-	@Expose
-	private Jacoco jacoco;
-
 	public Jacoco getJacoco() {
 		return jacoco;
 	}
@@ -35,9 +39,7 @@ public class Codecoverage {
 		this.jacoco = jacoco;
 	}
 
-	@SerializedName("istanbul")
-	@Expose
-	private Istanbul istanbul;
+
 
 	public Istanbul getIstanbul() {
 		return istanbul;

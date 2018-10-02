@@ -23,6 +23,15 @@ public class BuildDetails {
 	@JsonProperty("lastFailedBuildId")
 	private String lastFailedBuildId;
 
+	@JsonProperty("buildTime")
+	private String buildTime;
+	@JsonProperty("builtStatus")
+	private String builtStatus;
+	@JsonProperty("timestamp")
+	private String timestamp;
+	@JsonProperty("score")
+	private String score;
+
 	@JsonProperty("lastFailedBuildId")
 	public String getLastFailedBuildId() {
 		return lastFailedBuildId;
@@ -32,15 +41,6 @@ public class BuildDetails {
 	public void setLastFailedBuildId(String lastFailedBuildId) {
 		this.lastFailedBuildId = lastFailedBuildId;
 	}
-
-	@JsonProperty("buildTime")
-	private String buildTime;
-	@JsonProperty("builtStatus")
-	private String builtStatus;
-	@JsonProperty("timestamp")
-	private String timestamp;
-	@JsonProperty("score")
-	private String score;
 
 	@JsonProperty("timestamp")
 	public String getTimestamp() {

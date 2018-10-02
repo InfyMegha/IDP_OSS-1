@@ -25,6 +25,7 @@ public class JobDetails {
 	private String lastUnstableBuildId;
 	private String lastUnsuccessfulBuildId;
 	private String lastFailedBuildId;
+	private String score;
 
 	public String getLastFailedBuildId() {
 		return lastFailedBuildId;
@@ -34,8 +35,7 @@ public class JobDetails {
 		this.lastFailedBuildId = lastFailedBuildId;
 	}
 
-	private String score;
-
+	
 	public String getLastSuccessfulBuildId() {
 		return lastSuccessfulBuildId;
 	}

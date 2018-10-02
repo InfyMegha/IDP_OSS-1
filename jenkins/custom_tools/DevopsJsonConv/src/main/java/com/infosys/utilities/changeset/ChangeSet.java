@@ -20,13 +20,7 @@ import javax.xml.bind.annotation.XmlType;
 		"timestamp" })
 @XmlRootElement(name = "changeSet")
 public class ChangeSet {
-	public String getScmurl() {
-		return scmurl;
-	}
-
-	public void setScmurl(String scmurl) {
-		this.scmurl = scmurl;
-	}
+	
 
 	protected List<ChangeSet.Item> item;
 	private String buildId;
@@ -36,7 +30,13 @@ public class ChangeSet {
 	private String duration;
 	private String timestamp;
 	private String scmurl;
+	public String getScmurl() {
+		return scmurl;
+	}
 
+	public void setScmurl(String scmurl) {
+		this.scmurl = scmurl;
+	}
 	public String getTimestamp() {
 		return timestamp;
 	}
@@ -112,9 +112,7 @@ public class ChangeSet {
 	public static class Item {
 		protected List<String> affectedPath;
 
-		public void setAffectedPath(List<String> affectedPath) {
-			this.affectedPath = affectedPath;
-		}
+		
 
 		protected ChangeSet.Item.Author author;
 		protected Long timestamp;
@@ -123,7 +121,9 @@ public class ChangeSet {
 		protected String commitId;
 		protected String user;
 		protected String version;
-
+		public void setAffectedPath(List<String> affectedPath) {
+			this.affectedPath = affectedPath;
+		}
 		public List<String> getAffectedPath() {
 			if (affectedPath == null) {
 				affectedPath = new ArrayList<>();

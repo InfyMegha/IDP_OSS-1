@@ -21,13 +21,6 @@ public class SCMInfo {
 	@JsonProperty("commitMessage")
 	private String commitMessage;
 
-	public String getRemoteUrl() {
-		return remoteUrl;
-	}
-
-	public void setRemoteUrl(String remoteUrl) {
-		this.remoteUrl = remoteUrl;
-	}
 
 	@JsonProperty("id")
 	private String id;
@@ -48,6 +41,13 @@ public class SCMInfo {
 		this.remoteUrl = "none";
 	}
 
+	public String getRemoteUrl() {
+		return remoteUrl;
+	}
+
+	public void setRemoteUrl(String remoteUrl) {
+		this.remoteUrl = remoteUrl;
+	}
 	@JsonProperty("lastModified")
 	public String getLastModified() {
 		return lastModified;

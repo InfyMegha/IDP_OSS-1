@@ -35,6 +35,15 @@ public class InformaticaObject {
 	@Expose
 	private List<String> mapplet;
 
+	@SerializedName("session")
+	@Expose
+	private List<String> session;
+	@SerializedName("sequence")
+	@Expose
+	private List<String> sequence;
+	@SerializedName("worklet")
+	@Expose
+	private List<String> worklet;
 	public String getFolderName() {
 		return folderName;
 	}
@@ -115,13 +124,5 @@ public class InformaticaObject {
 		this.worklet = worklet;
 	}
 
-	@SerializedName("session")
-	@Expose
-	private List<String> session;
-	@SerializedName("sequence")
-	@Expose
-	private List<String> sequence;
-	@SerializedName("worklet")
-	@Expose
-	private List<String> worklet;
+	
 }

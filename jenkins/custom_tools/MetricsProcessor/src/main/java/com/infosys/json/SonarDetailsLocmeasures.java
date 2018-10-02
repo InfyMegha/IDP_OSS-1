@@ -11,6 +11,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class SonarDetailsLocmeasures {
+	@SerializedName("metric")
+	@Expose
+	private String metric;
+	@SerializedName("value")
+	@Expose
+	private int value;
 	public String getMetric() {
 		return metric;
 	}
@@ -27,10 +33,5 @@ public class SonarDetailsLocmeasures {
 		this.value = value;
 	}
 
-	@SerializedName("metric")
-	@Expose
-	private String metric;
-	@SerializedName("value")
-	@Expose
-	private int value;
+	
 }

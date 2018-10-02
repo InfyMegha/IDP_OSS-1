@@ -19,6 +19,11 @@ public class Istanbul {
 	@JsonProperty("branchcoverage")
 	private String branchCoverage;
 
+	
+
+	@JsonProperty("methodCoverage")
+	private String methodCoverage;
+
 	public String getBranchCoverage() {
 		return branchCoverage;
 	}
@@ -26,10 +31,6 @@ public class Istanbul {
 	public void setBranchCoverage(String branchCoverage) {
 		this.branchCoverage = branchCoverage;
 	}
-
-	@JsonProperty("methodCoverage")
-	private String methodCoverage;
-
 	public String getClassName() {
 		return className;
 	}

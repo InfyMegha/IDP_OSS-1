@@ -86,7 +86,7 @@ public class ConvertJacoco {
 							else
 								cd.setBranchCoverage(String.valueOf(rate1));
 							cd.setCategory("Jacoco");
-							json.AddCoverageDetails(cd);
+							json.addCoverageDetails(cd);
 						}
 					}
 				}

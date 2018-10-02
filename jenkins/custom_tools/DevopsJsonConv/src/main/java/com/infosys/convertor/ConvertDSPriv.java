@@ -49,7 +49,7 @@ public class ConvertDSPriv {
 				temp.setLineCoverage(
 						Double.toString((double) (cd2.getLinesCovered()) / ((double) (cd2.getLinesCovered())
 								+ (double) (cd2.getLinesNotCovered()) + (double) (cd2.getLinesPartiallyCovered()))));
-				json.AddCoverageDetails(temp);
+				json.addCoverageDetails(temp);
 			}
 			return fdspjson;
 		} catch (Exception e) {

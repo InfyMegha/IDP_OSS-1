@@ -58,7 +58,7 @@ public class ConvertIstanbul {
 					cd1.setLineCoverage(String.valueOf(class1.getLineRate() * 100));
 					//
 					cd1.setPckage(p.getName());
-					jsonClass.AddCoverageDetails(cd1);
+					jsonClass.addCoverageDetails(cd1);
 				}
 			}
 			System.out.println("istanbul coverage converted ");

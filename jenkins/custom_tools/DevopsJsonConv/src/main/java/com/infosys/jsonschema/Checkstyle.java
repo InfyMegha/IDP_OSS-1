@@ -34,7 +34,19 @@ public class Checkstyle {
 	@SerializedName("info")
 	@Expose
 	private Integer info;
-
+	@JsonProperty("id")
+	private String id;
+	@JsonProperty("line")
+	private Object line = null;
+	@JsonProperty("message")
+	private String message;
+	@JsonProperty("severity")
+	@Expose
+	private String severity;
+	@JsonProperty("source")
+	private String source;
+	@JsonProperty("column")
+	private String column;
 	public Integer getCritical() {
 		return critical;
 	}
@@ -75,19 +87,7 @@ public class Checkstyle {
 		this.minor = minor;
 	}
 
-	@JsonProperty("id")
-	private String id;
-	@JsonProperty("line")
-	private Object line = null;
-	@JsonProperty("message")
-	private String message;
-	@JsonProperty("severity")
-	@Expose
-	private String severity;
-	@JsonProperty("source")
-	private String source;
-	@JsonProperty("column")
-	private String column;
+	
 
 	public Checkstyle() {
 		// Empty Constructor

@@ -33,13 +33,7 @@ public class EnvironmentOwnerDetail {
 	@Expose
 	private String systemId;
 
-	public String getSystemId() {
-		return systemId;
-	}
-
-	public void setSystemId(String systemId) {
-		this.systemId = systemId;
-	}
+	
 
 	@SerializedName("client")
 	@Expose
@@ -57,6 +51,13 @@ public class EnvironmentOwnerDetail {
 	@Expose
 	private String dBOwners;
 
+	public String getSystemId() {
+		return systemId;
+	}
+
+	public void setSystemId(String systemId) {
+		this.systemId = systemId;
+	}
 	public String getQa() {
 		return qa;
 	}

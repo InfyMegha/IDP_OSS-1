@@ -25,15 +25,7 @@ public class BuildDetail {
 	@JsonProperty("lastFailedBuildId")
 	private String lastFailedBuildId;
 
-	@JsonProperty("stageName")
-	public String getStageName() {
-		return stageName;
-	}
-
-	@JsonProperty("stageName")
-	public void setStageName(String stageName) {
-		this.stageName = stageName;
-	}
+	
 
 	@JsonProperty("buildTime")
 	private String buildTime;
@@ -44,6 +36,15 @@ public class BuildDetail {
 	@JsonProperty("score")
 	private String score;
 
+	@JsonProperty("stageName")
+	public String getStageName() {
+		return stageName;
+	}
+
+	@JsonProperty("stageName")
+	public void setStageName(String stageName) {
+		this.stageName = stageName;
+	}
 	@JsonProperty("timestamp")
 	public String getTimestamp() {
 		return timestamp;

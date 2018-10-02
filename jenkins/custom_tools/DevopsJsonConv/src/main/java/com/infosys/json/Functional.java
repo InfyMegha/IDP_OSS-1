@@ -15,13 +15,6 @@ public class Functional {
 	@Expose
 	private PythonUT python;
 
-	public PythonUT getPython() {
-		return python;
-	}
-
-	public void setPython(PythonUT python) {
-		this.python = python;
-	}
 
 	@SerializedName("accleratest")
 	@Expose
@@ -54,6 +47,14 @@ public class Functional {
 	@Expose
 	private ParasoftSOATest parasoftSOATest;
 
+
+	public PythonUT getPython() {
+		return python;
+	}
+
+	public void setPython(PythonUT python) {
+		this.python = python;
+	}
 	public JUnit getjUnit() {
 		return jUnit;
 	}

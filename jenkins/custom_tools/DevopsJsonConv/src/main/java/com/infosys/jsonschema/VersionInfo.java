@@ -28,14 +28,6 @@ public class VersionInfo {
 	@JsonProperty("lastModifiedBy")
 	private String lastModifiedBy;
 
-	public String getScmurl() {
-		return scmurl;
-	}
-
-	public void setScmurl(String scmurl) {
-		this.scmurl = scmurl;
-	}
-
 	@JsonProperty("commitId")
 	private String commitId;
 	@JsonProperty("scmurl")
@@ -56,6 +48,14 @@ public class VersionInfo {
 		this.latestFileVersion = "0";
 		this.lastModifiedBy = "none";
 		this.commitId = "none";
+	}
+
+	public String getScmurl() {
+		return scmurl;
+	}
+
+	public void setScmurl(String scmurl) {
+		this.scmurl = scmurl;
 	}
 
 	@JsonProperty("lastModified")

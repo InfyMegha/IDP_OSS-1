@@ -21,6 +21,24 @@ public class SonarDetails {
 	@Expose
 	private int loc;
 
+
+	@SerializedName("bugs")
+	@Expose
+	private String bugs;
+
+	@SerializedName("vulnerabilities")
+	@Expose
+	private String vulnerabilities;
+	@SerializedName("codesmells")
+	@Expose
+	private String codesmells;
+	@SerializedName("rateperhour")
+	@Expose
+	private String rateperhour;
+	@SerializedName("technicaldebt")
+	@Expose
+	private String technicalDebt;
+
 	public int getLoc() {
 		return loc;
 	}
@@ -28,11 +46,6 @@ public class SonarDetails {
 	public void setLoc(int loc) {
 		this.loc = loc;
 	}
-
-	@SerializedName("bugs")
-	@Expose
-	private String bugs;
-
 	public String getSonarServer() {
 		return sonarServer;
 	}
@@ -85,18 +98,7 @@ public class SonarDetails {
 		this.technicalDebt = technicalDebt;
 	}
 
-	@SerializedName("vulnerabilities")
-	@Expose
-	private String vulnerabilities;
-	@SerializedName("codesmells")
-	@Expose
-	private String codesmells;
-	@SerializedName("rateperhour")
-	@Expose
-	private String rateperhour;
-	@SerializedName("technicaldebt")
-	@Expose
-	private String technicalDebt;
+	
 
 	public String getTechnicalDebt() {
 		return technicalDebt;

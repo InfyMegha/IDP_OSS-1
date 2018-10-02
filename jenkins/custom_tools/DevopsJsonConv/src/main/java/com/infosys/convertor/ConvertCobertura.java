@@ -64,7 +64,7 @@ public class ConvertCobertura {
 					linecoverage = linecovered / tempcount * 100;
 					cd.setLineCoverage(String.valueOf(linecoverage));
 					jsonClass.setCoverageDetails();
-					jsonClass.AddCoverageDetails(cd);
+					jsonClass.addCoverageDetails(cd);
 				}
 			}
 		} catch (Exception e) {
@@ -91,7 +91,7 @@ public class ConvertCobertura {
 						//
 						cd1.setPckage(p.getName());
 						jsonClass.setCoverageDetails();
-						jsonClass.AddCoverageDetails(cd1);
+						jsonClass.addCoverageDetails(cd1);
 					}
 				}
 			} catch (Exception e1) {
