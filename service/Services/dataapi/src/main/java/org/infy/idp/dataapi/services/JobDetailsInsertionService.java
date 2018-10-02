@@ -66,7 +66,7 @@ public class JobDetailsInsertionService {
 
 		String queryStatement = "INSERT INTO tdevops_info VALUES (?, ?, ?);";
 		try (Connection connection = postGreSqlDbContext.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement.toString())) {
+				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement)) {
 			preparedStatement.setObject(1, appName);
 			preparedStatement.setString(2, pipelineName);
 			preparedStatement.setString(3, buildnumber);

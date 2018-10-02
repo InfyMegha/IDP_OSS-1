@@ -2431,7 +2431,7 @@ public class JobDetailsDL {
 		ResultSet rs = null;
 
 		try (Connection connection = postGreSqlDbContext.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement.toString())) {
+				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement)) {
 			preparedStatement.setString(1, buildnum);
 			preparedStatement.setString(2, applicationName);
 			preparedStatement.setString(3, pipelineName);
@@ -2478,7 +2478,7 @@ public class JobDetailsDL {
 		Gson gson = new Gson();
 		ResultSet rs = null;
 		try (Connection connection = postGreSqlDbContext.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement.toString())) {
+				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement)) {
 			preparedStatement.setString(1, buildnum);
 			preparedStatement.setString(2, applicationName);
 			preparedStatement.setString(3, pipelineName);
@@ -2527,7 +2527,7 @@ public class JobDetailsDL {
 		Gson gson = new Gson();
 		ResultSet rs = null;
 		try (Connection connection = postGreSqlDbContext.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement.toString())) {
+				PreparedStatement preparedStatement = connection.prepareStatement(queryStatement)) {
 			preparedStatement.setString(1, applicationName);
 			preparedStatement.setString(2, pipelineName);
 
