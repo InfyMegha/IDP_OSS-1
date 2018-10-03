@@ -22,9 +22,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DBTableConstants {
+	private HashMap<String, String> datamap = new HashMap();
+	private List<String> idplist = new ArrayList();
 	protected Logger logger = LoggerFactory.getLogger(DBTableConstants.class);
-	HashMap<String, String> datamap = new HashMap();
-	List<String> idplist = new ArrayList();
+	public String dashboard = "DASHBOARD";
+	public String idp = "IDP";
 
 	DBTableConstants() {
 		datamap.put("appCommitsPerEngineer",
@@ -93,9 +95,6 @@ public class DBTableConstants {
 		idplist.add("idpnoofusers");
 		idplist.add("jiraStoryCount");
 	}
-
-	public String dashboard = "DASHBOARD";
-	public String idp = "IDP";
 
 	public List<String> getQuery(String queryName) {
 		List<String> query = new ArrayList<>();
