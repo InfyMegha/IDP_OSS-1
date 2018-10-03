@@ -21,11 +21,12 @@ import org.codehaus.jackson.map.ObjectMapper;
 import com.infosys.json.CodeAnalysis;
 import com.infosys.json.JsonClass;
 import com.infosys.utilities.fxcop.FxCopReport;
-import com.infosys.utilities.fxcop.FxCopReport.Targets.Target.Modules.Module;
-import com.infosys.utilities.fxcop.FxCopReport.Targets.Target.Modules.Module.Messages.Message;
-import com.infosys.utilities.fxcop.FxCopReport.Targets.Target.Modules.Module.Messages.Message.Issue;
-import com.infosys.utilities.fxcop.FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace;
-import com.infosys.utilities.fxcop.FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member;
+import com.infosys.utilities.fxcop.Targets;
+import com.infosys.utilities.fxcop.Targets.Target.Modules.Module;
+import com.infosys.utilities.fxcop.Targets.Target.Modules.Module.Messages.Message;
+import com.infosys.utilities.fxcop.Targets.Target.Modules.Module.Messages.Message.Issue;
+import com.infosys.utilities.fxcop.Targets.Target.Modules.Module.Namespaces.Namespace;
+import com.infosys.utilities.fxcop.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member;
 
 public class ConvertFxCop {
 	private static final Logger logger = Logger.getLogger(ConvertCoverage.class);
@@ -52,11 +53,11 @@ public class ConvertFxCop {
 				logger.info("Report Converted Successfully..!!");
 				return ca;
 			}
-			List<FxCopReport.Targets.Target> t1 = c.getTargets().getTarget();
-			for (FxCopReport.Targets.Target t2 : t1) {
+			List<Targets.Target> t1 = c.getTargets().getTarget();
+			for (Targets.Target t2 : t1) {
 				if (t2.getModules() == null || t2.getModules().getModule() == null)
 					continue;
-				List<FxCopReport.Targets.Target.Modules.Module> mod1 = t2.getModules().getModule();
+				List<Targets.Target.Modules.Module> mod1 = t2.getModules().getModule();
 				iterateModule(mod1, ca);
 			}
 			logger.info("Report Converted Successfully..!!");
@@ -68,13 +69,13 @@ public class ConvertFxCop {
 	}
 
 	private static void iterateModule(List<Module> mod1, List<CodeAnalysis> ca) {
-		for (FxCopReport.Targets.Target.Modules.Module mod2 : mod1) {
+		for (Targets.Target.Modules.Module mod2 : mod1) {
 			if (mod2.getMessages() != null && mod2.getMessages().getMessage() != null) {
-				List<FxCopReport.Targets.Target.Modules.Module.Messages.Message> m1 = mod2.getMessages().getMessage();
+				List<Targets.Target.Modules.Module.Messages.Message> m1 = mod2.getMessages().getMessage();
 				iterateMessage(m1, mod2, ca);
 			}
 			if (mod2.getNamespaces() != null && mod2.getNamespaces().getNamespace() != null) {
-				List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace> nam1 = mod2.getNamespaces()
+				List<Targets.Target.Modules.Module.Namespaces.Namespace> nam1 = mod2.getNamespaces()
 						.getNamespace();
 				iterateNS(mod2, nam1, ca);
 			}
@@ -82,19 +83,19 @@ public class ConvertFxCop {
 	}
 
 	private static void iterateNS(Module mod2, List<Namespace> nam1, List<CodeAnalysis> ca) {
-		for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace nam2 : nam1) {
+		for (Targets.Target.Modules.Module.Namespaces.Namespace nam2 : nam1) {
 			if (!(nam2.getTypes() != null && nam2.getTypes().getType() != null))
 				continue;
-			List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type> typ1 = nam2.getTypes()
+			List<Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type> typ1 = nam2.getTypes()
 					.getType();
-			for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type typ2 : typ1) {
+			for (Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type typ2 : typ1) {
 				if ((typ2.getMessages() != null && typ2.getMessages().getMessage() != null)) {
-					List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message> msg1 = typ2
+					List<Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message> msg1 = typ2
 							.getMessages().getMessage();
-					for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message msg2 : msg1) {
+					for (Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message msg2 : msg1) {
 						if (msg2.getIssue() == null)
 							continue;
-						FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue i1 = msg2
+						Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue i1 = msg2
 								.getIssue();
 						////
 						CodeAnalysis c1 = getCodeAnalysisObject();
@@ -126,7 +127,7 @@ public class ConvertFxCop {
 				/////
 				if (!(typ2.getMembers() != null && typ2.getMembers().getMember() != null))
 					continue;
-				List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member> mem1 = typ2
+				List<Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member> mem1 = typ2
 						.getMembers().getMember();
 				iterateMembers(mod2, mem1, ca);
 			}
@@ -134,15 +135,15 @@ public class ConvertFxCop {
 	}
 
 	private static void iterateMembers(Module mod2, List<Member> mem1, List<CodeAnalysis> ca) {
-		for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member mem2 : mem1) {
+		for (Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member mem2 : mem1) {
 			if (!(mem2.getMessages() != null && mem2.getMessages().getMessage() != null))
 				continue;
-			List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message> msg1 = mem2
+			List<Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message> msg1 = mem2
 					.getMessages().getMessage();
-			for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message msg2 : msg1) {
+			for (Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message msg2 : msg1) {
 				if (msg2.getIssue() == null)
 					continue;
-				List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue> i1 = msg2
+				List<Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue> i1 = msg2
 						.getIssue();
 				iterateIssues(mod2, i1, msg2, ca);
 			}
@@ -150,10 +151,10 @@ public class ConvertFxCop {
 	}
 
 	private static void iterateIssues(Module mod2,
-			List<FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue> i1,
-			FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message msg2,
+			List<Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue> i1,
+			Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message msg2,
 			List<CodeAnalysis> ca) {
-		for (FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue i2 : i1) {
+		for (Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue i2 : i1) {
 			CodeAnalysis c1 = getCodeAnalysisObject();
 			String lev = i2.getLevel();
 			if (mod2.getName() != null) {
@@ -203,7 +204,7 @@ public class ConvertFxCop {
 	}
 
 	private static void iterateMessage(List<Message> m1, Module mod2, List<CodeAnalysis> ca) {
-		for (FxCopReport.Targets.Target.Modules.Module.Messages.Message m2 : m1) {
+		for (Targets.Target.Modules.Module.Messages.Message m2 : m1) {
 			Issue i2 = m2.getIssue();
 			CodeAnalysis c1 = getCodeAnalysisObject();
 			String lev = i2.getLevel();

@@ -12,15 +12,17 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import com.google.gson.JsonParser;
 
 public class SendPostRequest {
 	public static String url = null;
+	
 
 	public static String sendRequest(String jsonInputString, String scheduleHost, String buildId) {
 		String requestUrl = "http://" + scheduleHost + ":8222/idpschedule/schedulerService/updateScheduleDataBase";
@@ -58,7 +60,7 @@ public class SendPostRequest {
 			br.close();
 			connection.disconnect();
 		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
+			e.printStackTrace();
 		}
 		return jsonString.toString();
 	}

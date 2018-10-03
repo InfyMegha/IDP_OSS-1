@@ -56,14 +56,14 @@ public class ConvertSonarqube {
 			waitForAnalysis(sonarHost, sonarPrjctKey);
 			String sonarIssuesURL = generateSonarIssuesURL(sonarPrjctKey, sonarHost, severities);
 			getSonarIssuesList(sonarIssuesURL, sonardetailsobj.getSonarUserName(), sonardetailsobj.getSonarPassword(),
-					ca, sonarPrjctKey, sonarHost, prefixForId, pathToCsvDir.replaceAll("\\\\", "/"));
+					ca, sonarHost, prefixForId, pathToCsvDir.replaceAll("\\\\", "/"));
 			//
 			String sonarBUGURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "bg");
 			String sonarVulURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "vul");
 			String sonarCSURL = generateSonarInfoURL(sonarPrjctKey, sonarHost, "cs");
 			SonarDetails sonarDetailsobj1=new SonarDetails();
 			
-			sonarDetailsobj1 = getSonarDollarValue(sonarBUGURL, sonarVulURL, sonarCSURL, sonardetailsobj, sonarHost);
+			sonarDetailsobj1 = getSonarDollarValue(sonarBUGURL, sonarVulURL, sonarCSURL, sonardetailsobj);
 			String sonarLOCURL = generateSonarLOCURL(sonarPrjctKey, sonarHost);
 			getSonarLOC(sonarDetailsobj1, sonarLOCURL);
 			//
@@ -169,7 +169,7 @@ public class ConvertSonarqube {
 	}
 
 	private static List<CodeAnalysis> getSonarIssuesList(String sonarPrjctIssuesURL, String sonarUserName,
-			String sonarPassword, List<CodeAnalysis> caList, String sonarPrjctKey, String sonarHost, String prefixForId,
+			String sonarPassword, List<CodeAnalysis> caList, String sonarHost, String prefixForId,
 			String pathToCsvDir) {
 		int nextPageIndex = 1;
 		String jsonResp;
@@ -186,7 +186,7 @@ public class ConvertSonarqube {
 	}
 
 	private static SonarDetails getSonarDollarValue(String sonarBGURL, String sonarVULURL, String sonarCSURL,
-			SonarDetails sobj, String sonarHost) {
+			SonarDetails sobj) {
 		try {
 			String bugjsonResp;
 			String vuljsonResp;

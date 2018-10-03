@@ -30,12 +30,12 @@ public class ObjectFactory {
 		return new BugCollection();
 	}
 
-	public BugCollection.BugInstance.Int createBugCollectionBugInstanceInt() {
-		return new BugCollection.BugInstance.Int();
+	public BugInstance.Int createBugCollectionBugInstanceInt() {
+		return new BugInstance.Int();
 	}
 
-	public BugCollection.BugInstance.Field createBugCollectionBugInstanceField() {
-		return new BugCollection.BugInstance.Field();
+	public BugInstance.Field createBugCollectionBugInstanceField() {
+		return new BugInstance.Field();
 	}
 
 	public BugCollection.BugCode createBugCollectionBugCode() {
@@ -46,24 +46,24 @@ public class ObjectFactory {
 		return new BugCollection.FindBugsSummary.PackageStats();
 	}
 
-	public BugCollection.BugInstance.String createBugCollectionBugInstanceString() {
-		return new BugCollection.BugInstance.String();
+	public BugInstance.String createBugCollectionBugInstanceString() {
+		return new BugInstance.String();
 	}
 
 	public BugCollection.Project createBugCollectionProject() {
 		return new BugCollection.Project();
 	}
 
-	public BugCollection.BugInstance.Class.SourceLine createBugCollectionBugInstanceClassSourceLine() {
-		return new BugCollection.BugInstance.Class.SourceLine();
+	public BugInstance.Class.SourceLine createBugCollectionBugInstanceClassSourceLine() {
+		return new BugInstance.Class.SourceLine();
 	}
 
 	public BugCollection.FindBugsSummary.FindBugsProfile.ClassProfile createBugCollectionFindBugsSummaryFindBugsProfileClassProfile() {
 		return new BugCollection.FindBugsSummary.FindBugsProfile.ClassProfile();
 	}
 
-	public BugCollection.BugInstance.Type createBugCollectionBugInstanceType() {
-		return new BugCollection.BugInstance.Type();
+	public BugInstance.Type createBugCollectionBugInstanceType() {
+		return new BugInstance.Type();
 	}
 
 	public BugCollection.FindBugsSummary.PackageStats.ClassStats createBugCollectionFindBugsSummaryPackageStatsClassStats() {
@@ -74,8 +74,8 @@ public class ObjectFactory {
 		return new BugCollection.BugPattern();
 	}
 
-	public BugCollection.BugInstance.Method createBugCollectionBugInstanceMethod() {
-		return new BugCollection.BugInstance.Method();
+	public BugInstance.Method createBugCollectionBugInstanceMethod() {
+		return new BugInstance.Method();
 	}
 
 	public BugCollection.FindBugsSummary.FileStats createBugCollectionFindBugsSummaryFileStats() {
@@ -86,8 +86,8 @@ public class ObjectFactory {
 		return new BugCollection.FindBugsSummary.FindBugsProfile();
 	}
 
-	public BugCollection.BugInstance.LocalVariable createBugCollectionBugInstanceLocalVariable() {
-		return new BugCollection.BugInstance.LocalVariable();
+	public LocalVariable createBugCollectionBugInstanceLocalVariable() {
+		return new LocalVariable();
 	}
 
 	public BugCollection.FindBugsSummary createBugCollectionFindBugsSummary() {
@@ -102,112 +102,112 @@ public class ObjectFactory {
 		return new BugCollection.BugCategory();
 	}
 
-	public BugCollection.BugInstance.Class createBugCollectionBugInstanceClass() {
-		return new BugCollection.BugInstance.Class();
+	public BugInstance.Class createBugCollectionBugInstanceClass() {
+		return new BugInstance.Class();
 	}
 
-	public BugCollection.BugInstance.Field.SourceLine createBugCollectionBugInstanceFieldSourceLine() {
-		return new BugCollection.BugInstance.Field.SourceLine();
+	public BugInstance.Field.SourceLine createBugCollectionBugInstanceFieldSourceLine() {
+		return new BugInstance.Field.SourceLine();
 	}
 
-	public BugCollection.BugInstance createBugCollectionBugInstance() {
-		return new BugCollection.BugInstance();
+	public BugInstance createBugCollectionBugInstance() {
+		return new BugInstance();
 	}
 
-	public BugCollection.BugInstance.Type.SourceLine createBugCollectionBugInstanceTypeSourceLine() {
-		return new BugCollection.BugInstance.Type.SourceLine();
+	public BugInstance.Type.SourceLine createBugCollectionBugInstanceTypeSourceLine() {
+		return new BugInstance.Type.SourceLine();
 	}
 
-	public BugCollection.BugInstance.Property createBugCollectionBugInstanceProperty() {
-		return new BugCollection.BugInstance.Property();
+	public BugInstance.Property createBugCollectionBugInstanceProperty() {
+		return new BugInstance.Property();
 	}
 
-	public BugCollection.BugInstance.Method.SourceLine createBugCollectionBugInstanceMethodSourceLine() {
-		return new BugCollection.BugInstance.Method.SourceLine();
+	public BugInstance.Method.SourceLine createBugCollectionBugInstanceMethodSourceLine() {
+		return new BugInstance.Method.SourceLine();
 	}
 
-	public BugCollection.BugInstance.SourceLine createBugCollectionBugInstanceSourceLine() {
-		return new BugCollection.BugInstance.SourceLine();
+	public BugInstance.SourceLine createBugCollectionBugInstanceSourceLine() {
+		return new BugInstance.SourceLine();
 	}
 
-	@XmlElementDecl(namespace = "", name = "Field", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.Field> createBugCollectionBugInstanceField(
-			BugCollection.BugInstance.Field value) {
-		return new JAXBElement<BugCollection.BugInstance.Field>(_BugCollectionBugInstanceField_QNAME,
-				BugCollection.BugInstance.Field.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "Field", scope = BugInstance.class)
+	public JAXBElement<BugInstance.Field> createBugCollectionBugInstanceField(
+			BugInstance.Field value) {
+		return new JAXBElement<BugInstance.Field>(_BugCollectionBugInstanceField_QNAME,
+				BugInstance.Field.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "LongMessage", scope = BugCollection.BugInstance.class)
+	@XmlElementDecl(namespace = "", name = "LongMessage", scope = BugInstance.class)
 	public JAXBElement<java.lang.String> createBugCollectionBugInstanceLongMessage(java.lang.String value) {
 		return new JAXBElement<java.lang.String>(_BugCollectionBugInstanceLongMessage_QNAME, java.lang.String.class,
-				BugCollection.BugInstance.class, value);
+				BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "Method", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.Method> createBugCollectionBugInstanceMethod(
-			BugCollection.BugInstance.Method value) {
-		return new JAXBElement<BugCollection.BugInstance.Method>(_BugCollectionBugInstanceMethod_QNAME,
-				BugCollection.BugInstance.Method.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "Method", scope = BugInstance.class)
+	public JAXBElement<BugInstance.Method> createBugCollectionBugInstanceMethod(
+			BugInstance.Method value) {
+		return new JAXBElement<BugInstance.Method>(_BugCollectionBugInstanceMethod_QNAME,
+				BugInstance.Method.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "String", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.String> createBugCollectionBugInstanceString(
-			BugCollection.BugInstance.String value) {
-		return new JAXBElement<BugCollection.BugInstance.String>(_BugCollectionBugInstanceString_QNAME,
-				BugCollection.BugInstance.String.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "String", scope = BugInstance.class)
+	public JAXBElement<BugInstance.String> createBugCollectionBugInstanceString(
+			BugInstance.String value) {
+		return new JAXBElement<BugInstance.String>(_BugCollectionBugInstanceString_QNAME,
+				BugInstance.String.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "Type", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.Type> createBugCollectionBugInstanceType(
-			BugCollection.BugInstance.Type value) {
-		return new JAXBElement<BugCollection.BugInstance.Type>(_BugCollectionBugInstanceType_QNAME,
-				BugCollection.BugInstance.Type.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "Type", scope = BugInstance.class)
+	public JAXBElement<BugInstance.Type> createBugCollectionBugInstanceType(
+			BugInstance.Type value) {
+		return new JAXBElement<BugInstance.Type>(_BugCollectionBugInstanceType_QNAME,
+				BugInstance.Type.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "Class", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.Class> createBugCollectionBugInstanceClass(
-			BugCollection.BugInstance.Class value) {
-		return new JAXBElement<BugCollection.BugInstance.Class>(_BugCollectionBugInstanceClass_QNAME,
-				BugCollection.BugInstance.Class.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "Class", scope = BugInstance.class)
+	public JAXBElement<BugInstance.Class> createBugCollectionBugInstanceClass(
+			BugInstance.Class value) {
+		return new JAXBElement<BugInstance.Class>(_BugCollectionBugInstanceClass_QNAME,
+				BugInstance.Class.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "Property", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.Property> createBugCollectionBugInstanceProperty(
-			BugCollection.BugInstance.Property value) {
-		return new JAXBElement<BugCollection.BugInstance.Property>(_BugCollectionBugInstanceProperty_QNAME,
-				BugCollection.BugInstance.Property.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "Property", scope = BugInstance.class)
+	public JAXBElement<BugInstance.Property> createBugCollectionBugInstanceProperty(
+			BugInstance.Property value) {
+		return new JAXBElement<BugInstance.Property>(_BugCollectionBugInstanceProperty_QNAME,
+				BugInstance.Property.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "Int", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.Int> createBugCollectionBugInstanceInt(
-			BugCollection.BugInstance.Int value) {
-		return new JAXBElement<BugCollection.BugInstance.Int>(_BugCollectionBugInstanceInt_QNAME,
-				BugCollection.BugInstance.Int.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "Int", scope = BugInstance.class)
+	public JAXBElement<BugInstance.Int> createBugCollectionBugInstanceInt(
+			BugInstance.Int value) {
+		return new JAXBElement<BugInstance.Int>(_BugCollectionBugInstanceInt_QNAME,
+				BugInstance.Int.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "LocalVariable", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.LocalVariable> createBugCollectionBugInstanceLocalVariable(
-			BugCollection.BugInstance.LocalVariable value) {
-		return new JAXBElement<BugCollection.BugInstance.LocalVariable>(_BugCollectionBugInstanceLocalVariable_QNAME,
-				BugCollection.BugInstance.LocalVariable.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "LocalVariable", scope = BugInstance.class)
+	public JAXBElement<LocalVariable> createBugCollectionBugInstanceLocalVariable(
+			LocalVariable value) {
+		return new JAXBElement<LocalVariable>(_BugCollectionBugInstanceLocalVariable_QNAME,
+				LocalVariable.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "SourceLine", scope = BugCollection.BugInstance.class)
-	public JAXBElement<BugCollection.BugInstance.SourceLine> createBugCollectionBugInstanceSourceLine(
-			BugCollection.BugInstance.SourceLine value) {
-		return new JAXBElement<BugCollection.BugInstance.SourceLine>(_BugCollectionBugInstanceSourceLine_QNAME,
-				BugCollection.BugInstance.SourceLine.class, BugCollection.BugInstance.class, value);
+	@XmlElementDecl(namespace = "", name = "SourceLine", scope = BugInstance.class)
+	public JAXBElement<BugInstance.SourceLine> createBugCollectionBugInstanceSourceLine(
+			BugInstance.SourceLine value) {
+		return new JAXBElement<BugInstance.SourceLine>(_BugCollectionBugInstanceSourceLine_QNAME,
+				BugInstance.SourceLine.class, BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "ShortMessage", scope = BugCollection.BugInstance.class)
+	@XmlElementDecl(namespace = "", name = "ShortMessage", scope = BugInstance.class)
 	public JAXBElement<java.lang.String> createBugCollectionBugInstanceShortMessage(java.lang.String value) {
 		return new JAXBElement<java.lang.String>(_BugCollectionBugInstanceShortMessage_QNAME, java.lang.String.class,
-				BugCollection.BugInstance.class, value);
+				BugInstance.class, value);
 	}
 
-	@XmlElementDecl(namespace = "", name = "Message", scope = BugCollection.BugInstance.Method.SourceLine.class)
+	@XmlElementDecl(namespace = "", name = "Message", scope = BugInstance.Method.SourceLine.class)
 	public JAXBElement<java.lang.String> createBugCollectionBugInstanceMethodSourceLineMessage(java.lang.String value) {
 		return new JAXBElement<java.lang.String>(_BugCollectionBugInstanceMethodSourceLineMessage_QNAME,
-				java.lang.String.class, BugCollection.BugInstance.Method.SourceLine.class, value);
+				java.lang.String.class, BugInstance.Method.SourceLine.class, value);
 	}
 }

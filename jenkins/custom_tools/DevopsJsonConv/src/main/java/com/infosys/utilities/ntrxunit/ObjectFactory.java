@@ -46,60 +46,60 @@ public class ObjectFactory {
 		return new TestRun.ResultSummary.RunInfos();
 	}
 
-	public TestRun.TestSettings createTestRunTestSettings() {
-		return new TestRun.TestSettings();
+	public TestSettings createTestRunTestSettings() {
+		return new TestSettings();
 	}
 
-	public TestRun.TestSettings.Execution createTestRunTestSettingsExecution() {
-		return new TestRun.TestSettings.Execution();
+	public TestSettings.Execution createTestRunTestSettingsExecution() {
+		return new TestSettings.Execution();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule createTestRunTestSettingsExecutionAgentRule() {
-		return new TestRun.TestSettings.Execution.AgentRule();
+	public TestSettings.Execution.AgentRule createTestRunTestSettingsExecutionAgentRule() {
+		return new TestSettings.Execution.AgentRule();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule.DataCollectors createTestRunTestSettingsExecutionAgentRuleDataCollectors() {
-		return new TestRun.TestSettings.Execution.AgentRule.DataCollectors();
+	public TestSettings.Execution.AgentRule.DataCollectors createTestRunTestSettingsExecutionAgentRuleDataCollectors() {
+		return new TestSettings.Execution.AgentRule.DataCollectors();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollector() {
-		return new TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector();
+	public TestSettings.Execution.AgentRule.DataCollectors.DataCollector createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollector() {
+		return new TestSettings.Execution.AgentRule.DataCollectors.DataCollector();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfiguration() {
-		return new TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration();
+	public TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfiguration() {
+		return new TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfigurationCodeCoverage() {
-		return new TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage();
+	public TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfigurationCodeCoverage() {
+		return new TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfigurationCodeCoverageRegular() {
-		return new TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular();
+	public TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfigurationCodeCoverageRegular() {
+		return new TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific createTestRunTestSettingsExecutionTestTypeSpecific() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific();
+	public TestSettings.Execution.TestTypeSpecific createTestRunTestSettingsExecutionTestTypeSpecific() {
+		return new TestSettings.Execution.TestTypeSpecific();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfiguration() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration();
+	public TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfiguration() {
+		return new TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfigurationBrowser() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser();
+	public TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfigurationBrowser() {
+		return new TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfigurationBrowserHeaders() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers();
+	public TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfigurationBrowserHeaders() {
+		return new TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig createTestRunTestSettingsExecutionTestTypeSpecificUnitTestRunConfig() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig();
+	public TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig createTestRunTestSettingsExecutionTestTypeSpecificUnitTestRunConfig() {
+		return new TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution createTestRunTestSettingsExecutionTestTypeSpecificUnitTestRunConfigAssemblyResolution() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution();
+	public TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution createTestRunTestSettingsExecutionTestTypeSpecificUnitTestRunConfigAssemblyResolution() {
+		return new TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution();
 	}
 
 	public TestRun.Times createTestRunTimes() {
@@ -138,19 +138,19 @@ public class ObjectFactory {
 		return new TestRun.ResultSummary.RunInfos.RunInfo();
 	}
 
-	public TestRun.TestSettings.Deployment createTestRunTestSettingsDeployment() {
-		return new TestRun.TestSettings.Deployment();
+	public TestSettings.Deployment createTestRunTestSettingsDeployment() {
+		return new TestSettings.Deployment();
 	}
 
-	public TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular.CodeCoverageItem createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfigurationCodeCoverageRegularCodeCoverageItem() {
-		return new TestRun.TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular.CodeCoverageItem();
+	public TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular.CodeCoverageItem createTestRunTestSettingsExecutionAgentRuleDataCollectorsDataCollectorConfigurationCodeCoverageRegularCodeCoverageItem() {
+		return new TestSettings.Execution.AgentRule.DataCollectors.DataCollector.Configuration.CodeCoverage.Regular.CodeCoverageItem();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers.Header createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfigurationBrowserHeadersHeader() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers.Header();
+	public TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers.Header createTestRunTestSettingsExecutionTestTypeSpecificWebTestRunConfigurationBrowserHeadersHeader() {
+		return new TestSettings.Execution.TestTypeSpecific.WebTestRunConfiguration.Browser.Headers.Header();
 	}
 
-	public TestRun.TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution.TestDirectory createTestRunTestSettingsExecutionTestTypeSpecificUnitTestRunConfigAssemblyResolutionTestDirectory() {
-		return new TestRun.TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution.TestDirectory();
+	public TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution.TestDirectory createTestRunTestSettingsExecutionTestTypeSpecificUnitTestRunConfigAssemblyResolutionTestDirectory() {
+		return new TestSettings.Execution.TestTypeSpecific.UnitTestRunConfig.AssemblyResolution.TestDirectory();
 	}
 }

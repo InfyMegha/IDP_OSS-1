@@ -10,7 +10,6 @@ package org.infy.idp;
 
 import java.util.List;
 
-import org.infy.idp.businessapi.JobsBL;
 import org.infy.idp.businessapi.OrgInfoBL;
 import org.infy.idp.businessapi.SubscriptionBL;
 import org.slf4j.Logger;

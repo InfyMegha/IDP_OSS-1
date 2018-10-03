@@ -32,7 +32,8 @@ public class DeploymentBL {
 
 	@Autowired
 	private JobsBL jobsBL;
-
+	@Autowired
+	private JobsAdditionalInfo jobsaddInfo;
 	@Autowired
 	private DeploymentDL deploymentDL;
 
@@ -46,7 +47,7 @@ public class DeploymentBL {
 	 * @return String
 	 */
 	public String updateExistingJobs(String userName) {
-		List<String> permissions = jobsBL.getAllPermission(userName);
+		List<String> permissions = jobsaddInfo.getAllPermission(userName);
 		if (!permissions.contains(UPDATE_JOBS)) {
 			logger.info("No Access");
 
@@ -77,7 +78,7 @@ public class DeploymentBL {
 	 * @return String
 	 */
 	public String updateExistingProvidedJobs(Names pipeList, String userName) {
-		List<String> permissions = jobsBL.getAllPermission(userName);
+		List<String> permissions = jobsaddInfo.getAllPermission(userName);
 		logger.info("User: " + userName + " with permissions: " + permissions);
 		if (!permissions.contains(UPDATE_JOBS)) {
 			logger.info("No Access to update Jobs");

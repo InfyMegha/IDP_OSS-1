@@ -44,7 +44,7 @@ public class UserService {
 			return Response.fail();
 		}
 		String response = loginBL.performLogin(new LoginRequest(username, password));
-		if (response.equals("false")) {
+		if ("false".equals(response)) {
 			return Response.fail();
 		} else {
 			return Response.ok(response);

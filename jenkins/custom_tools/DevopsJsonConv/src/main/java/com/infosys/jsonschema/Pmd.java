@@ -39,9 +39,7 @@ public class Pmd {
 	@JsonProperty("ruleset")
 	private String ruleset;
 
-	public Pmd() {
-		// Empty Constructor
-	}
+	
 
 	
 

@@ -46,36 +46,36 @@ public class ObjectFactory {
 		return new ResultsSession.Scope.ProjectInformations();
 	}
 
-	public ResultsSession.ExecutedTestsDetails createResultsSessionExecutedTestsDetails() {
-		return new ResultsSession.ExecutedTestsDetails();
+	public ExecutedTestsDetails createResultsSessionExecutedTestsDetails() {
+		return new ExecutedTestsDetails();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total createResultsSessionExecutedTestsDetailsTotal() {
-		return new ResultsSession.ExecutedTestsDetails.Total();
+	public ExecutedTestsDetails.Total createResultsSessionExecutedTestsDetailsTotal() {
+		return new ExecutedTestsDetails.Total();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project createResultsSessionExecutedTestsDetailsTotalProject() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project();
+	public ExecutedTestsDetails.Total.Project createResultsSessionExecutedTestsDetailsTotalProject() {
+		return new ExecutedTestsDetails.Total.Project();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1 createResultsSessionExecutedTestsDetailsTotalProjectTestSuite() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1();
+	public ExecutedTestsDetails.Total.Project.TestSuite1 createResultsSessionExecutedTestsDetailsTotalProjectTestSuite() {
+		return new ExecutedTestsDetails.Total.Project.TestSuite1();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuite() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2();
+	public ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuite() {
+		return new ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuite() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3();
+	public ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuite() {
+		return new ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuiteTestSuite() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4();
+	public ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuiteTestSuite() {
+		return new ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuiteTestSuiteTestSuite() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5();
+	public ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5 createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuiteTestSuiteTestSuite() {
+		return new ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5();
 	}
 
 	public ResultsSession.Exec createResultsSessionExec() {
@@ -118,8 +118,8 @@ public class ObjectFactory {
 		return new ResultsSession.Scope.ProjectInformations.ScopeProjectInfo();
 	}
 
-	public ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5.Test createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuiteTestSuiteTestSuiteTest() {
-		return new ResultsSession.ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5.Test();
+	public ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5.Test createResultsSessionExecutedTestsDetailsTotalProjectTestSuiteTestSuiteTestSuiteTestSuiteTestSuiteTest() {
+		return new ExecutedTestsDetails.Total.Project.TestSuite1.TestSuite2.TestSuite3.TestSuite4.TestSuite5.Test();
 	}
 
 	public ResultsSession.Exec.AssocUrls.Tag createResultsSessionExecAssocUrlsTag() {

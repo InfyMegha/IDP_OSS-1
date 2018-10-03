@@ -78,7 +78,8 @@ public class TriggerDetailBL {
 	private static final String DEPLOY = "DEPLOY";
 	private static final String TEST = "TEST";
 	private static final String WORKFLOW = "workflow";
-
+	@Autowired
+	private JobsManagementBL jobsmgmtBL;
 	@Autowired
 	private FetchJobDetails fetchJobDetails;
 	@Autowired
@@ -185,7 +186,7 @@ public class TriggerDetailBL {
 
 			if (triggerInputs.getSshAndDependent().equalsIgnoreCase("on")) {
 				triggerInputs.setRelaseList(
-						jobsBL.getReleaseNumber(triggerJobName.getApplicationName(), triggerJobName.getPipelineName(),
+						jobsmgmtBL.getReleaseNumber(triggerJobName.getApplicationName(), triggerJobName.getPipelineName(),
 								idp.getBuildInfo().getPostBuildScript().getDependentPipelineList()));
 			}
 			List<String> userEnvs = fetchJobDetails.getUserEnvironment(app, userName);
@@ -498,10 +499,10 @@ public class TriggerDetailBL {
 		String buildUrl;
 		List<String> responsesForBuildNumbers = new ArrayList<>();
 		if (BUILD.equalsIgnoreCase(jobType)) {
-			jsonResponse = jobsBL.getJobJSON(jobName, "apprNext;BUILD");
+			jsonResponse = jobsmgmtBL.getJobJSON(jobName, "apprNext;BUILD");
 			buildUrl = jobName + "_Build";
 		} else {
-			jsonResponse = jobsBL.getJobJSON(jobName, "apprNext;DEPLOY;" + workEnv + ";");
+			jsonResponse = jobsmgmtBL.getJobJSON(jobName, "apprNext;DEPLOY;" + workEnv + ";");
 			buildUrl = jobName + "_Deploy_" + workEnv + "/job/" + jobName + "_Deploy_" + workEnv;
 		}
 		if (!"".equalsIgnoreCase(jsonResponse)) {
@@ -519,12 +520,12 @@ public class TriggerDetailBL {
 
 			for (int i = startBuild; i < buildNumber; i++) {
 				logger.info("Checking for the build no " + i);
-				jsonResponse = jobsBL.getJobJSON(jobName, "/" + i + ";ApprovalCheck;" + buildUrl);
+				jsonResponse = jobsmgmtBL.getJobJSON(jobName, "/" + i + ";ApprovalCheck;" + buildUrl);
 				if ("".equalsIgnoreCase(jsonResponse)) {
 					logger.info("Build No " + i + " is not wating for job " + jobName + " Hence continuing");
 					continue;
 				} else {
-					String response = jobsBL.getJobJSON(jobName, "/" + i + ";getJson;" + buildUrl);
+					String response = jobsmgmtBL.getJobJSON(jobName, "/" + i + ";getJson;" + buildUrl);
 					responsesForBuildNumbers.add(response);
 				}
 
@@ -613,13 +614,11 @@ public class TriggerDetailBL {
 	 * @return boolean
 	 */
 	public boolean isNexusSelected(IDPJob idp) {
-		if (idp.getBuildInfo() != null && idp.getBuildInfo().getArtifactToStage() != null
+		return (idp.getBuildInfo() != null && idp.getBuildInfo().getArtifactToStage() != null
 				&& idp.getBuildInfo().getArtifactToStage().getArtifactRepoName() != null
 				&& !idp.getBuildInfo().getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("na")
-				&& !idp.getBuildInfo().getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("")) {
-			return true;
-		}
-		return false;
+				&& !idp.getBuildInfo().getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("")); 
+			
 	}
 
 	/**

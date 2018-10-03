@@ -412,8 +412,9 @@ public class JobDetailsDL {
 			preparedStatement.setString(2, applicationName);
 
 			rs = preparedStatement.executeQuery();
-			rs.next();
-			count = rs.getInt(1);
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
 
 			return count;
 		}

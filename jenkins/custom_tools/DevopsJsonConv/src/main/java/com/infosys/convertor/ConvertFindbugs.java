@@ -19,9 +19,8 @@ import org.apache.log4j.Logger;
 
 import com.infosys.json.CodeAnalysis;
 import com.infosys.utilities.findbugs.BugCollection;
-import com.infosys.utilities.findbugs.BugCollection.BugInstance;
-import com.infosys.utilities.findbugs.BugCollection.BugInstance.Class;
-import com.infosys.utilities.findbugs.BugCollection.BugInstance.Method;
+import com.infosys.utilities.findbugs.BugInstance;
+import com.infosys.utilities.findbugs.BugInstance.Method;
 
 public class ConvertFindbugs {
 	private static int major;
@@ -134,7 +133,7 @@ public class ConvertFindbugs {
 		}
 	}
 
-	private static void iterateClass(BugInstance i, List<CodeAnalysis> ca, List<Class> clsList,
+	private static void iterateClass(BugInstance i, List<CodeAnalysis> ca, List<BugInstance.Class> clsList,
 			Map<String, String> ruleToValue, String bugCategory, String noDesc, String prefixForId) {
 		for (BugInstance.Class cls : clsList) {
 			BugInstance.Class.SourceLine sl = cls.getSourceLine();

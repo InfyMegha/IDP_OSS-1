@@ -68,7 +68,8 @@ public class EmailSender {
 	private FetchJobDetails fetchJobDetails;
 	@Autowired
 	private JobsBL jobsBL;
-
+	@Autowired
+	private JobsAdditionalInfo jobsaddInfo;
 	EmailSender() {
 
 	}
@@ -85,7 +86,7 @@ public class EmailSender {
 	public boolean jobCreationSuccessMail(TriggerJobName triggerJobName, String user) {
 		boolean status = true;
 		String sub = "Pipeline";
-		List<String> permissions = jobsBL.getAllPermissionforApp(triggerJobName.getApplicationName(), user);
+		List<String> permissions = jobsaddInfo.getAllPermissionforApp(triggerJobName.getApplicationName(), user);
 		if (!permissions.contains("CREATE_PIPELINE")) {
 			status = false;
 			return status;
@@ -152,7 +153,7 @@ public class EmailSender {
 	 */
 	public boolean appCreationSuccessMail(TriggerJobName triggerJobName, String user) {
 		boolean status = true;
-		List<String> permissions = jobsBL.getAllPermission(user);
+		List<String> permissions = jobsaddInfo.getAllPermission(user);
 		if (!permissions.contains("CREATE_APPLICATION")) {
 			status = false;
 			return status;

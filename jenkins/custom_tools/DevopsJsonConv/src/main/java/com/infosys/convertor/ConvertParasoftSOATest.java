@@ -17,6 +17,7 @@ import javax.xml.bind.Unmarshaller;
 import com.infosys.json.JsonClass;
 import com.infosys.json.ParasoftSOATest;
 import com.infosys.json.TestCaseResult;
+import com.infosys.utilities.parasoftsoatest.ExecutedTestsDetails;
 import com.infosys.utilities.parasoftsoatest.ResultsSession;
 
 public class ConvertParasoftSOATest {
@@ -31,8 +32,8 @@ public class ConvertParasoftSOATest {
 			jaxbContext = JAXBContext.newInstance(ResultsSession.class);
 			jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			ResultsSession result = (ResultsSession) jaxbUnmarshaller.unmarshal(file);
-			ResultsSession.ExecutedTestsDetails executedTestDetails = result.getExecutedTestsDetails();
-			ResultsSession.ExecutedTestsDetails.Total total = executedTestDetails.getTotal();
+			ExecutedTestsDetails executedTestDetails = result.getExecutedTestsDetails();
+			ExecutedTestsDetails.Total total = executedTestDetails.getTotal();
 			p.setFail(total.getFail());
 			p.setPass(total.getPass());
 			p.setTotal(total.getTotal());

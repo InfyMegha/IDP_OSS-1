@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
  * @author Infosys
  */
 @Component
-@SuppressWarnings("unused")
+@SuppressWarnings({"PMD.MissingStaticMethodInNonInstantiatableClass","unused"})
 public class PostGreSqlDbContext {
   
   @Autowired

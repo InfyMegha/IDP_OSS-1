@@ -9,6 +9,8 @@ import * as CryptoJS from "crypto-js";
 import { IdpdataService } from "./idpdata.service";
 import { Injectable } from "@angular/core";
 
+/* tslint:disable:no-eval */
+
 @Injectable()
 export class IDPEncryption {
 

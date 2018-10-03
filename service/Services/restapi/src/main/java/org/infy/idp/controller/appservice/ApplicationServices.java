@@ -13,7 +13,10 @@ import java.util.List;
 import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.TokenUtils;
 import org.infy.idp.businessapi.EmailSender;
+import org.infy.idp.businessapi.FetchJobDetails;
+import org.infy.idp.businessapi.JobsAdditionalInfo;
 import org.infy.idp.businessapi.JobsBL;
+import org.infy.idp.businessapi.JobsManagementBL;
 import org.infy.idp.controller.BaseResource;
 import org.infy.idp.entities.jobs.AppNames;
 import org.infy.idp.entities.jobs.DBDeployOperations;
@@ -50,6 +53,12 @@ public class ApplicationServices extends BaseResource {
 	protected static final String modelId = "Model Id: ";
 	@Autowired
 	private JobsBL jobsBL;
+	
+	@Autowired
+	private JobsAdditionalInfo jobsaddInfo;
+	
+	@Autowired
+	private JobsManagementBL jobsmgmtBL;
 	@Autowired
 	private EmailSender emailSender;
 
@@ -323,7 +332,7 @@ public class ApplicationServices extends BaseResource {
 		ResourceResponse<String> resourceResponse = new ResourceResponse<>();
 		try {
 			logger.info("Creating Application");
-			resourceResponse.setResource(jobsBL.createApplication(appInfo, auth.getPrincipal().toString().toLowerCase(),
+			resourceResponse.setResource(jobsmgmtBL.createApplication(appInfo, auth.getPrincipal().toString().toLowerCase(),
 					TokenUtils.getOrganization(auth)));
 			resourceResponse.setStatus("SUCCESS");
 
@@ -383,7 +392,7 @@ public class ApplicationServices extends BaseResource {
 	public ResourceResponse<String> updateAppinfo(@PathVariable("id") String taskid,
 			@RequestBody ApplicationInfo appInfo, OAuth2Authentication auth) {
 		ResourceResponse<String> resourceResponse = new ResourceResponse<>();
-		List<String> permission = jobsBL.getAllPermission(auth.getPrincipal().toString().toLowerCase());
+		List<String> permission = jobsaddInfo.getAllPermission(auth.getPrincipal().toString().toLowerCase());
 		if (!permission.contains("EDIT_APPLICATION")) {
 			resourceResponse.setStatus("SUCCESS");
 			resourceResponse.setErrorMessage("No Access");
@@ -392,8 +401,8 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Update info");
 
-			jobsBL.deleteRole(appInfo);
-			jobsBL.updateInfo(appInfo, auth.getPrincipal().toString().toLowerCase(), TokenUtils.getOrganization(auth));
+			jobsmgmtBL.deleteRole(appInfo);
+			jobsmgmtBL.updateInfo(appInfo, auth.getPrincipal().toString().toLowerCase(), TokenUtils.getOrganization(auth));
 
 			resourceResponse.setResource(STATUS_SUCCESS);
 			resourceResponse.setStatus("SUCCESS");
@@ -426,7 +435,7 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Fetching application details");
 			Gson gson = new Gson();
-			AppNames apps = jobsBL.getApplications(auth.getPrincipal().toString().toLowerCase(), platform);
+			AppNames apps = jobsmgmtBL.getApplications(auth.getPrincipal().toString().toLowerCase(), platform);
 			if (null == apps.getApplicationNames() || apps.getApplicationNames().isEmpty()) {
 				resourceResponse.setResource("No Application");
 			} else {
@@ -463,7 +472,7 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Retrieving application");
 			Gson gson = new Gson();
-			AppNames apps = jobsBL.getFilteredApplications(filterString, auth.getPrincipal().toString().toLowerCase(),
+			AppNames apps = jobsmgmtBL.getFilteredApplications(filterString, auth.getPrincipal().toString().toLowerCase(),
 					platform);
 			if (null == apps.getApplicationNames() || apps.getApplicationNames().isEmpty()) {
 				resourceResponse.setResource("No Application");
@@ -534,7 +543,7 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Retrieving application details");
 			Gson gson = new Gson();
-			Application app = jobsBL.getApplicationDetails(appName, auth.getPrincipal().toString().toLowerCase());
+			Application app = jobsmgmtBL.getApplicationDetails(appName, auth.getPrincipal().toString().toLowerCase());
 			if (null == app.getApplicationName() || "".equalsIgnoreCase(app.getApplicationName())) {
 				resourceResponse.setResource("No Application");
 			} else {
@@ -569,7 +578,7 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Retrieving application details");
 			Gson gson = new Gson();
-			Names names = jobsBL.getApplicationNameForReleaseManager(auth.getPrincipal().toString().toLowerCase(),
+			Names names = jobsaddInfo.getApplicationNameForReleaseManager(auth.getPrincipal().toString().toLowerCase(),
 					platformName);
 			if (null == names.getNames() || names.getNames().isEmpty()) {
 				resourceResponse.setResource("No Application");
@@ -600,7 +609,7 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Retrieving application");
 			Gson gson = new Gson();
-			SubApplication subApps = jobsBL.getSubApplications(appName);
+			SubApplication subApps = jobsaddInfo.getSubApplications(appName);
 
 			if (null == subApps || subApps.getSubApps().isEmpty()) {
 				resourceResponse.setResource("No Sub Application");
@@ -633,7 +642,7 @@ public class ApplicationServices extends BaseResource {
 		try {
 			logger.info("Retrieving Database deploy operation");
 			Gson gson = new Gson();
-			DBDeployOperations dbDeployOperations = jobsBL.getDBDeployOperations(subAppName, appName);
+			DBDeployOperations dbDeployOperations = jobsaddInfo.getDBDeployOperations(subAppName, appName);
 			if (null == dbDeployOperations || dbDeployOperations.getOperations().isEmpty()) {
 				resourceResponse.setResource("No Database Deployment");
 			} else {

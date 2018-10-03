@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlRegistry;
 
 @XmlRegistry
 public class ObjectFactory {
-	public FxCopReport.Targets.Target createFxCopReportTargetsTarget() {
-		return new FxCopReport.Targets.Target();
+	public Targets.Target createFxCopReportTargetsTarget() {
+		return new Targets.Target();
 	}
 
 	public FxCopReport createFxCopReport() {
@@ -22,84 +22,84 @@ public class ObjectFactory {
 		return new FxCopReport.Exceptions();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMessages() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMessages() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages();
 	}
 
 	public FxCopReport.Localized createFxCopReportLocalized() {
 		return new FxCopReport.Localized();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembers() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembers() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMessagesMessageIssue() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMessagesMessageIssue() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message.Issue();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMemberMessagesMessageIssue() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMemberMessagesMessageIssue() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message.Issue();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMemberMessagesMessage() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMemberMessagesMessage() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages.Message();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesType() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesType() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMessagesMessage() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMessagesMessage() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Messages.Message();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Messages.Message.Issue createFxCopReportTargetsTargetModulesModuleMessagesMessageIssue() {
-		return new FxCopReport.Targets.Target.Modules.Module.Messages.Message.Issue();
+	public Targets.Target.Modules.Module.Messages.Message.Issue createFxCopReportTargetsTargetModulesModuleMessagesMessageIssue() {
+		return new Targets.Target.Modules.Module.Messages.Message.Issue();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMember() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMember() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypes() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypes() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types();
 	}
 
-	public FxCopReport.Targets.Target.Modules createFxCopReportTargetsTargetModules() {
-		return new FxCopReport.Targets.Target.Modules();
+	public Targets.Target.Modules createFxCopReportTargetsTargetModules() {
+		return new Targets.Target.Modules();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMemberMessages() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages();
+	public Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages createFxCopReportTargetsTargetModulesModuleNamespacesNamespaceTypesTypeMembersMemberMessages() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace.Types.Type.Members.Member.Messages();
 	}
 
 	public FxCopReport.Rules.Rule.MessageLevel createFxCopReportRulesRuleMessageLevel() {
 		return new FxCopReport.Rules.Rule.MessageLevel();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace createFxCopReportTargetsTargetModulesModuleNamespacesNamespace() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces.Namespace();
+	public Targets.Target.Modules.Module.Namespaces.Namespace createFxCopReportTargetsTargetModulesModuleNamespacesNamespace() {
+		return new Targets.Target.Modules.Module.Namespaces.Namespace();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module createFxCopReportTargetsTargetModulesModule() {
-		return new FxCopReport.Targets.Target.Modules.Module();
+	public Targets.Target.Modules.Module createFxCopReportTargetsTargetModulesModule() {
+		return new Targets.Target.Modules.Module();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Messages createFxCopReportTargetsTargetModulesModuleMessages() {
-		return new FxCopReport.Targets.Target.Modules.Module.Messages();
+	public Targets.Target.Modules.Module.Messages createFxCopReportTargetsTargetModulesModuleMessages() {
+		return new Targets.Target.Modules.Module.Messages();
 	}
 
 	public FxCopReport.Rules createFxCopReportRules() {
 		return new FxCopReport.Rules();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Messages.Message createFxCopReportTargetsTargetModulesModuleMessagesMessage() {
-		return new FxCopReport.Targets.Target.Modules.Module.Messages.Message();
+	public Targets.Target.Modules.Module.Messages.Message createFxCopReportTargetsTargetModulesModuleMessagesMessage() {
+		return new Targets.Target.Modules.Module.Messages.Message();
 	}
 
-	public FxCopReport.Targets.Target.Modules.Module.Namespaces createFxCopReportTargetsTargetModulesModuleNamespaces() {
-		return new FxCopReport.Targets.Target.Modules.Module.Namespaces();
+	public Targets.Target.Modules.Module.Namespaces createFxCopReportTargetsTargetModulesModuleNamespaces() {
+		return new Targets.Target.Modules.Module.Namespaces();
 	}
 
 	public FxCopReport.Exceptions.Exception createFxCopReportExceptionsException() {
@@ -114,8 +114,8 @@ public class ObjectFactory {
 		return new FxCopReport.Rules.Rule.Resolution();
 	}
 
-	public FxCopReport.Targets createFxCopReportTargets() {
-		return new FxCopReport.Targets();
+	public Targets createFxCopReportTargets() {
+		return new Targets();
 	}
 
 	public FxCopReport.Rules.Rule createFxCopReportRulesRule() {

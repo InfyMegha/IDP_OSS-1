@@ -22,13 +22,13 @@ import {Observable} from "rxjs/Observable";
 import {of} from "rxjs";
 
 describe("IdprestapiService", () => {
-	
-	let httpTestingController : HttpTestingController;
-	let idprestapiService : IdprestapiService;
-	 class  IdpdataServiceStub {
+
+    let httpTestingController: HttpTestingController;
+    let idprestapiService: IdprestapiService;
+     class  IdpdataServiceStub {
 
 
-	constructor() {}
+    constructor() {}
   template: any = {
     "grantAccess": {
       "applicationName": "",
@@ -71,14 +71,14 @@ describe("IdprestapiService", () => {
       "category": "",
       "technology": "",
       "scm": [],
-      "buildScript":  [{"tool":""}, {"tool":""},{}]
+      "buildScript":  [{"tool": ""}, {"tool": ""}, {}]
     },
     "buildInfo": {
       "buildtool": "",
       "castAnalysis": {},
       "artifactToStage": {},
       "modules": [],
-	  "postBuildScript": {}
+      "postBuildScript": {}
     },
     "deployInfo": {
       "deployEnv": []
@@ -95,7 +95,7 @@ describe("IdprestapiService", () => {
       "buildInfo": {
         "buildToolStatus": "0",
         "formStatus": "0",
-        "ibmsiTypeStatus":"0"
+        "ibmsiTypeStatus": "0"
       },
       "deployInfo": "",
       "testInfo": "",
@@ -103,7 +103,7 @@ describe("IdprestapiService", () => {
     },
     "checkboxStatus": {
       "basicInfo": {},
-      "codeInfo":{},
+      "codeInfo": {},
       "buildInfo": {},
       "deployInfo": {},
       "testInfo": {},
@@ -115,13 +115,13 @@ describe("IdprestapiService", () => {
     },
     "masterJson": {}
   };
-  data:any =  JSON.parse(JSON.stringify(this.template));
+  data: any =  JSON.parse(JSON.stringify(this.template));
 
 
   language = "english";
   idpUserName = "";
   roles = [];
-  access_token:any;
+  access_token: any;
   permissions = [];
   createAppflag = false;
   createPipelineflag = false;
@@ -129,116 +129,116 @@ describe("IdprestapiService", () => {
   editPipelineflag = false;
   deletePipelineflag = false;
   test = false;
-  devServerURL: any="";
+  devServerURL: any= "";
   IDPDashboardURL = "";
   IDPLink = "";
   geUrl = "";
   role = "";
   IDPDropdownProperties: any = {};
-  showConfig:any;
-  pa:boolean=true;
-  continuecontrol:any;
-  geFlag:any;
-  p:any=false;
-  ejbVal:any;
-  warVal:any;
-  jarVal:any;
-  pipelineData:any;
-  triggerJobData:any;
-  application:any;
-  freezeNavBars:boolean=false;
-  osFlag:any;
-  op:any;
-  operation:any;
-  initMain:any=false;
-  RestApiDetails:any=false;
-  buildInfoReset=false;
-  compMove:any;
-  unit:any;
-  code:any;
-  refreshBuild:boolean=false;
-  };
-  
+  showConfig: any;
+  pa= true;
+  continuecontrol: any;
+  geFlag: any;
+  p: any= false;
+  ejbVal: any;
+  warVal: any;
+  jarVal: any;
+  pipelineData: any;
+  triggerJobData: any;
+  application: any;
+  freezeNavBars= false;
+  osFlag: any;
+  op: any;
+  operation: any;
+  initMain: any= false;
+  RestApiDetails: any= false;
+  buildInfoReset= false;
+  compMove: any;
+  unit: any;
+  code: any;
+  refreshBuild= false;
+  }
+
   class RouterStub {
-    navigate(commands: any[], extras?: NavigationExtras) { };
-  };
-  
-  class StartUpServiceStub{
-	authmode = "ldap";
+    navigate(commands: any[], extras?: NavigationExtras) { }
+  }
+
+  class StartUpServiceStub {
+    authmode = "ldap";
     keycloakUrl = "abc";
     keycloakRealm = "aa";
     keycloakClientId = "";
     clouddeployurl = "";
-	getData(){
-		return "data";
-	}  
-  };
-	let idpdataserviceStub: IdpdataServiceStub=new IdpdataServiceStub();
-	let routerStub: RouterStub=new RouterStub();
-	let startupStub: StartUpServiceStub=new StartUpServiceStub();
-  
-  
-	beforeEach(async(() => {
-		const cookieServiceSpy =   jasmine.createSpyObj(["get"]);
+    getData() {
+        return "data";
+    }
+  }
+    const idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
+    const routerStub: RouterStub = new RouterStub();
+    const startupStub: StartUpServiceStub = new StartUpServiceStub();
+
+
+    beforeEach(async(() => {
+        const cookieServiceSpy =   jasmine.createSpyObj(["get"]);
   const stubValue = true;
   const stub = { id: 1, name: "A" };
- 
-  
-	const adalServiceSpy =
+
+
+    const adalServiceSpy =
     jasmine.createSpyObj(["get"]);
-	
-	
-	
-	const keycloakServiceSpy =
+
+
+
+    const keycloakServiceSpy =
     jasmine.createSpyObj(["get"]);
-	
-  
+
+
   cookieServiceSpy.get.and.returnValue(stubValue);
-  console.log(Observable.of(stub))
+  console.log(Observable.of(stub));
   adalServiceSpy.get.and.returnValue(stubValue);
-  
+
   keycloakServiceSpy.get.and.returnValue(stubValue);
     TestBed.configureTestingModule({
-      
 
-	  imports: [HttpClientTestingModule, HttpModule],
-	  providers: [{provide: StartupService, useValue:startupStub},
-					{provide: CookieService, useValue:cookieServiceSpy},
-					{provide: IdpdataService, useValue:idpdataserviceStub},
-                {provide: Router, useValue:routerStub},
-                {provide: Adal4Service, useValue:adalServiceSpy},
-                {provide: KeycloakService, useValue:keycloakServiceSpy},
-           
-				IdprestapiService
+
+      imports: [HttpClientTestingModule, HttpModule],
+      providers: [{provide: StartupService, useValue: startupStub},
+                    {provide: CookieService, useValue: cookieServiceSpy},
+                    {provide: IdpdataService, useValue: idpdataserviceStub},
+                {provide: Router, useValue: routerStub},
+                {provide: Adal4Service, useValue: adalServiceSpy},
+                {provide: KeycloakService, useValue: keycloakServiceSpy},
+
+                IdprestapiService
                 ],
-	  schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA]
     });
-	
-	httpTestingController = TestBed.get(HttpTestingController);
-	idprestapiService = TestBed.get(IdprestapiService);
+
+    httpTestingController = TestBed.get(HttpTestingController);
+    idprestapiService = TestBed.get(IdprestapiService);
   }));
 
   beforeEach(() => {
-	
-  }); 
-  
+
+  });
+
  it("#getValue should return stubbed value from a spy", () => {
     // create `getValue` spy on an object representing the ValueService
-    
-	/* const { idprestService, stubValue, stub, cookieServiceSpy, httpServiceSpy, adalServiceSpy, startupStub, keycloakServiceSpy } = setup(); */
-	var response;
-	
-	idprestapiService.getNotification().then(res => {response=res;})
-	
+
+    /* const { idprestService, stubValue, stub, cookieServiceSpy, httpServiceSpy, adalServiceSpy, startupStub, keycloakServiceSpy } = setup(); */
+    let response;
+
+    idprestapiService.getNotification().then(res => {response = res; });
+
    /*  expect(response)
       .toBe(stub, "service returned stub value");
-	  
+
     expect(httpServiceSpy.getValue.calls.count())
       .toBe(1, "spy method was called once");
     expect(httpServiceSpy.getValue.calls.mostRecent().returnValue)
       .toBe(stubPromiseValue); */
   });
-  
+
   /* it("#getValue should return stubbed value from a spy", () => {
 	  idprestService.getUserName();
 	  idprestService.updatePlan("data1", "data2", "data3", "envData");
@@ -257,369 +257,369 @@ describe("IdprestapiService", () => {
 	  idprestService.emailToEnvOwner("d1");
 	  idprestService.getPipelineEnv("d1","d2");
 	  idprestService.getEnvironmentPairs("d1","d2");
-	  
+
   }); */
-  
+
    it("should run #getNotification()", async(() => {
-	   
+
      const result = idprestapiService.getNotification();
   }));
-        
+
   it("should run #getUserName()", async(() => {
      const result = idprestapiService.getUserName();
   }));
-        
+
   it("should run #updatePlan()", async(() => {
-	  var data1, data2, data3, envData;
-    const result =idprestapiService.updatePlan(data1, data2, data3, envData);
+      let data1, data2, data3, envData;
+    const result = idprestapiService.updatePlan(data1, data2, data3, envData);
   }));
-        
+
   it("should run #getReleaseNumber()", async(() => {
-	  let data;
+      let data;
      const result = idprestapiService.getReleaseNumber(data);
   }));
-        
+
   it("should run #getEnvNames()", async(() => {
-	  let data;
-	  let data1;
+      let data;
+      let data1;
     const result = idprestapiService.getEnvNames(data, data1);
   }));
-        
+
   it("should run #obtainAccessToken()", async(() => {
      let params;
-	 const result = idprestapiService.obtainAccessToken(params);
+     const result = idprestapiService.obtainAccessToken(params);
   }));
-        
+
   it("should run #getData()", async(() => {
      const result = idprestapiService.getData();
   }));
-        
+
   it("should run #logout()", async(() => {
      const result = idprestapiService.logout();
   }));
-        
+
   it("should run #checkApplicationNames()", async(() => {
      const result = idprestapiService.checkApplicationNames(data);
   }));
-        
+
   it("should run #getOrganizationWiseApplicationNames()", async(() => {
      const result = idprestapiService.getOrganizationWiseApplicationNames();
   }));
-        
+
   it("should run #getTimeZone()", async(() => {
      const result = idprestapiService.getTimeZone();
   }));
-        
+
   it("should run #getAvailableSlot()", async(() => {
-	  let data1;
-	  let data2;
-	  let data3;
+      let data1;
+      let data2;
+      let data3;
      const result = idprestapiService.getAvailableSlot(data1, data2, data3);
   }));
-        
+
   it("should run #getPipelineDetails()", async(() => {
-	  let data;
+      let data;
      const result = idprestapiService.getPipelineDetails(data);
   }));
-        
+
   it("should run #checkForApplicationType()", async(() => {
-	  let data;
+      let data;
      const result = idprestapiService.checkForApplicationType(data);
   }));
-        
+
   it("should run #getEnvSlots()", async(() => {
     const result = idprestapiService.getEnvSlots(application_name, env);
   }));
-        
+
   it("should run #getExistingSlot()", async(() => {
-	  let application_name;
-	  let release_number;
-	  let env;
-	  
+      let application_name;
+      let release_number;
+      let env;
+
      const result = idprestapiService.getExistingSlot(application_name, release_number, env);
   }));
-        
+
   it("should run #emailToEnvOwner()", async(() => {
-	  let envOwner;
+      let envOwner;
      const result = idprestapiService.emailToEnvOwner(envOwner);
   }));
-        
+
   it("should run #getPipelineEnv()", async(() => {
-		let data;
-		let data1;
-	const result = idprestapiService.getPipelineEnv(data, data1);
+        let data;
+        let data1;
+    const result = idprestapiService.getPipelineEnv(data, data1);
   }));
-        
+
   it("should run #getEnvironmentPairs()", async(() => {
      let data;
-	 const result = idprestapiService.getEnvironmentPairs(data);
+     const result = idprestapiService.getEnvironmentPairs(data);
   }));
-        
+
   it("should run #getEnvironmentNames()", async(() => {
-	  let data;
+      let data;
      const result = idprestapiService.getEnvironmentNames(data);
   }));
-        
+
   it("should run #getIDPDropdownProperties()", async(() => {
      const result = idprestapiService.getIDPDropdownProperties();
   }));
-        
+
   it("should run #checkAvailableJobs()", async(() => {
      const result = idprestapiService.checkAvailableJobs();
   }));
-        
+
   it("should run #triggerJob()", async(() => {
-	  let request;
-	  
+      let request;
+
      const result = idprestapiService.triggerJob(request);
   }));
-        
-		
+
+
   it("should run #createCloudApplication()", async(() => {
-	  let requestData;
+      let requestData;
      const result = idprestapiService.createCloudApplication(requestData);
   }));
-        
+
   it("should run #createLoadBalancer()", async(() => {
-	  let requestData;
+      let requestData;
      const result = idprestapiService.createLoadBalancer(requestData);
   }));
-        
+
   it("should run #createCloudPipeline()", async(() => {
      let requestData;
-	 const result = idprestapiService.createCloudPipeline(requestData);
+     const result = idprestapiService.createCloudPipeline(requestData);
   }));
-        
+
   it("should run #copyeditCloudPipeline()", async(() => {
-	  let appName;
-	  let pipName;
+      let appName;
+      let pipName;
      const result = idprestapiService.copyeditCloudPipeline(appName, pipName);
   }));
-        
+
   it("should run #submit()", async(() => {
     const result = idprestapiService.submit(requestData);
   }));
-        
+
   it("should run #triggerJobs()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.triggerJobs(requestData);
   }));
-        
+
   it("should run #getApplicationDetails()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getApplicationDetails(requestData);
   }));
-        
+
   it("should run #deletePipeline()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.deletePipeline(requestData);
   }));
-        
+
   it("should run #getExistingApps()", async(() => {
-	  
-	  
+
+
     const result = idprestapiService.getExistingApps();
   }));
-        
+
   it("should run #getApplicationInfo()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getApplicationInfo(requestData);
   }));
-        
+
   it("should run #getFilteredApplicationNames()", async(() => {
-	  let filterString;
+      let filterString;
     const result = idprestapiService.getFilteredApplicationNames(filterString);
   }));
-        
+
   it("should run #editApplicationDetails()", async(() => {
-	  let requestData;
-	  
+      let requestData;
+
     const result = idprestapiService.editApplicationDetails(requestData);
   }));
-        
+
   it("should run #createApplication()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.createApplication(requestData);
   }));
-        
+
   it("should run #getJobs()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getJobs(requestData);
   }));
-        
+
   it("should run #getStageViewUrl()", async(() => {
-	  
+
     const result = idprestapiService.getStageViewUrl();
   }));
-        
+
   it("should run #getPipelineList()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.getPipelineList(responseData);
   }));
-        
+
   it("should run #sendAppMail()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.sendAppMail(responseData);
   }));
-        
+
   it("should run #sendOrgMail()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.sendOrgMail(responseData);
   }));
-        
+
   it("should run #sendLicenseMail()", async(() => {
-	  
-	  let responseData;
+
+      let responseData;
     const result = idprestapiService.sendLicenseMail(responseData);
   }));
-        
+
   it("should run #sendPipeMail()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.sendPipeMail(responseData);
   }));
-        
+
   it("should run #getPipelineNames()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getPipelineNames(requestData);
   }));
-        
+
   it("should run #getPipelineListforWorkflow()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getPipelineListforWorkflow(requestData);
   }));
-        
+
   it("should run #getExistingAppNames()", async(() => {
     const result = idprestapiService.getExistingAppNames();
   }));
-        
+
   it("should run #checkSubApplication()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.checkSubApplication(data);
   }));
-        
+
   it("should run #getActiveReleases()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getActiveReleases(requestData);
   }));
-        
+
   it("should run #getHistoryReleases()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.getHistoryReleases(requestData);
   }));
-        
+
   it("should run #getApplicationNameForReleaseManager()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.getApplicationNameForReleaseManager(responseData);
   }));
-        
+
   it("should run #postReleaseData()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.postReleaseData(responseData);
   }));
-        
+
   it("should run #updateReleases()", async(() => {
-	  let responseData;
+      let responseData;
     const result = idprestapiService.updateReleases(responseData);
   }));
-        
+
   it("should run #checkReleaseNo()", async(() => {
     const result = idprestapiService.checkReleaseNo();
   }));
-        
+
   it("should run #getArtifactsRm()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.getArtifactsRm(data);
   }));
-        
+
   it("should run #getReleasesApprovePortal()", async(() => {
     const result = idprestapiService.getReleasesApprovePortal();
   }));
-        
+
   it("should run #updateArtifacts()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.updateArtifacts(data);
   }));
-        
+
   it("should run #fetchTriggerSteps()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.fetchTriggerSteps(data);
   }));
-        
+
   it("should run #getJobParamList()", async(() => {
     const result = idprestapiService.getJobParamList();
   }));
-        
+
   it("should run #getTestPlanList()", async(() => {
     const result = idprestapiService.getTestPlanList(appName, pipeName);
   }));
-        
+
   it("should run #getTestSuitList()", async(() => {
     const result = idprestapiService.getTestSuitList(id, appName, pipeName);
   }));
-        
+
   it("should run #base64EncodeDecode()", async(() => {
     const result = idprestapiService.base64EncodeDecode(uname, pass);
   }));
-        
+
   it("should run #buildIntervalTriggerJobs()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.buildIntervalTriggerJobs(data);
   }));
-        
+
   it("should run #getSlaveStatus()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.getSlaveStatus(data);
   }));
-        
+
   it("should run #getArtifactLatestDetails()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.getArtifactLatestDetails(data);
   }));
-        
+
   it("should run #getPipelineAdmins()", async(() => {
-	  let appName;
+      let appName;
     const result = idprestapiService.getPipelineAdmins(appName);
   }));
-        
+
   it("should run #getPipelinePermission()", async(() => {
-	  let data;
-	  
+      let data;
+
     const result = idprestapiService.getPipelinePermission(data);
   }));
-        
+
   it("should run #approveJobs()", async(() => {
-	  let requestData
-	  ;
+      let requestData
+      ;
     const result = idprestapiService.approveJobs(requestData);
   }));
-        
+
   it("should run #getSubscriptionPermission()", async(() => {
     const result = idprestapiService.getSubscriptionPermission();
   }));
-        
+
   it("should run #getValidatedLicense()", async(() => {
     const result = idprestapiService.getValidatedLicense();
   }));
-        
+
   it("should run #createLicense()", async(() => {
-	  let data;
+      let data;
     const result = idprestapiService.createLicense(data);
   }));
-        
+
   it("should run #createOrganization()", async(() => {
-	  let requestData;
+      let requestData;
     const result = idprestapiService.createOrganization(requestData);
   }));
-        
+
   it("should run #getExistingOrgNames()", async(() => {
     const result = idprestapiService.getExistingOrgNames();
   }));
-        
+
   it("should run #editOrganizationDetails()", async(() => {
-	  
-	  
+
+
     const result = idprestapiService.editOrganizationDetails(requestData);
   }));
-      
+
 });
 

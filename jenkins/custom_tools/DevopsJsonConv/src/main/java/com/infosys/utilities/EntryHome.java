@@ -972,7 +972,8 @@ public class EntryHome {
 		}
 	}
 
-	private static JsonClass cbi(File[] list2, JsonClass json, String[] args) throws IOException {
+	private static JsonClass cbi(File[] list2, JsonClass inputjson, String[] args) throws IOException {
+		JsonClass json=inputjson;
 		String tfsPath = null;
 		if (args.length > 11) {
 			tfsPath = args[11];
