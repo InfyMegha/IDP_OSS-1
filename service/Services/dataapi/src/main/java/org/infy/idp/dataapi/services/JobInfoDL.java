@@ -13,17 +13,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import org.infy.entities.triggerinputs.ReleaseTransportInfo;
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
 import org.infy.idp.entities.jobs.IDPJob;
 import org.infy.idp.entities.jobs.Pipeline;
 import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;
 import org.infy.idp.entities.jobs.code.JobParam;
-import org.infy.idp.entities.jobs.common.Notification;
 import org.infy.idp.utils.EncryptionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

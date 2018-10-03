@@ -13,24 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import org.infy.entities.triggerinputs.DeployArtifact;
-import org.infy.entities.triggerinputs.ReleaseTransportInfo;
-import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.base.PostGreSqlDbContext;
-import org.infy.idp.entities.getjob.GetJob;
 import org.infy.idp.entities.jobs.IDPJob;
 import org.infy.idp.entities.jobs.Pipeline;
 import org.infy.idp.entities.jobs.PipelineDetail;
 import org.infy.idp.entities.jobs.applicationinfo.Application;
 import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;
-import org.infy.idp.entities.jobs.applicationinfo.SlavesDetail;
-import org.infy.idp.entities.jobs.code.JobParam;
-import org.infy.idp.entities.jobs.common.Notification;
-import org.infy.idp.entities.triggerparameter.TriggerParameters;
 import org.infy.idp.utils.EncryptionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,11 +58,6 @@ public class JobAdditionalDetailsDL {
 	private static final String ORDER_BY = " ORDER BY ";
 	private static final String ACTIVE_PIPELINE = " and active = true ";
 	protected static final String ERROR1 = "Postgres Error while fetching user details:";
-	private static final String SUB_APPLICATION_NAME = " sub_application LIKE ? ";
-	private static final String TECHNOLOGY_NAME = " and technology LIKE ? ";
-
-	private static final String WORKFLOW = "workflow";
-
 	/**
 	 * Constructor
 	 * 

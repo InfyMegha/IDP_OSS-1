@@ -23,7 +23,6 @@ import javax.mail.internet.MimeMessage;
 
 import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.services.JobAdditionalDetailsDL;
-import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.dataapi.services.JobInfoDL;
 import org.infy.idp.entities.jobs.IDPJob;
 import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;

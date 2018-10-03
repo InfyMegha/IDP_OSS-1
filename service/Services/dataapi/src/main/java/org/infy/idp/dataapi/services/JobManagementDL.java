@@ -21,7 +21,6 @@ import org.infy.idp.entities.getjob.GetJob;
 import org.infy.idp.entities.jobs.IDPJob;
 import org.infy.idp.entities.jobs.Pipeline;
 import org.infy.idp.entities.jobs.PipelineDetail;
-import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;
 import org.infy.idp.entities.triggerparameter.TriggerParameters;
 import org.infy.idp.utils.EncryptionUtil;
 import org.slf4j.Logger;

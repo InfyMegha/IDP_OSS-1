@@ -194,16 +194,7 @@ public class DetailsForVSTSFetcher {
 			if(branchOrTagValue==null || branchOrTagValue.isEmpty() || branchOrTagValue.equals("")){
 				branchOrTagValue=triggerEntity.has("scmBranch")?triggerEntity.getString("scmBranch"):null;
 			}
-			logger.info("branchorTagValueFINAL : "+branchOrTagValue);
-			logger.info("Test : "+test);
-			logger.info("Deploy : "+deploy);
-			logger.info("Artifact : "+artifactName);
-			logger.info("DeploySteps : "+deploySteps);
-			logger.info("TestSteps : "+testSteps);
-			logger.info("EnvironmentSelected : "+envSelected);
-			logger.info("TfsWorkItem : "+tfsWorkItem);
-			logger.info("ArtifactorySelected : "+artifactorySelected);
-			logger.info("Build : "+build);
+			
 			
 			String scmJobUrl = jenkinsURL+"/job/"+appName+"_"+pipName+"_SCM"+apiString;
 			String scmStatus = null;

@@ -20,7 +20,6 @@ import org.infy.entities.triggerinputs.TriggerInputs;
 import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.services.EnvironmentDetails;
 import org.infy.idp.dataapi.services.JobAdditionalDetailsDL;
-import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.dataapi.services.JobDetailsInsertionService;
 import org.infy.idp.dataapi.services.JobInfoDL;
 import org.infy.idp.dataapi.services.ReleaseDetails;
