@@ -28,8 +28,11 @@ import java.util.Set;
 import org.infy.entities.triggerinputs.TriggerInputs;
 import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.services.DeleteInfo;
+import org.infy.idp.dataapi.services.JobAdditionalDetailsDL;
 import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.dataapi.services.JobDetailsInsertionService;
+import org.infy.idp.dataapi.services.JobInfoDL;
+import org.infy.idp.dataapi.services.JobManagementDL;
 import org.infy.idp.entities.jobs.AppNames;
 import org.infy.idp.entities.jobs.History;
 import org.infy.idp.entities.jobs.JobBuilds;
@@ -78,6 +81,9 @@ public class JobsManagementBL {
 	@Autowired
 	private JobsAdditionalInfo jobsaddInfo;
 	@Autowired
+	private TriggerAdditionalBL triggerAddBl;
+	
+	@Autowired
 	private ConfigurationManager configmanager;
 	@Autowired
 	private DeleteInfo delinfo;
@@ -85,6 +91,13 @@ public class JobsManagementBL {
 	private TriggerDetailBL getTriggerDetails;
 	@Autowired
 	private JobDetailsDL jobDetailsDL;
+	@Autowired
+	private JobManagementDL jobManagementDL;
+	@Autowired
+	private JobAdditionalDetailsDL jobAddDetailDL;
+
+	@Autowired
+	private JobInfoDL jobInfoDL;
 	@Autowired
 	private JobDetailsInsertionService jobDetailsInsertion;
 	@Autowired
@@ -116,15 +129,15 @@ public class JobsManagementBL {
 	public Set<String> getReleaseNumber(String appname, String piplineName, List<String> pipelineName) {
 		HashMap<String, Set<String>> releaseNum = new HashMap<String, Set<String>>();
 		try {
-			jobDetailsDL.getPipelineInfo(appname, piplineName);
+			jobAddDetailDL.getPipelineInfo(appname, piplineName);
 		} catch (SQLException e) {
 			logger.error(e.getMessage(), e);
 		}
 		for (String name : pipelineName) {
 			Set<String> rlnum = new HashSet<String>();
-			List<String> buildnumber = jobDetailsDL.getbuildnum(appname, name);
+			List<String> buildnumber = jobManagementDL.getbuildnum(appname, name);
 			for (String build : buildnumber) {
-				List<String> status = jobDetailsDL.getStatus(appname, name, build);
+				List<String> status = jobManagementDL.getStatus(appname, name, build);
 				boolean st = true;
 				for (String buildstatus : status) {
 					if (!buildstatus.equalsIgnoreCase(SUCCESS)) {
@@ -133,7 +146,7 @@ public class JobsManagementBL {
 					}
 				}
 				if (st) {
-					String releasenum = jobDetailsDL.getreleaseNum(appname, name, build);
+					String releasenum = jobManagementDL.getreleaseNum(appname, name, build);
 					rlnum.add(releasenum);
 				}
 			}
@@ -169,9 +182,9 @@ public class JobsManagementBL {
 			return history;
 		Gson gson = new Gson();
 		logger.debug("check available jobs to trigger");
-		List<PipelineDetail> pipelineDetails = jobDetailsDL.getApplicationDetails(userName, platformName);
+		List<PipelineDetail> pipelineDetails = jobAddDetailDL.getApplicationDetails(userName, platformName);
 		if (platformName.equalsIgnoreCase("IDP")) {
-			pipelineDetails.addAll(jobDetailsDL.getPipelinesCustomPipelineadmin(userName));
+			pipelineDetails.addAll(jobManagementDL.getPipelinesCustomPipelineadmin(userName));
 		}
 		history.setPipelineDetails(pipelineDetails);
 		history.setUserName(userName);
@@ -181,7 +194,7 @@ public class JobsManagementBL {
 
 	public int deleteRole(ApplicationInfo appinfo) {
 		logger.info("Inside delete");
-		return delinfo.deleteRoles(jobDetailsDL.getApplicationId(appinfo.getApplicationName()));
+		return delinfo.deleteRoles(jobInfoDL.getApplicationId(appinfo.getApplicationName()));
 	}
 
 	public String createApplication(ApplicationInfo appInfo, String user, String orgName) {
@@ -596,7 +609,7 @@ public class JobsManagementBL {
 		try {
 			Pipeline pipeline = getPipelineDetails(triggerJobName);
 			logger.info("pipeline : " + gson.toJson(pipeline));
-			List<String> nameList = getTriggerDetails.getPairNames(pipeline.getPipelineJson(),
+			List<String> nameList = triggerAddBl.getPairNames(pipeline.getPipelineJson(),
 					triggerJobName.getEnvName());
 			names.setNames(nameList);
 		} catch (Exception e) {
@@ -612,7 +625,7 @@ public class JobsManagementBL {
 			return appNames;
 		}
 		Gson gson = new Gson();
-		List<String> apps = jobDetailsDL.getApplications(userId, platform);
+		List<String> apps = jobAddDetailDL.getApplications(userId, platform);
 		logger.debug("getting application");
 		appNames.setApplicationNames(apps);
 		logger.debug(APPLICATION_NAME + gson.toJson(appNames, AppNames.class));
@@ -626,7 +639,7 @@ public class JobsManagementBL {
 			return appNames;
 		}
 		Gson gson = new Gson();
-		List<String> nonFilteredApps = jobDetailsDL.getApplications(userId, platform);
+		List<String> nonFilteredApps = jobAddDetailDL.getApplications(userId, platform);
 		List<String> filteredApps = new ArrayList<>();
 		if (filterString != null) {
 			for (String app : nonFilteredApps) {
@@ -642,11 +655,11 @@ public class JobsManagementBL {
 	}
 
 	public List<String> getRolesApp(String uname, String appName) {
-		return jobDetailsDL.getRolesasApp(uname, appName);
+		return jobManagementDL.getRolesasApp(uname, appName);
 	}
 
 	public String getReleaseNo(String pipelineName, String appName) {
-		return jobDetailsDL.getReleaseNo(pipelineName, appName);
+		return jobManagementDL.getReleaseNo(pipelineName, appName);
 	}
 
 	public Application getApplicationDetails(String appName, String userName) throws SQLException {
@@ -657,41 +670,41 @@ public class JobsManagementBL {
 			return app;
 		}
 		Gson gson = new Gson();
-		app = jobDetailsDL.getApplicationDetail(appName);
+		app = jobAddDetailDL.getApplicationDetail(appName);
 		logger.debug(APPLICATION_NAME + gson.toJson(app, Application.class));
 		return app;
 	}
 
 	public List<String> getRoles(String userId) {
 		logger.debug("Getting roles");
-		List<String> userRoles = jobDetailsDL.getRoles(userId);
+		List<String> userRoles = jobManagementDL.getRoles(userId);
 		logger.debug("roles : " + userRoles);
 		return userRoles;
 	}
 
 	public List<String> getPermission(String userId) {
 		logger.debug("getting permissions");
-		List<String> userPermissions = jobDetailsDL.getPermission(userId);
+		List<String> userPermissions = jobManagementDL.getPermission(userId);
 		logger.debug("Permissions:" + userPermissions);
 		return userPermissions;
 	}
 
 	public List<String> getBaseRoles(String userId) {
 		logger.debug("Getting base Role");
-		List<String> userBaseRoles = jobDetailsDL.getBaseRoles(userId);
+		List<String> userBaseRoles = jobManagementDL.getBaseRoles(userId);
 		logger.debug("Base Role : " + userBaseRoles);
 		return userBaseRoles;
 	}
 
 	public List<String> getBasePermission(String userId) {
 		logger.debug("Getting base permission");
-		return jobDetailsDL.getBasePermission(userId);
+		return jobManagementDL.getBasePermission(userId);
 	}
 
 	public List<String> getAllPermission(String userId) {
 		logger.info("Getting All permission");
-		List<String> permissions = jobDetailsDL.getBasePermission(userId);
-		permissions.addAll(jobDetailsDL.getPermission(userId));
+		List<String> permissions = jobManagementDL.getBasePermission(userId);
+		permissions.addAll(jobManagementDL.getPermission(userId));
 		return permissions;
 	}
 
@@ -824,7 +837,7 @@ public class JobsManagementBL {
 		if (permissions.isEmpty()) {
 			return new Pipeline();
 		}
-		Pipeline pipeline = jobDetailsDL.getPipelineDetail(triggerJobName);
+		Pipeline pipeline = jobManagementDL.getPipelineDetail(triggerJobName);
 		pipeline.setMethod(triggerJobName.getMethod());
 		String newPipelineName = pipeline.getPipelineName() + "_Copy";
 		if ("copy".equalsIgnoreCase(triggerJobName.getMethod())) {
@@ -837,7 +850,7 @@ public class JobsManagementBL {
 
 	public List<JobParam> getJobParamDetails(String appName, String pipelineName) throws SQLException {
 		List<JobParam> jobParamList = new ArrayList<>();
-		jobParamList = jobDetailsDL.getJobParamDetails(appName, pipelineName);
+		jobParamList = jobInfoDL.getJobParamDetails(appName, pipelineName);
 		return jobParamList;
 	}
 }
