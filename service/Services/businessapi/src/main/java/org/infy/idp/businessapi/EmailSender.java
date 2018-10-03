@@ -67,8 +67,6 @@ public class EmailSender {
 	@Autowired
 	private FetchJobDetails fetchJobDetails;
 	@Autowired
-	private JobsBL jobsBL;
-	@Autowired
 	private JobsAdditionalInfo jobsaddInfo;
 	EmailSender() {
 

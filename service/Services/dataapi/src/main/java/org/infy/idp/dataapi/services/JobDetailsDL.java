@@ -533,9 +533,9 @@ public class JobDetailsDL {
 			preparedStatement.setString(1, userName);
 
 			rs = preparedStatement.executeQuery();
-
-			rs.next();
-			return rs.getLong(1);
+			if (rs.next()) {
+				return rs.getLong(1);
+			}
 
 		}
 
@@ -587,8 +587,9 @@ public class JobDetailsDL {
 
 			rs = preparedStatement.executeQuery();
 
-			rs.next();
-			return rs.getString(1);
+			if (rs.next()) {
+				return rs.getString(1);
+			}
 
 		}
 
@@ -640,9 +641,10 @@ public class JobDetailsDL {
 
 			rs = preparedStatement.executeQuery();
 
-			rs.next();
-			if (rs.getInt(1) == 1)
-				return true;
+			if (rs.next()) {
+				if (rs.getInt(1) == 1)
+					return true;
+			}
 
 		}
 
@@ -754,12 +756,13 @@ public class JobDetailsDL {
 			preparedStatement.setString(1, appName);
 			rs = preparedStatement.executeQuery();
 
-			rs.next();
-			app = new Application();
-			app.setApplicationName(rs.getString("application_name"));
-
-			app.setAppJson(gson.fromJson(rs.getObject(2).toString(), ApplicationInfo.class));
-			return app;
+			if (rs.next()) {
+				app = new Application();
+				app.setApplicationName(rs.getString("application_name"));
+	
+				app.setAppJson(gson.fromJson(rs.getObject(2).toString(), ApplicationInfo.class));
+				return app;
+			}
 		}
 
 		catch (SQLException | NullPointerException e) {
@@ -1825,9 +1828,10 @@ public class JobDetailsDL {
 
 			rs = preparedStatement.executeQuery();
 
-			rs.next();
-			app.setApplicationName(appName);
-			app.setAppJson(gson.fromJson(rs.getObject(1).toString(), ApplicationInfo.class));
+			if (rs.next()) {
+				app.setApplicationName(appName);
+				app.setAppJson(gson.fromJson(rs.getObject(1).toString(), ApplicationInfo.class));
+			}
 		}
 
 		catch (SQLException | NullPointerException e) {
@@ -2305,12 +2309,13 @@ public class JobDetailsDL {
 
 			rs = preparedStatement.executeQuery();
 
-			rs.next();
-			pipeline.setPipelineName(tiggerJobName.getPipelineName());
-			byte[] encryptedIDP = rs.getBytes(1);
+			if (rs.next()) {
+				pipeline.setPipelineName(tiggerJobName.getPipelineName());
+				byte[] encryptedIDP = rs.getBytes(1);
 
-			String decryptedIDP = EncryptionUtil.decrypt(new String(encryptedIDP));
-			pipeline.setPipelineJson(gson.fromJson(decryptedIDP, IDPJob.class));
+				String decryptedIDP = EncryptionUtil.decrypt(new String(encryptedIDP));
+				pipeline.setPipelineJson(gson.fromJson(decryptedIDP, IDPJob.class));
+			}
 		}
 
 		catch (SQLException | NullPointerException e) {

@@ -192,8 +192,7 @@ public class JobsBL {
 					for (TestStep testStep : testenv.getTestSteps()) {
 						if ("hpAlm".equalsIgnoreCase(testStep.getTest().getTestTypeName())) {
 							serverUrl = testStep.getTest().getServerName();
-							if (serverUrl.contains("qcbin")) {
-							} else {
+							if (!serverUrl.contains("qcbin")) {
 								serverUrl += "/qcbin/";
 							}
 							serverName = idp.getBasicInfo().getPipelineName() + "_ALM";

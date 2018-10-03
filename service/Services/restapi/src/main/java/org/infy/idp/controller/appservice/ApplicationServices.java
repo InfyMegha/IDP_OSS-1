@@ -13,7 +13,6 @@ import java.util.List;
 import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.TokenUtils;
 import org.infy.idp.businessapi.EmailSender;
-import org.infy.idp.businessapi.FetchJobDetails;
 import org.infy.idp.businessapi.JobsAdditionalInfo;
 import org.infy.idp.businessapi.JobsBL;
 import org.infy.idp.businessapi.JobsManagementBL;

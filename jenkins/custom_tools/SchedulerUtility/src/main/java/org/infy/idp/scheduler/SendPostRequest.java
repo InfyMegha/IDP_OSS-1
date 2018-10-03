@@ -102,7 +102,7 @@ public class SendPostRequest {
 			br.close();
 			connection.disconnect();
 		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
+			throw new IllegalArgumentException(e.getMessage());
 		}
 		System.out.println(jsonString.toString());
 		return jsonString.toString();

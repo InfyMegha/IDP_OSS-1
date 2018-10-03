@@ -52,7 +52,7 @@ public class EncryptionManager {
 	 */
 	public void process(byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		if (publicKey == null) {
-			throw new NullPointerException("publicKey");
+			throw new IllegalArgumentException("publicKey");
 		}
 		X509EncodedKeySpec spec = new X509EncodedKeySpec(publicKey);
 		KeyFactory kf = KeyFactory.getInstance("RSA");

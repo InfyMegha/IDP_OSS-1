@@ -30,8 +30,7 @@ public class DeploymentBL {
 	private static final String UPDATE_JOBS = "UPDATE_JOBS";
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(DeploymentBL.class);
 
-	@Autowired
-	private JobsBL jobsBL;
+	
 	@Autowired
 	private JobsAdditionalInfo jobsaddInfo;
 	@Autowired

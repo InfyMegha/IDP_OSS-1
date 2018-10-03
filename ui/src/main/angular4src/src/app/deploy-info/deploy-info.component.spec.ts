@@ -5,6 +5,7 @@
 * https://opensource.org/licenses/MIT.”
 *
 **/
+// tslint:disable
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
 import { DeployInfoComponent } from "./deploy-info.component";
@@ -26,11 +27,11 @@ describe("DeployInfoComponent", () => {
   let idprestapiService: IdprestapiService;
   let idpEncryption: IDPEncryption;
   let router: Router;
-  let idpsubmitService:IdpSubmitService;
+  let idpsubmitService: IdpSubmitService;
   class  IdpdataServiceStub {
 
 
-	constructor() {}
+    constructor() {}
   template: any = {
     "grantAccess": {
       "applicationName": "",
@@ -82,7 +83,7 @@ describe("DeployInfoComponent", () => {
       "modules": []
     },
     "deployInfo": {
-      "deployEnv": [{"deploySteps":[]}]
+      "deployEnv": [{"deploySteps": []}]
     },
     "testInfo": {
       "testEnv": []
@@ -114,7 +115,7 @@ describe("DeployInfoComponent", () => {
       "deployInfo": {},
       "testInfo": {}
     },
-    "allFormStatus":{"deployInfo":{}},
+    "allFormStatus": {"deployInfo": {}},
     "masterJson": {},
   };
   data: any =  JSON.parse(JSON.stringify(this.template));
@@ -302,7 +303,7 @@ PagePersmission: any= {
  };
   }
   class  IdpServiceStub {
-	 copy(o) {
+     copy(o) {
     let newO, i;
 
     if (typeof o !== "object") {
@@ -342,43 +343,43 @@ PagePersmission: any= {
   }
 class  IDPEncryptionStub {
   }
-  class IdpSubmitServiceStub{}
+  class IdpSubmitServiceStub {}
   class RouterStub {
     navigate(commands: any[], extras?: NavigationExtras) { }
   }
-	let idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
-	let routerStub: RouterStub = new RouterStub();
-	let idpServiceStub: IdpServiceStub = new IdpServiceStub();
-	let idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
-  let idpEncryptionStub: IDPEncryptionStub = new IDPEncryptionStub();
-  let idpSubmitServiceStub:IdpSubmitServiceStub=new IdpSubmitServiceStub();
-  
+    const idpdataserviceStub: IdpdataServiceStub = new IdpdataServiceStub();
+    const routerStub: RouterStub = new RouterStub();
+    const idpServiceStub: IdpServiceStub = new IdpServiceStub();
+    const idprestapiServiceStub: IdprestapiServiceStub = new IdprestapiServiceStub();
+  const idpEncryptionStub: IDPEncryptionStub = new IDPEncryptionStub();
+  const idpSubmitServiceStub: IdpSubmitServiceStub = new IdpSubmitServiceStub();
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DeployInfoComponent, ParentFormConnectComponent ],
 
-	  imports: [FormsModule, TranslateModule],
-	  providers: [{provide: IdprestapiService, useValue: idprestapiServiceStub},
-					{provide: IdpService, useValue: idpServiceStub},
-					{provide: IdpdataService, useValue: idpdataserviceStub},
+      imports: [FormsModule, TranslateModule],
+      providers: [{provide: IdprestapiService, useValue: idprestapiServiceStub},
+                    {provide: IdpService, useValue: idpServiceStub},
+                    {provide: IdpdataService, useValue: idpdataserviceStub},
           {provide: IDPEncryption, useValue: idpEncryptionStub},
-          {provide: IdpSubmitService, useValue:idpSubmitServiceStub},
+          {provide: IdpSubmitService, useValue: idpSubmitServiceStub},
                 {provide: Router, useValue: routerStub},
-				TranslateService, TranslateLoader, TranslateParser
+                TranslateService, TranslateLoader, TranslateParser
                 ],
-	  schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
-	router = TestBed.get(Router);
-	idpService = TestBed.get(IdpService);
-	idpdataService = TestBed.get(IdpdataService);
+    router = TestBed.get(Router);
+    idpService = TestBed.get(IdpService);
+    idpdataService = TestBed.get(IdpdataService);
   idprestapiService = TestBed.get(IdprestapiService);
-  idpsubmitService=TestBed.get(IdpSubmitService);
-	idpEncryption = TestBed.get(IDPEncryption);
+  idpsubmitService = TestBed.get(IdpSubmitService);
+    idpEncryption = TestBed.get(IDPEncryption);
     fixture = TestBed.createComponent(DeployInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -389,7 +390,7 @@ class  IDPEncryptionStub {
   });
 
   it("should create new", () => {
-    component.deployInfo.deployEnv[0].deploySteps[0]={"deployToContainer":{"fileName":""}};
+    component.deployInfo.deployEnv[0].deploySteps[0] = {"deployToContainer": {"fileName": ""}};
     expect(component.deployInfo.deployEnv[0].deploySteps[0].deployToContainer.fileName).toBe("");
   });
 
@@ -402,278 +403,278 @@ class  IDPEncryptionStub {
     expect(component.clearStep(0)).toBe("off");
   });
 
-  it("checkStepName",()=>{
-    expect(component.deployInfo.checkStepName(0,0).toBe("Step Name must be unique."))
-  })
-  
+  it("checkStepName", () => {
+    expect(component.deployInfo.checkStepName(0, 0).toBe("Step Name must be unique."));
+  });
+
   it("should run #setFormStatus()", async(() => {
     const result = component.setFormStatus({});
   }));
-        
+
   it("should run #TriggerAlert()", async(() => {
     const result = component.TriggerAlert();
   }));
-        
+
   it("should run #redirectTo()", async(() => {
     const result = component.redirectTo();
   }));
-        
+
   it("should run #redirectToBasicInfo()", async(() => {
     const result = component.redirectToBasicInfo();
   }));
-        
+
   it("should run #init()", async(() => {
     const result = component.init();
   }));
-        
+
   it("should run #checkStep()", async(() => {
     const result = component.checkStep(0);
   }));
-        
+
   it("should run #clearStep()", async(() => {
     const result = component.clearStep(0);
   }));
-        
+
   it("should run #checkDeployOperation()", async(() => {
     const result = component.checkDeployOperation(0, 0);
   }));
-        
+
   it("should run #checkStepName()", async(() => {
     const result = component.checkStepName(0, 0);
   }));
-        
+
   it("should run #optionList()", async(() => {
     const result = component.optionList();
   }));
-        
+
   it("should run #clearTempObject()", async(() => {
     const result = component.clearTempObject(0);
   }));
-        
+
   it("should run #clearObjFlag()", async(() => {
     const result = component.clearObjFlag(0, 0);
   }));
-        
+
   it("should run #clearIntFlag()", async(() => {
     const result = component.clearIntFlag(0, 0);
   }));
-        
+
   it("should run #tomcatRestartoff()", async(() => {
     const result = component.tomcatRestartoff(0, 0);
   }));
-        
+
   it("should run #tomcatRestarton()", async(() => {
     const result = component.tomcatRestarton(0, 0);
   }));
-        
+
   it("should run #addDeployStep()", async(() => {
     const result = component.addDeployStep(0);
   }));
-        
+
   it("should run #removeDeployStep()", async(() => {
     const result = component.removeDeployStep(0, 0);
   }));
-        
+
   it("should run #clearcfg()", async(() => {
     const result = component.clearcfg(0, 0);
   }));
-        
+
   it("should run #clearconfig()", async(() => {
     const result = component.clearconfig(0, 0, 0);
   }));
-        
+
   it("should run #inscfgMain()", async(() => {
     const result = component.inscfgMain(0, 0);
   }));
-        
+
   it("should run #insconfig()", async(() => {
     const result = component.insconfig(0, 0, 0);
   }));
-        
+
   it("should run #deleteItemCofirm()", async(() => {
     const result = component.deleteItemCofirm();
   }));
-        
+
   it("should run #checkCheckBox()", async(() => {
     const result = component.checkCheckBox();
   }));
-        
+
   it("should run #resetData()", async(() => {
     //const result = component.resetData();
   }));
-        
+
   it("should run #validatePage()", async(() => {
     const result = component.validatePage();
   }));
-        
+
   it("should run #go()", async(() => {
     const result = component.go();
   }));
-        
+
   it("should run #clearDeploySteps()", async(() => {
     const result = component.clearDeploySteps(0);
   }));
-        
+
   it("should run #clearScriptType()", async(() => {
     const result = component.clearScriptType(0);
   }));
-        
+
   it("should run #changeRunScript()", async(() => {
     const result = component.changeRunScript(0, 0);
   }));
-        
+
   it("should run #clearApproval()", async(() => {
     const result = component.clearApproval(0, 0);
   }));
-        
+
   it("should run #clearRunScriptOnAbort()", async(() => {
     const result = component.clearRunScriptOnAbort(0, 0);
   }));
-        
+
   it("should run #changeDeploymentOption()", async(() => {
     const result = component.changeDeploymentOption(0, 0);
   }));
-        
+
   it("should run #changeAbortRunScript()", async(() => {
     const result = component.changeAbortRunScript(0, 0);
   }));
-        
+
   it("should run #addRunScript()", async(() => {
     const result = component.addRunScript(0, 0);
   }));
-        
+
   it("should run #clearRunScript()", async(() => {
     const result = component.clearRunScript(0, 0);
   }));
-        
+
   it("should run #cleartransferFilesFlag()", async(() => {
     const result = component.cleartransferFilesFlag(0, 0);
   }));
-        
+
   it("should run #removeDeploySteps()", async(() => {
     const result = component.removeDeploySteps(0);
   }));
-        
+
   it("should run #clearContainerValues()", async(() => {
     const result = component.clearContainerValues(0, 0);
   }));
-        
+
   it("should run #changeContainerValues()", async(() => {
     const result = component.changeContainerValues(0, 0);
   }));
-        
+
   it("should run #clearSpringBoot()", async(() => {
     const result = component.clearSpringBoot(0, 0);
   }));
-        
+
   it("should run #setServerIndex()", async(() => {
     const result = component.setServerIndex(0);
   }));
-        
+
   it("should run #checkVal()", async(() => {
     const result = component.checkVal(0, 0);
   }));
-        
+
   it("should run #dockerContainerOff()", async(() => {
     const result = component.dockerContainerOff(0, 0);
   }));
-        
+
   it("should run #addArtifactField()", async(() => {
     const result = component.addArtifactField(0, 0);
   }));
-        
+
   it("should run #clearS3Values()", async(() => {
     const result = component.clearS3Values(0, 0);
   }));
-        
+
   it("should run #checkDis()", async(() => {
     const result = component.checkDis(0);
   }));
-        
+
   it("should run #addField()", async(() => {
     const result = component.addField(0, 0);
   }));
-        
+
   it("should run #removeField()", async(() => {
     const result = component.removeField(0, 0, 0);
   }));
-        
+
   it("should run #confirmRemoveField()", async(() => {
     const result = component.confirmRemoveField();
   }));
-        
+
   it("should run #removeAllFields()", async(() => {
     const result = component.removeAllFields(0, 0, 0);
   }));
-        
+
   it("should run #confirmRemoveAllFields()", async(() => {
     const result = component.confirmRemoveAllFields();
   }));
-        
+
   it("should run #trackById()", async(() => {
     const result = component.trackById(0, 0);
   }));
-        
+
   it("should run #clearWeblogic()", async(() => {
     const result = component.clearWeblogic(0, 0);
   }));
-        
+
   it("should run #enableWebLogic()", async(() => {
     const result = component.enableWebLogic(0, 0);
   }));
-        
+
   it("should run #openAntPropertiesField()", async(() => {
     const result = component.openAntPropertiesField(0, 0);
   }));
-        
+
   it("should run #addAntProperties()", async(() => {
     const result = component.addAntProperties(0, 0);
   }));
-        
+
   it("should run #clearAntPropertisField()", async(() => {
     const result = component.clearAntPropertisField(0, 0);
   }));
-        
+
   it("should run #deleteAntProp()", async(() => {
     const result = component.deleteAntProp(0, 0, 0);
   }));
-        
+
   it("should run #deleteAntPropConfirm()", async(() => {
     const result = component.deleteAntPropConfirm();
   }));
-        
+
   it("should run #resetProxyFields()", async(() => {
     const result = component.resetProxyFields(0, 0);
   }));
-        
+
   it("should run #submitData()", async(() => {
     const result = component.submitData();
   }));
-        
+
   it("should run #checkMsgSuccess()", async(() => {
     const result = component.checkMsgSuccess();
   }));
-        
+
   it("should run #checkMsgError()", async(() => {
     const result = component.checkMsgError();
   }));
-        
+
   it("should run #freezeNavBarsCheck()", async(() => {
     const result = component.freezeNavBarsCheck();
   }));
-        
+
   it("should run #deploySubscriptionNotSubmitCheck()", async(() => {
     const result = component.deploySubscriptionNotSubmitCheck();
   }));
-        
+
   it("should run #deploySubscriptionSubmitCheck()", async(() => {
     const result = component.deploySubscriptionSubmitCheck();
   }));
-        
+
   it("should run #checkLoaderOn()", async(() => {
     const result = component.checkLoaderOn();
   }));
-        
+
   it("should run #checkLoaderOff()", async(() => {
     const result = component.checkLoaderOff();
   }));

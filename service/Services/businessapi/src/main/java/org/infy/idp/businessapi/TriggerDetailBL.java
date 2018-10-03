@@ -87,8 +87,6 @@ public class TriggerDetailBL {
 	@Autowired
 	private JobDetailsDL getJobDetails;
 	@Autowired
-	private JobsBL jobsBL;
-	@Autowired
 	private GitLabBranchTagFetcher gitLabBranchTagFetcher;
 	@Autowired
 	private GitHubBranchTagFetcher gitHubBranchTagFetcher;
