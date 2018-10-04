@@ -30,8 +30,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.apache.commons.lang.StringUtils;
 import org.infy.entities.triggerinputs.TriggerJobName;
 import org.infy.idp.dataapi.services.EnvironmentDetails;
+import org.infy.idp.dataapi.services.JobAdditionalDetailsDL;
 import org.infy.idp.dataapi.services.JobDetailsDL;
 import org.infy.idp.dataapi.services.JobDetailsInsertionService;
+import org.infy.idp.dataapi.services.JobInfoDL;
+import org.infy.idp.dataapi.services.JobManagementDL;
 import org.infy.idp.dataapi.services.ReleaseDetails;
 import org.infy.idp.entities.jobs.EnvName;
 import org.infy.idp.entities.jobs.IDPJob;
@@ -93,6 +96,13 @@ public class JobsBL {
 	private ConfigurationManager configmanager;
 	@Autowired
 	private JobDetailsDL jobDetailsDL;
+	@Autowired
+	private JobManagementDL jobManagementDL;
+	@Autowired
+	private JobAdditionalDetailsDL jobAddDetailDL;
+
+	@Autowired
+	private JobInfoDL jobInfoDL;
 	@Autowired
 	private JobDetailsInsertionService jobDetailsInsertion;
 	@Autowired
@@ -157,7 +167,7 @@ public class JobsBL {
 			if (idp.getBuildInfo().getArtifactToStage().getArtifactRepoName() == null
 					|| idp.getBuildInfo().getArtifactToStage().getArtifactRepoName().equalsIgnoreCase("")) {
 				try {
-					ApplicationInfo ap = jobDetailsDL.getApplication(idp.getBasicInfo().getApplicationName());
+					ApplicationInfo ap = jobInfoDL.getApplication(idp.getBasicInfo().getApplicationName());
 					if (ap.getArtifactToStage() != null) {
 						ap.getArtifactToStage().setArtifact(idp.getBuildInfo().getArtifactToStage().getArtifact());
 						ap.getArtifactToStage().setFlattenFileStructure(
@@ -235,7 +245,7 @@ public class JobsBL {
 					}
 					// for IDP only
 					if (idpLocal.getCode() != null && buildStatus.getState().equalsIgnoreCase(SUCCESS)) {
-						long pipelineId = jobDetailsDL.getPipelineId(idpLocal.getBasicInfo().getPipelineName(),
+						long pipelineId = jobInfoDL.getPipelineId(idpLocal.getBasicInfo().getPipelineName(),
 								idpLocal.getBasicInfo().getApplicationName());
 						jobDetailsInsertion.deleteAdditionalJobParamDetails(pipelineId);
 						for (JobParam jobParam : aLocal.getCode().getJobParam()) {
@@ -269,7 +279,7 @@ public class JobsBL {
 		triggerJobName.setApplicationName(idp.getInterval().get(0).getDetails().getApplicationName());
 		triggerJobName.setPipelineName(idp.getInterval().get(0).getDetails().getPipelineName());
 		triggerJobName.setUserName(idp.getInterval().get(0).getDetails().getUserName());
-		Pipeline pipeline = jobDetailsDL.getPipelineDetail(triggerJobName);
+		Pipeline pipeline = jobManagementDL.getPipelineDetail(triggerJobName);
 		idp = setEmails(idp, pipeline, user);
 		IDPJob idpjson = pipeline.getPipelineJson();
 		idpjson.getBasicInfo().setCustomTriggerInterval(idp);
@@ -421,7 +431,7 @@ public class JobsBL {
 			List<String> permissions = jobsmgmtBL.getAllPermission(userName);
 			if (permissions.isEmpty())
 				return applications;
-			apps = jobDetailsDL.getExistingAppNames(platformName);
+			apps = jobAddDetailDL.getExistingAppNames(platformName);
 			applications.setApplications(apps);
 			logger.debug("Existing applications : " + gson.toJson(applications, Applications.class).toString());
 		} catch (SQLException e) {
@@ -441,7 +451,7 @@ public class JobsBL {
 			List<String> permissions = jobsaddInfo.getAllPermission(userName);
 			if (permissions.isEmpty())
 				return applications;
-			apps = jobDetailsDL.getExistingAppNames(orgName, platformName);
+			apps = jobAddDetailDL.getExistingAppNames(orgName, platformName);
 			applications.setApplications(apps);
 			logger.debug("Existing applications : " + gson.toJson(applications, Applications.class).toString());
 		} catch (SQLException e) {
@@ -459,7 +469,7 @@ public class JobsBL {
 			return new ApplicationInfo();
 		}
 		try {
-			ap = jobDetailsDL.getApplication(appname);
+			ap = jobInfoDL.getApplication(appname);
 		} catch (SQLException e) {
 			logger.error("Problem in fetching App info", e);
 			logger.debug(e.getMessage());
@@ -493,7 +503,7 @@ public class JobsBL {
 				pipelines.setPipelines(pips);
 				return pipelines;
 			}
-			pips = jobDetailsDL.getPipelines(appName);
+			pips = jobAddDetailDL.getPipelines(appName);
 		} catch (SQLException e) {
 			logger.error("Existing Apps Error!!\n" + e.getMessage());
 		}
@@ -551,7 +561,7 @@ public class JobsBL {
 		IDPJob idpjob = null;
 		Gson g = new Gson();
 		try {
-			idpjob = jobDetailsDL.getPipelineInfo(triggerparameters.getApplicationName(),
+			idpjob = jobAddDetailDL.getPipelineInfo(triggerparameters.getApplicationName(),
 					triggerparameters.getPipelineName());
 			logger.debug(g.toJson(idpjob, IDPJob.class));
 		} catch (SQLException e) {
@@ -711,7 +721,7 @@ public class JobsBL {
 			int envId = 0;
 			int releaseId = releaseDetails.getReleaseId(triggerparameters.getApplicationName(),
 					triggerparameters.getPipelineName(), triggerparameters.getReleaseNumber(), "on");
-			int applicationId = jobDetailsDL.getApplicationId(triggerparameters.getApplicationName()).intValue();
+			int applicationId = jobInfoDL.getApplicationId(triggerparameters.getApplicationName()).intValue();
 			if (triggerparameters.getEnvSelected() != null && !(triggerparameters.getEnvSelected().equals("")))
 				envId = environmentDetails.getEnvironmentId(triggerparameters.getEnvSelected(), applicationId);
 			String artifactName;

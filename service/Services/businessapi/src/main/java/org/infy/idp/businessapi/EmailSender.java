@@ -22,7 +22,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.infy.entities.triggerinputs.TriggerJobName;
-import org.infy.idp.dataapi.services.JobDetailsDL;
+import org.infy.idp.dataapi.services.JobAdditionalDetailsDL;
+import org.infy.idp.dataapi.services.JobInfoDL;
 import org.infy.idp.entities.jobs.IDPJob;
 import org.infy.idp.entities.jobs.applicationinfo.ApplicationInfo;
 import org.infy.idp.utils.ConfigurationManager;
@@ -63,7 +64,10 @@ public class EmailSender {
 	@Autowired
 	private ConfigurationManager configmanager;
 	@Autowired
-	private JobDetailsDL getJobDetails;
+	private JobInfoDL getJobDetails;
+	@Autowired
+	private JobAdditionalDetailsDL jobaddDetailsDL;
+
 	@Autowired
 	private FetchJobDetails fetchJobDetails;
 	@Autowired
@@ -400,7 +404,7 @@ public class EmailSender {
 			boolean team = true;
 
 			ApplicationInfo app = getJobDetails.getApplication(triggerJobName.getApplicationName());
-			IDPJob idp = getJobDetails.getPipelineInfo(triggerJobName.getApplicationName(),
+			IDPJob idp = jobaddDetailsDL.getPipelineInfo(triggerJobName.getApplicationName(),
 					triggerJobName.getPipelineName());
 			if (idp.getBasicInfo().getAdditionalMailRecipients() != null
 					&& idp.getBasicInfo().getAdditionalMailRecipients().getApplicationTeam() != null

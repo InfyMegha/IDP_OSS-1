@@ -20,7 +20,9 @@ import java.util.List;
 
 import org.infy.entities.triggerinputs.Steps;
 import org.infy.entities.triggerinputs.TriggerJobName;
-import org.infy.idp.dataapi.services.JobDetailsDL;
+import org.infy.idp.dataapi.services.JobAdditionalDetailsDL;
+import org.infy.idp.dataapi.services.JobInfoDL;
+import org.infy.idp.dataapi.services.JobManagementDL;
 import org.infy.idp.dataapi.services.UpdateJobDetails;
 import org.infy.idp.entities.jobs.DBDeployOperations;
 import org.infy.idp.entities.jobs.DownloadArtifactInputs;
@@ -58,7 +60,15 @@ public class JobsAdditionalInfo {
 	@Autowired
 	private TriggerDetailBL getTriggerDetails;
 	@Autowired
-	private JobDetailsDL jobDetailsDL;
+	private TriggerAdditionalBL triggerAddBl;
+	
+	@Autowired
+	private JobManagementDL jobManagementDL;
+	@Autowired
+	private JobAdditionalDetailsDL jobAddDetailDL;
+
+	@Autowired
+	private JobInfoDL jobInfoDL;
 	@Autowired
 	private UpdateJobDetails updateJobDetails;
 	@Autowired
@@ -122,8 +132,8 @@ public class JobsAdditionalInfo {
 
 	public List<String> getAllPermissionforApp(String appName, String userId) {
 		logger.info("Getting All permission for appliaction");
-		List<String> permissions = jobDetailsDL.getBasePermission(userId);
-		permissions.addAll(jobDetailsDL.getPermissionForApplications(userId, appName));
+		List<String> permissions = jobManagementDL.getBasePermission(userId);
+		permissions.addAll(jobManagementDL.getPermissionForApplications(userId, appName));
 		logger.info("permissions : " + permissions.toString());
 		return permissions;
 	}
@@ -150,14 +160,14 @@ public class JobsAdditionalInfo {
 
 	public List<String> getRolesForApp(String userId, String appName) {
 		logger.debug("Getting roles");
-		List<String> userRoles = jobDetailsDL.getRolesasApp(userId, appName);
+		List<String> userRoles = jobManagementDL.getRolesasApp(userId, appName);
 		logger.debug("roles : " + userRoles);
 		return userRoles;
 	}
 
 	public List<String> getPermissionForApplications(String applicationName, String userName) {
 		logger.debug("getting permissions");
-		List<String> userPermissions = jobDetailsDL.getPermissionForApplications(userName, applicationName);
+		List<String> userPermissions = jobManagementDL.getPermissionForApplications(userName, applicationName);
 		try {
 			userPermissions.addAll(getPipelinePermissionforApplication(applicationName, userName));
 		} catch (SQLException e) {
@@ -179,8 +189,8 @@ public class JobsAdditionalInfo {
 
 	public List<String> getAllPermission(String userId) {
 		logger.info("Getting All permission");
-		List<String> permissions = jobDetailsDL.getBasePermission(userId);
-		permissions.addAll(jobDetailsDL.getPermission(userId));
+		List<String> permissions = jobManagementDL.getBasePermission(userId);
+		permissions.addAll(jobManagementDL.getPermission(userId));
 		return permissions;
 	}
 
@@ -191,7 +201,7 @@ public class JobsAdditionalInfo {
 			return names;
 		}
 		Gson gson = new Gson();
-		List<String> applications = jobDetailsDL.getApplicationNameForReleaseManager(userName, platformName);
+		List<String> applications = jobManagementDL.getApplicationNameForReleaseManager(userName, platformName);
 		names.setNames(applications);
 		logger.debug(APPLICATION_NAME + gson.toJson(names, Names.class));
 		return names;
@@ -204,14 +214,14 @@ public class JobsAdditionalInfo {
 			return names;
 		}
 		Gson gson = new Gson();
-		List<String> pipelines = jobDetailsDL.pipelineNamesForApplication(applicationName, workflowString);
+		List<String> pipelines = jobInfoDL.pipelineNamesForApplication(applicationName, workflowString);
 		names.setNames(pipelines);
 		logger.debug("pipeline Names for the application " + applicationName + " : " + gson.toJson(names, Names.class));
 		return names;
 	}
 
 	public Steps fecthTriggerSteps(String appName, String pipelineName, String envName) throws SQLException {
-		Steps steps = getTriggerDetails.fecthTriggerSteps(appName, pipelineName, envName);
+		Steps steps = triggerAddBl.fecthTriggerSteps(appName, pipelineName, envName);
 		logger.debug("Fetch trigger options");
 		return steps;
 	}
@@ -228,7 +238,7 @@ public class JobsAdditionalInfo {
 				pipelines.setPipelines(pips);
 				return pipelines;
 			}
-			pips = jobDetailsDL.getDependencyPipelines(appName);
+			pips = jobInfoDL.getDependencyPipelines(appName);
 		} catch (SQLException e) {
 			logger.error("Existing Apps Error!!\n" + e.getMessage());
 		}
@@ -240,13 +250,13 @@ public class JobsAdditionalInfo {
 
 	public SubApplication getSubApplications(String applicationName) {
 		SubApplication subApplication = new SubApplication();
-		subApplication.setSubApps(jobDetailsDL.getSubAppDetails(applicationName));
+		subApplication.setSubApps(jobInfoDL.getSubAppDetails(applicationName));
 		logger.debug("getting application");
 		return subApplication;
 	}
 
 	public DBDeployOperations getDBDeployOperations(String subApplicationName, String appName) {
-		String subApps = jobDetailsDL.getDBDeployOperation(subApplicationName, appName);
+		String subApps = jobInfoDL.getDBDeployOperation(subApplicationName, appName);
 		List<String> operations = new ArrayList<>();
 		String[] opt = subApps.split(";");
 		for (String string : opt) {
@@ -265,7 +275,7 @@ public class JobsAdditionalInfo {
 			return names;
 		}
 		Gson gson = new Gson();
-		List<String> pipelines = jobDetailsDL.dbDeployPipelineNamesForApplication(applicationName);
+		List<String> pipelines = jobInfoDL.dbDeployPipelineNamesForApplication(applicationName);
 		names.setNames(pipelines);
 		logger.debug("pipeline Names for the application " + applicationName + " : " + gson.toJson(names, Names.class));
 		return names;
@@ -307,7 +317,7 @@ public class JobsAdditionalInfo {
 							String port = idpjob.getCode().getScm().get(i).getProxyPort();
 							String s[] = projectUrl.split("/");
 							String repoUrl = s[0] + "//" + s[2];
-							List<ArrayList<String>> branchTagList = getTriggerDetails.gitHubBranchesTagsFetcher(
+							List<ArrayList<String>> branchTagList = triggerAddBl.gitHubBranchesTagsFetcher(
 									new GitHubBrachModel(repoUrl, username, pwd, projectUrl, proxy, port));
 							if (branchTagList != null) {
 								if (branchTagList.size() != 0) {
@@ -328,7 +338,7 @@ public class JobsAdditionalInfo {
 							String port = idpjob.getCode().getScm().get(i).getProxyPort();
 							logger.info(port);
 							logger.info(idpjob.getCode().getScm().get(i).getProxyPort());
-							List<ArrayList<String>> branchTagList = getTriggerDetails
+							List<ArrayList<String>> branchTagList = triggerAddBl
 									.bitBucketbranchesTagsFetcher(repoUrl, username, pwd, projectUrl, proxy, port);
 							logger.info("sjowing branchTag");
 							logger.info(branchTagList.toString());
@@ -375,7 +385,7 @@ public class JobsAdditionalInfo {
 						String projPath = idpjob.getCode().getScm().get(i).getProjPath();
 						String username = idpjob.getCode().getScm().get(i).getUserName();
 						String pwd = idpjob.getCode().getScm().get(i).getPassword();
-						branchList = getTriggerDetails.branchFetcher(repoUrl, projPath, username, pwd);
+						branchList = triggerAddBl.branchFetcher(repoUrl, projPath, username, pwd);
 						if (branchOrTag.equalsIgnoreCase("branch")) {
 							boolean f = false;
 							for (int j = 0; j < branchList.size(); j++) {
@@ -401,14 +411,14 @@ public class JobsAdditionalInfo {
 	}
 
 	public String getApplicationID(String applicationName) {
-		Long applicationId = jobDetailsDL.getApplicationId(applicationName);
+		Long applicationId = jobInfoDL.getApplicationId(applicationName);
 		return applicationId.toString();
 	}
 
 	public String getPipelineID(String applicationName, String pipelineName) {
 		Long pipelineId = null;
 		try {
-			pipelineId = jobDetailsDL.getPipelineId(pipelineName, applicationName);
+			pipelineId = jobInfoDL.getPipelineId(pipelineName, applicationName);
 		} catch (SQLException e) {
 			logger.error("Postgres Error while fetching pipelineId :", e);
 		}
@@ -418,7 +428,7 @@ public class JobsAdditionalInfo {
 	public List<TestPlans> fetchMTMTestPlans(String appName, String pipelineName) {
 		List<TestPlans> testPlansList = new ArrayList<>();
 		try {
-			IDPJob idpjob = jobDetailsDL.getPipelineInfo(appName, pipelineName);
+			IDPJob idpjob = jobAddDetailDL.getPipelineInfo(appName, pipelineName);
 			List<TestEnv> testEnv = idpjob.getTestInfo().getTestEnv();
 			String projNam = "";
 			if (null != testEnv) {
@@ -455,7 +465,7 @@ public class JobsAdditionalInfo {
 	public List<TestSuits> fetchMTMTestSuits(Integer planID, String appName, String pipelineName) {
 		List<TestSuits> testSuitsList = new ArrayList<>();
 		try {
-			IDPJob idpjob = jobDetailsDL.getPipelineInfo(appName, pipelineName);
+			IDPJob idpjob = jobAddDetailDL.getPipelineInfo(appName, pipelineName);
 			List<TestEnv> testEnv = idpjob.getTestInfo().getTestEnv();
 			String projNam = "";
 			if (null != testEnv) {
@@ -490,12 +500,12 @@ public class JobsAdditionalInfo {
 	}
 
 	public List<String> getPipelinePermission(String appname, String pipelineName, String userId) throws SQLException {
-		List<String> permissionList = jobDetailsDL.getPipelinePermission(appname, pipelineName, userId);
+		List<String> permissionList = jobInfoDL.getPipelinePermission(appname, pipelineName, userId);
 		return permissionList;
 	}
 
 	public List<String> getPipelinePermissionforApplication(String appname, String userId) throws SQLException {
-		return jobDetailsDL.getPipelinePermissionForApplication(appname, userId);
+		return jobInfoDL.getPipelinePermissionForApplication(appname, userId);
 	}
 
 	public void addArtifctoryRepository(ApplicationInfo appInfo) {
