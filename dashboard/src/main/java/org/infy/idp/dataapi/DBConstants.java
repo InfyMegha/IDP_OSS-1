@@ -22,12 +22,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DBConstants {
-	private HashMap<String, String> datamap = new HashMap();
-	private List<String> idpList = new ArrayList();
-	protected Logger logger = LoggerFactory.getLogger(DBConstants.class);
-	public String dashboard = "DASHBOARD";
-	public String idp = "IDP";
-	
+	HashMap<String, String> datamap = new HashMap();
+	List<String> idpList = new ArrayList();
 
 	DBConstants() {
 		datamap.put("pipelineIdForApplication",
@@ -163,7 +159,9 @@ public class DBConstants {
 		idpList.add("deployStatus");
 	}
 
-	
+	public String dashboard = "DASHBOARD";
+	public String idp = "IDP";
+	protected Logger logger = LoggerFactory.getLogger(DBConstants.class);
 
 	public List<String> getQuery(String queryName) {
 		List<String> query = new ArrayList<>();
